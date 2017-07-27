@@ -39,6 +39,7 @@ exclude:
   - .gitignore
   - Gemfile
   - Gemfile.lock
+  - Rakefile
 include:
   - _pages
 
