@@ -1,14 +1,400 @@
 <!doctype html>
-<html class="no-js" lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">{% seo %}
-{% seo %}
-</head>
-<body>
-{% include nav.html %}
-{{ content }}
-{% include analytics.html %}
-</body>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Simpl.world</title>
+        <meta name="description" content="An open source platform for creating amazing games and simulations">
+        <meta name="viewport" content="width=device-width, initial-scale=1">{
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Alegreya:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+      <div class="welcome">
+        <nav class="navbar navbar-inverse">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                <img class="logo" src="img/simpl_logo.png"/>
+                <div class="logo-text">Simpl.world</div>
+              </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse navbar-right">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">Tutorials</a></li>
+                <li><a href="#about">Docs</a></li>
+                <li><a href="#about">Blog</a></li>
+                <li><a class="callout" href="#contact">Help Forum</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <h1 class="hoverIn">An open source platform for creating amazing games and simulations.</h1>
+                      <h3>Start creating meaningful educational experiences with the Simpl Simulation Platform.</h3>
+                      <p class="all-btns">
+                          <a href="#" class="btn btn-default">Practioner's Guide</a>
+                          <a href="#" class="btn btn-primary">Documentation</a>
+                      </p>
+                      <p class="small-text">
+                          <a href="#">v1.1</a> /
+                          <a href="#">2017</a> /
+                          <a href="#">MIT License</a> /
+                          <a href="#">Release Notes</a>
+                      </p>
+                  </div>
+                  <div class="col-sm-6">
+                     <div class="welcome__img--wrap">
+                      <img class="welcome__img" src="img/illus__landing_tech.png"/>
+                      <img class="tech__left animate" src="img/left_tech.png"/>
+                      <img class="tech__center animate" src="img/center_tech.png"/>
+                      <img class="tech__right animate" src="img/right_tech.png"/>
+                      <img class="img__bg" src="img/background.png"/>
+                     </div>
+                  </div>
+              </div>
+            </div><!-- /.container -->
+            <div class="scroll">
+              <svg class="mouseTop" width="30px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              	 viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+              <style type="text/css">
+              	.st0{fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:10;}
+                .mouseTop {
+                  margin-left: 10px;
+                  margin-top: -10px;
+                  opacity: 0.6;
+                }
+              	.mouse {
+              		fill: #ffffff;
+                  animation: down 2.2s infinite ease-in-out;
+              	}
+                @keyframes  down {
+                  0% {
+                      transform: translateY(-22px);
+                  }
+                  100% {
+                    transform: translateY(0px);
+                  }
+                }
+              </style>
+              <g id="Magic_Mouse">
+              	<path class="st0" d="M38,34.9c0,6.1-4.6,11.3-10.8,11.9C26.1,46.9,25,47,24,47s-2.1-0.1-3.2-0.2C14.6,46.2,10,41,10,34.9V13.1
+              		C10,7,14.6,1.8,20.8,1.2C21.9,1.1,23,1,24,1s2.1,0.1,3.2,0.2C33.4,1.8,38,7,38,13.1V34.9z"/>
+              	<circle class="mouse" cx="24" cy="38" r="3"/>
+              </g>
+              </svg>
+            </div>
+        </div><!-- /.welcome -->
+        <section class="container technology">
+          <div class="row">
+             <div class="col-sm-6">
+               <img class="tech__img" src="img/open_source.png"/>
+              </div>
+              <div class="col-sm-6 second-col">
+                <h2>Use the tech you already know & love.</h2>
+                <p>Simpl is a simulation platform built with <span>Python</span>,
+                  <span>Django</span>, & <span>React.js</span>. Simpl gives you powerful tools for gamifying your
+                   python data so that you can create fun and effective educational experiences.
+                  </thead>
+                </p>
+              </div>
+          </div>
+          <div class="row tech__points">
+              <div class="col-sm-4">
+                    <div class="circle">
+                        <svg version="1.1" id="gift" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                           viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+                        <style type="text/css">
+                          .st0{fill:none;stroke:#ffffff;stroke-width:4;stroke-miterlimit:10;}
+                          #gift {
+                            width: 26px;
+                          }
+                        </style>
+                        <g id="Gift">
+                          <rect x="1" y="12" class="st0" width="46" height="8"/>
+                          <path class="st0" d="M43,20l-1.4,18.6c-0.3,4.2-3.8,7.4-8,7.4H14.4c-4.2,0-7.7-3.2-8-7.4L5,20"/>
+                          <line class="st0" x1="24" y1="12" x2="24" y2="46"/>
+                          <path class="st0" d="M14,12c-2.8,0-5-2.2-5-5s2.2-5,5-5c2.8,0,4.4,1,6.2,3.8C21,6.8,24,12,24,12"/>
+                          <path class="st0" d="M34,12c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.8,0-4.4,1-6.2,3.8C27,6.8,24,12,24,12"/>
+                        </g>
+                        </svg>
+                    </div>
+                    <h5>100% Free & Open Source</h5>
+                    <p class="tech__points--para">
+                      Simpl is a completely free
+                      open source project,
+                      licensed under MIT.
+                    </p>
+              </div>
+              <div class="col-sm-4">
+                  <div class="circle">
+                    <svg version="1.1" id="laptop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    	 viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+                    <style type="text/css">
+                    	.st0{fill:none;stroke:#ffffff;stroke-width:4;stroke-miterlimit:10;}
+                      #laptop {
+                        width: 26px;
+                      }
+                    </style>
+                    <g id="Laptop">
+                    	<path class="st0" d="M9,6h30c2.2,0,4,1.8,4,4v20l0,0H5l0,0V10C5,7.8,6.8,6,9,6z"/>
+                    	<polyline class="st0" points="5,30 1,38 1,42 47,42 47,38 43,30 	"/>
+                    	<line class="st0" x1="18" y1="38" x2="30" y2="38"/>
+                    </g>
+                    </svg>
+                  </div>
+                  <h5>Flexible & Customizable</h5>
+                  <p class="tech__points--para">
+                    The ability to customize the platform
+                    to your exact needs and for various
+                    simulations.
+                  </p>
+              </div>
+              <div class="col-sm-4">
+                  <div class="circle">
+                    <svg version="1.1" id="clock" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                       viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+                    <style type="text/css">
+                      .st0{fill:none;stroke:#ffffff;stroke-width:4;stroke-miterlimit:10;}
+                      #clock {
+                        width: 26px;
+                      }
+                    </style>
+                    <g id="Clock">
+                      <circle class="st0" cx="24" cy="24" r="23"/>
+                      <polyline class="st0" points="25,7 25,25 13,25 	"/>
+                    </g>
+                    </svg>
+
+                  </div>
+                  <h5>Fast & Effective</h5>
+                  <p class="tech__points--para">
+                    Data updates in real time;
+                    results and changes can be
+                    seen immediately.
+                  </p>
+              </div>
+          </div>
+        </section>
+        <section class="container-fluid core">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                  <h2>Utilize Simpl's Core Platform Components</h2>
+                  <div class="box">
+                      <div class="box__icon">
+                        <div class="box__wrap">
+                        <svg id="tools" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><style>.cls-1{fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:4px;}</style></defs><title>1. General</title><g id="Wranch"><path class="cls-1" d="M42.6,17.14L47,9.53l-2-2L39.7,12.87,35.44,8.62,40.76,3.3,38.46,1,31,5.62a6,6,0,0,0-2.83,5.29l0.11,3.42L2.42,40.16a4,4,0,0,0,0,5.67h0a4,4,0,0,0,5.68,0L34,20l3.12,0.14A6,6,0,0,0,42.6,17.14Z"/><path class="cls-1" d="M39.29,45.68L29.4,35.9l6.39-6.38,9.88,9.78a4.5,4.5,0,0,1,0,6.38h0A4.52,4.52,0,0,1,39.29,45.68Z"/><polygon class="cls-1" points="23.01 19.6 19.46 23.15 9.17 12.87 3.48 11.45 1 3.3 3.13 1.18 11.65 3.3 12.72 9.33 23.01 19.6"/><polygon class="cls-1" points="30.82 34.49 25.14 28.82 29.05 24.92 34.73 30.59 30.82 34.49"/></g></svg>
+                        </div>
+                      </div>
+                      <h5>SIMPL-Games-API</h5>
+                      <p>Manages the Simpl database and provides
+                      a REST API used by the model.</p>
+                      <div class="line"></div>
+                  </div>
+                  <div class="box">
+                      <div class="box__icon">
+                          <div class="box__wrap box__two">
+                            <svg version="1.1" id="server" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            	 viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+                            <style type="text/css">
+                            	.st0{fill:none;stroke:#ffffff;stroke-width:4;stroke-miterlimit:10;}
+                              .server {
+                                fill: #ffffff;
+                              }
+                            </style>
+                            <g id="Server">
+                            	<path class="st0" d="M6,1h36l0,0v40c0,3.3-2.7,6-6,6H12c-3.3,0-6-2.7-6-6V1L6,1z"/>
+                            	<line class="st0" x1="6" y1="31" x2="42" y2="31"/>
+                            	<line class="st0" x1="6" y1="16" x2="42" y2="16"/>
+                            	<circle class="server" cx="35" cy="38" r="2"/>
+                            	<circle class="server" cx="35" cy="23" r="2"/>
+                            	<circle class="server" cx="35" cy="8" r="2"/>
+                            </g>
+                          </svg>
+                          </div>
+                      </div>
+                      <h5>SIMPL-Modelservice</h5>
+                      <p>Stores the data and provides relationships between data.</p>
+                      <div class="line"></div>
+                  </div>
+                  <div class="box">
+                       <div class="box__icon">
+                          <div class="box__wrap box__three">
+                         <svg version="1.1" id="react" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+                         <style type="text/css">
+                           .st0{fill:none;stroke:#ffffff;stroke-width:4;stroke-miterlimit:10;}
+                         </style>
+                         <title>Untitled-13</title>
+                         <g id="Technology">
+                           <ellipse class="st0" cx="24" cy="24" rx="10" ry="23"/>
+                           <path class="st0" d="M29.1,32.7C17.9,39,6.5,40.3,3.6,35.5s4-13.8,15.2-20.2s22.7-7.6,25.5-2.8S40.4,26.3,29.1,32.7z"/>
+                           <path class="st0" d="M29.1,15.3c11.2,6.4,18.1,15.4,15.2,20.2S30.1,39,18.9,32.7S0.8,17.3,3.6,12.5S17.9,9,29.1,15.3z"/>
+                           <ellipse style="fill:#fff" cx="24" cy="24" rx="2" ry="2"/>
+                         </g>
+                         </svg>
+
+                       </div>
+                       </div>
+                       <h5>SIMPL-React Library</h5>
+                      <p>Provides UI and other front-end components</p>
+                  </div>
+              </div>
+              <div class="col-sm-6">
+
+              </div>
+            </div>
+          </div>
+          <img class="laptop" src="img/comp_with_code.png"/>
+        </section>
+        <section class="container-fluid events">
+          <div class="overlay"></div>
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-12">
+                    <img class="events__img" src="img/evemt__img.png"/>
+                    <h5>Upcoming Workshop</h5>
+                    <p><a href="#">On November 4 at The Wharton School,
+                    Learning Lab will be hosting a advanced Simpl workshop.
+                  Learn more by clicking here.</a>
+                      <p>
+                  </div>
+              </div>
+          </div>
+        </section>
+        <section class="container action">
+          <div class="row">
+            <div class="col-sm-6">
+                <div class="action__box">
+                  <div class="action__icon">
+                    <svg version="1.1" id="teacher" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                       viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+                    <style type="text/css">
+                      .st0{fill:none;stroke:#ffffff;stroke-width:4;stroke-miterlimit:10;}
+                      #teacher {
+                        width: 38px;
+                        margin-left: 20px;
+                        margin-top: 21px;
+                      }
+                    </style>
+                    <g id="Whiteboard">
+                      <path class="st0" d="M4,7h40l0,0v20c0,4.4-3.6,8-8,8H12c-4.4,0-8-3.6-8-8V7L4,7z"/>
+                      <line class="st0" x1="0" y1="7" x2="48" y2="7"/>
+                      <line class="st0" x1="24" y1="7" x2="24" y2="0"/>
+                      <line class="st0" x1="30" y1="35" x2="37.5" y2="48"/>
+                      <line class="st0" x1="17.5" y1="35" x2="10" y2="48"/>
+                    </g>
+                    </svg>
+                  </div>
+                  <div class="action__msg">
+
+                    <h3>Practioner's Guide</h3>
+                    <p>Learn more how Simpl can bring
+                     simulatios to your classroom.</p>
+                  </div>
+                  <svg version="1.1" id="arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  	 viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+                  <style type="text/css">
+                  	.st01{fill:none;stroke:#272727;stroke-width:3;stroke-miterlimit:10;}
+                    #arrow {
+                      width: 22px;
+                    }
+                  </style>
+                  <g id="Forward_-_Alt">
+                  	<polygon class="st01" points="25,9 43,24 25,39 25,29 5,29 5,19 25,19 	"/>
+                  </g>
+                  </svg>
+
+                </div>
+                <div class="action__box">
+                  <div class="action__icon">
+                    <svg version="1.1" id="readthedocs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                       viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+                    <style type="text/css">
+                      .st0{fill:none;stroke:#ffffff;stroke-width:4;stroke-miterlimit:10;}
+                      #readthedocs {
+                        width: 34px;
+                        margin-left: 23px;
+                        margin-top: 25px;
+                      }
+                    </style>
+                    <g id="Book_-_Open">
+                      <path class="st0" d="M24,12c0-4.4-3.6-8-8-8H1v32h15.1c7.9,0,7.9,8,7.9,8s0-8,8-8h15V4H32C27.6,4,24,7.6,24,12"/>
+                      <path class="st0" d="M28.5,43.5c1-2.1,3.2-3.5,5.5-3.5H48"/>
+                      <path class="st0" d="M19.5,43.5c-1-2.1-3.1-3.5-5.5-3.5H0"/>
+                      <line class="st0" x1="24" y1="12" x2="24" y2="44"/>
+                    </g>
+                    </svg>
+                  </div>
+                  <div class="action__msg">
+                  <h3>Simpl Documentation</h3>
+                  <p>Learn more about how to develop
+                    simulations utlizing the Simpl codebase</p>
+                  </div>
+                  <svg version="1.1" id="arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  	 viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+                  <style type="text/css">
+                  	.st01{fill:none;stroke:#888;stroke-width:3;stroke-miterlimit:10;}
+                  </style>
+                  <g id="Forward_-_Alt">
+                  	<polygon class="st01" points="25,9 43,24 25,39 25,29 5,29 5,19 25,19 	"/>
+                  </g>
+                  </svg>
+                </div>
+            </div>
+            <div class="col-sm-6 action__right">
+                <h2>Start creating cool stuff now</h2>
+                <p>Whether your a professor or a developer (or both),
+                  start your journey creating world class applications here.</p>
+                <p class="p-form">
+                  <!-- <img class="shields" src="https://img.shields.io/github/followers/espadrine.svg?style=social&label=Follow&style=flat-square"/>
+                  <img class="shields" src="https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Star&style=flat-square"/> -->
+                </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="call-to-action">
+          <div class="call-overlay"></div>
+          <div class="words">
+              <h2>STAY IN THE KNOW</h2>
+              <p>No spam, just a way to keep up with new features and updates.</p>
+              <div id="mc_embed_signup">
+              <form class="get-announcements" action="//world.us16.list-manage.com/subscribe/post?u=2eb19ff13fb586949e39f5491&amp;id=adb65cf8d2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                  <div id="mc_embed_signup_scroll">
+              	     <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                  <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2eb19ff13fb586949e39f5491_adb65cf8d2" tabindex="-1" value=""></div>
+                  <div class="clear"><input type="submit" value="SUBSCRIBE" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer__top">
+          <div class="container">
+              <div class="stuff">
+                <div class="social-links"><i class="fa fa-twitter-square" aria-hidden="true"></i><i class="fa fa-github-square" aria-hidden="true"></i></div>
+                <p><span>About</span><span>Forum</span><span>Docs</span><span>Tutorials</span><span>Blog</span></p>
+              </div>
+          </div>
+        </div>
+      </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
 </html>

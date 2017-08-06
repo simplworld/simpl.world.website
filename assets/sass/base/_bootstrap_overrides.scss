@@ -1,0 +1,45 @@
+.navbar-inverse {
+  background: none;
+  border: 0px;
+  @include break {
+    padding-bottom: 20px;
+  }
+}
+
+.container {
+  max-width: 960px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+  @include on-event {
+    text-decoration: underline;
+  }
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:focus,
+.navbar-inverse .navbar-nav>.active>a:hover {
+  background: none;
+  color: #fff;
+}
+
+.navbar-brand {
+  color: #fff !important;
+}
+
+.navbar-inverse .navbar-toggle {
+  border: 0px;
+  background: none !important;
+}
+
+@include break {
+  .navbar-inverse .navbar-collapse {
+    border: 0px;
+  }
+  .navbar-header {
+    height: 60px;
+  }
+}
