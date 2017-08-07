@@ -1,0 +1,151 @@
+.core {
+  background: #fff;
+  height: 660px;
+  width: 100%;
+  position: relative;
+  overflow:hidden;
+  h2 {
+    font-weight: 700;
+    font-size: 21px;
+    color: #484848;
+    padding-top: 65px;
+    margin-bottom: 45px;
+    @include break {
+      padding-top: 30px;
+      font-size: 18px;
+      line-height: 25px;
+    }
+  }
+  h5 {
+    font-weight: 700;
+    font-size: 16px;
+    color: lighten(#585858, 7%);
+  }
+  p {
+  font-family: $serif;
+  font-size: 16px;
+  color: lighten(#585858, 15%);
+  line-height: 22px;
+  max-width: 350px;
+  margin-bottom: 50px;
+  }
+  .box__icon {
+    width: 50px;
+    height: 110px;
+    background: none;
+    float: left;
+    margin-right: 30px;
+  }
+  .box {
+    float: left;
+    margin-left: 40px;
+    position: relative;
+    @include break {
+      margin-left: 0px;
+      float:none;
+      display:block;
+    }
+  }
+}
+
+
+.laptop {
+  padding-top: 80px;
+  max-width: 580px;
+  position: absolute;
+  right: -20px;
+  top: 0px;
+  z-index: 9;
+  @include large {
+    max-width: 480px;
+    padding-top: 100px;
+  }
+  @include break {
+    max-width: 380px;
+    padding-top: 140px;
+  }
+  @include when-inside(730px) {
+    display:none;
+  }
+}
+
+#tools {
+  width: 28px;
+}
+
+#server {
+  width: 29px;
+}
+
+#react {
+  width: 29px;
+}
+
+#geo {
+  width: 520px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  top: 131px;
+  z-index: 9999;
+  right: -105px;
+  display:none;
+}
+
+.box__wrap {
+  width: 50px;
+  margin-top: 8px;
+  border-radius: 13px;
+  height: 50px;
+  padding-left: 11px;
+  padding-top: 11px;
+  background: darken(#FE93BF, 5%);
+  box-shadow: 0 2px 5px 0 rgba(152,152,152,0.50);
+}
+
+.box__two {
+  background: darken(#C7BCF7, 10%);
+}
+
+.box__three {
+  background: darken(#EBB2A0, 10%);
+  @include large {
+    margin-top: 20px;
+  }
+}
+
+.line {
+  position: absolute;
+  left: 24px;
+  top: 70px;
+  height: 60px;
+  width: 2px;
+  background: darken(#efefef, 6%);
+}
+
+.learnMore {
+  position: absolute;
+  top: 270px;
+  right: 140px;
+  display:block;
+  height: 68px;
+  width: 88px;
+  border-radius: 100%;
+  background: #272727;
+  opacity:0.4;
+  display:none;
+  z-index: 99999999;
+  text-align: center;
+  @include on-event {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  p {
+    font-family: $sans;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: #fff;
+    margin-top: 35px;
+  }
+}

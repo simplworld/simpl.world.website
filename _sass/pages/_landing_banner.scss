@@ -1,0 +1,256 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+.welcome {
+    background: linear-gradient(45deg,$primaryBlue 17%,$accentPurple 90%);
+    height: 640px;
+    position: relative;
+    @include break {
+        height: 540px;
+    }
+    .row {
+      margin-top: 60px;
+      @include break {
+        margin-top:30px;
+      }
+      @include when-inside(730px) {
+        margin-top: 0px;
+      }
+    }
+    h1 {
+      max-width: 400px;
+      @include break {
+        max-width: 90%;
+      }
+    }
+    .col-sm-6 {
+      @include break {
+        width: 90%;
+      }
+    }
+    .navbar-collapse {
+      padding-top: 12px;
+    }
+}
+
+.logo {
+  width: 32px;
+  float: left;
+  margin-top: 4px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.logo-text {
+  float:left;
+  font-weight: 400;
+  padding-top: 10px;
+  padding-left: 8px;
+}
+
+.welcome__img {
+  max-width: 100%;
+  position: absolute;
+  z-index: 9999;
+}
+
+.welcome__img--wrap {
+  float:right;
+  position: relative;
+  width: 400px;
+  margin-top: 35px;
+  margin-right: 15px;
+  @include break {
+    display:none;
+  }
+}
+
+.lights {
+  width: 9px;
+  height: 9px;
+  border-radius: 100%;
+  position: absolute;
+  left: 194px;
+  bottom: -210px;
+  z-index: 999999;
+  animation: glow 2.1s infinite ease-in-out alternate;
+}
+
+@keyframes glow {
+  0% {
+      opacity: 0.5;
+      background: #FF7D94;
+  }
+  100% {
+      opacity: 0.5;
+      background: #D3D9DD;
+  }
+}
+
+.all-btns {
+  margin-top: 45px;
+  margin-bottom: 10px;
+  @include break {
+      margin-top: 30px;
+    }
+  }
+  .img__bg {
+    width: 220px;
+    position: absolute;
+    left: 85px;
+    z-index: 9;
+    bottom: -223px;
+    opacity: 0.8;
+}
+
+.btn-default {
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 41px;
+  line-height: 41px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: #2F71A9;
+  font-weight: 600;
+  @include on-event {
+     color: #2F71A9;
+  }
+  @include when-inside(630px) {
+    font-size: 13px;
+    padding: 0 1em;
+  }
+}
+
+.btn-primary {
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 43px;
+  line-height: 43px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  background: #176FBC;;
+  font-weight: 500;
+  margin-left: 5px;
+  @include when-inside(630px) {
+    font-size: 13px;
+    padding: 0 1em;
+    display:block;
+    margin-left: 0px;
+    width: 160px;
+    margin-top: 10px;
+  }
+}
+
+.small-text {
+  color: #fff;
+  font-size: 10px;
+  opacity: 0.7;
+  font-weight: 300;
+  a {
+    color: #fff;
+    font-weight: 300;
+    font-size: 10px;
+    opacity: 0.7;
+  }
+}
+
+.callout {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 6px 14px !important;
+  padding-bottom: 5px !important;
+  margin-top: 8px;
+  margin-left: 6px;
+  @include on-event {
+    text-decoration: none !important;
+    background: #fff !important;
+    color: $accentPurple !important;
+  }
+}
+
+.scroll {
+  height:30px;
+  width:50px;
+  border-radius: 0 0 60px 60px;
+  background: #2D84E2;
+  display:block;
+  position: absolute;
+  bottom: -8px;
+  z-index: 999999;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hoverIn {
+  animation: hoverIn 0.8s ease-in-out;
+}
+
+@keyframes hoverIn {
+  0% {
+      transform: translateY(-80px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate {
+  width: 27px;
+  position: absolute;
+  animation: spin 4s infinite linear;
+}
+
+.tech__left {
+  left: 108px;
+  top: 16px;
+}
+
+.tech__center {
+  left: 184px;
+  top:5px;
+}
+
+.tech__right {
+  right: 109px;
+  top: 18px;
+  width: 21px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(360deg);
+  }
+  5% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  30% {
+      transform: rotate(0deg);
+  }
+  50% {
+      transform: rotate(0deg);
+  }
+  70% {
+      transform: rotate(0deg);
+  }
+  90% {
+      transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
