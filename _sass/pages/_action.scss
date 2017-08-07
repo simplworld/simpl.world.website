@@ -1,0 +1,101 @@
+.action {
+  height: 550px;
+  padding-top: 80px;
+  @include break {
+    height: 100%;
+    padding-top: 50px;
+  }
+  h3 {
+    color: lighten(#272727, 15%);
+    font-weight: 600;
+    text-transform: uppercase;
+    display:block;
+    font-size: 16px;
+    margin-top: 12px;
+  }
+  p {
+    display:block;
+    font-family: $serif;
+    font-size: 14px;
+    color: lighten(#272727, 35%);
+  }
+  @include break {
+    .col-sm-6 {
+      width: 100%;
+    }
+  }
+}
+
+.action__msg {
+  float:left;
+  width: 250px;
+  margin-left: 30px;
+}
+
+.action__box {
+  height: 155px;
+  width: 480px;
+  background: #fff;
+  display: block;
+  margin-bottom: 40px;
+  box-shadow: 0 3px 10px 0 rgba(186,186,186,0.50);
+  border-radius: 4px;
+  padding-top: 40px;
+  position:relative;
+  cursor:pointer;
+  @include break {
+    width: 100%;
+    min-height:180px;
+  }
+}
+
+.action__icon {
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+  background: $primaryBlue;
+  margin-left: 45px;
+  float:left;
+  display:block;
+  @include break {
+    display:none;
+  }
+}
+
+#arrow {
+  position: absolute;
+  top: 70px;
+  right: 36px;
+}
+
+.action__right {
+  padding-left: 100px;
+  padding-top: 100px;
+  h2 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  @include break {
+    padding-left: 15px;
+    display:none;
+  }
+}
+
+.p-form {
+  padding-top: 70px;
+  @include break {
+    padding-top: 30px;
+  }
+  .form-control,
+  input {
+    font-family: $serif !important;
+  }
+}
+
+.shields {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}

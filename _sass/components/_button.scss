@@ -1,0 +1,8 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.navbar-inverse .navbar-toggle {
+  @include break {
+    margin-top: 20px;
+  }
+}
