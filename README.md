@@ -1,5 +1,7 @@
 # Simpl.world Website
 
+[![Contributors](https://img.shields.io/github/contributors/simplworld/simpl.world.website.svg)](https://github.com/simplworld/simpl.world.website/graphs/contributors)
+
 The www.simpl.world website is a static site compiled with [Jekyll](https://jekyllrb.com/docs/home/).
 
 ## To Install / Run Locally
