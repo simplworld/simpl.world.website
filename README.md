@@ -14,7 +14,7 @@ $ foreman start
 
 To manually run Jekyll sans foreman:
 
-```
+```shell
 $ bundle exec jekyll serve
 # => Now browse to http://localhost:4000
 ```
