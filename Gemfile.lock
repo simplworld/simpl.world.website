@@ -217,7 +217,6 @@ DEPENDENCIES
   jekyll-redirect-from
   jekyll-seo-tag
   jekyll-sitemap
-  minima
   rake
 
 RUBY VERSION
