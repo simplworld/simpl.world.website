@@ -7,7 +7,7 @@ url: "http://simple.world"
 # url: "https://simple.world"
 # enforce_ssl: "simple.world"
 relative_permalinks: false
-permalink: news/:title/  # permalink: date
+permalink: blog/:title/  # permalink: date
 
 # Both of these settings may be removed after we are off the minima theme
 twitter_username: simplworld
