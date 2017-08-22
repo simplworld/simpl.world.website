@@ -23,6 +23,7 @@ gems:
   - jekyll-sitemap
   - jemoji
 exclude:
+  - [vendor]
   - .editorconfig
   - .gitignore
   - Gemfile
