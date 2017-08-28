@@ -15,10 +15,19 @@ footer {
   }
 }
 
+.blog footer {
+  border-top: 1px solid darken(#efefef, 3%);
+}
 
 .footer__top {
-  height: 130px;
+  height: 120px;
   background: lighten(#000000, 10%);
+  a {
+    color: #fff;
+    @include on-event {
+      text-decoration: none;
+    }
+  }
 }
 
 .stuff {
@@ -48,7 +57,7 @@ footer {
   color:#fff;
   position: relative;
   height: 320px;
-  background-image: url('/assets/img/bg--city-gray.png');
+  background-image: url('/img/bg--city-gray.png');
   background-size: 100% 100%;
   padding-top: 35px;
   p {
@@ -61,6 +70,18 @@ footer {
     }
   }
 }
+
+.blog {
+  .call-to-action {
+    height: 180px;
+    color: #888;
+    background-image: none;
+    background: #FCFCFD;
+    padding-top: 46px;
+  }
+}
+
+
 
 .call-overlay {
   background: #000;
@@ -95,6 +116,15 @@ footer {
   }
 }
 
+.blog {
+  .get-announcements input {
+      border: 1px solid darken(#E9E9E9, 10%);
+      background: #F7F7F7;
+  }
+}
+
+
+
 .get-announcements button {
   border: 1px solid #fff;
 }
@@ -112,6 +142,26 @@ footer {
   @include on-event {
     background: #fff;
     color:#272727;
+  }
+}
+
+.blog {
+  #mc-embedded-subscribe {
+    position: absolute;
+    right: 0px;
+    top: 21px;
+    border-radius: 0px;
+    border: 0px;
+    background: #323232;
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 0px;
+    font-weight: 300;
+    @include on-event {
+      background: #323232;
+      color:#fff;
+    }
   }
 }
 .words {
@@ -151,5 +201,32 @@ footer {
   color: #fff;
   text-transform: uppercase;
   font-size: 12px;
-    font-family: $sans;
+  font-family: $sans;
+}
+
+.blog {
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #888;
+    text-transform: uppercase;
+    font-size: 12px;
+      font-family: $sans;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+        color: #888;
+      text-transform: uppercase;
+      font-size: 12px;
+        font-family: $sans;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+        color: #888;
+      text-transform: uppercase;
+      font-size: 12px;
+        font-family: $sans;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: #888;
+    text-transform: uppercase;
+    font-size: 12px;
+      font-family: $sans;
+  }
 }
