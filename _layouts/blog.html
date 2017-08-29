@@ -11,35 +11,10 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-
 <body class="blog">
   <div class="welcome">
     <div class="blog__overlay"></div>
-    <nav class="navbar navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-          <a class="navbar-brand" href="/">
-                <img class="logo" src="/assets/img/simpl_logo.png"/>
-                <div class="logo-text">Simpl.world</div>
-              </a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse navbar-right">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/docs/">Docs</a></li>
-            <li><a href="/blog/">Blog</a></li>
-            <li><a class="callout" href="https://www.discourse.org/">Help Forum</a></li>
-          </ul>
-        </div>
-        <!--/.nav-collapse -->
-      </div>
-    </nav>
+    {% include header-nav.html %}
     <div class="featured-article">
       <div class="featured__type">Featured Post</div>
       <div class="featured__title">World Class Games for a Global University</div>
@@ -64,7 +39,6 @@
       <!-- start blog template -->
       {{ content }}
       <!-- end blog template -->
-
       <div class="col-sm-4">
         <a class="article-link" href="#">
           <article class="top-image">
@@ -203,19 +177,9 @@
         </div>
       </div>
     </div>
-    <div class="footer__top">
-      <div class="container">
-        <div class="stuff">
-          <div class="social-links"><a href="https://www.twitter.com/simplworld"><i class="fa fa-twitter-square" aria-hidden="true"></i></a><a href="https://www.github.com/simplworld"><i class="fa fa-github-square" aria-hidden="true"></i></a></div>
-          <p>
-            <a href="/simpl"><span>Home</span></a><a href="/docs/"><span>Docs</span></a><a href="/blog/"><span>Blog</span></a><a href="https://www.discourse.org/"><span>Forum</span></a>
-          </p>
-        </div>
-      </div>
-    </div>
+    {% include footer-nav.html %}
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
-
 </html>
