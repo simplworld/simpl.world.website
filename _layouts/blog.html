@@ -1,0 +1,185 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  {% seo %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Alegreya:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body class="blog">
+  <div class="welcome">
+    <div class="blog__overlay"></div>
+    {% include header-nav.html %}
+    <div class="featured-article">
+      <div class="featured__type">Featured Post</div>
+      <div class="featured__title">World Class Games for a Global University</div>
+      <a href="/blog/welcome-to-jekyll/"><button class="featured__button">Read Article</button></a>
+    </div>
+  </div>
+  <div class="container-fluid blog__categories">
+    <div class="row">
+      <div class="col-sm-12">
+        <ul>
+          <li><a href="#" class="active">Show All</a></li>
+          <li><a href="#">News & Press</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Development</a></li>
+          <li><a href="#">Design</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container articles">
+    <div class="row">
+      <!-- start blog template -->
+      {{ content }}
+      <!-- end blog template -->
+      <div class="col-sm-4">
+        <a class="article-link" href="#">
+          <article class="top-image">
+            <img class="articles__blog-img" src="/assets/img/blog/blog_one.png" />
+            <h4>Upcoming Event</h4>
+            <img class="articles__profile-img" src="/assets/img/blog/st.jpg" />
+            <p class="articles__p">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <div class="articles__cat_date">
+              <p><span>Events</span></p>
+            </div>
+          </article>
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <a class="article-link" href="#">
+          <article>
+            <h4>Simulations Rock</h4>
+            <img class="articles__profile-img" src="/assets/img/blog/j.png" />
+            <p class="articles__p">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <img class="articles__blog-img" src="/assets/img/blog/blog_two.png" />
+            <div class="articles__cat_date">
+              <p><span>Development</span><span>Design</span></p>
+            </div>
+          </article>
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <a class="article-link" href="#">
+          <article class="top-image">
+            <img class="articles__blog-img" src="/assets/img/blog/blog_seven.png" />
+            <h4>One Date Model</h4>
+            <img class="articles__profile-img" src="/assets/img/blog/st.jpg" />
+            <p class="articles__p">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <div class="articles__cat_date">
+              <p><span>Development</span></p>
+            </div>
+          </article>
+        </a>
+      </div>
+
+      <div class="col-sm-4">
+        <a class="article-link" href="#">
+          <article class="top-image">
+            <img class="articles__blog-img" src="/assets/img/blog/blog_nine.png" />
+            <h4>SIMPL Launches</h4>
+            <img class="articles__profile-img" src="/assets/img/blog/j.png" />
+            <p class="articles__p">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <div class="articles__cat_date">
+              <p><span>News & Press</span></p>
+            </div>
+          </article>
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <a class="article-link" href="#">
+          <article>
+            <h4>SIMPL APIs</h4>
+            <img class="articles__profile-img" src="/assets/img/blog/st.jpg" />
+            <p class="articles__p">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <img class="articles__blog-img" src="/assets/img/blog/blog_five.png" />
+            <div class="articles__cat_date">
+              <p><span>Development</span><span>Design</span></p>
+            </div>
+          </article>
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <a class="article-link" href="#">
+          <article class="top-image">
+            <img class="articles__blog-img" src="/assets/img/blog/blog_six.png" />
+            <h4>Training Soon</h4>
+            <img class="articles__profile-img" src="/assets/img/blog/j.png" />
+            <p class="articles__p">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <div class="articles__cat_date">
+              <p><span>Events</span></p>
+            </div>
+          </article>
+        </a>
+      </div>
+
+      <div class="col-sm-4">
+        <a class="article-link" href="#">
+          <article class="top-image">
+            <img class="articles__blog-img" src="/assets/img/blog/blog_four.png" />
+            <h4>This is a title</h4>
+            <img class="articles__profile-img" src="/assets/img/blog/st.jpg" />
+            <p class="articles__p">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <div class="articles__cat_date">
+              <p><span>Design</span></p>
+            </div>
+          </article>
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <a class="article-link" href="#">
+          <article>
+            <h4>This is a title</h4>
+            <img class="articles__profile-img" src="/assets/img/blog/j.png" />
+            <p class="articles__p">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <img class="articles__blog-img" src="/assets/img/blog/blog_eight.png" />
+            <div class="articles__cat_date">
+              <p><span>Simulations</span><span>Design</span></p>
+            </div>
+          </article>
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <a class="article-link" href="#">
+          <article class="top-image">
+            <img class="articles__blog-img" src="/assets/img/blog/blog_three.png" />
+            <h4>This is a title</h4>
+            <img class="articles__profile-img" src="/assets/img/blog/st.jpg" />
+            <p class="articles__p">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <div class="articles__cat_date">
+              <p><span>News & Press</span></p>
+            </div>
+          </article>
+        </a>
+      </div>
+    </div>
+  </div>
+  <a class="load-more-link" href="#">
+    <div class="load-more">Load More</div>
+  </a>
+  <footer>
+    <div class="call-to-action">
+      <div class="words">
+        <div id="mc_embed_signup">
+          <form class="get-announcements" action="//world.us16.list-manage.com/subscribe/post?u=2eb19ff13fb586949e39f5491&amp;id=adb65cf8d2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2eb19ff13fb586949e39f5491_adb65cf8d2" tabindex="-1" value=""></div>
+              <div class="clear"><input type="submit" value="SIGNUP FOR UPDATES" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% include footer-nav.html %}
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

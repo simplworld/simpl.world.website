@@ -1,18 +1,23 @@
 ---
-layout: post-base
+layout: blog
 permalink: /blog/
 ---
 
 {% for post in site.posts %}
   {% unless post.hidden %}
-  <article class="post-item">
-    <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-    <h2 class="post-title">
-      <a
-        class="post-link"
-        href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
-    </h2>
-    {{ post.excerpt }}
-  </article>
+    <div class="col-sm-4">
+      <a class="article-link" href="{{ post.url | prepend: site.baseurl }}">
+        <article class="top-image">
+          <img class="articles__blog-img" src="/assets/img/blog/blog_one.png" />
+          <h4>{{ post.title | escape }}</h4>
+          <img class="articles__profile-img" src="/assets/img/blog/st.jpg" />
+          {% capture post_excerpt %}{{ post.excerpt }}{: .articles__p }{% endcapture %}
+          {{ post_excerpt | markdownify }}
+          <div class="articles__cat_date">
+            <p><span>Events</span></p>
+          </div>
+        </article>
+      </a>
+    </div>
   {% endunless %}
 {% endfor %}
