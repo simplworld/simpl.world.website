@@ -8,6 +8,7 @@
     position: relative;
     @include break {
         height: 540px;
+        overflow-y: hidden;
     }
     .row {
       margin-top: 60px;
@@ -32,6 +33,15 @@
     .navbar-collapse {
       padding-top: 12px;
     }
+}
+
+@include break {
+  .mouseTop {
+    display:none;
+  }
+  .scroll {
+    display:none !important;
+  }
 }
 
 .logo {
@@ -96,7 +106,7 @@
 }
 
 .all-btns {
-  margin-top: 45px;
+  margin-top: 30px;
   margin-bottom: 10px;
   @include break {
       margin-top: 30px;
@@ -252,5 +262,19 @@
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.typeMe {
+  height: 157px;
+  @include break {
+    height: 105px;
+  }
+  @include small {
+    height: 99px;
   }
 }
