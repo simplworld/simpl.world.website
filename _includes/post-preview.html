@@ -1,0 +1,16 @@
+{% unless post.hidden %}
+  <div class="col-sm-4 grid-item">
+    <a class="article-link" href="{{ post.url }}">
+      <article class="top-image">
+        <img class="articles__blog-img" src="/assets/img/blog/blog_one.png" />
+        <h4>{{ post.title | escape }}</h4>
+        <img class="articles__profile-img" src="/assets/img/blog/st.jpg" />
+        {% capture post_excerpt %}{{ post.excerpt }}{: .articles__p }{% endcapture %}
+        {{ post_excerpt | markdownify }}
+        <div class="articles__cat_date">
+          <p>{% for category in post.categories %}<span>{{ category }}</span> {% endfor %}</p>
+        </div>
+      </article>
+    </a>
+  </div>
+{% endunless %}
