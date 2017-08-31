@@ -13,33 +13,17 @@
 </head>
 <body class="blog">
   <div class="welcome">
-    <div class="blog__overlay"></div>
     {% include header-nav.html %}
-    <div class="featured-article">
-      <div class="featured__type">Featured Post</div>
-      <div class="featured__title">World Class Games for a Global University</div>
-      <a href="/blog/welcome-to-jekyll/"><button class="featured__button">Read Article</button></a>
-    </div>
+    {% include post-featured.html %}
   </div>
-  <div class="container-fluid blog__categories">
-    <div class="row">
-      <div class="col-sm-12">
-        <ul>
-          <li><a href="#" class="active">Show All</a></li>
-          <li><a href="#">News & Press</a></li>
-          <li><a href="#">Events</a></li>
-          <li><a href="#">Development</a></li>
-          <li><a href="#">Design</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  {% include post-categories.html %}
   <div class="container articles">
-    <div class="row">
+    <div class="row grid">
       <!-- start blog template -->
       {{ content }}
       <!-- end blog template -->
-      <div class="col-sm-4">
+      <!--
+      <div class="col-sm-4 grid-item">
         <a class="article-link" href="#">
           <article class="top-image">
             <img class="articles__blog-img" src="/assets/img/blog/blog_one.png" />
@@ -52,7 +36,7 @@
           </article>
         </a>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-4 grid-item">
         <a class="article-link" href="#">
           <article>
             <h4>Simulations Rock</h4>
@@ -65,7 +49,7 @@
           </article>
         </a>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-4 grid-item">
         <a class="article-link" href="#">
           <article class="top-image">
             <img class="articles__blog-img" src="/assets/img/blog/blog_seven.png" />
@@ -79,7 +63,7 @@
         </a>
       </div>
 
-      <div class="col-sm-4">
+      <div class="col-sm-4 grid-item">
         <a class="article-link" href="#">
           <article class="top-image">
             <img class="articles__blog-img" src="/assets/img/blog/blog_nine.png" />
@@ -92,7 +76,7 @@
           </article>
         </a>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-4 grid-item">
         <a class="article-link" href="#">
           <article>
             <h4>SIMPL APIs</h4>
@@ -105,7 +89,7 @@
           </article>
         </a>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-4 grid-item">
         <a class="article-link" href="#">
           <article class="top-image">
             <img class="articles__blog-img" src="/assets/img/blog/blog_six.png" />
@@ -119,7 +103,7 @@
         </a>
       </div>
 
-      <div class="col-sm-4">
+      <div class="col-sm-4 grid-item">
         <a class="article-link" href="#">
           <article class="top-image">
             <img class="articles__blog-img" src="/assets/img/blog/blog_four.png" />
@@ -132,7 +116,7 @@
           </article>
         </a>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-4 grid-item">
         <a class="article-link" href="#">
           <article>
             <h4>This is a title</h4>
@@ -145,7 +129,7 @@
           </article>
         </a>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-4 grid-item">
         <a class="article-link" href="#">
           <article class="top-image">
             <img class="articles__blog-img" src="/assets/img/blog/blog_three.png" />
@@ -158,28 +142,23 @@
           </article>
         </a>
       </div>
+      -->
     </div>
   </div>
   <a class="load-more-link" href="#">
     <div class="load-more">Load More</div>
   </a>
   <footer>
-    <div class="call-to-action">
-      <div class="words">
-        <div id="mc_embed_signup">
-          <form class="get-announcements" action="//world.us16.list-manage.com/subscribe/post?u=2eb19ff13fb586949e39f5491&amp;id=adb65cf8d2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-            <div id="mc_embed_signup_scroll">
-              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2eb19ff13fb586949e39f5491_adb65cf8d2" tabindex="-1" value=""></div>
-              <div class="clear"><input type="submit" value="SIGNUP FOR UPDATES" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    {% include post-call-to-action.html %}
     {% include footer-nav.html %}
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script>
+    $('.grid').masonry({
+      itemSelector: '.grid-item',
+    });
+  </script>
 </body>
 </html>

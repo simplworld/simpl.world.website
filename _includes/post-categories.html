@@ -1,0 +1,13 @@
+<div class="container-fluid blog__categories">
+  <div class="row">
+    <div class="col-sm-12">
+      <ul>
+        <li><a href="/blog/" class="active">Show All</a></li>
+        {% assign categories = site.category | sort: 'order' %}
+        {% for category in categories %}
+          <li><a href="{{ category.url }}">{{ category.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
