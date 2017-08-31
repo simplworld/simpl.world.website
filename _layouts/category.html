@@ -1,8 +1,9 @@
 ---
 layout: post-base
-permalink: /blog/
 ---
 
-{% for post in site.posts %}
+{{ page.name }}
+
+{% for post in site.categories[page.name] %}
   {% include post-preview.html %}
 {% endfor %}

@@ -37,3 +37,17 @@ github: [metadata]
 
 twitter:
   username: simplworld
+
+# Our custom collections
+
+collections:
+  category:
+    output: true
+    permalink: /:collection/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: category
+    values:
+      layout: "category"
