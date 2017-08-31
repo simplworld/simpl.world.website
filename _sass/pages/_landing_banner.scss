@@ -272,9 +272,6 @@
 .typeMe {
   height: 157px;
   @include break {
-    height: 105px;
-  }
-  @include small {
-    height: 99px;
+    height: auto;
   }
 }

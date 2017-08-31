@@ -46,6 +46,9 @@
 
 .second-col {
   padding-left: 35px;
+  @include small {
+    padding-left: 15px;
+  }
 }
 
 p.second-col__text {
