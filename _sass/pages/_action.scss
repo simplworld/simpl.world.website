@@ -12,6 +12,9 @@
     display:block;
     font-size: 16px;
     margin-top: 12px;
+    @include break {
+      max-width: 100% !important;
+    }
   }
   p {
     display:block;
@@ -30,6 +33,12 @@
   float:left;
   width: 250px;
   margin-left: 30px;
+  @include break {
+    width: 100%;
+    text-align:center;
+    margin-left: 0px;
+    padding: 0px 30px;
+  }
 }
 
 .action__box {
@@ -45,10 +54,17 @@
   cursor:pointer;
   @include break {
     width: 100%;
-    min-height:180px;
+    min-height:220px;
+    padding-top: 25px;
   }
   @include on-event {
-        box-shadow: -3px 25px 43px rgba(65,65,65,0.36), inset 0 -3px 6px rgba(0,0,0,0.05), inset 0 3px 6px white;
+    box-shadow: -3px 25px 43px rgba(65,65,65,0.36), inset 0 -3px 6px rgba(0,0,0,0.05), inset 0 3px 6px white;
+  }
+}
+
+.boxTwo {
+  @include break {
+    margin-bottom: 60px;
   }
 }
 
@@ -61,7 +77,8 @@
   float:left;
   display:block;
   @include break {
-    display:none;
+    margin: 0 auto;
+    float:none;
   }
 }
 
@@ -69,6 +86,9 @@
   position: absolute;
   top: 70px;
   right: 36px;
+  @include break {
+    display:none;
+  }
 }
 
 .action__right {
