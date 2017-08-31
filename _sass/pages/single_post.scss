@@ -81,3 +81,21 @@
     color: #fff;
   }
 }
+
+.blog article p {
+  padding: 0px 30px 0px 30px;
+  font-size: 16px;
+  line-height: 25px;
+  margin-bottom: 30px;
+  &:first-of-type {
+    margin-top: 40px;
+    &:first-letter {
+      font-weight: 700;
+      font-size: 35px;
+    }
+  }
+  @include small {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
