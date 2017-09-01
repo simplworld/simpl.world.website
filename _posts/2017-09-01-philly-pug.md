@@ -3,6 +3,7 @@ layout: post
 title: Philly Python Users Group Presentation (07/27)
 date: 2017-09-01 12:00:00 -0500
 categories: Events
+featured: true
 author: Jane Eisenstein and Joseph Lee
 excerpt: |
     On July 27th, 2017, Jane Eisenstein and Joseph Lee gave a presentation to the Philly Python Users Group about Simpl.world.
