@@ -4,7 +4,7 @@ title: "Simpl-y Magic: Automatic Browser Page Updates"
 date: 2017-09-01 12:10:00 -0500
 categories: News
 excerpt: |
-    simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+    In multiplayer web-based games, all users should be able to see up-to-date game data without having to manually refresh their browsers.
 ---
 
 In multiplayer web-based games, all users should be able to see up-to-date game data without having to manually refresh their browsers. For example, players need to be notified when the game has moved from a phase in which they can submit decisions to a phase in which they cannot submit decisions. Monitoring the game state for such changes is often handled by the simulation's front-end code.
