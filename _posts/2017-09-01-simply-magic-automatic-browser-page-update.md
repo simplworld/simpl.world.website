@@ -3,8 +3,9 @@ layout: post
 title: "Simpl-y Magic: Automatic Browser Page Updates"
 date: 2017-09-01 12:10:00 -0500
 categories: News
+author: Jane Eisenstein
 excerpt: |
-    In multiplayer web-based games, all users should be able to see up-to-date game data without having to manually refresh their browsers.
+    Simpl's architecture ensures a game user’s browser page is always up to date.
 ---
 
 In multiplayer web-based games, all users should be able to see up-to-date game data without having to manually refresh their browsers. For example, players need to be notified when the game has moved from a phase in which they can submit decisions to a phase in which they cannot submit decisions. Monitoring the game state for such changes is often handled by the simulation's front-end code.
@@ -36,4 +37,6 @@ Here's how it works: Each time the model service updates the database using the 
 
 And there you have it — the user is automagically guaranteed to see fresh data, without game authors having to write a line of code! It works like magic, but it's actually quite *SIMPL*...
 
+<!--
 **For more details, please see our****[ Simpl Framework doc**s](https://lldev-team.gitlab.io/simpl-docs/overview/)**.**
+-->

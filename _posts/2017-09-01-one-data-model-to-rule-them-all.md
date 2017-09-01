@@ -2,6 +2,7 @@
 layout: post
 title: "Simpl: One Data Model to Rule Them All"
 date: 2017-09-01 12:20:00 -0500
+author: Joseph Lee
 categories: News
 excerpt: |
     Code starts at the model-level.
@@ -13,11 +14,11 @@ Code starts at the model-level. So before we wrote one line of Simpl (the Learni
 
 A data model, I should say, is basically the definition of how data is stored in the system, and how the pieces of data relate to one another. When we began the process of creating Simpl, we needed to define the logical pieces that create a simulation, and build relationships among those pieces that, well, made sense.
 
-**Speaking the Same Language**
+## Speaking the Same Language
 
 Our first challenge was agreeing upon a nomenclature for the pieces that comprise a simulation in general. This may seem like a fairly trivial process; after all, everyone pretty much knows what we mean when we say a "game run," or  a "decision,” or a "scenario.” However, the implications of this language when developing a data model meant different things to different people — especially when we tried to communicate these requirements to the outside vendor working with us on the platform. With that in mind, we ended up creating a glossary of terms, defined right in the context of the simulation platform. This glossary helped us bridge the gap between our team and the vendor, allowing us to talk about terms in ways we all agreed upon and understood.
 
-**Start with What You Know**
+## Start with What You Know
 
 Once we agreed on the definitions of various parts that make up a sim, we began to map out what our data model would look like. To assist us in this process, we leaned on our collective years of simulation experience here in the Learning Lab — namely, the games we’ve already supported and developed. Then came the whiteboarding (sooo much whiteboarding), wherein we drew relationships between objects and assessed if the connections we were making made sense.
 
@@ -27,7 +28,7 @@ We then broke down existing games and made sure the new data model would be able
 
 *The current Simpl data model.*
 
-**Where to Go from Here?**
+## Where to Go from Here?
 
 After a long period of iteration, we finally settled on a data model that made sense to both us and our vendor. We made further changes along the way as development progressed, but the main structure we came up with remained the same from whiteboard etchings to the implementation of our first sim. Going forward, of course, every new simulation we develop will be an opportunity to test the limits of this model, which we can improve or simplify where and when the need arises.
 
