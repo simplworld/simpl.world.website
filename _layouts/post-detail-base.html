@@ -15,7 +15,7 @@
   <div class="welcome">
     {% include header-nav.html %}
     <div class="featured-article">
-      <div class="featured__type">Author: {{ page.author | default: "Bob Didn't Write This" }}</div>
+      <div class="featured__type">Author: {{ page.author | default:"Bob Didn't Write This" }}</div>
       <div class="featured__title">{{ page.title }}</div>
     </div>
   </div>
@@ -24,7 +24,7 @@
     <div class="row">
       <div class="col-sm-12">
           <article>
-            <img class="articles__profile-img" src="/assets/img/blog/st.jpg" />
+            <img class="articles__profile-img" src='{{ page.author_photo | default:"/assets/img/blog/st.jpg" }}' />
             {{ content }}
           </article>
       </div>
