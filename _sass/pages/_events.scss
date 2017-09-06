@@ -4,20 +4,25 @@
   width: 100%;
   color: #fff;
   position: relative;
-  height: 410px;
+  height: 415px;
   background: url(../img/tech_bg.png);
   background-repeat: repeat;
   background-size: 47%;
-  padding-top: 55px;
-  text-align: center;
-  @include when-inside(500px) {
+  padding-top: 50px;
+  @include when-inside(545px) {
     padding-top: 45px;
+    height: 440px;
+  }
+  @include when-inside(365px) {
+    padding-top: 45px;
+    height: 505px;
   }
   p {
     margin-top:20px;
-    max-width: 350px;
+    width:100%;
+    max-width: 500px;
     margin: 0 auto;
-    line-height: 25px;
+    line-height: 23px;
     font-size: 17px;
     margin-top: 20px;
     font-family: $serif;

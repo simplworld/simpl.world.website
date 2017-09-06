@@ -35,6 +35,41 @@
       overflow:visible;
       box-shadow:none;
       border: 1px solid #efefef;
+      h2 {
+        margin-left: 30px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #0088E8;
+        margin-top: 40px;
+      }
+      p img {
+        max-width: 550px;
+        display:block;
+        margin: 0 auto;
+        height: auto;
+        width: 100%;
+      }
+      .shout,
+      h6 {
+        margin: 0 auto;
+        max-width: 500px;
+        font-size: 18px;
+        line-height: 25px;
+        color: #0088E8;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 30px;
+        padding: 25px 23px;
+        font-weight: 300 !important;
+        @include small {
+          max-width: 250px;
+        }
+      }
+      .shout.top {
+        margin-bottom:0px;
+        margin-top: 40px;
+      }
       @include on-event {
           box-shadow: none;
       }
@@ -60,8 +95,11 @@
   }
   .articles__p {
     padding: 0px 30px 0px 30px;
+    font-family: $serif;
+    font-size: 18px;
+    line-height: 24px;
     &:first-of-type {
-      margin-top: 40px;
+      margin-top: 26px;
       &:first-letter {
         font-weight: 700;
         font-size: 35px;
@@ -84,9 +122,10 @@
 
 .blog.post article p {
   padding: 0px 30px 0px 30px;
-  font-size: 16px;
-  line-height: 25px;
+  font-size: 18px;
+  line-height: 24px;
   margin-bottom: 30px;
+  font-family: $serif;
   &:first-of-type {
     margin-top: 40px;
     &:first-letter {
@@ -102,4 +141,24 @@
 
 article .post-meta {
   display:none;
+}
+
+.blog.post article ul li {
+  margin-bottom: 10px;
+}
+
+.blog.post article ul {
+  margin-bottom: 40px;
+}
+
+.blog.post article ul li p {
+  margin: 0px;
+  padding: 0px;
+  &:first-of-type {
+    margin-top: 0px;
+    &:first-letter {
+      font-weight: 400 !important;
+      font-size: 18px !important;
+    }
+  }
 }
