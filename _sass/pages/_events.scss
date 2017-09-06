@@ -9,9 +9,10 @@
   background-repeat: repeat;
   background-size: 47%;
   padding-top: 50px;
+  text-align: center !important;
   @include when-inside(545px) {
     padding-top: 45px;
-    height: 440px;
+    height: 465px;
   }
   @include when-inside(365px) {
     padding-top: 45px;
