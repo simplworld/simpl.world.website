@@ -8,8 +8,6 @@ excerpt: |
     Code starts at the model-level.
 ---
 
-![image alt text](/assets/img/blog/one-data-model-to-rule-them-all/image_0.jpg){: width="600" }
-
 Code starts at the model-level. So before we wrote one line of Simpl (the Learning Lab's new simulation framework), we needed to figure out what, exactly, our data model would look like. Considering the ambitious goal of the project — a simulation framework that could support all of our current games as well as games yet unknown — we had to be very careful to create one that would be flexible enough to adjust to our growing needs, but not so complex as to make development overly challenging. Luckily, we have decades worth of simulation development expertise on our team, and were able to draw from that wellspring of knowledge when we worked on Simpl's foundational data model.
 
 A data model, I should say, is basically the definition of how data is stored in the system, and how the pieces of data relate to one another. When we began the process of creating Simpl, we needed to define the logical pieces that create a simulation, and build relationships among those pieces that, well, made sense.

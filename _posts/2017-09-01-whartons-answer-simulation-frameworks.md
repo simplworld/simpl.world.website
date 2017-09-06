@@ -9,11 +9,11 @@ excerpt: |
     Simulations are expensive to create, require highly specialized expertise, and if you create something that doesn't deliver against the intended learning objectives, the process to make tweaks and updates is gosh-darn complicated!
 ---
 
-## Imagine a world where simulations are simply ... Simpl!
+###### Imagine a world where simulations are simply ... Simpl!
 
 Simulations are expensive to create, require highly specialized expertise, and if you create something that doesn't deliver against the intended learning objectives, the process to make tweaks and updates is gosh-darn complicated! There are other challenges that keep us managers of teams working on simulations up at night. Such as retention of technical talent, which is difficult because if you're authoring simulations on a commercial platform, your team will need a large amount of specialized know-how, and these are skills that most times don't transfer to other careers in technology. Authoring platforms present other problems - including a lack of integration with learning management systems (LMS) such as Canvas, the best source for user management, and no single sign on authentication integration.
 
-### Simulations provide powerful experiential learning opportunities that can far outperform traditional lectures and cases.
+###### Simulations provide powerful experiential learning opportunities that can far outperform traditional lectures and cases.
 
 For example, students who completed our[ Looking Glass for Entrepreneurship](http://simulations.wharton.upenn.edu/looking-glass/) simulation performed one standard deviation better on the final exam than students who didn't go through this experience. And we have lots and lots of examples just like this one!
 
