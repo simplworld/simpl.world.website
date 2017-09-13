@@ -300,3 +300,12 @@
     cursor:pointer;
   }
 }
+
+_::-webkit-full-page-media, _:future, :root .wharton-callout {
+  font-weight: 700 !important;
+  font-size: 9px !important;
+}
+
+_::-webkit-full-page-media, _:future, :root .blog__categories li a {
+  font-weight: 600 !important;
+}
