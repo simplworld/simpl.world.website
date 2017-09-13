@@ -118,7 +118,7 @@
     left: 85px;
     z-index: 9;
     bottom: -223px;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .btn-default {
@@ -274,4 +274,38 @@
   @include break {
     height: auto;
   }
+}
+
+.wharton-callout {
+    color: #fff;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    display: block;
+    height: 300px;
+    z-index: 99999;
+    bottom: -532px;
+    text-align: center;
+    font-size: 10px;
+    opacity: 0.7;
+    font-weight: 300;
+}
+
+.welcome--heavy {
+   font-weight: 700;
+   display:inline-block;
+  a {
+    color: #fff;
+    display:block;
+    cursor:pointer;
+  }
+}
+
+_::-webkit-full-page-media, _:future, :root .wharton-callout {
+  font-weight: 700 !important;
+  font-size: 9px !important;
+}
+
+_::-webkit-full-page-media, _:future, :root .blog__categories li a {
+  font-weight: 600 !important;
 }
