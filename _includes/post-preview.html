@@ -2,9 +2,13 @@
   <div class="col-sm-4 grid-item">
     <a class="article-link" href="{{ post.url }}">
       <article class="top-image">
-        <img class="articles__blog-img" src="{{ page.background_photo | default:"/assets/img/blog/blog_one.png" }}" />
+        <div class="articles__blog-img"></div>
+         <!-- <img class="articles__blog-img" src="{{ page.background_photo | default:"/assets/img/blog/blog_one.png" }}" /> -->
+        <div class="waterwrap">
+          <img class="watermark" src="/assets/img/simpl_logo.png"/>
+        </div>
         <h4>{{ post.title | escape }}</h4>
-        <img class="articles__profile-img" src="{{ page.author_photo | default:"/assets/img/blog/st.jpg" }}" />
+        <!-- <img class="articles__profile-img" src="{{ page.author_photo | default:"/assets/img/blog/st.jpg" }}" /> -->
         {% capture post_excerpt %}{{ post.excerpt }}{: .articles__p }{% endcapture %}
         {{ post_excerpt | markdownify }}
         <div class="articles__cat_date">

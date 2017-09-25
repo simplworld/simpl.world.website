@@ -3,7 +3,7 @@
   height: 100%;
   min-height: 100%;
   .welcome {
-    background: url("../img/blog/wharton.jpg");
+    background: url("../img/blog/header2.jpg");
     background-repeat:no-repeat;
     background-size:cover;
     background-position:center;
@@ -11,6 +11,71 @@
     @include small {
       height: 420px;
       overflow:hidden;
+    }
+  }
+}
+
+.waterwrap {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  display:block;
+  z-index: 999999;
+  opacity: 0.4;
+  transform: translateX(-50%);
+  @include small {
+    top: 81px;
+  }
+}
+
+.watermark {
+  width: 60px;
+  animation: spinWater 40s infinite linear;
+}
+
+@keyframes spinWater {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.articles__blog-img {
+  display:block;
+  background: url("../img/blog/header8.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+}
+
+.grid-item {
+  &:nth-of-type(2) {
+    .articles__blog-img {
+      background: url("../img/blog/header4.jpg");
+      display:block;
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center;
+    }
+  }
+  &:nth-of-type(3) {
+    .articles__blog-img {
+      background: url("../img/blog/header6.jpg");
+      display:block;
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center;
+    }
+  }
+  &:nth-of-type(4) {
+    .articles__blog-img {
+      background: url("../img/blog/header7.jpg");
+      display:block;
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center;
     }
   }
 }
@@ -26,7 +91,10 @@
   border-radius: 100%;
   text-align: center;
   color: #fff;
-  margin-top: 30px;
+  margin-top: -10px;
+  @include small {
+    margin-top: 15px;
+  }
   a {
     color: #fff !important;
   }
@@ -69,7 +137,7 @@
   .featured__button {
     background: blue;
     margin-top: 70px;
-    background: linear-gradient(45deg, #1E88E5 17%, #9575CD 90%);
+    background: #fff;
     box-shadow: 4px 6px 16px 0 rgba(36,37,38,0.73);
     border-radius: 60px;
     border: 0;
@@ -77,10 +145,11 @@
     text-transform: uppercase;
     font-family: $sans;
     font-size: 12px;
+    color: #272727;
     @include small {
       font-size: 12px;
       padding: 10px 20px;
-      margin-top: 70px;
+      margin-top: 45px;
     }
   }
 }
@@ -105,6 +174,7 @@
   background: #323232;
   text-align: center;
   padding: 35px 20px;
+  display:none;
   @include small {
     padding-top: 35px;
     padding-bottom: 10px;
@@ -161,7 +231,7 @@
     font-weight: 600;
     color: lighten(#272727, 15%);
     text-transform: uppercase;
-    margin-right: 30px;
+    margin-right: 0px;
   }
 
   p {
@@ -171,7 +241,7 @@
   }
 
   .articles__p {
-    margin-top: 24px;
+    margin-top: 20px;
   }
 }
 
