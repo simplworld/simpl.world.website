@@ -1,5 +1,5 @@
 ---
-title: Simpl Docs
+title: Simpl.world Documentation
 permalink: /docs/
 layout: docs
 description: Simpl docs
