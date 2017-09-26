@@ -848,13 +848,629 @@
 		"oAP": "\/_site\/about\/index.html",
 		"oF": 0
 		},
-	"\/_site\/assets\/main.css": {
+	"\/_site\/assets\/css\/style.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/_site\/assets\/main-min.css",
+		"oAP": "\/_site\/assets\/css\/style-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/_site\/assets\/img\/about\/chad_whitman.png": {
+		"ft": 32768,
+		"iS": 899605,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/about\/chad_whitman.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/about\/graph1.png": {
+		"ft": 32768,
+		"iS": 271080,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/about\/graph1.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/about\/graph2.png": {
+		"ft": 32768,
+		"iS": 630151,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/about\/graph2.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/about\/jane_eisenstein.png": {
+		"ft": 32768,
+		"iS": 223105,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/about\/jane_eisenstein.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/about\/joe_lee.png": {
+		"ft": 32768,
+		"iS": 275115,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/about\/joe_lee.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/about\/learning_lab_history.png": {
+		"ft": 32768,
+		"iS": 520478,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/about\/learning_lab_history.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/about\/revsys_team.jpg": {
+		"ft": 16384,
+		"iS": 448158,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/about\/revsys_team.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/about\/sarah_toms.png": {
+		"ft": 32768,
+		"iS": 215191,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/about\/sarah_toms.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/apple-touch-icon.png": {
+		"ft": 32768,
+		"iS": 17207,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/apple-touch-icon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/background.png": {
+		"ft": 32768,
+		"iS": 37646,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/background.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/black_logo_two.png": {
+		"ft": 32768,
+		"iS": 17207,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/black_logo_two.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/blog\/blog_header.jpg": {
+		"ft": 16384,
+		"iS": 222025,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/blog\/blog_header.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/blog\/blog_header2.jpg": {
+		"ft": 16384,
+		"iS": 243656,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/blog\/blog_header2.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/blog\/blog_header3.jpg": {
+		"ft": 16384,
+		"iS": 224536,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/blog\/blog_header3.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/blog\/blog_header5.jpg": {
+		"ft": 16384,
+		"iS": 255308,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/blog\/blog_header5.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/blog\/blog_header6.jpg": {
+		"ft": 16384,
+		"iS": 213463,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/blog\/blog_header6.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/blog\/blog_header7.jpg": {
+		"ft": 16384,
+		"iS": 225119,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/blog\/blog_header7.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/blog\/blog_header8.jpg": {
+		"ft": 16384,
+		"iS": 300745,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/blog\/blog_header8.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/blog\/one-data-model-to-rule-them-all\/image_0.jpg": {
+		"ft": 16384,
+		"iS": 24054,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/blog\/one-data-model-to-rule-them-all\/image_0.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/blog\/one-data-model-to-rule-them-all\/image_1.png": {
+		"ft": 32768,
+		"iS": 77794,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/blog\/one-data-model-to-rule-them-all\/image_1.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/blog\/simply-magic-automatic-browser-page-update\/image_0.png": {
+		"ft": 32768,
+		"iS": 267606,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/blog\/simply-magic-automatic-browser-page-update\/image_0.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/blog\/st.jpg": {
+		"ft": 16384,
+		"iS": 305556,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/blog\/st.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/blog\/whartons-answer-simulation-frameworks\/image_0.png": {
+		"ft": 32768,
+		"iS": 189112,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/blog\/whartons-answer-simulation-frameworks\/image_0.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/center_tech.png": {
+		"ft": 32768,
+		"iS": 17717,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/center_tech.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/cityBG.png": {
+		"ft": 32768,
+		"iS": 577924,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/cityBG.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/comp_with_code.png": {
+		"ft": 32768,
+		"iS": 153926,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/comp_with_code.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/createsimplapp.png": {
+		"ft": 32768,
+		"iS": 52609,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/createsimplapp.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/left_tech.png": {
+		"ft": 32768,
+		"iS": 18048,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/left_tech.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/open_source.png": {
+		"ft": 32768,
+		"iS": 52266,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/open_source.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/right_tech.png": {
+		"ft": 32768,
+		"iS": 16015,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/right_tech.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/simpl_logo.png": {
+		"ft": 32768,
+		"iS": 17186,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/simpl_logo.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/img\/tech_bg.png": {
+		"ft": 32768,
+		"iS": 415433,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/img\/tech_bg.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/.eslintrc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/.eslintrc",
+		"oF": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/.gitattributes": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/.gitattributes",
+		"oF": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/.npmignore": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/.npmignore",
+		"oF": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/.travis.yml": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/.travis.yml",
+		"oF": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/anchor.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/anchor-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/anchor.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/anchor.min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/banner.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/banner-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/anchor.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/anchor-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/favicon.ico": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/favicon.ico",
+		"oF": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/fonts\/anchorjs-extras.eot": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/fonts\/anchorjs-extras.eot",
+		"oF": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/fonts\/anchorjs-extras.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/fonts\/anchorjs-extras.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/fonts\/anchorjs-extras.ttf": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/fonts\/anchorjs-extras.ttf",
+		"oF": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/fonts\/anchorjs-extras.woff": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/fonts\/anchorjs-extras.woff",
+		"oF": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/fonts\/fonts.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/fonts\/fonts-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/grunticon\/grunticon.loader.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/grunticon\/grunticon.loader-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/grunticon\/icons.data.png.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/grunticon\/icons.data.png-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/grunticon\/icons.data.svg.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/grunticon\/icons.data.svg-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/grunticon\/icons.fallback.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/grunticon\/icons.fallback-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/grunticon\/png\/grunticon-link.png": {
+		"ft": 32768,
+		"iS": 499,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/grunticon\/png\/grunticon-link.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/img\/anchoring-links.png": {
+		"ft": 32768,
+		"iS": 33647,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/img\/anchoring-links.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/img\/anchorjs_logo.png": {
+		"ft": 32768,
+		"iS": 7581,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/img\/anchorjs_logo.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/img\/anchorlinks2.png": {
+		"ft": 32768,
+		"iS": 62031,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/img\/anchorlinks2.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/img\/gh-link.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/img\/gh-link.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/img\/gh_link.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/img\/gh_link.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/img\/hyperlink.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/img\/hyperlink.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/img\/link.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/img\/link.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/img\/mini-logo.png": {
+		"ft": 32768,
+		"iS": 2259,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/img\/mini-logo.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/img\/primer-md.png": {
+		"ft": 32768,
+		"iS": 16739,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/img\/primer-md.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/scripts.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/scripts-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/_site\/assets\/javascript\/anchor-js\/docs\/styles.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/_site\/assets\/javascript\/anchor-js\/docs\/styles-min.css",
 		"oF": 0,
 		"oS": 3
 		},
@@ -912,6 +1528,12 @@
 		"oAP": "\/_site\/category\/news\/index.html",
 		"oF": 0
 		},
+	"\/_site\/CNAME": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_site\/CNAME",
+		"oF": 0
+		},
 	"\/_site\/developer\/index.html": {
 		"ft": 8192,
 		"oA": 2,
@@ -941,6 +1563,30 @@
 		"oA": 2,
 		"oAP": "\/_site\/practioner\/index.html",
 		"oF": 0
+		},
+	"\/_site\/Procfile": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_site\/Procfile",
+		"oF": 0
+		},
+	"\/_site\/README.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/_site\/README.html",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
 		},
 	"\/_site\/robots.txt": {
 		"ft": 8192,
@@ -1057,6 +1703,17 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/assets\/img\/apple-touch-icon.png": {
+		"ft": 32768,
+		"iS": 17207,
+		"oA": 0,
+		"oAP": "\/assets\/img\/apple-touch-icon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/assets\/img\/background.png": {
 		"ft": 32768,
 		"iS": 37646,
@@ -1079,62 +1736,71 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/img\/blog\/about.png": {
-		"ft": 32768,
-		"iS": 748248,
-		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/about.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/blog\/header2.jpg": {
+	"\/assets\/img\/blog\/blog_header.jpg": {
 		"ft": 16384,
-		"iS": 1075668,
+		"iS": 222025,
 		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/header2.jpg",
+		"oAP": "\/assets\/img\/blog\/blog_header.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
 		"q": 100
 		},
-	"\/assets\/img\/blog\/header4.jpg": {
+	"\/assets\/img\/blog\/blog_header2.jpg": {
 		"ft": 16384,
-		"iS": 1037599,
+		"iS": 243656,
 		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/header4.jpg",
+		"oAP": "\/assets\/img\/blog\/blog_header2.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
 		"q": 100
 		},
-	"\/assets\/img\/blog\/header6.jpg": {
+	"\/assets\/img\/blog\/blog_header3.jpg": {
 		"ft": 16384,
-		"iS": 1101423,
+		"iS": 224536,
 		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/header6.jpg",
+		"oAP": "\/assets\/img\/blog\/blog_header3.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
 		"q": 100
 		},
-	"\/assets\/img\/blog\/header7.jpg": {
+	"\/assets\/img\/blog\/blog_header5.jpg": {
 		"ft": 16384,
-		"iS": 1087712,
+		"iS": 255308,
 		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/header7.jpg",
+		"oAP": "\/assets\/img\/blog\/blog_header5.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
 		"q": 100
 		},
-	"\/assets\/img\/blog\/header8.jpg": {
+	"\/assets\/img\/blog\/blog_header6.jpg": {
 		"ft": 16384,
-		"iS": 1017559,
+		"iS": 213463,
 		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/header8.jpg",
+		"oAP": "\/assets\/img\/blog\/blog_header6.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/assets\/img\/blog\/blog_header7.jpg": {
+		"ft": 16384,
+		"iS": 225119,
+		"oA": 0,
+		"oAP": "\/assets\/img\/blog\/blog_header7.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/assets\/img\/blog\/blog_header8.jpg": {
+		"ft": 16384,
+		"iS": 300745,
+		"oA": 0,
+		"oAP": "\/assets\/img\/blog\/blog_header8.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
