@@ -10,8 +10,18 @@
   background-size: 47%;
   padding-top: 50px;
   text-align: center !important;
+  @include when-inside(1000px) {
+      background-size: 52%;
+  }
+  @include when-inside(960px) {
+      background-size: 57%;
+  }
+  @include when-inside(750px) {
+      background-size: 80%;
+  }
   @include when-inside(545px) {
     padding-top: 45px;
+    background-size: 130%;
     height: 465px;
   }
   @include when-inside(365px) {

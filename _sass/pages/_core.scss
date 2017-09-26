@@ -121,6 +121,17 @@
   height: 60px;
   width: 2px;
   background: darken(#efefef, 6%);
+  @include when-inside(334px) {
+    height: 75px;
+  }
+  &.first-of-type {
+    @include when-inside(768px) {
+      height: 53px;
+    }
+    @include when-inside(334px) {
+      height: 68px;
+    }
+  }
 }
 
 .learnMore {
