@@ -20,3 +20,9 @@ To manually run Jekyll sans foreman:
 $ bundle exec jekyll serve
 # => Now browse to http://localhost:4000
 ```
+
+If you get GemNotFound errors from either command, you may need to also run:
+
+```shell
+$ bundle install
+```
