@@ -183,6 +183,12 @@
 		"oAP": "\/_layouts\/docs-base.html",
 		"oF": 0
 		},
+	"\/_layouts\/docs.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_layouts\/docs.html",
+		"oF": 0
+		},
 	"\/_layouts\/home.html": {
 		"ft": 8192,
 		"oA": 2,
@@ -850,132 +856,11 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/_site\/assets\/img\/bg--city-gray.png": {
-		"ft": 32768,
-		"iS": 714457,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/bg--city-gray.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
 	"\/_site\/assets\/img\/black_logo_two.png": {
 		"ft": 32768,
 		"iS": 17207,
 		"oA": 0,
 		"oAP": "\/_site\/assets\/img\/black_logo_two.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/blog\/bg--apple-devices.png": {
-		"ft": 32768,
-		"iS": 328957,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/blog\/bg--apple-devices.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/blog\/blog_eight.png": {
-		"ft": 32768,
-		"iS": 86673,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/blog\/blog_eight.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/blog\/blog_five.png": {
-		"ft": 32768,
-		"iS": 112203,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/blog\/blog_five.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/blog\/blog_four.png": {
-		"ft": 32768,
-		"iS": 71419,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/blog\/blog_four.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/blog\/blog_nine.png": {
-		"ft": 32768,
-		"iS": 75100,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/blog\/blog_nine.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/blog\/blog_one.png": {
-		"ft": 32768,
-		"iS": 1061242,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/blog\/blog_one.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/blog\/blog_seven.png": {
-		"ft": 32768,
-		"iS": 80653,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/blog\/blog_seven.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/blog\/blog_six.png": {
-		"ft": 32768,
-		"iS": 98887,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/blog\/blog_six.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/blog\/blog_three.png": {
-		"ft": 32768,
-		"iS": 72018,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/blog\/blog_three.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/blog\/blog_two.png": {
-		"ft": 32768,
-		"iS": 103731,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/blog\/blog_two.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
@@ -1062,17 +947,6 @@
 		"opt": 0,
 		"q": 100
 		},
-	"\/_site\/assets\/img\/blog\/j.png": {
-		"ft": 32768,
-		"iS": 254132,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/blog\/j.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
 	"\/_site\/assets\/img\/blog\/one-data-model-to-rule-them-all\/image_0.jpg": {
 		"ft": 16384,
 		"iS": 24054,
@@ -1115,16 +989,6 @@
 		"opt": 0,
 		"q": 100
 		},
-	"\/_site\/assets\/img\/blog\/wharton.jpg": {
-		"ft": 16384,
-		"iS": 1043381,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/blog\/wharton.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
-		},
 	"\/_site\/assets\/img\/blog\/whartons-answer-simulation-frameworks\/image_0.png": {
 		"ft": 32768,
 		"iS": 189112,
@@ -1158,16 +1022,6 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/_site\/assets\/img\/college.jpg": {
-		"ft": 16384,
-		"iS": 3599658,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/college.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
-		},
 	"\/_site\/assets\/img\/comp_with_code.png": {
 		"ft": 32768,
 		"iS": 153926,
@@ -1190,49 +1044,6 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/_site\/assets\/img\/creating_a_simpl_app.png": {
-		"ft": 32768,
-		"iS": 106599,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/creating_a_simpl_app.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/evemt__img.png": {
-		"ft": 32768,
-		"iS": 276052,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/evemt__img.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/illus__landing_tech.png": {
-		"ft": 32768,
-		"iS": 107838,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/illus__landing_tech.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/laptop.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/_site\/assets\/img\/laptop.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
 	"\/_site\/assets\/img\/left_tech.png": {
 		"ft": 32768,
 		"iS": 18048,
@@ -1244,16 +1055,6 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/_site\/assets\/img\/Magic Mouse copy.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/_site\/assets\/img\/Magic Mouse copy.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
 	"\/_site\/assets\/img\/open_source.png": {
 		"ft": 32768,
 		"iS": 52266,
@@ -1264,6 +1065,12 @@
 		"opt": 0,
 		"oT": 1,
 		"q": 100
+		},
+	"\/_site\/assets\/img\/Readme.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_site\/assets\/img\/Readme.html",
+		"oF": 0
 		},
 	"\/_site\/assets\/img\/right_tech.png": {
 		"ft": 32768,
@@ -1281,17 +1088,6 @@
 		"iS": 17186,
 		"oA": 0,
 		"oAP": "\/_site\/assets\/img\/simpl_logo.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/_site\/assets\/img\/teaser.png": {
-		"ft": 32768,
-		"iS": 418304,
-		"oA": 0,
-		"oAP": "\/_site\/assets\/img\/teaser.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
@@ -1472,132 +1268,11 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/img\/bg--city-gray.png": {
-		"ft": 32768,
-		"iS": 714457,
-		"oA": 0,
-		"oAP": "\/assets\/img\/bg--city-gray.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
 	"\/assets\/img\/black_logo_two.png": {
 		"ft": 32768,
 		"iS": 17207,
 		"oA": 0,
 		"oAP": "\/assets\/img\/black_logo_two.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/blog\/bg--apple-devices.png": {
-		"ft": 32768,
-		"iS": 328957,
-		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/bg--apple-devices.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/blog\/blog_eight.png": {
-		"ft": 32768,
-		"iS": 86673,
-		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/blog_eight.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/blog\/blog_five.png": {
-		"ft": 32768,
-		"iS": 112203,
-		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/blog_five.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/blog\/blog_four.png": {
-		"ft": 32768,
-		"iS": 71419,
-		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/blog_four.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/blog\/blog_nine.png": {
-		"ft": 32768,
-		"iS": 75100,
-		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/blog_nine.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/blog\/blog_one.png": {
-		"ft": 32768,
-		"iS": 1061242,
-		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/blog_one.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/blog\/blog_seven.png": {
-		"ft": 32768,
-		"iS": 80653,
-		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/blog_seven.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/blog\/blog_six.png": {
-		"ft": 32768,
-		"iS": 98887,
-		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/blog_six.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/blog\/blog_three.png": {
-		"ft": 32768,
-		"iS": 72018,
-		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/blog_three.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/blog\/blog_two.png": {
-		"ft": 32768,
-		"iS": 103731,
-		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/blog_two.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
@@ -1684,17 +1359,6 @@
 		"opt": 0,
 		"q": 100
 		},
-	"\/assets\/img\/blog\/j.png": {
-		"ft": 32768,
-		"iS": 254132,
-		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/j.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
 	"\/assets\/img\/blog\/one-data-model-to-rule-them-all\/image_0.jpg": {
 		"ft": 16384,
 		"iS": 24054,
@@ -1737,16 +1401,6 @@
 		"opt": 0,
 		"q": 100
 		},
-	"\/assets\/img\/blog\/wharton.jpg": {
-		"ft": 16384,
-		"iS": 1043381,
-		"oA": 0,
-		"oAP": "\/assets\/img\/blog\/wharton.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
-		},
 	"\/assets\/img\/blog\/whartons-answer-simulation-frameworks\/image_0.png": {
 		"ft": 32768,
 		"iS": 189112,
@@ -1780,16 +1434,6 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/img\/college.jpg": {
-		"ft": 16384,
-		"iS": 3599658,
-		"oA": 0,
-		"oAP": "\/assets\/img\/college.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
-		},
 	"\/assets\/img\/comp_with_code.png": {
 		"ft": 32768,
 		"iS": 153926,
@@ -1812,49 +1456,6 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/img\/creating_a_simpl_app.png": {
-		"ft": 32768,
-		"iS": 106599,
-		"oA": 0,
-		"oAP": "\/assets\/img\/creating_a_simpl_app.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/evemt__img.png": {
-		"ft": 32768,
-		"iS": 276052,
-		"oA": 0,
-		"oAP": "\/assets\/img\/evemt__img.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/illus__landing_tech.png": {
-		"ft": 32768,
-		"iS": 107838,
-		"oA": 0,
-		"oAP": "\/assets\/img\/illus__landing_tech.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/laptop.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/assets\/img\/laptop.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
 	"\/assets\/img\/left_tech.png": {
 		"ft": 32768,
 		"iS": 18048,
@@ -1866,16 +1467,6 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/img\/Magic Mouse copy.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/assets\/img\/Magic Mouse copy.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
 	"\/assets\/img\/open_source.png": {
 		"ft": 32768,
 		"iS": 52266,
@@ -1886,6 +1477,24 @@
 		"opt": 0,
 		"oT": 1,
 		"q": 100
+		},
+	"\/assets\/img\/Readme.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/assets\/img\/Readme.html",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
 		},
 	"\/assets\/img\/right_tech.png": {
 		"ft": 32768,
@@ -1903,17 +1512,6 @@
 		"iS": 17186,
 		"oA": 0,
 		"oAP": "\/assets\/img\/simpl_logo.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/assets\/img\/teaser.png": {
-		"ft": 32768,
-		"iS": 418304,
-		"oA": 0,
-		"oAP": "\/assets\/img\/teaser.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
