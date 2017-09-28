@@ -26,3 +26,13 @@ If you get GemNotFound errors from either command, you may need to also run:
 ```shell
 $ bundle install
 ```
+
+## To Run Jekyll via Docker
+
+We are using [Docker Compose](https://docs.docker.com/compose/) which requires [installing it for the platform of your choice](https://docs.docker.com/compose/install/).
+
+```shell
+$ docker-compose pull
+$ docker-compose up --build
+# => Now browse to http://localhost:8000
+```

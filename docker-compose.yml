@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    image: jekyll/jekyll:latest
+    container_name: simpl-world-jekyll
+    volumes:
+      - ./:/srv/jekyll
+    working_dir: /srv/jekyll
+    command: jekyll serve -s /srv/jekyll --drafts --watch --profile --port 4000
+    ports:
+      - 8000:4000
