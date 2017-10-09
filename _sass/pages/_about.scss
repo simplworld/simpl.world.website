@@ -119,7 +119,7 @@
   box-shadow: -18px 25px 43px rgba(65,65,65,0.36), inset 0 -3px 6px rgba(0,0,0,0.05), inset 0 3px 6px white;
   border-radius: 5px;
   margin-bottom: 100px;
-  max-width: 770px;
+  max-width: 870px;
   width: 100%;
 }
 
@@ -144,4 +144,7 @@
 
 .rev-thanks {
   margin-top: 18px;
+  span {
+    font-weight: 600;
+  }
 }
