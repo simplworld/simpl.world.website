@@ -1,3 +1,10 @@
+---
+title: Welcome to Simpl-Games
+permalink: /docs/services/simple-games-api/
+layout: docs
+description:
+---
+
 # Welcome to Simpl-Games
 
 For development purposes, the Simpl-Games service is run on port 8100.

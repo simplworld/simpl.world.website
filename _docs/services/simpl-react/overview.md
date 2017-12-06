@@ -1,3 +1,10 @@
+---
+title: Overview
+permalink: /docs/services/overview/
+layout: docs
+description:
+---
+
 # Overview
 
 ## Abstraction Layers
@@ -38,7 +45,7 @@ For more information, see the [Forms docs](./forms/overview.md).
 
 ### WAMP Components
 
-Wamp Components are convenience components that wrap a Smart or presentational components to provide them wamp-relative functionality, such as listening or publishing to a topic or calling a remote procedure on the model service 
+Wamp Components are convenience components that wrap a Smart or presentational components to provide them wamp-relative functionality, such as listening or publishing to a topic or calling a remote procedure on the model service
 
 * TopicPublisher
 * TopicSubscriber
@@ -95,7 +102,7 @@ export default function configureStore(initialState) {
 
   return store;
 };
-``` 
+```
 
 `apps/main.js`
 

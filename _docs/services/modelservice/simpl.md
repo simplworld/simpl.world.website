@@ -1,3 +1,10 @@
+---
+title: The simpl client
+permalink: /docs/services/modelservice/simpl/
+layout: docs
+description:
+---
+
 # The simpl client
 
 The `modelservice.simpl.games_client` class provides a generic REST API client that you can use to interface with the Simpl-Games service.

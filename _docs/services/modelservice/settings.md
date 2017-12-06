@@ -1,3 +1,10 @@
+---
+title: Settings
+permalink: /docs/services/modelservice/settings/
+layout: docs
+description:
+---
+
 # Settings
 
 ### Required settings

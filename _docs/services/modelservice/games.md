@@ -1,5 +1,11 @@
-# Games
+---
+title: Games
+permalink: /docs/services/modelservice/games/
+layout: docs
+description:
+---
 
+# Games
 
 ## Scopes
 
@@ -69,7 +75,7 @@ Further customization can be achieved by overriding the `Scope.get_routing(name)
 All _Scopes_ inherits from a common `Scope` subclass and share these common methods:
 
 * `.get_routing(name)`: given a topic short name, returns the full topic path. This is to avoid repeating the same topic namespace over and over, and to allow to use shorter topic names.
-* `.publish(topic, *args, **kwargs)`: Publishes a message on the specified `topic`. The actual topic name will be what is returned by `.get_routing(topic)` 
+* `.publish(topic, *args, **kwargs)`: Publishes a message on the specified `topic`. The actual topic name will be what is returned by `.get_routing(topic)`
 * `.save()`: Persist the scope by submitting it to the `Simpl-Games-API` service.
 * `.add_new_child_scope(json)`
 * `.get_role(role_id)`: Give a role id, returns a full-fledged `Resource` object representing the role.

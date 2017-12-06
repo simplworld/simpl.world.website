@@ -1,3 +1,10 @@
+---
+title: ScopeManager
+permalink: /docs/services/modelservice/scopemanager/
+layout: docs
+description:
+---
+
 # ScopeManager
 
 Collection of scopes are usually returned as ScopeManager.

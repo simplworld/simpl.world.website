@@ -1,3 +1,10 @@
+---
+title: Custom RunUser
+permalink: /docs/services/modelservice/custom_runuser/
+layout: docs
+description:
+---
+
 # Custom RunUser
 
 You may want to provide your custom `RunUser` scope, implementing the procedures and subscribers necessary for your specific situation.
