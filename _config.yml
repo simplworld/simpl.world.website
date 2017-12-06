@@ -30,6 +30,7 @@ exclude:
   - Rakefile
 include:
   - _pages
+  - _docs
 
 github: [metadata]
 
