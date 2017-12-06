@@ -1,3 +1,10 @@
+---
+title: Simpl-React Forms
+permalink: /docs/services/simpl-react/forms/components/
+layout: docs
+description:
+---
+
 # Forms
 
 `Simpl` includes some convenience components from building forms, such as:

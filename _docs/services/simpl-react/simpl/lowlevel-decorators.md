@@ -1,3 +1,10 @@
+---
+title: Simpl-React Low-level Decorators
+permalink: /docs/services/simpl-react/simpl/lowlevel-decorators/
+layout: docs
+description:
+---
+
 # Low-level Decorators
 
 ### simpl() decorator

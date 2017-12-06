@@ -1,3 +1,10 @@
+---
+title: Simpl-React RPC High-level Components
+permalink: /docs/services/simpl-react/rpc/high-level-components/
+layout: docs
+description:
+---
+
 # High-level Components
 
 ### RPCCAller

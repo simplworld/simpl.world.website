@@ -1,6 +1,6 @@
 ---
-title: Overview
-permalink: /docs/services/overview/
+title: Simpl-React Overview
+permalink: /docs/services/simpl-react/
 layout: docs
 description:
 ---

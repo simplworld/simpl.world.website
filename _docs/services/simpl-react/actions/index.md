@@ -1,3 +1,10 @@
+---
+title: Simpl-React Actions
+permalink: /docs/services/simpl-react/actions/
+layout: docs
+description:
+---
+
 # Actions
 
 To create an action, you can use the `createAction` convenience function from [`redux-actions`](https://github.com/acdlite/redux-actions).

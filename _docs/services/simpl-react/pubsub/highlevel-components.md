@@ -1,3 +1,10 @@
+---
+title: Simpl-React PubSub High-level Components
+permalink: /docs/services/simpl-react/pubsub/high-level-components/
+layout: docs
+description:
+---
+
 # High-level Components
 
 ### TopicPublisher

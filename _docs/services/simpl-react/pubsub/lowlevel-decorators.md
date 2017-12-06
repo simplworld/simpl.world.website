@@ -1,3 +1,10 @@
+---
+title: Simpl-React PubSub Low-level Components
+permalink: /docs/services/simpl-react/pubsub/low-level-components/
+layout: docs
+description:
+---
+
 # Low-level Decorators
 
 ### publishes() decorator
@@ -90,7 +97,7 @@ export default SendMessageContainer;
 
 * `onPublished(topic, args, kwargs, details, publicationID)`: This function will be called after new message is successfully published
 * `onPublishedError(variable, args, kwargs, details, error)`: This function will be called after a failure in publishing the message.
-  
+
 ### subscribes() decorator
 
 `containers/Subscriber.jsx`

@@ -1,3 +1,10 @@
+---
+title: Input components included with simpl-react
+permalink: /docs/services/simpl-react/forms/components/
+layout: docs
+description:
+---
+
 #  Input components included with simpl-react
 
 * `TextInput`: An input field that accept custom validators, sanitizers and formatters. Accepts  a `type` prop, which defaults to `"text"`. Defaults: `{sanitizers: ['trim']}`.

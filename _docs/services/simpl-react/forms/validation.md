@@ -1,3 +1,10 @@
+---
+title: Simpl-React Validation
+permalink: /docs/services/simpl-react/forms/validation/
+layout: docs
+description:
+---
+
 # Validation
 
 ## Field level validation
@@ -11,7 +18,7 @@ Supported props are:
 * `sanitizers`: An array of functions or strings to modify the value entered by the user (eg: lowercase an email address)
 * `formatters`: An array of functions to modify the value _displayed_ to the user
 * `required`: A boolean indicating if the input is required. Defaults to `false`.
-* `name`: Required. The name of the field. 
+* `name`: Required. The name of the field.
 
 ## errors, warnings and sanitizers
 

@@ -1,3 +1,10 @@
+---
+title: Simpl-React RPC Low-level Components
+permalink: /docs/services/simpl-react/rpc/lowlevel-components/
+layout: docs
+description:
+---
+
 # Low-level Decorators
 
 ### calls() decorator

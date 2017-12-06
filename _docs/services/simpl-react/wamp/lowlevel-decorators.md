@@ -1,3 +1,10 @@
+---
+title: Simpl-React Wamp Low-level Decorators
+permalink: /docs/services/simpl-react/wamp/lowlevel-decorators/
+layout: docs
+description:
+---
+
 # Low-level Decorators
 
 ### wamp() decorator
