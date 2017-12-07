@@ -16,8 +16,8 @@
 <body class="doc">
   <div class="navigation">
     <header class="header clearfix">
-      <a href="/docs/"><img class="logo" src="/assets/img/simpl_logo.png" /></a>
-      <h2 class="title"><a href="/docs/">Simpl Documentation</a></h2>
+      <a href="{% link _docs/index.md %}"><img class="logo" src="/assets/img/simpl_logo.png" /></a>
+      <h2 class="title"><a href="{% link _docs/index.md %}">Simpl Documentation</a></h2>
     </header>
     <nav>
       <!-- START all sidebar navigation -->
@@ -73,7 +73,7 @@
     <!-- START all content -->
     <div class="content__header">
       <ol class="breadcrumb">
-        <li><a class="anchor" href="/docs/">Docs</a></li>
+        <li><a class="anchor" href="{% link _docs/index.md %}">Docs</a></li>
         {% comment %}
         <li><a href="">Getting Started</a></li>
         <li class="active">Current Item</li>
