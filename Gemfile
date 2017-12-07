@@ -9,6 +9,8 @@ ruby RUBY_VERSION
 gem "jekyll", "3.5.2"
 gem "rake"
 gem "github-pages", group: :jekyll_plugins
+gem "rouge"
+gem "kramdown"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do

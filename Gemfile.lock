@@ -232,7 +232,9 @@ DEPENDENCIES
   jekyll-redirect-from
   jekyll-seo-tag
   jekyll-sitemap
+  kramdown
   rake
+  rouge
 
 RUBY VERSION
    ruby 2.1.10p492
