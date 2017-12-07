@@ -26,9 +26,13 @@ exclude:
   - [vendor]
   - .editorconfig
   - .gitignore
+  - config.codekit3
+  - docker-compose.yml
   - Gemfile
   - Gemfile.lock
+  - Procfile
   - Rakefile
+  - READMD.md
 include:
   - _pages
   - _docs
