@@ -5,9 +5,9 @@ layout: docs
 description:
 ---
 
-# Building the Simpl-Games-API service
+## Building the Simpl-Games-API service
 
-## Prerequisites
+### Prerequisites
 
 The Simpl Calc tutorial assumes that the following software is installed:
 

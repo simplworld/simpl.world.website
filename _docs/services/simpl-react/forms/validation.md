@@ -5,9 +5,9 @@ layout: docs
 description:
 ---
 
-# Validation
+## Validation
 
-## Field level validation
+### Field level validation
 
 All components in `simpl/lib/components/forms/` share the same API for validing the field.
 
@@ -20,7 +20,7 @@ Supported props are:
 * `required`: A boolean indicating if the input is required. Defaults to `false`.
 * `name`: Required. The name of the field.
 
-## errors, warnings and sanitizers
+### errors, warnings and sanitizers
 
 These props accepts an array of functions or strings.
 
@@ -57,7 +57,7 @@ const isOldEnough = (value, ownProps) => {
 
 Sanitizers and formatters works similarly, but they must return the modified value, or the original value in case of error.
 
-## Form-level validation
+### Form-level validation
 
 If you need to validate against multiple fields (for example, you may need to compare fields' values), you can use [`redux-form`](http://redux-form.com/). The appropriate reducer is already installed in the default store, so you can start using it right away.
 
@@ -136,7 +136,7 @@ const ValidateContactFormContainer = connect(
 export default ValidateContactFormContainer;
 ```
 
-## Server-side validation
+### Server-side validation
 
 Server-side validation involves calling a procedure or publishing to a topic on the modelservice, and having the modelservice raise a `FormError` instance containg the form name and the error messages.
 

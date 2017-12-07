@@ -5,9 +5,9 @@ layout: docs
 description:
 ---
 
-# Reference
+## Reference
 
-## Bringing Development Environment Online
+### Bringing Development Environment Online
 
 Provided you've completed the Simpl Calc tutorial, the following steps outline bringing everything back
 online from a freshly restarted Vagrant

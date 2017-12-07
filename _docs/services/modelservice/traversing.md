@@ -5,7 +5,7 @@ layout: docs
 description:
 ---
 
-# Traversing Scopes
+## Traversing Scopes
 
 Every Scope has a `.my` attribute that can be user to reach other scopes that are related to a specific instance.
 

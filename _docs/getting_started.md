@@ -5,7 +5,7 @@ layout: docs
 description: You can get a taste of Simpl by running the simpl-calc example simulation.
 ---
 
-# Simpl Getting Started Guide
+## Simpl Getting Started Guide
 
 You can get a taste of Simpl by running the simpl-calc example simulation.
 

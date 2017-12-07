@@ -5,7 +5,7 @@ layout: docs
 description: The Simpl framework is composed of three major parts.
 ---
 
-# Welcome to Simpl
+## Welcome to Simpl
 
 The Simpl framework is composed of three major parts:
 

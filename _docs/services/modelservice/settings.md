@@ -5,7 +5,7 @@ layout: docs
 description:
 ---
 
-# Settings
+## Settings
 
 ### Required settings
 

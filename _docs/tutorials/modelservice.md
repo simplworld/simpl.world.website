@@ -4,16 +4,17 @@ permalink: /docs/tutorials/modelservice/
 layout: docs
 description:
 ---
-# Building the Model Service implementation
 
-## Prerequisites
+## Building the Model Service implementation
+
+### Prerequisites
 
 This part of the tutorial is a continuation of the [Simpl Games API Setup](./games-api.md).  Please complete that section before continuing.  Note, this tutorial assumes you are going through this guide on the same Vagrant box you provisioned in the previous step.
 
 !!! note
     This tutorial assumes you still have Games API service running (http://localhost:8100/).  Please open up an additional terminal window before continuing.
 
-## Installation
+### Installation
 
 First, log into Vagrant and create a new virtualenv called 'simpl-calc-model':
 
@@ -112,7 +113,7 @@ CACHES = {
 }
 ```
 
-## Implementation
+### Implementation
 
 For simplicity, we're going to create a single player Game in which each player has a Scenario that can advance multiple periods.
 

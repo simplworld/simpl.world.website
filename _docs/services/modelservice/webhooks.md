@@ -5,7 +5,7 @@ layout: docs
 description:
 ---
 
-# Registering functions with hooks
+## Registering functions with hooks
 
 Inside your Django app, create a file called `webhooks.py` with the following content:
 

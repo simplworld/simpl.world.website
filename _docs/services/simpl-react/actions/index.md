@@ -5,7 +5,7 @@ layout: docs
 description:
 ---
 
-# Actions
+## Actions
 
 To create an action, you can use the `createAction` convenience function from [`redux-actions`](https://github.com/acdlite/redux-actions).
 
@@ -38,7 +38,7 @@ const simpl = recycleState(createReducer(initial, {
 }), `${recyleStateAction}`);
 ```
 
-## PubSub
+### PubSub
 
 To create an action that publishes to a WAMP topic, you should use the Autobahn client included with `simpl`:
 
@@ -55,7 +55,7 @@ export const myAction = createAction('MY_ACTION', (some_scope, ...args) =>
 
 Since publishing to a topic does not return any value, and "completes" before anything is done on the server side, there is very little reason to catch the action in a reducer.
 
-## RPC
+### RPC
 
 To create an action that calss a WAMP topic, you should use the Autobahn client included with `simpl`:
 
@@ -89,7 +89,7 @@ const simpl = recycleState(createReducer(initial, {
 }), `${recyleStateAction}`);
 ```
 
-### Chain RPC promises
+#### Chain RPC promises
 
 The action returns a promise which will be resolved with the returned value. This means tha t you can chain to the action to dispatch further actions after the call completes:
 

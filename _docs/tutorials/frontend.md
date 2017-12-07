@@ -4,9 +4,10 @@ permalink: /docs/tutorials/frontend/
 layout: docs
 description:
 ---
-# Building the Frontend UI
 
-## Prerequisites
+## Building the Frontend UI
+
+### Prerequisites
 
 This tutorial assumes you already the following software installed:
 
@@ -17,7 +18,7 @@ This tutorial assumes you already the following software installed:
 !!! note
     This tutorial assumes you still have both the [Games API service](./games-api.md) (http://localhost:8100/) and the [Model service](./games-api.md) (http://localhost:8080/) running.  Please open up an additional terminal window and SSH into the Vagrant box before continuing.
 
-## Installation
+### Installation
 
 First, create a new virtualenv called 'simpl-calc-ui':
 
@@ -81,7 +82,7 @@ It is also recommended to configure your editor to integrate with ESLint:
 * [PyCharm](https://www.jetbrains.com/help/pycharm/2016.1/eslint.html)
 * [SublimeText2](https://github.com/roadhump/SublimeLinter-eslint)
 
-## Configuration
+### Configuration
 
 Just like most Websites, the frontend service will need a place where it can store information about sessions and their users. The users' specific information will be fetched from the [Simple Games API](./games-api.md) and kept in sync automatically.
 
@@ -103,6 +104,4 @@ $ ./manage.py runserver 0.0.0.0:8000
 
 Now head to `http://localhost:8000/` and login as 's1@calc.edu' with passowrd 's1'. Once you are logged in, you should the 'Hello World' message of the skeleton app.
 
-
-
-##To be continued...
+### To be continued...

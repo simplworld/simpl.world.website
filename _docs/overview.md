@@ -5,7 +5,7 @@ layout: docs
 description: Simpl Overview description
 ---
 
-# Overview
+## Overview
 
 In practice, there will always be one single instance of The `Simpl-Games-API` service, and for every simulation you will write a model service, and a frontend service. The browser will use the frontend service for the static assets (HTML and JS), and connect to the model service in order to receive/send events through the WebSocket.
 

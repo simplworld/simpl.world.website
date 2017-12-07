@@ -5,7 +5,7 @@ layout: docs
 description:
 ---
 
-# Custom RunUser
+## Custom RunUser
 
 You may want to provide your custom `RunUser` scope, implementing the procedures and subscribers necessary for your specific situation.
 

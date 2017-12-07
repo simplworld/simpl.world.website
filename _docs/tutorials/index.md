@@ -5,7 +5,7 @@ layout: docs
 description:
 ---
 
-# Simpl Calc Tutorial
+## Simpl Calc Tutorial
 
 This tutorial will walk you through the creation of the Simpl Calc game.
 This game implements a model that takes a number and adds it to a current total.

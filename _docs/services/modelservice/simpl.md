@@ -5,7 +5,7 @@ layout: docs
 description:
 ---
 
-# The simpl client
+## The simpl client
 
 The `modelservice.simpl.games_client` class provides a generic REST API client that you can use to interface with the Simpl-Games service.
 
@@ -25,7 +25,7 @@ user.save()
 
 ```
 
-## Endpoint methods
+### Endpoint methods
 
 * `.create_or_update(**kwargs)`
 * `.create(**kwargs)`
@@ -33,17 +33,17 @@ user.save()
 * `.filter(**kwargs)`
 * `.get(**kwargs)`
 
-## Resource methods
+### Resource methods
 
 * `.save()`
 * `.delete()`
 
-## Resource attributes
+### Resource attributes
 
 * `.payload`: a `dict` containg the data returned in the response body.
 
 
-## Exceptions
+### Exceptions
 
 All exceptions are subclasses of `ValueError`.
 

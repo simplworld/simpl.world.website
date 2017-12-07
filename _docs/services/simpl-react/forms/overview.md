@@ -5,7 +5,7 @@ layout: docs
 description:
 ---
 
-# Forms
+## Forms
 
 `Simpl` includes some convenience components from building forms, such as:
 
@@ -22,7 +22,7 @@ These components will react to validation:
     * green if there's no errors or messages
 * Error and/or warning messages will be displayed right below them.
 
-## Support for redux-form
+### Support for redux-form
 
 All components have support for [`redux-form`](http://redux-form.com/), which is already included with `simpl`. Just pass the component to the `Field`, along with your custom [validation props](./validation.md).
 

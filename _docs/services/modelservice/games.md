@@ -5,9 +5,9 @@ layout: docs
 description:
 ---
 
-# Games
+## Games
 
-## Scopes
+### Scopes
 
 Every game is defined by building what we call the _Scope tree_.
 
@@ -70,7 +70,7 @@ Game.register('zero-sum', [Scenario])
 
 Further customization can be achieved by overriding the `Scope.get_routing(name)` method.
 
-### Scope methods
+#### Scope methods
 
 All _Scopes_ inherits from a common `Scope` subclass and share these common methods:
 
@@ -85,7 +85,7 @@ All _Scopes_ inherits from a common `Scope` subclass and share these common meth
 * `.onStop()`
 * `.onStart()`
 
-### Scope properties
+#### Scope properties
 
 All _Scopes_ inherits from a common `Scope` subclass and share these common properties:
 
@@ -97,7 +97,7 @@ All _Scopes_ inherits from a common `Scope` subclass and share these common prop
 * `.log`: a `txaio` logging instance. See "Logging" below.
 * `.runuser_class`: Scope class to use for RunUsers. Override this to provide your [Custom RunUser](./custom_runuser.md). Defaults to `modelservices.games.RunUser`. Note: this only aplies to your top-level scope.
 
-### Logging
+#### Logging
 
 To log from a `Scope`, you can use the `.log` attribute.
 
@@ -105,7 +105,7 @@ The best practice is to use a string with the `r` formatting operator for your v
 
     myscope.log.info("Something happened: {myvar!r}", myvar=somevar)
 
-### Concrete Classes
+#### Concrete Classes
 
 For convenience, the following scopes are already defined in `modelservices.games`:
 
@@ -118,7 +118,7 @@ For convenience, the following scopes are already defined in `modelservices.game
 * `modelservices.games.Decision`
 * `modelservices.games.Result`
 
-#### modelservices.games.Game
+###### modelservices.games.Game
 
 In addition to the methods inherited from `Scope`, `Game` has the following methods:
 
@@ -128,7 +128,7 @@ In addition to the properties inherited from `Scope`, `Game` has the following p
 
 * `.phases`: A list of the game's `Phase`s.
 
-#### modelservices.games.Run
+###### modelservices.games.Run
 
 In addition to the methods inherited from `Scope`, `Run` has the following methods:
 
@@ -144,7 +144,7 @@ In addition to the properties inherited from `Scope`, `Run` has the following pr
 * `.worlds`: A list of `World`s within this `Run`
 * `.ChangePhaseException`: Exception subclass to prevent the run from being changed.
 
-#### modelservices.games.RunUser
+###### modelservices.games.RunUser
 
 In addition to the methods inherited from `Scope`, `RunUser` has the following methods:
 
@@ -155,7 +155,7 @@ In addition to the properties inherited from `Scope`, `Run` has the following pr
 
 * `.scenarios`: A list of the RunUser's `Scenarios`s.
 
-#### modelservices.games.Scenario
+###### modelservices.games.Scenario
 
 In addition to the methods inherited from `Scope`, `Scenario` has the following methods:
 
@@ -168,7 +168,7 @@ In addition to the properties inherited from `Scope`, `Scenario` has the followi
 * `.current_period`: returns the current period, defined as the last one created. Returns `None` if the scenario doesn't have any periods, yet.
 * `.world`: alias of `.my.parent`
 
-#### modelservices.games.Period
+###### modelservices.games.Period
 
 In addition to the methods inherited from `Scope`, `Period` has the following methods:
 
@@ -181,13 +181,13 @@ In addition to the properties inherited from `Scope`, `Period` has the following
 * `.results`
 * `.scenario`: alias of `.my.parent`
 
-#### modelservices.games.Decision
+###### modelservices.games.Decision
 
 In addition to the properties inherited from `Scope`, `Decision` has the following properties:
 
 * `.period`: alias of `.my.parent`
 
-#### modelservices.games.Result
+###### modelservices.games.Result
 
 In addition to the properties inherited from `Scope`, `Result` has the following properties:
 

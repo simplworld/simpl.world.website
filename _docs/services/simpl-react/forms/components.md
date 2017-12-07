@@ -5,7 +5,7 @@ layout: docs
 description:
 ---
 
-#  Input components included with simpl-react
+##  Input components included with simpl-react
 
 * `TextInput`: An input field that accept custom validators, sanitizers and formatters. Accepts  a `type` prop, which defaults to `"text"`. Defaults: `{sanitizers: ['trim']}`.
     * `EmailInput`: Like `TextInput`, but with default `type="email"`. Fails validation is the value is not an email. Defaults: `{errors: ['isEmail'], sanitizers: ['normalizeEmail']}`
@@ -16,7 +16,7 @@ description:
             * `CurrencyInput`: Like `DecimalInput`, but also renders a [Bootstrap AddOn](https://react-bootstrap.github.io/components.html#forms-input-addons) with `{currencySymbol}`, which defaults to `'$'`. Defaults: `{errors: ['isCurrency', min, max], sanitizers: ['toFloat'], formatters: [decimalPlaces]}`
     * `PasswordInput`: Like `TextInput`, but forces `type="password"`. Defaults: `{}`.
 
-## Creating your custom Input components
+### Creating your custom Input components
 
 If you wish, you can create your own component that implements your custom markup or validation by using the `validateField` decorator.
 

@@ -5,13 +5,13 @@ layout: docs
 description:
 ---
 
-# ScopeManager
+## ScopeManager
 
 Collection of scopes are usually returned as ScopeManager.
 
 A `ScopeManager` behaves like a list (ie: you can iterate on them, use the `in` operator), and allows you to operate on collections of scopes.
 
-## Filtering
+### Filtering
 
 `ScopeManager.filter(**kwargs)` will return a new `ScopeManager` with only the scopes that match the conditions.
 
@@ -47,7 +47,7 @@ You can get the last scope of a manager with the `.last()` method.
 
 `.count()` will return the number of scopes in the manager.
 
-## Editing
+### Editing
 
 Just like list, `ScopeManagers` can be combined using the `+` operator:
 

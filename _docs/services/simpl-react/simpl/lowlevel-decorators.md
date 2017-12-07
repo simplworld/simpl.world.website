@@ -5,7 +5,7 @@ layout: docs
 description:
 ---
 
-# Low-level Decorators
+## Low-level Decorators
 
 ### simpl() decorator
 
