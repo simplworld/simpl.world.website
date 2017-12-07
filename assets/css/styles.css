@@ -36,10 +36,6 @@ code,kbd,samp{font-family:monospace, monospace;font-size:1em}dfn{font-style:ital
 .doc .content p{font-size:18px;line-height:28px;margin-top:25px;font-family:"Alegreya",serif}
 .doc .content a{color:#0089E9}
 .doc .content p a:hover,.doc .content p a:active,.doc .content p a:focus{background:none !important;text-decoration:underline}
-.doc .content code{color:#a17bd4;background:none;margin-top:25px;border:1px solid #ddd;max-width:100%;padding:5px}
-.doc .content pre code{display:block}
-.doc .content code span{display:inline-block;color:#272727}
-.doc .content pre{margin:0;padding:0;display:block;background:#fff;border:1px solid #ddd;margin-top:25px;padding:1.5em;color:#4d4d4d;line-height:20px}
 .doc .content .note{margin-top:25px}
 .doc .content .note p{font-size:15px;padding:1em;margin-top:0;color:#fff;line-height:22px;background:#37acff}
 .doc .content .note__header{color:#fff;background:#0089E9;display:block;padding:0.5em 1em;font-size:15px;font-weight:400}
