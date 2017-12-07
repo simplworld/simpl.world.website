@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/pygments.css">
 </head>
 
 <body class="doc">
@@ -36,30 +37,45 @@
         <li><a href="{% link _docs/tutorials/games-api.md %}">Build the Simpl Games API service</a></li>
         <li><a href="{% link _docs/tutorials/modelservice.md %}">Build the Single Player Model Service</a></li>
         <li><a href="{% link _docs/tutorials/frontend.md %}">Build the Single Player Model Front End</a></li>
+        <li><a href="{% link _docs/tutorials/reference.md %}">Simpl Reference</a></li>
       </ul>
       <!-- END nav component -->
+
       <ul class="nav nav-component">
         <!-- START nav component -->
-        <li class="nav__section-title">Services</li>
-        {% comment %}
-        <li><a href="{% link _docs/services/simpl-users/index.md %}">Simpl Users</a></li>
-        {% endcomment %}
-
-        <li><a href="{% link _docs/services/Simpl-Games-API/index.md %}">Simpl Games API</a></li>
-        <li><a href="{% link _docs/services/simpl-react/overview.md %}">Simpl React</a></li>
-
-        {% comment %}
-        <li class="toggle">
-          <a href="" id="btn-3" class="toggle-nav" data-toggle="collapse" data-target="#submenu1" aria-expanded="false">Model Service</a>
-          <ul class="nav collapse" id="submenu1" role="menu" aria-labelledby="btn-3">
-            <li><a href="">Version 1</a></li>
-            <li><a href="">Version 2</a></li>
-            <li><a href="">Version 3</a></li>
-          </ul>
-        </li>
-        {% endcomment %}
+        <li class="nav__section-title">Model Service</li>
+        <li><a href="{% link _docs/services/modelservice/custom_runuser.md %}">Custom RunUser</a></li>
+        <li><a href="{% link _docs/services/modelservice/games.md %}">Games</a></li>
+        <li><a href="{% link _docs/services/modelservice/running.md %}">Running the model service</a></li>
+        <li><a href="{% link _docs/services/modelservice/scopemanager.md %}">ScopeManager</a></li>
+        <li><a href="{% link _docs/services/modelservice/settings.md %}">Settings</a></li>
+        <li><a href="{% link _docs/services/modelservice/simpl.md %}">The simpl client</a></li>
+        <li><a href="{% link _docs/services/modelservice/traversing.md %}">Traversing Scopes</a></li>
+        <li><a href="{% link _docs/services/modelservice/webhooks.md %}">Registering functions with hooks</a></li>
       </ul>
-      <!-- END nav component -->
+
+      <ul class="nav nav-component">
+        <!-- START nav component -->
+        <li class="nav__section-title">Simpl-Games-API</li>
+        <li><a href="{% link _docs/services/Simpl-Games-API/index.md %}">Welcome to Simpl-Games</a></li>
+      </ul>
+
+      <ul class="nav nav-component">
+        <!-- START nav component -->
+        <li class="nav__section-title">Model Service</li>
+        <li><a href="{% link _docs/services/simpl-react/overview.md %}">Simpl-React Overview</a></li>
+        <li><a href="{% link _docs/services/simpl-react/actions/index.md %}">Actions</a></li>
+        <li><a href="{% link _docs/services/simpl-react/forms/overview.md %}">Forms Overview</a></li>
+        <li><a href="{% link _docs/services/simpl-react/forms/components.md %}">Forms Input components included</a></li>
+        <li><a href="{% link _docs/services/simpl-react/forms/validation.md %}">Forms Validation</a></li>
+        <li><a href="{% link _docs/services/simpl-react/simpl/lowlevel-decorators.md %}">Low-level Decorators</a></li>
+        <li><a href="{% link _docs/services/simpl-react/pubsub/highlevel-components.md %}">PubSub High-level Components</a></li>
+        <li><a href="{% link _docs/services/simpl-react/pubsub/lowlevel-decorators.md %}">PubSub Low-level Components</a></li>
+        <li><a href="{% link _docs/services/simpl-react/rpc/highlevel-components.md %}">RPC High-level Components</a></li>
+        <li><a href="{% link _docs/services/simpl-react/rpc/lowlevel-decorators.md %}">RPC Low-level Components</a></li>
+        <li><a href="{% link _docs/services/simpl-react/wamp/lowlevel-decorators.md %}">Wamp Low-level Decorators</a></li>
+        <li><a href="{% link _docs/services/simpl-users/index.md %}"></a></li>
+      </ul>
     </nav>
     <div class="doc__spacer nav-spacer"></div>
     <!-- END all sidebar navigation -->
