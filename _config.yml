@@ -10,7 +10,7 @@ permalink: blog/:title/  # permalink: date
 
 # Both of these settings may be removed after we are off the minima theme
 twitter_username: simplworld
-github_username: jekyll
+github_username: simplworld
 
 # Build settings
 markdown: kramdown
@@ -26,9 +26,13 @@ exclude:
   - [vendor]
   - .editorconfig
   - .gitignore
+  - config.codekit3
+  - docker-compose.yml
   - Gemfile
   - Gemfile.lock
+  - Procfile
   - Rakefile
+  - READMD.md
 include:
   - _pages
   - _docs
