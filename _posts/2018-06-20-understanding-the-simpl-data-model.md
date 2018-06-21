@@ -37,7 +37,7 @@ A **RunUser** represents the one to one relationship between a game Run and a Us
 Each RunUser represents either a leader or a player in the run. Each Run may have one or more leader RunUsers and one or more player RunUsers.
 
 A Game can have one or more Run **Phases** that determine the features available as a Run moves from one phase to the next.
-Simple Games may need only one Phase (e.g. Play), while more complex Games may require several (e.g. Setup, Players Prepare, Play and Debrief).
+Simple Games might need only one Phase (e.g. *Play*), while more complex Games may require several (e.g. *Setup*, *Players Prepare*, *Play and Debrief*).
 
 A Game can have one or more player **Roles**. A player’s role might determine the background information they see and the types of decisions they can make.
 Games in which all players have exactly the same capabilities do not need to define player Roles.
@@ -54,13 +54,45 @@ A **Period** represents inputs and outputs for a step of the simulation model.
 
 A **Scenario** encapsulates a set of Decisions and Results possibly over several Periods for a RunUser or for a World.
 
-Together these classes can be used to create a wide variety of simulation-based games.
+Together these models can be used to create a wide variety of simulation-based games.
+
+
+## Designing a Multi-player Game
+
+How might we use Simpl models in re-implementing the Learning Lab game, [Macrosim](http://simulations.wharton.upenn.edu/solutions/macrosim/)?
+Macrosim players practice on their own over several days making  fiscal and monetary policy decisions and seeing their effects on a country's economy.
+Then they play a tournament during class as part of a team.
+Each Macrosim tournament team comprises some students playing the role of monetary policy maker and other students playing the role of fiscal policy maker.
+
+To re-implement Macrosim as a Simpl game, we would create a single *macrosim* Game instance with  *MonetaryPolicyMaker* Role and *FiscalPolicyMaker* Roles.
+The macrosim Game would also need three Phases: *Setup*, *Practice*, *Play and Debrief*.
+
+During the *Setup* phase of a *macrosim* Run, leaders assigned to the Run would be able to log into the game to configure the game's settings and
+add students to the Run as players with an assigned World and Role.
+
+After moving a  *macrosim* Run to *Practice*, students would be able to log in and make *MonetaryPolicyMaker* and *FiscalPolicyMaker* Decisions
+and see their Results over several Periods using private RunUser Scenarios.
+
+The tournament  leader would move a *macrosim* Run to the *Play and Debrief* phase to bring an end to student practice and open a
+tournament of country (aka World) economies competing for the best final Results.
+During the tournament, a *MonetaryPolicyMaker* player and a *FiscalPolicyMaker* player in each World would enter Decisions for their World's Scenario.
+The tournament leader would control how many Periods the tournament runs, when players could enter Decisions, when the Macrosim simulation model ran the Decisions, and discuss the simulation Results of all Worlds.
+Logged in players in a World would only be able to see the Decisions and Results of their World.
+
+
+## Simpl Django Models
 
 
 ![image alt text](/assets/img/blog/understanding-the-simpl-data-model/models.png)
 
 
-## Designing a Multi-player Game
+
+
+
+
+
+
+
 
 
 
