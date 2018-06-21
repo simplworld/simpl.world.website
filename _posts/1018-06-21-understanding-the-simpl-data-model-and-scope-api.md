@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Understanding the Simpl Data Model and Scope API"
+title: "Understanding the Simpl Data Model"
 date: 2018-06-21 14:38:00 -0500
-categories: News
+categories: Design
 author: Jane Eisenstein
 excerpt: |
-    A high-level explanation of the Simpl data model and Scope API
+    The Simpl data model was designed to support developing gamified simulations with as much flexibility as possible.
 ---
 
 Background
@@ -42,11 +42,4 @@ A Period represents inputs and outputs for a step of the simulation model.
 
 A Scenario encapsulates a set of Decisions and Results possibly over several Periods for a RunUser or for a World.
 
-Simpl Scope API 
-
-Simpl applications need to restrict the amount of game data loaded into the browser. This is done by filtering out data unrelated to the currently logged in user. When a user logs into the game frontend, a query is run that determines their RunUsers within the game. The query results are used to load appropriate game data into the browser by the simpl-react Javascript package.
-
-By default, leaders have access to all data for their Runs. Players in single-player games typically only have access to data associated with their Scenarios. Players in multi-player games typically only access data associated with their World within a Run. However, the API also supports multi-player game users having private Scenarios used to test out strategies prior to committing final decisions.  
-
-The Simpl Scope API provided by the simpl-modelservice Python package supports loading only data from Runs with which the user has a RunUser relationship. The relationships of the Scope classes form a directed acyclic graph (see below) that can be traversed using the parent/child access functions of the API.
 

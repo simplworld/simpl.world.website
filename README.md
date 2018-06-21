@@ -14,6 +14,22 @@ $ foreman start
 # => Now browse to http://localhost:8000
 ```
 
+For Mac OS High Sierra, install ruby using homebrew, add to .bash_profile:
+```
+# Ruby exports
+export GEM_HOME=$HOME/gems
+export PATH=$HOME/gems/bin:$PATH
+
+# Add Homebrew's executable directory to the front of the PATH
+export PATH=/usr/local/bin:$PATH
+```
+then run:
+```shell
+sudo gem install -n /usr/local/bin bundler jekyll foreman
+$ foreman start
+# => Now browse to http://localhost:8000
+```
+
 To manually run Jekyll sans foreman:
 
 ```shell
