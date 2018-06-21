@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "Understanding the Simpl Data Model"
-date: 2018-06-21 14:38:00 -0500
+date: 2018-06-21 14:38:00 -0400
 categories: Design
 author: Jane Eisenstein
 excerpt: |
     The Simpl data model was designed to support developing gamified simulations with as much flexibility as possible.
 ---
 
-Background
+## Background
 
 The Simpl framework was developed by the Alfred West Jr. Learning Lab at the Wharton School of the University of Pennsylvania. The Learning Lab’s mission is to improve the way Wharton students learn by engaging them with cutting edge digital learning tools (usually gamified simulations) developed in partnership with Wharton faculty.
 
@@ -16,7 +16,7 @@ At Wharton, games are run as part of a class or other event. A group of students
 
 In some games, players are grouped into teams to either collaborate or compete with other team members. These are multi-player games. In other games, player decisions and results are independent of each other. These are single-player games.
 
-Model Classes
+## Model Classes
 
 The Simpl data model was designed to support developing such games with as much flexibility as possible. To this end, the model classes all have a data property for storing JSON data unique to a specific game.
 
