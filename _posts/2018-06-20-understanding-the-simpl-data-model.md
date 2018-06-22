@@ -65,7 +65,7 @@ They  then play a tournament during class as part of a team.
 Each Macrosim tournament team comprises some students playing the role of monetary policy maker and other students playing the role of fiscal policy maker.
 
 To re-implement Macrosim as a Simpl game, we would create a single *macrosim* Game instance with  *MonetaryPolicyMaker* and *FiscalPolicyMaker* Roles.
-The *macrosim* Game would also need three Phases: *Setup*, *Practice*, *Play and Debrief*.
+The *macrosim* Game would also need three Phases: *Setup*, *Practice*, *Tournament*.
 
 During the *Setup* phase of a *macrosim* Run, leaders assigned to the Run would be able to log into the game to configure the game's settings and
 add students to the Run as player RunUsers with an assigned World and Role.
@@ -73,14 +73,14 @@ add students to the Run as player RunUsers with an assigned World and Role.
 After moving a  *macrosim* Run to *Practice*, students would be able to log in and make *MonetaryPolicyMaker* and *FiscalPolicyMaker* Decisions
 and see their Results over several Periods using private RunUser Scenarios.
 
-The tournament  leader would move a *macrosim* Run from *Practice* to the *Play and Debrief* phase to bring an end to student practice and open a
+The tournament  leader would move a *macrosim* Run from *Practice* to the *Tournament* phase to bring an end to student practice and open a
 tournament of country (aka World) economies competing for the best final Results.
 During the tournament, a *MonetaryPolicyMaker* player and a *FiscalPolicyMaker* player in each World would enter Decisions for their World's Scenario.
 The tournament leader would control how many Periods the tournament runs, when players could enter Decisions, when the Macrosim simulation model ran the Decisions, and discuss the simulation Results of all Worlds.
 Logged in players would only be able to see the Decisions and Results of their World.
 
 
-## Simpl Django Models
+## Simpl Django Model Diagram
 
 
 ![image alt text](/assets/img/blog/understanding-the-simpl-data-model/models.png)
