@@ -24,7 +24,7 @@ $ mkvirtualenv calc-model
 Install Django
 
 ```bash
-$ pip install Django==1.11.11
+$ pip install Django~=1.11
 ```
 
 Change to the projects folder:
