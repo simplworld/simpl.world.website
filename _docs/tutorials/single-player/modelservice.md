@@ -10,7 +10,7 @@ description:
 ###  Prerequisites
 
 !!! note
-    This tutorial assumes you have [Games API service]{% link _docs/tutorials/getting_started/index.md %}) running (http://localhost:8100/) on a Vagrant box you have provisioned.  Please open up an additional terminal window before continuing.
+    This tutorial assumes you have [Games API service]{% link _docs/getting-started.md %}) running (http://localhost:8100/) on a Vagrant box you have provisioned.  Please open up an additional terminal window before continuing.
 
 ###  Installation
 
