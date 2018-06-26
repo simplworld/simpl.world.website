@@ -14,6 +14,8 @@ Every game is defined by building what we call the _Scope tree_.
 The _Scope tree_ starts at `Game`, and it's defined as follow:
 
 * `Game`
+    * `Phase`
+    * `Role`
     * `Run`
         * `RunUser`
         * `World`
@@ -26,15 +28,15 @@ The `modelservice.games` module provides all the base classes to build this tree
 
 Your game is defined by registering your top-level Scope with the `modelservices.games.game` decorator.
 
-Inside any Scope, you can make any method callable from javascript by decorating it with the `modelservice.games.register` decorator. Similarly, you can use the `modelservice.games.subscribe` decorator to subscribe any method to a topic:
+Inside any Scope, you can make any method callable from javascript by decorating it with the `modelservice.games.register` decorator.
+Similarly, you can use the `modelservice.games.subscribe` decorator to subscribe any method to a topic:
 
 ```python
-from modelservice.games import Scope, Game
+from modelservice.games import Scenario, Game
 from modelservice.games import register, subscribe
 
 
-class Scenario(Scope):
-    resource_name = 'scenario'
+class ZeroSumScenario(Scenario):
     players = {}
 
     @register
@@ -45,40 +47,38 @@ class Scenario(Scope):
     def player_quit(self, player, reason, details):
         self.players.pop(player['id'])
 
-Game.register('zero-sum', [Scenario])
+Game.register('zero-sum', [ZeroSumScenario])
 
 ```
 
-In this example, `Scenario.add` will be registered by default at the uri `{settings.ROOT_URI}.models.{resource_name}.{scope_pk}.add`, and `Scenario.player_quit` will subscribe to `{settings.ROOT_URI}.models.resource_name}.{scope_pk}.player_quit`.
+In this example, `ZeroSumScenario.add` will be registered at the uri `{settings.ROOT_URI}.models.{resource_name}.{scope_pk}.add`
+ and `ZeroSumScenario.player_quit` will subscribe to `{settings.ROOT_URI}.models.resource_name}.{scope_pk}.player_quit`.
 
-The name that will be used for the function can be passed to the decorator:
+Alternatively, the name that will be used for the topic can be passed to the decorator:
 
 ```python
 
-class Scenario(Scope):
-    resource_name = 'scenario'
+class ZeroSumScenario(Scenario):
 
     @subscribe('player.quit')
     def player_quit(self, player, reason):
         self.players.pop(player['id'])
 
-Game.register('zero-sum', [Scenario])
+Game.register('zero-sum', [ZeroSumScenario])
 
 ```
 
-`Scenario.player_quit` will now be subscribed to `{settings.ROOT_URI}.models.{resource_name}.{scope_pk}.player.quit`.
+`ZeroSumScenario.player_quit` will now be subscribed to `{settings.ROOT_URI}.models.{resource_name}.{scope_pk}.player.quit`.
 
 Further customization can be achieved by overriding the `Scope.get_routing(name)` method.
 
 #### Scope methods
 
-All _Scopes_ inherits from a common `Scope` subclass and share these common methods:
+All _Scopes_ inherit from a common `Scope` subclass and share these common methods among many others:
 
-* `.get_routing(name)`: given a topic short name, returns the full topic path. This is to avoid repeating the same topic namespace over and over, and to allow to use shorter topic names.
+* `.get_routing(name)`: given a topic short name, returns the full topic path. This is to avoid repeating the same topic namespace over and over, and allow using shorter topic names.
 * `.publish(topic, *args, **kwargs)`: Publishes a message on the specified `topic`. The actual topic name will be what is returned by `.get_routing(topic)`
 * `.save()`: Persist the scope by submitting it to the `Simpl-Games-API` service.
-* `.add_new_child_scope(json)`
-* `.get_role(role_id)`: Give a role id, returns a full-fledged `Resource` object representing the role.
 * `.get_scope()`: Registered procedure at `{scope.topic}.get_scope` returning the scope's serialized version. Call this procedure if you want to retrieve the scope's state from the UI
 * `.get_scope_tree()`: Same as `.get_scope`, but will also walk down the tree from scope, returning its children recursively.
 * `.onConnected()`
@@ -87,15 +87,16 @@ All _Scopes_ inherits from a common `Scope` subclass and share these common meth
 
 #### Scope properties
 
-All _Scopes_ inherits from a common `Scope` subclass and share these common properties:
+All _Scopes_ inherits from a common `Scope` subclass and share these common properties among many others:
 
-* `.pk`
-* `.json`: A `dict` that contains the serialized representation of the scope. This is what will be passed to the browser and to the Simpl-Games-API service. Any user-defined state for the scope should be stored in `.json['data']`
+* `.pk`: The scopes primary key
+* `.json`: A `dict` that contains the serialized representation of the scope. This is what will be passed to the browser
+and to the Simpl-Games-API service. Any user-defined state for the scope should be stored in `.json['data']`
+* `.game`: The `Game` with which this scope belongs.
 * `.child_scopes`: A [`ScopeManager`](./scopemanager.md) of the children scope.
 * `.games_client`: An instance of a REST API client for the Simpl-Games service.
 * `.my`: This special property will contain scopes that are related to the scope. See [Traversing Scopes](./traversing.md) for more details.
 * `.log`: a `txaio` logging instance. See "Logging" below.
-* `.runuser_class`: Scope class to use for RunUsers. Override this to provide your [Custom RunUser](./custom_runuser.md). Defaults to `modelservices.games.RunUser`. Note: this only aplies to your top-level scope.
 
 #### Logging
 
@@ -107,9 +108,11 @@ The best practice is to use a string with the `r` formatting operator for your v
 
 #### Concrete Classes
 
-For convenience, the following scopes are already defined in `modelservices.games`:
+For convenience, the following scopes are defined in `modelservices.games`:
 
 * `modelservices.games.Game`
+* `modelservices.games.Phase`
+* `modelservices.games.Role`
 * `modelservices.games.Run`
 * `modelservices.games.World`
 * `modelservices.games.RunUser`
@@ -118,77 +121,82 @@ For convenience, the following scopes are already defined in `modelservices.game
 * `modelservices.games.Decision`
 * `modelservices.games.Result`
 
-###### modelservices.games.Game
+##### modelservices.games.Game
 
 In addition to the methods inherited from `Scope`, `Game` has the following methods:
 
 * `.get_phases()`: Registered procedure to fetch the game's phases over WAMP.
+* `.get_roles()`: Registered procedure to fetch the game's roles over WAMP.
 
 In addition to the properties inherited from `Scope`, `Game` has the following properties:
 
 * `.phases`: A list of the game's `Phase`s.
+* `.roles`: A list of the game's `Roles`s.
+* `.runs`: A list of the game's `Run`s.
 
-###### modelservices.games.Run
+##### modelservices.games.Run
 
 In addition to the methods inherited from `Scope`, `Run` has the following methods:
 
 * `.advance_phase()`: Subscribed method to make the `Run` advance to the next phase.
-* `.on_advance_phase(next_phase)`: Override this method to perform custom logic right before the run is advanced to the next phase. Raise `Run.ChangePhaseException` to prevent the run from being advanced.
+* `.on_advance_phase(next_phase)`: Override this method to perform custom logic right after the run is advanced to the next phase.
 * `.rollback_phase()`: Subscribed method to make the `Run` rollback to the previous phase.
-
-* `.on_rollback_phase(previous_phase)`: Override this method to perform custom logic right before the run is rolled back to the previous phase. Raise `Run.ChangePhaseException` to prevent the run from being rolled back.
+* `.on_rollback_phase(previous_phase)`: Override this method to perform custom logic right after the run is rolled back to the previous phase.
 
 In addition to the properties inherited from `Scope`, `Run` has the following properties:
 
-* `.current_phase`: The current Run's phase.
+* `.current_phase`: The Run's current phase.
 * `.worlds`: A list of `World`s within this `Run`
-* `.ChangePhaseException`: Exception subclass to prevent the run from being changed.
+* `.runusers`: A list of `RunUsers`s within this `Run`
 
-###### modelservices.games.RunUser
+##### modelservices.games.World
+
+In addition to the properties inherited from `Scope`, `World` has the following properties:
+
+* `.run`: The Run to which this World belongs.
+* `.scenarios`: A list of the World's `Scenarios`s.
+* `.runusers`: A list of the World's `RunUser`s.
+
+##### modelservices.games.RunUser
 
 In addition to the methods inherited from `Scope`, `RunUser` has the following methods:
 
 * `.get_scenarios()`: Registered procedure to fetch the RunUser's Scenarios over WAMP.
-* `.add_scenario(name, payload)`: Subscriber that will add a new Scenario for the RunUser.
 
 In addition to the properties inherited from `Scope`, `Run` has the following properties:
 
+* `.run`: The Run to which this Runuser belongs.
 * `.scenarios`: A list of the RunUser's `Scenarios`s.
+* `.leader`: Flags whether the RunUser is a leader or a player in this `Run`.
+* `.role`: The RunUser's `Role` if the user is a player in this `Run`.
+* `.world`: The RunUser's `World` if the user is a player in this `Run` and belongs to a `World`.
 
-###### modelservices.games.Scenario
-
-In addition to the methods inherited from `Scope`, `Scenario` has the following methods:
-
-* `.advance()`: Stops the current period, and adds a new one.
-* `.add_new_period(json)`: alias of `.add_new_child_scope`
+##### modelservices.games.Scenario
 
 In addition to the properties inherited from `Scope`, `Scenario` has the following properties:
 
-* `.periods`: alias of `.child_scopes.all()`
-* `.current_period`: returns the current period, defined as the last one created. Returns `None` if the scenario doesn't have any periods, yet.
-* `.world`: alias of `.my.parent`
+* `.periods`: A list of the Scenario's `Period`'s.
+* `.world`: returns the `World` to which the Scenario belongs or `None` if the Scenario doesn't belong to a `World`.
+* `.runuser`: returns the `Runuser` to which the Scenario belongs or `None` if the Scenario doesn't belong to a `Runuser`.
 
-###### modelservices.games.Period
-
-In addition to the methods inherited from `Scope`, `Period` has the following methods:
-
-* `.add_new_decision(json)`
-* `.add_new_result(json)`
+##### modelservices.games.Period
 
 In addition to the properties inherited from `Scope`, `Period` has the following properties:
 
-* `.decisions`
-* `.results`
-* `.scenario`: alias of `.my.parent`
+* `.decisions`: A list of the Period's `Decisions`s.
+* `.results`: A list of the Period's `Result`s.
+* `.scenario`: returns the `Scenario` to which the Period belongs.
 
-###### modelservices.games.Decision
+##### modelservices.games.Decision
 
 In addition to the properties inherited from `Scope`, `Decision` has the following properties:
 
-* `.period`: alias of `.my.parent`
+* `.period`: returns the `Period` to which the Decision belongs.
+* `.role`: returns the Decision's `Role`.
 
-###### modelservices.games.Result
+##### modelservices.games.Result
 
 In addition to the properties inherited from `Scope`, `Result` has the following properties:
 
-* `.period`: alias of `.my.parent`
+* `.period`: returns the `Period` to which the Result belongs.
+* `.role`: returns the Result's `Role`.

@@ -1,5 +1,5 @@
 ---
-title: Simpl-React Actions
+title: "Simpl-React: Actions"
 permalink: /docs/services/simpl-react/actions/
 layout: docs
 description:
