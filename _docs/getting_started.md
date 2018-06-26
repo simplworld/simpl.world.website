@@ -1,5 +1,5 @@
 ---
-title: Simpl Getting Started Guide
+title: Single Player Tutorial
 permalink: /docs/getting_started/
 layout: docs
 description: You can get a taste of Simpl by running the simpl-calc example simulation.
@@ -14,8 +14,8 @@ You can get a taste of Simpl by running the simpl-calc example simulation.
 These instructions assume you are working in the Simpl Vagrant environment:
 
 * [Simpl Python-Dev Development Environment (CentOS 7) Vagrant Box](https://github.com/simplworld/python-vagrant-centos7)
-	* PostgreSQL >= 9.6
-	* Python >= 3.6
+    * PostgreSQL >= 9.6
+    * Python >= 3.6
 
 Clone and run the Simpl `python-vagrant-centos7` image:
 
@@ -26,7 +26,7 @@ vagrant up
 ```
 
 
-## Run the Simpl Games API server
+## Run the Simpl Games API Service
 
 Clone the simpl-games-api repository in the Vagrant image's project directory:
 
@@ -40,8 +40,8 @@ Connect to the Vagrant environment and install simpl-games-api:
 ```
 vagrant ssh
 mkvirtualenv simpl-games-api
-add2virtualenv /vagrant/projects/simpl-games-api
 cd projects/simpl-games-api
+add2virtualenv .
 pip install -r requirements.txt
 ```
 
@@ -50,13 +50,13 @@ Create a Simpl database:
 ```
 createdb simpl
 ./manage.py migrate
-./manage.py create_vagrant_user
+./manage.py create_simpl_user
 ```
 
-Start the simpl-games-api web server:
+Start the simpl-games-api web service:
 
 ```
-./manage.py runserver 0.0.0.0:8100
+./manage.py run_gunicorn
 ```
 
 
@@ -74,9 +74,9 @@ Connect to Vagrant environment and install the simpl-calc Model Service:
 ```
 vagrant ssh
 mkvirtualenv simpl-calc-model
-add2virtualenv /vagrant/projects/simpl-calc-model
 cd projects/simpl-calc-model
-pip install -r requirements.txt
+add2virtualenv .
+PIP_PROCESS_DEPENDENCY_LINKS=1 pip install -r requirements.txt
 ```
 
 Add the simp-calc game to the Simpl database along with some test users:
@@ -108,10 +108,9 @@ Connect to Vagrant environment and install the simpl-calc Front End
 ```
 vagrant ssh
 mkvirtualenv simpl-calc-ui
-add2virtualenv /vagrant/projects/simpl-calc-ui
 cd projects/simpl-calc-ui
+add2virtualenv .
 pip install -r requirements.txt
-./manage.py makemigrations
 ./manage.py migrate
 ```
 
@@ -123,14 +122,18 @@ Start your frontend webserver with:
 
 Install gulp and/or webpack globally outside Vagrant to ensure they are on your PATH
 
+```
 sudo npm install --global webpack
 sudo npm install --global gulp
+```
 
 In a separate terminal, update node_modules and run Gulp to compile JS and SASS
 
+```
 cd to simpl-calc-ui directory
 npm install
 gulp
+```
 
 ## Using the Simpl Calc Simulation
 
