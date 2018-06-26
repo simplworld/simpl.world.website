@@ -14,7 +14,7 @@ upon which single player games can be created.
 
 The foundation of Simpl is the Games API Service.  This service provides API endpoints that allow the game
 to store information regarding a game and its current state in the database. Start by running the
-Simpl Games API Service following the [getting started instructions](../../getting_started/index.md).
+Simpl Games API Service following the [getting started instructions]({% link _docs/getting-started.md %}).
 
 The Model Service provides the mathematical component of a Simpl game, it interacts with the Games API and
 provides messaging back to the Frontend UI regarding game state.  More information can be found [here](../../overview.md).
