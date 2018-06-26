@@ -6,7 +6,7 @@ ruby RUBY_VERSION
 # We want to keep up with what's on Github, see here for the latest:
 # https://pages.github.com/versions/
 
-gem "jekyll", "3.5.2"
+gem "jekyll", "3.7.3"
 gem "rake"
 gem "github-pages", group: :jekyll_plugins
 gem "rouge"
