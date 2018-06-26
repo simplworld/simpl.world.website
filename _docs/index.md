@@ -13,7 +13,7 @@ The Simpl framework is composed of three major parts:
 
 2. The `Simpl-modelservice` Python framework used to build simulation model services.
 
-3. The `Simpl-react` npm module, a module providing reusable components for building UIs that interact with a simulation model service.
+3. The `Simpl-react` npm module, a module providing components for building UIs that interact with a simulation model service.
 
 Some repos are provided as examples of how to build simulations using Simpl:
 

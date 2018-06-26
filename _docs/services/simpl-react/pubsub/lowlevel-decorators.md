@@ -1,11 +1,11 @@
 ---
-title: Simpl-React PubSub Low-level Components
-permalink: /docs/services/simpl-react/pubsub/low-level-components/
+title: "Simpl-React: Pub/Sub Low-level Decorators"
+permalink: /docs/services/simpl-react/pubsub/low-level-decorators/
 layout: docs
 description:
 ---
 
-## Low-level Decorators
+## Pub/Sub Low-level Decorators
 
 ### publishes() decorator
 

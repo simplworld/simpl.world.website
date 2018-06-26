@@ -7,11 +7,15 @@ description: Simpl Overview description
 
 ## Overview
 
-In practice, there will always be one single instance of The `Simpl-Games-API` service, and for every simulation you will write a model service, and a frontend service. The browser will use the frontend service for the static assets (HTML and JS), and connect to the model service in order to receive/send events through the WebSocket.
+In practice, there will always be a single instance of The `Simpl-Games-API` service, and for every simulation you
+will write a model service, and a frontend service. The browser will use the frontend service for the static assets
+(HTML and JS), to authenticate users,  and to connect to the model service in order to receive/send events through the WebSocket.
 
-The `Simpl-Games-API` service will send events to your model service via HTTP Webhooks, and they will be automatically forwared to the browser.
+The `Simpl-Games-API` service will send events to your model service via HTTP Webhooks, and they will be
+automatically forwarded to the browser.
 
-Your model service itself will send message to the browser or listen to message from it, and will make REST API calls to the `Simpl-Games-API` service as needed (eg to store state).
+Your model service will send messages to the browser or listen to messages from it, and will make
+REST API calls to the `Simpl-Games-API` service as needed (eg to store state).
 
 
 ```plain
@@ -48,6 +52,9 @@ Thw WAMP Protocol is mainly composed of two patterns: publish/subscribe (**PubSu
 
 ### PubSub vs RPC
 
-The main difference between PubSub and RPC is that a _call_ to a registered procedure returns a value, where _publishing_ to a topic does not. Both are asynchronous operations, but with RPC you can wait on the returned value and tell when the operation has completed.
+The main difference between PubSub and RPC is that a _call_ to a registered procedure returns a value,
+where _publishing_ to a topic does not. Both are asynchronous operations, but with RPC you can wait on the returned value
+to tell when the operation has completed.
 
-As a rule of thumb: use RPC if you need to get data from the modelservice. Otherwise you can use PubSub.
+As a rule of thumb: use RPC if you need to get data from the modelservice or wait until the procedure has completed before proceeding.
+Otherwise you can use PubSub.

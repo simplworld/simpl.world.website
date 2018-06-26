@@ -7,7 +7,7 @@ description:
 
 ## Overview
 
-## Abstraction Layers
+### Abstraction Layers
 
 This module is conceptually organized in two layers:
 
@@ -16,34 +16,24 @@ This module is conceptually organized in two layers:
 
 You will mostly work on the `simpl` layer, and build your app by writing Presentational Components and tying up data to Smart Components by using decorators.
 
-## Decorators
+### Decorators
 
 * `simpl/lib/decorators/pubsub/publishes`
 * `simpl/lib/decorators/pubsub/subscribes`
 * `simpl/lib/decorators/rpc/calls`
 * `simpl/lib/decorators/simpl`
 
-## Components
+### Components
 
-### Presentational Components
+#### Presentational Components
 
 Presentational components only provide the necessary markup to render the UI.
 
-### Smart Component
+#### Smart Component
 
 Smart Components provide data and functions (`props`) and pass them down to their Presentational component.
 
-### Field Components
-
-`Simpl` includes some convenience components from building forms, such as:
-
-* `EmailInput`
-* `IntegerInput`
-* `FloatInput`
-
-For more information, see the [Forms docs](./forms/overview.md).
-
-### WAMP Components
+#### WAMP Components
 
 Wamp Components are convenience components that wrap a Smart or presentational components to provide them wamp-relative functionality, such as listening or publishing to a topic or calling a remote procedure on the model service
 
@@ -51,9 +41,9 @@ Wamp Components are convenience components that wrap a Smart or presentational c
 * TopicSubscriber
 * RPCCaller
 
-## Reducers
+### Reducers
 
-### The `Simpl.reducers.combined.simplReducers` reducer
+#### The `Simpl.reducers.combined.simplReducers` reducer
 
 This reducer provides the `simpl` and `router` reducers necessary for connecting to the modelservice and keeping state updated.
 
@@ -80,9 +70,9 @@ const reducers = simplReducers({
 export default reducers;
 ```
 
-## Stores
+### Stores
 
-### The `Simpl.stores.finalCreateStoreFactory`
+#### The `Simpl.stores.finalCreateStoreFactory`
 
 This factory returns a `createStore` function with all the necessary devTools configured according to the environment.
 

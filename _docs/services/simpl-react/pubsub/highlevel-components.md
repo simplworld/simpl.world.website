@@ -1,11 +1,11 @@
 ---
-title: Simpl-React PubSub High-level Components
+title: "Simpl-React: Pub/Sub High-level Components"
 permalink: /docs/services/simpl-react/pubsub/high-level-components/
 layout: docs
 description:
 ---
 
-## High-level Components
+## Pub/Sub High-level Components
 
 ### TopicPublisher
 

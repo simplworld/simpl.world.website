@@ -5,6 +5,6 @@ layout: docs
 description:
 ---
 
-## Welcome to Simpl-Users
+## Welcome to Simpl-Users API
 
 TBD
