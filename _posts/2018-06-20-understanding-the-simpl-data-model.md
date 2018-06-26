@@ -24,20 +24,20 @@ In other games, player decisions and results are independent of each other. Thes
 ## Model Classes
 
 The Simpl data model was designed to support developing both multi-player and single-player games with as much flexibility as possible.
-To provide flexibiity, each model class has a data property for storing JSON data unique to a specific game.
+To provide extra flexibility, each model class has a data property for storing JSON data unique to a specific game.
 
 A **Game** encapsulates all the functionality of a simulation. Each Game defines simulation model logic and provides a web-based user interface.
 
 A **Run** is an instance of a Game created to be used in a class or other event. The state and data in one Run has no bearing on other Runs.
 
-A Simpl **User** is a Django user identified by email address with some additional fields.
+A Simpl **User** is a [Django](https://www.djangoproject.com) user identified by email address with some additional fields.
 Users can participate in several games by being assigned to Runs of the Games.
 
 A **RunUser** represents the one to one relationship between a game Run and a User.
 Each RunUser represents either a leader or a player in the run. Each Run may have one or more leader RunUsers and one or more player RunUsers.
 
 A Game can have one or more Run **Phases** that determine the features available as a Run moves from one phase to the next.
-Simple Games might need only one Phase (e.g. *Play*), while more complex Games may require several (e.g. *Setup*, *Players Prepare*, *Play and Debrief*).
+Simple Games might need only one Phase (e.g. *Play*), while more complex Games may require several (e.g. *Setup*, *Players Prepare*, *Play*, and *Debrief*).
 
 A Game can have one or more player **Roles**. A player’s role might determine the background information they see and the types of decisions they can make.
 Games in which all players have exactly the same capabilities do not need to define player Roles.
@@ -76,8 +76,8 @@ and see their Results over several Periods using private RunUser Scenarios.
 The tournament  leader would move a *macrosim* Run from *Practice* to the *Play and Debrief* phase to bring an end to student practice and open a
 tournament of country (aka World) economies competing for the best final Results.
 During the tournament, a *MonetaryPolicyMaker* player and a *FiscalPolicyMaker* player in each World would enter Decisions for their World's Scenario.
-The tournament leader would control how many Periods the tournament runs, when players could enter Decisions, when the Macrosim simulation model ran the Decisions, and discuss the simulation Results of all Worlds.
-Logged in players would only be able to see the Decisions and Results of their World.
+The tournament leader would control how many Periods the tournament runs, when players could enter Decisions, when the Macrosim simulation model runs the Decisions, and discuss the simulation Results of all Worlds.
+Logged in players would only be able to see the Decisions and Results of their assigned World.
 
 
 ## Simpl Django Models
