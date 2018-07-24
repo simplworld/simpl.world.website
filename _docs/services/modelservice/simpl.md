@@ -11,7 +11,7 @@ The `modelservice.simpl.games_client` class provides a generic asynchronous REST
 interface with the Simpl-Games-API service.
 
 
-```
+```python
 from modelservice.simpl import games_client
 
 async with games_client as api_session:
@@ -25,7 +25,6 @@ async with games_client as api_session:
     user.first_name = 'Jessie'
 
     await user.save()
-
 ```
 
 ### Endpoint methods

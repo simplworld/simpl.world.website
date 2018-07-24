@@ -48,7 +48,6 @@ class ZeroSumScenario(Scenario):
         self.players.pop(player['id'])
 
 Game.register('zero-sum', [ZeroSumScenario])
-
 ```
 
 In this example, `ZeroSumScenario.add` will be registered at the uri `{settings.ROOT_URI}.models.{resource_name}.{scope_pk}.add`
@@ -57,7 +56,6 @@ In this example, `ZeroSumScenario.add` will be registered at the uri `{settings.
 Alternatively, the name that will be used for the topic can be passed to the decorator:
 
 ```python
-
 class ZeroSumScenario(Scenario):
 
     @subscribe('player.quit')
@@ -65,7 +63,6 @@ class ZeroSumScenario(Scenario):
         self.players.pop(player['id'])
 
 Game.register('zero-sum', [ZeroSumScenario])
-
 ```
 
 `ZeroSumScenario.player_quit` will now be subscribed to `{settings.ROOT_URI}.models.{resource_name}.{scope_pk}.player.quit`.
@@ -104,7 +101,9 @@ To log from a `Scope`, you can use the `.log` attribute.
 
 The best practice is to use a string with the `r` formatting operator for your variables. For example, if you'd want to log the `somevar` variable to the `INFO` level, you'd use:
 
-    myscope.log.info("Something happened: {myvar!r}", myvar=somevar)
+```python
+myscope.log.info("Something happened: {myvar!r}", myvar=somevar)
+```
 
 #### Concrete Classes
 

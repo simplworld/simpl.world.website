@@ -10,9 +10,9 @@ description:
 To create an action, you can use the `createAction` convenience function from [`redux-actions`](https://github.com/acdlite/redux-actions).
 
 `actions/myactions.js`
-```js
-import { createAction } from 'redux-actions';
 
+```jsx
+import { createAction } from 'redux-actions';
 
 export const myAction = createAction('MY_ACTION');
 ```
@@ -21,7 +21,7 @@ The function will create an action that serializes to the passed action name, an
 
 
 `reducers/myreducer.js`
-```js
+```jsx
 import { createReducer } from 'redux-create-reducer';
 import recycleState from 'redux-recycle';
 
@@ -43,7 +43,8 @@ const simpl = recycleState(createReducer(initial, {
 To create an action that publishes to a WAMP topic, you should use the Autobahn client included with `simpl`:
 
 `actions/myactions.js`
-```js
+
+```jsx
 import { createAction } from 'redux-actions';
 import AutobahnReact from 'simpl/lib/autobahn';
 
@@ -60,7 +61,8 @@ Since publishing to a topic does not return any value, and "completes" before an
 To create an action that calss a WAMP topic, you should use the Autobahn client included with `simpl`:
 
 `actions/myactions.js`
-```js
+
+```jsx
 import { createAction } from 'redux-actions';
 import AutobahnReact from 'simpl/lib/autobahn';
 
@@ -73,7 +75,8 @@ export const getSomeData = createAction('GET_SOME_DATA', (scope, ...args) => (
 The action's `payload` will contain the value returned by the remote procedure:
 
 `reducers/myreducer.js`
-```js
+
+```jsx
 import { createReducer } from 'redux-create-reducer';
 import recycleState from 'redux-recycle';
 
@@ -94,7 +97,8 @@ const simpl = recycleState(createReducer(initial, {
 The action returns a promise which will be resolved with the returned value. This means tha t you can chain to the action to dispatch further actions after the call completes:
 
 `MyContainer.react.js`
-```js
+
+```jsx
 import { connect } from 'react-redux';
 import { getSomeData, someOtherAction } from '../actions/myactions';
 

@@ -16,40 +16,40 @@ description:
 
 First, log into Vagrant and create a new virtualenv called 'calc-model':
 
-```bash
+```shell
 $ vagrant ssh
 $ mkvirtualenv calc-model
 ```
 
 Install Django
 
-```bash
+```shell
 $ pip install Django~=1.11
 ```
 
 Change to the projects folder:
 
-```bash
+```shell
 $ cd projects
 ```
 
 Create a Django project folder and rename it to serve as a git repository
 
-```bash
+```shell
 $ django-admin startproject calc_model
 $ mv calc_model calc-model
 ```
 
 Change to the project folder:
 
-```bash
+```shell
 $ cd calc-model
 $ add2virtualenv .
 ```
 
 Create a `requirements.txt` file that installs the simpl-modelservice and unit testing apps:
 
-```
+```ini
 https://github.com:simplworld/simpl-modelservice/repository/archive.zip
 
 # tests
@@ -61,26 +61,25 @@ django-test-plus==1.0.22
 
 Install these requirements along with their dependencies:
 
-```bash
+```shell
 $ PIP_PROCESS_DEPENDENCY_LINKS=1 pip install -r requirements.txt
 ```
 
 Please note, if `DJANGO_SETTINGS_MODULE` is leftover from a previous session, you may need to unset it:
 
-```bash
+```shell
 $ unset DJANGO_SETTINGS_MODULE
 ```
 
 Create a django app that will contain your game logic:
 
-```bash
+```shell
 $ ./manage.py startapp game
 ```
 
 Add the following to your `INSTALLED_APPS` in `calc_model/settings.py`:
 
 ```python
-
 INSTALLED_APPS += [
     ...
 
@@ -101,7 +100,7 @@ ROOT_TOPIC = 'world.simpl.sims.calc'
 
 It's highly recommended that you set a `'users'` cache. Since the modelservice will run single-threaded, you can take advantage of the `locmem` backend:
 
-```
+```python
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
@@ -119,7 +118,7 @@ For simplicity, we're going to create a single player Game in which each player 
 
 In your `game` app module, define our model in `model.py`:
 
-```
+```python
 class Model(object):
     """
     The model adds an operand to the previous total and returns the result.
@@ -137,7 +136,7 @@ class Model(object):
 
 In your `game` app module, add a unit test directory `tests` and a model unit test `tests/test_model.py`:
 
-```
+```python
 import pytest
 from test_plus.test import TestCase
 
@@ -170,7 +169,7 @@ class ModelTestCase(TestCase):
 
 Run your unit test:
 
-```
+```shell
 $ export DJANGO_SETTINGS_MODULE=calc_model.settings
 $ py.test
 ```
@@ -183,7 +182,7 @@ Create a 'commands' folder in the `management` folder  and add an empty `__init_
 
 Finally, create a `create_default_env.py` script in the 'commands' folder containing this code:
 
-```
+```python
 import djclick as click
 
 from modelservice.simpl import games_client
@@ -332,7 +331,7 @@ async def add_runuser_scenario(runuser, api_session):
 
 Run your command:
 
-```
+```shell
 $ export DJANGO_SETTINGS_MODULE=calc_model.settings
 $ ./manage.py create_default_env
 ```
@@ -342,7 +341,7 @@ current `Period`, and the `Scenario` will step to the next `Period`.
 
 In your `game` app module, create a file called `runmodel.py`.  Next, add `save_decision` and `step_scenario` functions to perform these steps:
 
-```
+```python
 from modelservice.simpl import games_client
 from .model import Model
 
@@ -408,7 +407,7 @@ async def step_scenario(scenario_id):
 
 In your `game` app module, create a file called `games.py` with the following content:
 
-```
+```python
 from modelservice.games import Period, Game
 from modelservice.games import subscribe, register
 
@@ -440,6 +439,7 @@ Game.register('calc', [
     CalcPeriod,
 ])
 ```
+
 **NOTE:** if you
 want to use a filename other than `games.py` you must ensure the file is imported
 somewhere, usually in a `__init__.py` somewhere for the `@game` decorator to find
@@ -448,7 +448,7 @@ and register your game into the system.
 
 You can start your model service by running:
 
-```bash
+```shell
 $ export DJANGO_SETTINGS_MODULE=calc_model.settings
 $ ./manage.py run_modelservice
 ```

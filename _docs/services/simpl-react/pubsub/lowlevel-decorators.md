@@ -11,13 +11,12 @@ description:
 
 `containers/Publisher.jsx`
 
-```javascript
+```js
 import {publishes} from 'simpl/lib/decorators/pubsub/publishes';
 
 import MyComponent from '../components/MyComponent.react';
 
 Publisher = publishes(topic, options = {})(MyComponent);
-
 ```
 
 #### Presentational Component
@@ -62,8 +61,7 @@ export default SendMessage;
 
 `SendMessageContainer.jsx`
 
-```javascript
-
+```js
 import { connect } from 'react-redux';
 
 import {publishes} from 'simpl/lib/decorators/pubsub/publishes';
@@ -90,7 +88,6 @@ const SendMessageContainer = connect(
 )(PublisherSendMessage);
 
 export default SendMessageContainer;
-
 ```
 
 ##### Props
@@ -102,7 +99,7 @@ export default SendMessageContainer;
 
 `containers/Subscriber.jsx`
 
-```javascript
+```js
 import {subscribes} from 'simpl/lib/decorators/pubsub/subscribes';
 
 import MyComponent from '../components/MyComponent';
@@ -170,7 +167,7 @@ export default Result;
 
 `containers/NotificationContainer.jsx`
 
-```javascript
+```js
 import { connect } from 'react-redux';
 
 import {subscribes} from 'simpl/lib/decorators/pubsub/subscribes';
@@ -201,8 +198,6 @@ const NotificationContainer = connect(
 )(SubscribedNotification);
 
 export default NotificationContainer;
-
-
 ```
 
 `containers/MyApp.jsx`
