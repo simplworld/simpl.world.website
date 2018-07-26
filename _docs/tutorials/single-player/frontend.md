@@ -21,25 +21,25 @@ This tutorial assumes you already the following software installed:
 
 First, create a new virtualenv called 'calc-ui':
 
-```bash
+```shell
 $ mkvirtualenv calc-ui
 ```
 
 Then, install the `cookiecutter` Python package:
 
-```bash
+```shell
 $ pip install cookiecutter
 ```
 
 Change to the `/vagrant/projects` folder:
 
-```bash
+```shell
 $ cd projects
 ```
 
 Use `cookiecutter` to create the boilerplate for your app
 
-```bash
+```shell
 $ cookiecutter https://github.com:simplworld/simpl-ui-cookiecutter.git
 ```
 
@@ -47,7 +47,8 @@ Make sure the value for `game_slug` is the same slug you used in the [modelservi
 then the slug should be `calc`. For all other values you can use the default for the project, or choose your own.
 
 For example,
-```
+
+```shell
 project_name [Simulation UI]: Calc UI
 repo_slug [calc-ui]:
 project_slug [calc_ui]:
@@ -60,13 +61,13 @@ version [0.1.0]:
 
 After the project layout is created, `cd` into your repo directory and install the requirements:
 
-```bash
+```shell
 $ pip install -r requirements.txt
 ```
 
 Outside of Vagrant, `cd` into your your repo directory, install the JavaScript node modules and run gulp to keep the web server's javascript updated as you work on the frontend:
 
-```bash
+```shell
 $ npm install
 $ gulp
 ```
@@ -90,13 +91,13 @@ Just like most Websites, the frontend service will need a place where it can sto
 
 First, let's create the necessary local tables:
 
-```bash
+```shell
 $ ./manage.py migrate
 ```
 
 Then, start your frontend service with:
 
-```bash
+```shell
 $ ./manage.py runserver 0.0.0.0:8000
 ```
 
@@ -130,7 +131,7 @@ a world, we need to modify the template `js/modules/Root.js` code to load all pl
 
 In your `js/modules/Root.js`:
 
-```
+```jsx
 export default simpl({
   authid: AUTHID,
   password: 'nopassword',
@@ -144,7 +145,7 @@ export default simpl({
 
 change the simpl decorator's loadAllScenarios argument to LEADER:
 
-```
+```jsx
 export default simpl({
   authid: AUTHID,
   password: 'nopassword',
@@ -169,7 +170,8 @@ To implement your UI, you will write Smart Components and Presentational Compone
 The Presentational Components will provide the necessary markup to render UI elements, while the Smart Components will wrap them providing the necessary data.
 
 First, create an action in `js/actions/Actions.js` for submitting decisions to the `submit_decision` topic defined by calc-model `game/games.py`.
-```
+
+```jsx
 import {createAction} from 'redux-actions';
 
 import AutobahnReact from 'simpl/lib/autobahn';
@@ -184,7 +186,8 @@ export const submitDecision =
 Note the action publishes to the topic because the calc-model `game/games.py `submit_decision` endpoint subscribes to the topic.
 
 Create a presentation component `js/components/DecisionForm.js` for entering player decisions:
-```
+
+```jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -259,8 +262,10 @@ export default reduxForm({
 })(DecisionForm);
 
 ```
+
 wrap it in a smart component `js/containers/DecisionFormContainer.js`
-```
+
+```jsx
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
 
@@ -297,7 +302,8 @@ export default withRouter(DecisionFormContainer);
 ```
 
 In your `js/modules/PlayerHome.js`, replace the original contents with:
-```
+
+```jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -362,7 +368,6 @@ const module = connect(
 )(PlayerHome);
 
 export default module;
-
 ```
 
 Now when a player logs in, they see a form for entering decisions and a logout link:
@@ -376,7 +381,8 @@ As the player submits decisions, the redux state automatically updates with new 
 We want leaders to be able see the player results. We'll next update the leader home page so they can.
 
 Create a presentation component `js/components/PlayerResultRow.js` for displaying one player's results:
-```
+
+```jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -398,8 +404,10 @@ PlayerResultRow.propTypes = {
 
 export default PlayerResultRow;
 ```
+
 wrap it in a smart component `js/containers/PlayerResultRowContainer.js`
-```
+
+```jsx
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
 
@@ -448,7 +456,8 @@ export default withRouter(PlayerResultRowContainer);
 ```
 
 In your `js/modules/LeaderHome.js`, replace the original contents with:
-```
+
+```jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -514,7 +523,6 @@ const module = connect(
 )(LeaderHome);
 
 export default module;
-
 ```
 
 Now when a leader logs in, they see the current player results:
@@ -524,12 +532,15 @@ Now when a leader logs in, they see the current player results:
 Let's add some styling to make it easier to read the table of results.
 
 In `frontend/templates/frontend.home.html`, replace
-```
+
+```html
   <head>
   </head>
 ```
+
 with
-```
+
+```html
   <head>
     <style>
     table, th, td { border: 1px solid black;  }

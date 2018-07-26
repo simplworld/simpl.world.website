@@ -9,8 +9,7 @@ description:
 
 ### wamp() decorator
 
-```javascript
-
+```js
 App = wamp(MyComponent, options = {});
 ```
 

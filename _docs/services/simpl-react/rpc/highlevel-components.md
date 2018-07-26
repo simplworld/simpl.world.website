@@ -38,12 +38,11 @@ const Counter = function Counter(props) {
 });
 
 export default Counter;
-
 ```
 
 `containers/CounterContainer.jsx`
 
-```javascript
+```js
 import { connect } from 'react-redux';
 
 import { updateCounter } from '../actions/CounterActions';

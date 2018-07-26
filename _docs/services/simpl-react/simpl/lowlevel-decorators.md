@@ -15,7 +15,7 @@ The UI will receive an action and its store will be updated every time a new Sco
 
 In order to update your state, you need to create your reducers by using the `Simpl.reducers.combined.simplReducers` function:
 
-```javascript
+```js
 import {simplReducers} from 'simpl/lib/reducers/combined';
 
 const reducers = simplReducers({});
@@ -25,7 +25,7 @@ export default reducers;
 
 You can add your own reducers to it by passing them as arguments:
 
-```javascript
+```js
 import {simplReducers} from 'simpl/lib/reducers/combined';
 
 import addresses from '../addressReducers';
@@ -38,7 +38,6 @@ const reducers = simplReducers({
 });
 
 export default reducers;
-
 ```
 
 Then create a component that will show the loading state of your app. This component will receive a `connectionStatus` prop that will indicate the loading progress.
@@ -102,7 +101,6 @@ export default simpl({
   progressComponent: Progress,
   root_topic: CROSSBAR_ROOT_TOPIC,
 })(App);
-
 ```
 
 `containers/DecisionContainer.jsx`

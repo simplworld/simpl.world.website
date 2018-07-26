@@ -47,7 +47,7 @@ Wamp Components are convenience components that wrap a Smart or presentational c
 
 This reducer provides the `simpl` and `router` reducers necessary for connecting to the modelservice and keeping state updated.
 
-```javascript
+```js
 import {simplReducers} from 'simpl/lib/reducers/combined';
 
 
@@ -58,7 +58,7 @@ export default reducers;
 
 You can add your own reducers to it by passing them as arguments:
 
-```javascript
+```js
 import {simplReducers} from 'simpl/lib/reducers/combined';
 
 import myreducer from '../MyReducers'
@@ -78,7 +78,7 @@ This factory returns a `createStore` function with all the necessary devTools co
 
 ``stores/AppStore.js``
 
-```javascript
+```js
 import { createStore } from 'redux'
 
 import {finalCreateStoreFactory} from 'simpl/lib/stores';
@@ -96,7 +96,7 @@ export default function configureStore(initialState) {
 
 `apps/main.js`
 
-```javascript
+```js
 import configureStore from '../stores/AppStore'
 
 
