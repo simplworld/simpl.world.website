@@ -3,6 +3,7 @@ layout: post
 title: "Simpl: One Data Model to Rule Them All"
 date: 2017-09-01 12:20:00 -0500
 author: Joseph Lee
+author_photo: /assets/img/authors/joseph-lee.png
 categories: News
 excerpt: |
     Code starts at the model-level.
