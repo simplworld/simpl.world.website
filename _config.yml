@@ -57,3 +57,7 @@ defaults:
       type: category
     values:
       layout: "category"
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/default-card.png
