@@ -1,23 +1,26 @@
 ---
-title: Building the Model Service implementation
-permalink: /docs/tutorials/modelservice/
+title: Build the Single Player Game Model Service
+permalink: /docs/tutorials/single-player/modelservice/
 layout: docs
 description:
 ---
 
-## Building the Model Service implementation
+## Build the Single Player Game Model Service
 
 ###  Prerequisites
 
-!!! note
-    This tutorial assumes you have [Games API service]{% link _docs/getting-started.md %}) running (http://localhost:8100/) on a Vagrant box you have provisioned.  Please open up an additional terminal window before continuing.
+You will need to have these installed:
+   * PostgreSQL >= 9.6
+   * Python >= 3.6
+   * [virtualenv](https://virtualenv.pypa.io/en/stable/)
+
+Have the [Games API service]({% link _docs/getting-started.md %}) is running on http://localhost:8100/.  
 
 ###  Installation
 
-First, log into Vagrant and create a new virtualenv called 'calc-model':
+In a separate terminal, create a new virtualenv called 'calc-model':
 
 ```shell
-$ vagrant ssh
 $ mkvirtualenv calc-model
 ```
 
@@ -25,12 +28,6 @@ Install Django
 
 ```shell
 $ pip install Django~=1.11
-```
-
-Change to the projects folder:
-
-```shell
-$ cd projects
 ```
 
 Create a Django project folder and rename it to serve as a git repository
@@ -455,7 +452,7 @@ $ ./manage.py run_modelservice
 
 By default the service will bind to `0.0.0.0:8080`.
 
-This concludes the tutorial on Model Service. A completed example implementation is available at `github.com:simplworld/simpl-calc-model.git`
-that uses the game slug `simpl-calc`.
+This concludes the tutorial on building a single player game Model Service. A completed example implementation is available at 
+[https://github.com/simplworld/simpl-calc-model](https://github.com/simplworld/simpl-calc-model) that uses the game slug `simpl-calc`.
 
-You can now head over to the [Frontend tutorial](./frontend.md).
+You can now head over to the [Single Player Game Frontend tutorial]({% link _docs/tutorials/single-player/frontend.md %}).
