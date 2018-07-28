@@ -1,11 +1,11 @@
 ---
-title: Welcome to Simpl-Games
+title: Simpl-Games-API
 permalink: /docs/services/simple-games-api/
 layout: docs
 description:
 ---
 
-## Welcome to Simpl-Games-Api
+## Simpl-Games-Api
 
 The `simpl-games-api` service provides the main storage for games' data.
 

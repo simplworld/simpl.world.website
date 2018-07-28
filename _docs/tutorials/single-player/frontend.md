@@ -5,7 +5,7 @@ layout: docs
 description:
 ---
 
-## Build the Single Player Game Frontend UI
+## Build the Single Player Game Frontend
 
 ### Prerequisites
 

@@ -1,11 +1,11 @@
 ---
-title: Simpl Overview
+title: Architecture Overview
 permalink: /docs/overview/
 layout: docs
-description: Simpl Overview description
+description: Simpl Architecture Overview
 ---
 
-## Overview
+## Architecture Overview
 
 In practice, there will always be a single instance of The `Simpl-Games-API` service, and for every simulation you
 will write a model service, and a frontend service. The browser will use the frontend service for the static assets
@@ -15,7 +15,7 @@ The `Simpl-Games-API` service will send events to your model service via HTTP We
 automatically forwarded to the browser.
 
 Your model service will send messages to the browser or listen to messages from it, and will make
-REST API calls to the `Simpl-Games-API` service as needed (eg to store state).
+REST API calls to the `Simpl-Games-API` service as needed (e.g. to store state).
 
 
 ```plain
