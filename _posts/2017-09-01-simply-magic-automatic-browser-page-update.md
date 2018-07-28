@@ -4,6 +4,7 @@ title: "Simpl-y Magic: Automatic Browser Page Updates"
 date: 2017-09-01 12:10:00 -0500
 categories: News
 author: Jane Eisenstein
+author_photo: /assets/img/authors/jane-eisenstein.png
 excerpt: |
     Simpl's architecture ensures a game user’s browser page is always up to date.
 ---
