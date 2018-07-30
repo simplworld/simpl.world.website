@@ -34,9 +34,7 @@ The game's front-end user interface code is implemented in Javascript using Simp
 
 These Simpl game components work together in concert to ensure that game users consistently see the current state-of-the-game data stored in the Simpl database.
 
-Here's how it works: Each time the model service updates the database using the Simpl-Games-API's REST API, a [webhook](https://pypi.python.org/pypi/thorn/) is triggered that notifies Simpl-Modelservice functions of the update. 
-Simpl-Modelservice code then pushes an update notification to each game user's browser via [WAMP](http://wamp-proto.org/). 
-There, Simpl-React code handles updating the browser's Redux store state, automatically updating the React components.
+Here's how it works: Each time the model service updates the database using the Simpl-Games-API's REST API, a [webhook](https://pypi.python.org/pypi/thorn/) is triggered that notifies Simpl-Modelservice functions of the update. Simpl-Modelservice code then pushes an update notification to each game user's browser via [WAMP](https://wamp-proto.org/why/index.html). There, Simpl-React code handles updating the browser's Redux store state, automatically updating the React components.
 
 And there you have it — the user is automagically guaranteed to see fresh data, without game authors having to write a line of code! It works like magic, but it's actually quite *Simpl*...
 
