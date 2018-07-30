@@ -162,8 +162,6 @@ Refresh your Chrome browser page and you'll see all the run's runusers have been
 
 <img src="/assets/img/tutorials/single-player/Hello_Simpl_Leader2.png" width="100%">
 
-These properties will be updated as the model service adds, removes or updates scopes. You will connect your components to the properties and they will update accordingly.
-
 ### Implementation
 
 To implement your UI, you will write [Container Components and Presentational Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).

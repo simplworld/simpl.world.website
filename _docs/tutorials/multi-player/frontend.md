@@ -47,14 +47,14 @@ For all other values, you can use the default or choose your own.
 For example,
 
 ```shell
-project_name [Simulation UI]: Div UI
-repo_slug [div-ui]:
-project_slug [div_ui]:
+project_name [Simulation UI]: Div UI	
+repo_slug [div-ui]: 
+project_slug [div_ui]: 
 game_slug [div-ui]: div
-modelservice_slug [div-model]:
-topic_root [world.simpl]:
-app_slug [frontend]:
-version [0.1.0]:
+modelservice_slug [div-model]:      
+topic_root [world.simpl]: 
+app_slug [frontend]: 
+version [0.1.0]: 
 ```
 
 After the project layout is created, install the requirements:
@@ -115,9 +115,9 @@ to see all the scope properties associated with the current user.
 These properties will be updated as the model service adds, removes or updates scopes.
 You will connect your components to the properties and they will update accordingly.
 
-Next, logout by going to `localhost:8000/logout/` in your browser. Then login as `leader@div.edu` with password `leader`.
+Logout by going to `localhost:8000/logout/` in your browser. Then login as `leader@div.edu` with password `leader`.
 Once you are logged in, you should see the 'Hello Leader' message of the skeleton app. If you look at the `simpl`
-state properties, they look similar to those of players except information about all the worlds has been loaded.
+state properties, information about all the run's worlds has been loaded.
 
 <img src="/assets/img/tutorials/multi-player/Hello_Simpl_Leader1.png" width="100%">
 
@@ -126,9 +126,6 @@ The cookiecutter template assumes you are implementing a multi-player simulation
 see only their world's information. By default, leaders can see the worlds and users in their subscribed runs,
 but not the scenarios of other users. To accomplish this, the template `js/modules/Root.js` sets the simpl decorator's 
 `loadAllScenarios` argument false to block access to scenarios of other users.
-
-These properties will be updated as the model service adds, removes or updates scopes. 
-You will connect your components to the properties and they will update accordingly.
 
 ### Implementation
 
