@@ -5,7 +5,7 @@ layout: docs
 description:
 ---
 
-## Overview
+## Simpl-React Overview
 
 ### Abstraction Layers
 
@@ -14,7 +14,7 @@ This module is conceptually organized in two layers:
 * The `wamp` layer. Includes primitives to publish/subcribe and remote call via the wamp protocol.
 * The `simpl` layer. Uses the `wamp` layer to provide automatic data binding ans synchronization with `Scope`s defined in the modelservice implementation, provided it uses `Scope`s from the `modelservice` Python package.
 
-You will mostly work on the `simpl` layer, and build your app by writing Presentational Components and tying up data to Smart Components by using decorators.
+You will mostly work on the `simpl` layer, and build your app by writing Presentational Components and tying up data to Container Components by using decorators.
 
 ### Decorators
 
@@ -29,9 +29,9 @@ You will mostly work on the `simpl` layer, and build your app by writing Present
 
 Presentational components only provide the necessary markup to render the UI.
 
-#### Smart Component
+#### Container Component
 
-Smart Components provide data and functions (`props`) and pass them down to their Presentational component.
+Container Components provide data and functions (`props`) and pass them down to their Presentational component.
 
 #### WAMP Components
 

@@ -58,7 +58,7 @@ Since publishing to a topic does not return any value, and "completes" before an
 
 ### RPC
 
-To create an action that calss a WAMP topic, you should use the Autobahn client included with `simpl`:
+To create an action that calls a WAMP topic, you should use the Autobahn client included with `simpl`:
 
 `actions/myactions.js`
 
