@@ -4,20 +4,36 @@
   width: 100%;
   color: #fff;
   position: relative;
-  height: 410px;
-  background: url(../img/tech_bg.png);
+  height: 415px;
+  background: url(../img/background_landing.png);
   background-repeat: repeat;
-  background-size: 47%;
-  padding-top: 55px;
-  text-align: center;
-  @include when-inside(500px) {
+  background-size: 36%;
+  padding-top: 50px;
+  text-align: center !important;
+  @include when-inside(1000px) {
+      background-size: 38%;
+  }
+  @include when-inside(960px) {
+      background-size: 53%;
+  }
+  @include when-inside(750px) {
+      background-size: 67%;
+  }
+  @include when-inside(545px) {
     padding-top: 45px;
+    background-size: 100%;
+    height: 465px;
+  }
+  @include when-inside(365px) {
+    padding-top: 45px;
+    height: 505px;
   }
   p {
     margin-top:20px;
-    max-width: 350px;
+    width:100%;
+    max-width: 500px;
     margin: 0 auto;
-    line-height: 25px;
+    line-height: 23px;
     font-size: 17px;
     margin-top: 20px;
     font-family: $serif;
@@ -40,7 +56,7 @@
   top: 0px;
   left: 0px;
   background: #194175;
-  opacity: 0.6;
+  opacity: 0.88;
 }
 
 .events__img {

@@ -1,0 +1,112 @@
+<!doctype html>
+<html class="no-js docs__html" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  {% seo %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Alegreya:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+</head>
+
+<body class="doc">
+  <div class="navigation">
+    <header class="header clearfix">
+      <a href="{% link _pages/index.md %}"><img class="logo" src="/assets/img/simpl_logo.png" /></a>
+      <h2 class="title"><a href="{% link _docs/index.md %}">Simpl Documentation</a></h2>
+    </header>
+    <nav>
+      <!-- START all sidebar navigation -->
+
+      <ul class="nav nav-component">
+        <!-- START nav component -->
+        <li class="nav__section-title">User Documentation</li>
+        <li><a href="{% link _docs/overview.md %}">Simpl Overview</a></li>
+        <li><a href="{% link _docs/getting-started.md %}">Getting Started</a></li>
+      </ul>
+      <!-- END nav component -->
+
+      <ul class="nav nav-component">
+        <!-- START nav component -->
+        <li class="nav__section-title">Tutorials</li>
+        <li><a href="{% link _docs/tutorials/single-player/index.md %}">Single Player Game Tutorial</a></li>
+        <li><a href="{% link _docs/tutorials/single-player/modelservice.md %}">Single Player Game Model Service</a></li>
+        <li><a href="{% link _docs/tutorials/single-player/frontend.md %}">Single Player Game Frontend</a></li>
+      </ul>
+      <!-- END nav component -->
+
+      <ul class="nav nav-component">
+        <!-- START nav component -->
+        <li class="nav__section-title">Simpl-Games-API</li>
+        <li><a href="{% link _docs/services/Simpl-Games-API/index.md %}">Simpl-Games-API Overview</a></li>
+      </ul>
+      <!-- END nav component -->
+
+      <ul class="nav nav-component">
+        <!-- START nav component -->
+        <li class="nav__section-title">Simpl-Modelservice</li>
+        <li><a href="{% link _docs/services/modelservice/scopes.md %}">Scopes</a></li>
+        <li><a href="{% link _docs/services/modelservice/traversing.md %}">Traversing Scopes</a></li>
+        <li><a href="{% link _docs/services/modelservice/scopemanager.md %}">ScopeManager</a></li>
+        <li><a href="{% link _docs/services/modelservice/settings.md %}">Settings</a></li>
+        <li><a href="{% link _docs/services/modelservice/simpl.md %}">The Simpl Client</a></li>
+        <li><a href="{% link _docs/services/modelservice/webhooks.md %}">Registering Functions with Hooks</a></li>
+      </ul>
+      <!-- END nav component -->
+
+      <ul class="nav nav-component">
+        <!-- START nav component -->
+        <li class="nav__section-title">Simpl-React</li>
+        <li><a href="{% link _docs/services/simpl-react/overview.md %}">Simpl-React Overview</a></li>
+        <li><a href="{% link _docs/services/simpl-react/actions/index.md %}">Actions</a></li>
+        <!--<li><a href="{% link _docs/services/simpl-react/simpl/lowlevel-decorators.md %}">Low-level Decorators</a></li>-->
+        <!--<li><a href="{% link _docs/services/simpl-react/pubsub/highlevel-components.md %}">PubSub High-level Components</a></li>-->
+        <!--<li><a href="{% link _docs/services/simpl-react/pubsub/lowlevel-decorators.md %}">PubSub Low-level Components</a></li>-->
+        <!--<li><a href="{% link _docs/services/simpl-react/rpc/highlevel-components.md %}">RPC High-level Components</a></li>-->
+        <!--<li><a href="{% link _docs/services/simpl-react/rpc/lowlevel-decorators.md %}">RPC Low-level Components</a></li>-->
+        <!--<li><a href="{% link _docs/services/simpl-react/wamp/lowlevel-decorators.md %}">Wamp Low-level Decorators</a></li>-->
+      </ul>
+    </nav>
+    <div class="doc__spacer nav-spacer"></div>
+    <!-- END all sidebar navigation -->
+
+  </div>
+  <header class="m-header">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+    <h2>Simpl.world Documentation</h2>
+  </header>
+
+  <div class="content">
+    <!-- START all content -->
+    <div class="content__header">
+      <ol class="breadcrumb">
+        <li><a class="anchor" href="{% link _docs/index.md %}">Docs</a></li>
+        {% comment %}
+        <li><a href="">Getting Started</a></li>
+        <li class="active">Current Item</li>
+        {% endcomment %}
+        <div class="edit-on-github"><a href="https://github.com/simplworld/simpl.world.website">Edit on Github</a></div>
+      </ol>
+    </div>
+
+{{ content }}
+
+    <div class="doc__spacer"></div>
+  </div>
+
+  <!-- END all content -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script>
+    $(".fa.fa-bars").click(function() {
+      $(".navigation").toggleClass("toggleMe");
+    });
+  </script>
+</body>
+
+</html>

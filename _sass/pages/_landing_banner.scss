@@ -118,7 +118,7 @@
     left: 85px;
     z-index: 9;
     bottom: -223px;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .btn-default {
@@ -132,6 +132,7 @@
   vertical-align: middle;
   color: #2F71A9;
   font-weight: 600;
+  width: 160px;
   @include on-event {
      color: #2F71A9;
   }
@@ -272,9 +273,40 @@
 .typeMe {
   height: 157px;
   @include break {
-    height: 105px;
+    height: auto;
   }
-  @include small {
-    height: 99px;
+}
+
+.wharton-callout {
+    color: #fff;
+    position: absolute;
+    bottom: 0px;
+    left: 11px;
+    display: block;
+    height: 300px;
+    z-index: 99999;
+    bottom: -531px;
+    text-align: center;
+    font-size: 10px;
+    opacity: 0.7;
+    font-weight: 300;
+}
+
+.welcome--heavy {
+   font-weight: 700;
+   display:inline-block;
+  a {
+    color: #fff;
+    display:block;
+    cursor:pointer;
   }
+}
+
+_::-webkit-full-page-media, _:future, :root .wharton-callout {
+  font-weight: 700 !important;
+  font-size: 9px !important;
+}
+
+_::-webkit-full-page-media, _:future, :root .blog__categories li a {
+  font-weight: 600 !important;
 }

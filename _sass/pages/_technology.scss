@@ -20,6 +20,9 @@
     font-size: 18px;
     color: lighten(#484848, 17%);
     line-height: 33px;
+    a {
+      color: #1E88E5 !important;
+    }
   }
   span {
     font-weight: 700;
@@ -46,6 +49,9 @@
 
 .second-col {
   padding-left: 35px;
+  @include small {
+    padding-left: 15px;
+  }
 }
 
 p.second-col__text {

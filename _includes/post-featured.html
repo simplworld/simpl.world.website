@@ -1,5 +1,8 @@
+{% assign featured_posts = site.posts | where:'featured','true' %}
+{% for post in featured_posts | limit:1 %}
 <div class="featured-article">
   <div class="featured__type">Featured Post</div>
-  <div class="featured__title">World Class Games for a Global University</div>
-  <a href="/blog/welcome-to-jekyll/"><button class="featured__button">Read Article</button></a>
+  <div class="featured__title">{{ post.title }}</div>
+  <a href="{{ post.url }}"><button class="featured__button">Read Article</button></a>
 </div>
+{% endfor %}
