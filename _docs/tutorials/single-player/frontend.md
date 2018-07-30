@@ -560,7 +560,7 @@ Submit a decision in the `s2@calc.edu` window. The simpl state in both browser w
 <img src="/assets/img/tutorials/single-player/Simpl_Play2.png" width="100%">
 
 This concludes our tutorial! We have barely scratched the surface. A completed example implementation is available at 
-[https://github.com/simplworld/simpl-calc-ui](https://github.com/simplworld/simpl-calc-ui) 
+[https://github.com/simplworld/simpl-calc-ui]<!--(https://github.com/simplworld/simpl-calc-ui)-->
 that uses the game slug `simpl-calc`.
 
 There's much more that you can do with Simpl. For more informations, check out the service-specific documentation.

@@ -69,7 +69,7 @@ export default App;
 #### Props
 
 * `topic`: string. Required. The topic to publish messages to.
-* `options`: object. Optional. The [publishing options](http://autobahn.ws/python/reference/autobahn.wamp.html?highlight=publishoptions#autobahn.wamp.PublishOptions) that will be used. Defaults to `{acknowledge: true, disclose_me: true, exclude_me: false}`
+* `options`: object. Optional. The [publishing options] that will be used. Defaults to `{acknowledge: true, disclose_me: true, exclude_me: false}`
 * `onPublished(topic, args, kwargs, details, publicationID)`: This function will be called after new message is successfully published
 * `onPublishedError(topic, args, kwargs, details, error)`: This function will be called after a failure in publishing the message.
 
@@ -130,6 +130,6 @@ export default App;
 
 * `topic`: string. Required. The topic you want the component to subscribe to.
 * `append`: boolean. Default: `true`. Defines if messages should 'pile up' or if there will only be the last message received
-* `options`: object. Optional. The [subscription options](http://autobahn.ws/python/reference/autobahn.wamp.html#autobahn.wamp.SubscriptionOptions) that will be used. Defaults to `{match: 'prefix'}`.
+* `options`: object. Optional. The [subscription options] that will be used. Defaults to `{match: 'prefix'}`.
 * `onReceived(route, args, kwargs, details)`: function. Optional. Called when a new message is received.
 
