@@ -14,17 +14,17 @@ interface with the Simpl-Games-API service.
 ```python
 from modelservice.simpl import games_client
 
-async with games_client as api_session:
-
-    users = await api_session.users.all()
-
-    world_users = await api_session.users.filter(world=35)
-
-    user = await api_session.users.get(email='myuser@example.com')
-
-    user.first_name = 'Jessie'
-
-    await user.save()
+    async with games_client as api_session:
+    
+        users = await api_session.users.all()
+    
+        world_users = await api_session.users.filter(world=35)
+    
+        user = await api_session.users.get(email='myuser@example.com')
+    
+        user.first_name = 'Jessie'
+    
+        await user.save()
 ```
 
 ### Endpoint methods
@@ -35,6 +35,11 @@ async with games_client as api_session:
 * `.filter(**kwargs)`
 * `.get(**kwargs)`
 
+### Bulk Endpoint methods
+
+* `.create([...], return_ids=False)`
+* `.delete()`
+
 ### Resource methods
 
 * `.save()`
@@ -42,8 +47,15 @@ async with games_client as api_session:
 
 ### Resource attributes
 
-* `.payload`: a `dict` containg the data returned in the response body.
+* `.payload`: a `dict` containing the data returned in the response body.
 
+The payload's keys can also be accessed as properties of the Resource.
+
+### Detail Routes
+
+```python
+    await games_client.scenario(id=123).rewind() 
+```
 
 ### Exceptions
 
