@@ -38,6 +38,5 @@ Here's how it works: Each time the model service updates the database using the 
 
 And there you have it — the user is automagically guaranteed to see fresh data, without game authors having to write a line of code! It works like magic, but it's actually quite *Simpl*...
 
-<!--
-**For more details, please see our****[ Simpl Framework doc**s](https://simpl.world/docs)**.**
--->
+For more details, please see our [Simpl Documentation]({% link _docs/index.md %}).
+
