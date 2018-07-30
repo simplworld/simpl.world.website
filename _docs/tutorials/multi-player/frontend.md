@@ -19,14 +19,14 @@ You will need to have these installed:
 * [virtualenv](https://virtualenv.pypa.io/en/stable/)
 
 Have the [Games API service]({% link _docs/getting-started.md %}) running on http://localhost:8100/ and 
-the [calc-model service]({% link _docs/tutorials/multi-player/modelservice.md %}) running on http://localhost:8080. 
+the [div-model service]({% link _docs/tutorials/Multi-player/modelservice.md %}) running on http://localhost:8080. 
 
 ### Installation
 
-In a separate terminal, create a new virtualenv called 'calc-ui':
+In a separate terminal, create a new virtualenv called 'div-ui':
 
 ```shell
-$ mkvirtualenv calc-ui
+$ mkvirtualenv div-ui
 ```
 
 Install the `cookiecutter` Python package:
@@ -41,17 +41,17 @@ Use `cookiecutter` to create the boilerplate for your game Frontend.
 $ cookiecutter https://github.com:simplworld/simpl-ui-cookiecutter.git
 ```
 
-For the `game_slug` value, enter `calc` (the slug value you used in the [modelservice tutorial]({% link _docs/tutorials/multi-player/modelservice.md %})). 
+For the `game_slug` value, enter `div` (the slug value you used in the [modelservice tutorial]({% link _docs/tutorials/multi-player/modelservice.md %})). 
 For all other values, you can use the default or choose your own.
 
 For example,
 
 ```shell
-project_name [Simulation UI]: Calc UI
-repo_slug [calc-ui]:
-project_slug [calc_ui]:
-game_slug [calc-ui]: calc
-modelservice_slug [calc-model]:
+project_name [Simulation UI]: Div UI
+repo_slug [div-ui]:
+project_slug [div_ui]:
+game_slug [div-ui]: div
+modelservice_slug [div-model]:
 topic_root [world.simpl]:
 app_slug [frontend]:
 version [0.1.0]:
@@ -60,7 +60,7 @@ version [0.1.0]:
 After the project layout is created, install the requirements:
 
 ```shell
-$ cd calc-ui
+$ cd div-ui
 $ pip install -r requirements.txt
 ```
 
@@ -101,7 +101,7 @@ Then, start your frontend service with:
 $ ./manage.py runserver 0.0.0.0:8000
 ```
 
-In Chrome, head to `http://localhost:8000/` and login as `s1@calc.edu` with password `s1`.
+In Chrome, head to `http://localhost:8000/` and login as `s1@div.edu` with password `s1`.
 Once you are logged in, you should see the 'Hello Player' message of the skeleton app.
 
 ![](/assets/img/tutorials/multi-player/Hello_Player.png)
@@ -115,54 +115,20 @@ to see all the scope properties associated with the current user.
 These properties will be updated as the model service adds, removes or updates scopes.
 You will connect your components to the properties and they will update accordingly.
 
-Next, logout by going to `localhost:8000/logout/` in your browser. Then login as `leader@calc.edu` with password `leader`.
+Next, logout by going to `localhost:8000/logout/` in your browser. Then login as `leader@div.edu` with password `leader`.
 Once you are logged in, you should see the 'Hello Leader' message of the skeleton app. If you look at the `simpl`
-state properties, they look similar to those of players. Only information about the current user has been loaded.
+state properties, they look similar to those of players except information about all the worlds has been loaded.
 
 <img src="/assets/img/tutorials/multi-player/Hello_Simpl_Leader1.png" width="100%">
 
 In a multi-player simulation, players are assigned to a world with other players.
 The cookiecutter template assumes you are implementing a multi-player simulation in which players
-see only their own and their world's data. By default, leaders can see the worlds and users in their subscribed runs,
-but not the scenarios of other users. Consequently, the template `js/modules/Root.js` sets the simpl decorator's 
+see only their world's information. By default, leaders can see the worlds and users in their subscribed runs,
+but not the scenarios of other users. To accomplish this, the template `js/modules/Root.js` sets the simpl decorator's 
 `loadAllScenarios` argument false to block access to scenarios of other users.
 
-We want Calc leaders to have access to all information on all players in their runs. Since Calc players are not associated with
-a world, we need to modify the template `js/modules/Root.js` code to load all player scenarios for leaders.
-
-In your `js/modules/Root.js`:
-
-```jsx
-export default simpl({
-  authid: AUTHID,
-  password: 'nopassword',
-  url: `${MODEL_SERVICE}`,
-  progressComponent: Progress,
-  root_topic: ROOT_TOPIC,
-  topics: () => topics,
-  loadAllScenarios: false
-})(RootContainer);
-```
-
-change the simpl decorator's `loadAllScenarios` argument to LEADER:
-
-```jsx
-export default simpl({
-  authid: AUTHID,
-  password: 'nopassword',
-  url: `${MODEL_SERVICE}`,
-  progressComponent: Progress,
-  root_topic: ROOT_TOPIC,
-  topics: () => topics,
-  loadAllScenarios: LEADER
-})(RootContainer);
-```
-
-Refresh your Chrome browser page and you'll see all the run's runusers have been loaded into the `simpl` state.
-
-<img src="/assets/img/tutorials/multi-player/Hello_Simpl_Leader2.png" width="100%">
-
-These properties will be updated as the model service adds, removes or updates scopes. You will connect your components to the properties and they will update accordingly.
+These properties will be updated as the model service adds, removes or updates scopes. 
+You will connect your components to the properties and they will update accordingly.
 
 ### Implementation
 
@@ -170,7 +136,7 @@ To implement your UI, you will write [Container Components and Presentational Co
 
 The Presentational Components will provide the necessary markup to render UI elements, while the Container Components will wrap them providing the necessary data.
 
-First, create an action in `js/actions/Actions.js` for submitting decisions to the `submit_decision` topic defined by calc-model `game/games.py`.
+First, create an action in `js/actions/Actions.js` for submitting decisions to the `submit_decision` topic defined by div-model `game/games.py`.
 
 ```jsx
 import {createAction} from 'redux-actions';
@@ -184,7 +150,7 @@ export const submitDecision =
     );
 
 ```
-Note the action publishes to this topic because the calc-model `game/games.py `submit_decision` endpoint subscribes to the topic.
+Note the action publishes to this topic because the div-model `game/games.py `submit_decision` endpoint subscribes to the topic.
 
 Create a presentation component `js/components/DecisionForm.js` for entering player decisions:
 
@@ -551,16 +517,16 @@ with
 
 ![](/assets/img/tutorials/multi-player/Leader_Home2.png)
 
-To see the revised leader page in action, open an incognito window and login into http://localhost:8000/ as `s2@calc.edu` with password `s2`.
+To see the revised leader page in action, open an incognito window and login into http://localhost:8000/ as `s2@div.edu` with password `s2`.
 
 <img src="/assets/img/tutorials/multi-player/Simpl_Play.png" width="100%">
 
-Submit a decision in the `s2@calc.edu` window. The simpl state in both browser windows will update with a new result causing the leader home page to update accordingly.
+Submit a decision in the `s2@div.edu` window. The simpl state in both browser windows will update with a new result causing the leader home page to update accordingly.
 
 <img src="/assets/img/tutorials/multi-player/Simpl_Play2.png" width="100%">
 
 This concludes our tutorial! We have barely scratched the surface. A completed example implementation is available at 
-[https://github.com/simplworld/simpl-calc-ui](https://github.com/simplworld/simpl-calc-ui) 
-that uses the game slug `simpl-calc`.
+[https://github.com/simplworld/simpl-div-ui](https://github.com/simplworld/simpl-div-ui) 
+that uses the game slug `simpl-div`.
 
 There's much more that you can do with Simpl. For more informations, check out the service-specific documentation.
