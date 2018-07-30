@@ -168,10 +168,20 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9.7)
     mercenary (0.3.6)
+<<<<<<< Updated upstream
     mini_portile2 (2.2.0)
     minima (2.1.1)
       jekyll (~> 3.3)
     minitest (5.10.3)
+=======
+    mini_magick (4.8.0)
+    mini_portile2 (2.3.0)
+    minima (2.5.0)
+      jekyll (~> 3.5)
+      jekyll-feed (~> 0.9)
+      jekyll-seo-tag (~> 2.1)
+    minitest (5.11.3)
+>>>>>>> Stashed changes
     multipart-post (2.0.0)
     net-dns (0.8.0)
     nokogiri (1.8.0)
@@ -217,10 +227,19 @@ DEPENDENCIES
   jekyll-redirect-from
   jekyll-seo-tag
   jekyll-sitemap
+<<<<<<< Updated upstream
+=======
+  kramdown
+  mini_magick
+>>>>>>> Stashed changes
   rake
 
 RUBY VERSION
+<<<<<<< Updated upstream
    ruby 2.1.10p492
+=======
+   ruby 2.4.3p205
+>>>>>>> Stashed changes
 
 BUNDLED WITH
    1.15.3
