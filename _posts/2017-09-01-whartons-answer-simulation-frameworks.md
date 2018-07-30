@@ -25,7 +25,7 @@ Possibly the most exciting part about controlling our own destinies is that we w
 
 And last but not least, we have a (free!) full day workshop being planned for mid Fall … again, to be announced!
 
-If you're interested in getting a sneak peak into Simpl, here's the[ docs](https://lldev-team.gitlab.io/simpl-docs/).
+If you're interested in getting a sneak peak into Simpl, here's the [docs](https://simpl.world/docs/).
 
 And if you're interested in being included in the beta, please email sign-up for our mailing list on the simpl.world homepage … scroll on down to the bottom.
 
