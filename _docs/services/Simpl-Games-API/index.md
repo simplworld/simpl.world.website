@@ -40,7 +40,7 @@ For more info on the specific endpoint, swagger documentation is available at th
 
 #### Bulk Endpoints
 
-In addition to the RESTful endpoints, `simpl-games-api` offers endpoint to operate on multiple resources at once.
+In addition to the RESTful endpoints, `simpl-games-api` offers endpoints to operate on multiple resources at once.
 
 Currently, the only operation supported on these endpoints are creation (via `POST`) and deletion (via `DELETE`)
 
