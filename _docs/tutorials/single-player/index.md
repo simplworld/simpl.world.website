@@ -24,4 +24,4 @@ Next, we'll implement our Model Service providing the mathematical model for `Ca
 Last, we'll build our Frontend's user-facing pieces.
 
 0. [Build the Single Player Game Model Service]({% link _docs/tutorials/single-player/modelservice.md %})
-0. [Build the Single Player Game Frontend({% link _docs/tutorials/single-player/frontend.md %})
+0. [Build the Single Player Game Frontend]({% link _docs/tutorials/single-player/frontend.md %})
