@@ -93,14 +93,21 @@ const App = function App() {
   );
 };
 
+const runs = RUNS.map((id) => `model:model.run.${id}`);;
+const runusers = RUNUSERS.map((id) => `model:model.runuser.${id}`);
+const worlds = WORLDS.map((id) => `model:model.world.${id}`);
+const topics = (LEADER) ? runs : runusers.concat(worlds);
+
 export default simpl({
-  authid: USER_SIMPL_ID,
-  password: 'nopassword',
-  url: 'ws://localhost:8080/ws',
-  topics: ['model:model.actions.game'],
-  progressComponent: Progress,
-  root_topic: CROSSBAR_ROOT_TOPIC,
-})(App);
+    authid: AUTHID,
+    password: 'nopassword',
+    url: `${MODEL_SERVICE}`,
+    progressComponent: Progress,
+    root_topic: ROOT_TOPIC,
+    topics: () => topics,
+    loadAllScenarios: false
+})(RootContainer);
+
 ```
 
 `containers/DecisionContainer.jsx`
