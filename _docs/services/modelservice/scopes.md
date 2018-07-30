@@ -1,15 +1,13 @@
 ---
-title: Games
-permalink: /docs/services/modelservice/games/
+title: Scopes
+permalink: /docs/services/modelservice/scopes/
 layout: docs
 description:
 ---
 
-## Games
+## Scopes
 
-### Scopes
-
-Every game is defined by building what we call the _Scope tree_.
+Every game is defined by building what we call the _Scope tree_ when the game's modelservice starts up.
 
 The _Scope tree_ starts at `Game`, and it's defined as follow:
 

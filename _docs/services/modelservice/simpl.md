@@ -1,11 +1,11 @@
 ---
-title: The simpl client
+title: The Simpl Client
 permalink: /docs/services/modelservice/simpl/
 layout: docs
 description:
 ---
 
-## The simpl client
+## The Simpl Client
 
 The `modelservice.simpl.games_client` class provides a generic asynchronous REST API client that you can use to
 interface with the Simpl-Games-API service.

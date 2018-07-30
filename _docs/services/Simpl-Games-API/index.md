@@ -1,11 +1,11 @@
 ---
-title: Simpl-Games-API
+title: Simpl-Games-API Overview
 permalink: /docs/services/simple-games-api/
 layout: docs
 description:
 ---
 
-## Simpl-Games-Api
+## Simpl-Games-Api Overview
 
 The `simpl-games-api` service provides the main storage for games' data.
 
@@ -40,7 +40,7 @@ For more info on the specific endpoint, swagger documentation is available at th
 
 #### Bulk Endpoints
 
-In addition to the RESTful endpoints, `simpl-games-api` offers endpoint to operate on multiple resource at once.
+In addition to the RESTful endpoints, `simpl-games-api` offers endpoint to operate on multiple resources at once.
 
 Currently, the only operation supported on these endpoints are creation (via `POST`) and deletion (via `DELETE`)
 
@@ -56,3 +56,7 @@ The following bulk endpoints are available:
 * `/apis/bulk/runusers/`
 * `/apis/bulk/scenarios/`
 * `/apis/bulk/worlds/`
+
+#### Detail Routes
+
+As a performance optimization, the ScenarioViewSet defines a `rewind` detail route that removes some or all of a scenario's periods.

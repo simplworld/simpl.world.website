@@ -1,11 +1,11 @@
 ---
-title: Registering functions with hooks
+title: Registering Functions with Hooks
 permalink: /docs/services/modelservice/webhooks/
 layout: docs
 description:
 ---
 
-## Registering functions with hooks
+## Registering Functions with Hooks
 
 Inside your Django app, create a file called `webhooks.py` with the following content:
 
