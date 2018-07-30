@@ -1,11 +1,11 @@
 ---
-title: Build the Single Player Game Model Service
-permalink: /docs/tutorials/single-player/modelservice/
+title: Build the Multi-player Game Model Service
+permalink: /docs/tutorials/multi-player/modelservice/
 layout: docs
 description:
 ---
 
-## Build the Single Player Game Model Service
+## Build the Multi-player Game Model Service
 
 ###  Prerequisites
 
@@ -18,10 +18,10 @@ Have the [Games API service]({% link _docs/getting-started.md %}) is running on 
 
 ###  Installation
 
-In a separate terminal, create a new virtualenv called 'calc-model':
+In a separate terminal, create a new virtualenv called 'div-model':
 
 ```shell
-$ mkvirtualenv calc-model
+$ mkvirtualenv div-model
 ```
 
 Install Django
@@ -33,14 +33,14 @@ $ pip install Django~=1.11
 Create a Django project folder and rename it to serve as a git repository
 
 ```shell
-$ django-admin startproject calc_model
-$ mv calc_model calc-model
+$ django-admin startproject div_model
+$ mv div_model div-model
 ```
 
 Change to the project folder:
 
 ```shell
-$ cd calc-model
+$ cd div-model
 $ add2virtualenv .
 ```
 
@@ -74,7 +74,7 @@ Create a django app that will contain your game logic:
 $ ./manage.py startapp game
 ```
 
-Add the following to your `INSTALLED_APPS` in `calc_model/settings.py`:
+Add the following to your `INSTALLED_APPS` in `div_model/settings.py`:
 
 ```python
 INSTALLED_APPS += [
@@ -92,7 +92,7 @@ SIMPL_GAMES_URL = os.environ.get('SIMPL_GAMES_URL', 'http://localhost:8100/apis'
 
 SIMPL_GAMES_AUTH = ('simpl@simpl.world', 'simpl')
 
-ROOT_TOPIC = 'world.simpl.sims.calc'
+ROOT_TOPIC = 'world.simpl.sims.div'
 ```
 
 It's highly recommended that you set a `'users'` cache. Since the modelservice will run single-threaded, you can take advantage of the `locmem` backend:
@@ -111,24 +111,26 @@ CACHES = {
 
 ###  Implementation
 
-For simplicity, we're going to create a single player Game in which each player has a Scenario that can advance multiple periods.
+For simplicity, we're going to create a multi-player Game in which each world must have exactly two players -- 
+one playing the Dividend role, the other playing the Divisor role.
+The game's model will automatically advance as soon as both players in a world have submitted valid decisions for their roles.
 
 In your `game` app module, define our model in `model.py`:
 
 ```python
 class Model(object):
     """
-    The model adds an operand to the previous total and returns the result.
+    The model calculates a result given a dividend and a divisor and returns the result.
     """
 
-    def step(self, operand, prev_total=0.0):
+    def step(self, dividend, divisor):
         """
         Parameters:
-            operand - current period's decision
-            prev_total - the calculated total from the previous period
-        Returns new total
+            dividend - current period's dividend decision
+            divisor - current period's divisor decision
+        Returns result of dividing dividend by divisor.
         """
-        return operand + prev_total
+        return dividend / divisor
 ```
 
 In your `game` app module, add a unit test directory `tests` and a model unit test `tests/test_model.py`:
@@ -148,30 +150,23 @@ class ModelTestCase(TestCase):
         m = Model()
         self.assertNotEqual(m, None)
 
-    def test_first_step(self):
-        m = Model()
-        total = m.step(5)
-        self.assertEquals(total, 5)
+    def test_result_5(self):
+        result = self.m.step(1.25, 0.25)
+        self.assertEquals(result, 5)
 
-    def test_increase_step(self):
-        m = Model()
-        total = m.step(5, 3)
-        self.assertEquals(total, 8)
-
-    def test_decrease_step(self):
-        m = Model()
-        total = m.step(5, -2.5)
-        self.assertEquals(total, 2.5)
+    def test_result_fraction(self):
+        result = self.m.step(1, 2)
+        self.assertEquals(result, 0.5)
 ```
 
 Run your unit test:
 
 ```shell
-$ export DJANGO_SETTINGS_MODULE=calc_model.settings
+$ export DJANGO_SETTINGS_MODULE=div_model.settings
 $ py.test
 ```
 
-Create a management command that will create your game and initialize it with one run, a leader and 2 players.
+Create a management command that will create your game and initialize it with one run, a leader, 2 worlds, and 2 players per world.
 
 Create a 'management' folder in the `game` folder and add an empty `__init__.py` file.
 
@@ -194,8 +189,8 @@ def echo(text, value):
 
 async def delete_default_run(api_session):
     """ Delete default Run """
-    echo('Resetting the Calc game default run...', ' done')
-    runs = await api_session.runs.filter(game_slug='calc')
+    echo('Resetting the Div game default run...', ' done')
+    runs = await api_session.runs.filter(game_slug='simpl-div')
     for run in runs:
         if run.name == 'default':
             await api_session.runs.delete(run.id)
@@ -207,15 +202,24 @@ async def delete_default_run(api_session):
 @coro
 async def command(reset):
     """
-    Create and initialize Calc game.
-    Create a "default" Calc run.
+    Create and initialize Div game.
+    Create a "default" Div run.
     Set the run phase to "Play".
+    Add 2 worlds to the run.
+    Add a scenario and period 1 for each world.
     Add 1 leader ("leader") to the run
-    Add 2 players ("s1", "s2") to the run.
-    Add a scenario and period 1 for each player.
+    Add 4 players ("s1", "s2", "s3", "s4") to the run
+    splitting the players between the 2 worlds and assigning all roles.
     """
 
     async with games_client as api_session:
+
+        # Create a Game
+        game = await api_session.games.get_or_create(
+            name='Div',
+            slug='div'
+        )
+        echo('getting or creating game: ', game.name)
 
         # Handle resetting the game
         if reset:
@@ -223,14 +227,20 @@ async def command(reset):
                     'Are you sure you want to delete the default game run and recreate from scratch?'):
                 await delete_default_run(api_session)
 
-        # Create a Game
-        game = await api_session.games.get_or_create(
-            name='Calc',
-            slug='calc'
+        # Create required Roles ("Dividend" and "Divisor")
+        dividend_role = await api_session.roles.get_or_create(
+            game=game.id,
+            name='Dividend',
         )
-        echo('getting or creating game: ', game.name)
+        echo('getting or creating role: ', dividend_role.name)
 
-        # Create game Phases ("Play")
+        divisor_role = await api_session.roles.get_or_create(
+            game=game.id,
+            name='Divisor',
+        )
+        echo('getting or creating role: ', divisor_role.name)
+
+        # Create game Phases ("Play" and "Debrief")
         play_phase = await api_session.phases.get_or_create(
             game=game.id,
             name='Play',
@@ -238,14 +248,25 @@ async def command(reset):
         )
         echo('getting or creating phase: ', play_phase.name)
 
-        # Add run with 2 players ready to play
-        run = await add_run(game, 'default', 2, play_phase, api_session)
+        debrief_phase = await api_session.phases.get_or_create(
+            game=game.id,
+            name='Debrief',
+            order=2,
+        )
+        echo('getting or creating phase: ', debrief_phase.name)
 
-        echo('Completed setting up run: id=', run.id)
+        # Add run with 2 fully populated worlds ready to play
+        run = await add_run(game, 'default', 2, 1,
+                            dividend_role, divisor_role,
+                            play_phase, api_session)
+
+        # echo('Completed setting up run: id=', run.id)
 
 
-async def add_run(game, run_name, user_count, phase, api_session):
-    # Create or get the Run
+async def add_run(game, run_name, world_count, first_user_number,
+                  dividend_role, divisor_role,
+                  phase, api_session):
+    # Create or get a Run
     run = await api_session.runs.get_or_create(
         game=game.id,
         name=run_name,
@@ -257,183 +278,219 @@ async def add_run(game, run_name, user_count, phase, api_session):
     await run.save()
     echo('setting run to phase: ', phase.name)
 
+    user_name_root = "s"
+    if run_name is not 'default':
+        user_name_root = run_name
+    for n in range(0, world_count):
+        world_num = n + 1
+        world = await add_world(run, world_num, api_session)
+
+        # Add users to run
+        await add_world_users(run, world, user_name_root,
+                              first_user_number + n * 2,
+                              dividend_role, divisor_role, api_session)
+
+    return run
+
+
+async def add_world(run, number, api_session):
+    """
+        Add a world to the run with a scenario and period 1.
+        The world's name is based on number.
+    """
+    name = 'World {0}'.format(number)
+    world = await api_session.worlds.get_or_create(
+        run=run.id,
+        name=name,
+    )
+    echo('getting or creating world: ', world.name)
+
+    scenario = await api_session.scenarios.create({
+        'world': world.id,
+        'name': 'World Scenario 1'
+    })
+    period1 = await api_session.periods.create({
+        'scenario': scenario.id,
+        'order': 1
+    })
+
+    return world
+
+
+async def add_world_users(run, world, user_name_root,
+                          first_number,
+                          dividend_role, divisor_role, api_session):
+    """
+        Add 1 leader ("leader") to the run with a test scenario
+        Add players to the run with names based on user_name_root and first_number
+        Add players to world assigning all required roles
+    """
     fac_user = await api_session.users.get_or_create(
         password='leader',
-        first_name='CALC',
+        first_name='Div',
         last_name='Leader',
-        email='leader@calc.edu',
+        email='leader@div.edu',
     )
     echo('getting or creating user: ', fac_user.email)
 
-    fac_runuser = await api_session.runusers.get_or_create(
+    await api_session.runusers.get_or_create(
         user=fac_user.id,
         run=run.id,
         leader=True,
     )
     echo('getting or creating leader runuser for user: ', fac_user.email)
 
-    for n in range(0, user_count):
-        user_number = n + 1
-        # Add player to run
-        await add_player(user_number, run, api_session)
+    roles = [dividend_role, divisor_role]
+    for n in range(len(roles)):
+        user_number = n + first_number
+        await add_player(user_name_root, user_number, run, world, roles[n],
+                         api_session)
 
-    return run
 
+async def add_player(user_name_root, user_number, run, world, role,
+                     api_session):
+    """Add player with name based on user_name_root and user_number to world in role"""
 
-async def add_player(user_number, run, api_session):
-    """Add player with name based on user_number to run with role"""
-
-    username = 's{0}'.format(user_number)
+    username = '{}{}'.format(user_name_root, user_number)
     first_name = 'Student{0}'.format(user_number)
-    email = '{0}@calc.edu'.format(username)
+    if user_name_root == 's':  # assume original default namings
+        last_name = 'User'
+    else:
+        last_name = user_name_root[:1].upper() + user_name_root[1:]
+    email = '{0}@div.edu'.format(username)
 
     user = await api_session.users.get_or_create(
         password=username,
         first_name=first_name,
-        last_name='User',
+        last_name=last_name,
         email=email,
     )
     echo('getting or creating user: ', user.email)
 
-    runuser = await api_session.runusers.get_or_create(
+    await api_session.runusers.get_or_create(
         user=user.id,
         run=run.id,
-        defaults={"role": None}
+        world=world.id,
+        role=role.id,
     )
     echo('getting or creating runuser for user: ', user.email)
-
-    await add_runuser_scenario(runuser, api_session)
-
-
-async def add_runuser_scenario(runuser, api_session):
-    """Add a scenario named 'Scenario 1' to the runuser"""
-
-    scenario = await api_session.scenarios.get_or_create(
-        runuser=runuser.id,
-        name='Scenario 1',
-    )
-    click.echo('getting or creating runuser {} scenario: {}'.format(
-        runuser.id,
-        scenario.id))
-
-    period = await api_session.periods.get_or_create(
-        scenario=scenario.id,
-        order=1,
-    )
-    click.echo('getting or creating runuser {} period 1 for scenario: {}'.format(
-        runuser.id,
-        scenario.id))
 
 ```
 
 Run your command:
 
 ```shell
-$ export DJANGO_SETTINGS_MODULE=calc_model.settings
+$ export DJANGO_SETTINGS_MODULE=div_model.settings
 $ ./manage.py create_default_env
 ```
 
-Every player's move will be a `Decision` saved on the current `Period`. The model will then produce a `Result` for the
-current `Period`, and the `Scenario` will step to the next `Period`.
+A `World`'s players will each submit a `Decision` saved on the `World` `Scenario`'s current `Period`. After both players have submitted a valid decision,
+the model will  produce a `Result` for the current `Period`, and the `World`'s `Scenario` will step to the next `Period`.
 
-In your `game` app module, create a file called `runmodel.py`.  Next, add `save_decision` and `step_scenario` functions to perform these steps:
+In your `game` app module, create a file called `runmodel.py`.  Next, add `save_decision` and `divide` functions to perform these steps:
 
 ```python
 from modelservice.simpl import games_client
 from .model import Model
 
 
-async def save_decision(period_id, decision):
-    # add decision to period
+async def save_decision(period_id, role_id, operand):
+    # add/update role's decision for period
     async with games_client as api_session:
         decision = await api_session.decisions.get_or_create(
             period=period_id,
             name='decision',
-            data={"operand": decision},
-            defaults={"role": None}
+            role=role_id
         )
+        decision.data["operand"] = float(operand)
+        await decision.save()
         return decision
 
 
-async def step_scenario(scenario_id):
+async def divide(period_id):
     """
-    Step the scenario's current period
+    (Re)calculates the result of the period's Dividend and Divisor decisions.
     """
     async with games_client as api_session:
-        periods = await api_session.periods.filter(scenario=scenario_id,
-                                                   ordering='order')
-        period_count = len(periods)
-        period = periods[period_count - 1]
-
-        operand = 0.0
+        period = await api_session.periods.get(scenario=period_id)
         period_decisions = await api_session.decisions.filter(period=period.id)
-        if len(period_decisions) > 0:
-            operand = float(period_decisions[0].data["operand"])
 
-        prev_total = 0.0
-        if period_count > 1:
-            prev_period = periods[period_count - 2]
-            prev_period_results = \
-                await api_session.results.filter(period=prev_period.id)
-            if len(prev_period_results) > 0:
-                prev_total = float(prev_period_results[0].data["total"])
+        dividend, divisor = None, None
+        for decision in period_decisions:
+            role = await api_session.roles.get(id=decision.role)
+            if role.name == 'Dividend':
+                dividend = decision.data["operand"]
+            else:
+                divisor = decision.data["operand"]
 
-        # step model
+        if dividend is None or divisor is None:
+            return None
+
+        # run model
         model = Model()
-        total = model.step(operand, prev_total)
-        data = {"total": total}
+        quotient = model.step(dividend, divisor)
 
         result = await api_session.results.get_or_create(
             period=period.id,
-            name='results',
-            data=data,
+            name="result",
             defaults={"role": None}
         )
+        result.data["quotient"] = quotient
+        await result.save()
 
-        # prepare for next step by adding a new period
-        next_period_order = period.order + 1
-        next_period = await api_session.periods.get_or_create(
-            scenario=scenario_id,
-            order=next_period_order,
-        )
-        await next_period.save()
-
-        return next_period.id
+        return quotient
 ```
 
 
 In your `game` app module, create a file called `games.py` with the following content:
 
 ```python
+import asyncio
+
 from modelservice.games import Period, Game
 from modelservice.games import subscribe, register
 
-from .runmodel import step_scenario, save_decision
+from .runmodel import divide, save_decision
 
 
-class CalcPeriod(Period):
-    @subscribe
+class DivPeriod(Period):
+    @register
     async def submit_decision(self, operand, **kwargs):
         """
-        Receives the operand played and stores as a ``Decision`` then
-        steps the model saving the ``Result``. A new ``Period`` is added to
-        scenario in preparation for the next decision.
+        Receives the operand played and saves as a ``Decision``.
+        If decisions for both roles have been saved,
+        runs the model saving the ``Result``.
         """
         # Call will prefix the ROOT_TOPIC
-        # "world.simpl.sims.calc.model.period.1.submit_decision"
+        # "world.simpl.sims.div.model.period.1.submit_decision"
 
         for k in kwargs:
             self.session.log.info("submit_decision: Key: {}".format(k))
 
-        await save_decision(self.pk, operand)
-        self.session.log.info("submit_decision: saved decision")
+        user = kwargs['user']
+        runuser = self.game.get_scope('runuser', user.runuser.pk)
+        role = runuser.role
 
-        await step_scenario(self.scenario.pk)
-        self.session.log.info("submit_decision: stepped scenario")
+        role_name = role.json["name"]
+        if role_name == "Divisor" and float(operand) == 0:
+            return "Cannot divide by zero"
+
+        await save_decision(self.pk, role.pk, operand)
+        self.session.log.info(
+            "submit_decision: saved decision for role {}".format(role_name))
+
+        #pause while the scopes update
+        await asyncio.sleep(0.01)
+
+        if len(self.decisions) == 2:
+            await divide(self.scenario.pk, )
+            self.session.log.info("submit_decision: saved result")
+
+        return 'ok'
 
 
-Game.register('calc', [
-    CalcPeriod,
+Game.register('div', [
+    DivPeriod,
 ])
 ```
 
@@ -446,13 +503,13 @@ and register your game into the system.
 You can start your model service by running:
 
 ```shell
-$ export DJANGO_SETTINGS_MODULE=calc_model.settings
+$ export DJANGO_SETTINGS_MODULE=div_model.settings
 $ ./manage.py run_modelservice
 ```
 
 By default the service will bind to `0.0.0.0:8080`.
 
-This concludes the tutorial on building a single player game Model Service. A completed example implementation is available at 
-[https://github.com/simplworld/simpl-calc-model](https://github.com/simplworld/simpl-calc-model) that uses the game slug `simpl-calc`.
+This concludes the tutorial on building a multi-player game Model Service. A completed example implementation is available at 
+[https://github.com/simplworld/simpl-div-model](https://github.com/simplworld/simpl-div-model) that uses the game slug `simpl-div`.
 
-You can now head over to the [Single Player Game Frontend tutorial]({% link _docs/tutorials/single-player/frontend.md %}).
+You can now head over to the [Multi-player Game Frontend tutorial]({% link _docs/tutorials/multi-player/frontend.md %}).

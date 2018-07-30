@@ -1,11 +1,11 @@
 ---
-title: Build the Single Player Game Frontend UI
-permalink: /docs/tutorials/single-player/frontend/
+title: Build the Multi-player Game Frontend UI
+permalink: /docs/tutorials/multi-player/frontend/
 layout: docs
 description:
 ---
 
-## Build the Single Player Game Frontend
+## Build the Multi-player Game Frontend
 
 ### Prerequisites
 
@@ -19,7 +19,7 @@ You will need to have these installed:
 * [virtualenv](https://virtualenv.pypa.io/en/stable/)
 
 Have the [Games API service]({% link _docs/getting-started.md %}) running on http://localhost:8100/ and 
-the [calc-model service]({% link _docs/tutorials/single-player/modelservice.md %}) running on http://localhost:8080. 
+the [calc-model service]({% link _docs/tutorials/multi-player/modelservice.md %}) running on http://localhost:8080. 
 
 ### Installation
 
@@ -41,7 +41,7 @@ Use `cookiecutter` to create the boilerplate for your game Frontend.
 $ cookiecutter https://github.com:simplworld/simpl-ui-cookiecutter.git
 ```
 
-For the `game_slug` value, enter `calc` (the slug value you used in the [modelservice tutorial]({% link _docs/tutorials/single-player/modelservice.md %})). 
+For the `game_slug` value, enter `calc` (the slug value you used in the [modelservice tutorial]({% link _docs/tutorials/multi-player/modelservice.md %})). 
 For all other values, you can use the default or choose your own.
 
 For example,
@@ -104,13 +104,13 @@ $ ./manage.py runserver 0.0.0.0:8000
 In Chrome, head to `http://localhost:8000/` and login as `s1@calc.edu` with password `s1`.
 Once you are logged in, you should see the 'Hello Player' message of the skeleton app.
 
-![](/assets/img/tutorials/single-player/Hello_Player.png)
+![](/assets/img/tutorials/multi-player/Hello_Player.png)
 
 Open Chrome's DevTools, and select the 'Redux' tab. You will see a list of actions, and the
 current `state` of the store. Note that the state has a property named `simpl`. Expand the `simpl` property
 to see all the scope properties associated with the current user.
 
-<img src="/assets/img/tutorials/single-player/Hello_Simpl_Player.png" width="100%">
+<img src="/assets/img/tutorials/multi-player/Hello_Simpl_Player.png" width="100%">
 
 These properties will be updated as the model service adds, removes or updates scopes.
 You will connect your components to the properties and they will update accordingly.
@@ -119,7 +119,7 @@ Next, logout by going to `localhost:8000/logout/` in your browser. Then login as
 Once you are logged in, you should see the 'Hello Leader' message of the skeleton app. If you look at the `simpl`
 state properties, they look similar to those of players. Only information about the current user has been loaded.
 
-<img src="/assets/img/tutorials/single-player/Hello_Simpl_Leader1.png" width="100%">
+<img src="/assets/img/tutorials/multi-player/Hello_Simpl_Leader1.png" width="100%">
 
 In a multi-player simulation, players are assigned to a world with other players.
 The cookiecutter template assumes you are implementing a multi-player simulation in which players
@@ -160,7 +160,7 @@ export default simpl({
 
 Refresh your Chrome browser page and you'll see all the run's runusers have been loaded into the `simpl` state.
 
-<img src="/assets/img/tutorials/single-player/Hello_Simpl_Leader2.png" width="100%">
+<img src="/assets/img/tutorials/multi-player/Hello_Simpl_Leader2.png" width="100%">
 
 These properties will be updated as the model service adds, removes or updates scopes. You will connect your components to the properties and they will update accordingly.
 
@@ -373,11 +373,11 @@ export default module;
 
 Now when a player logs in, they see a form for entering decisions and a logout link:
 
-![](/assets/img/tutorials/single-player/Player_Home.png)
+![](/assets/img/tutorials/multi-player/Player_Home.png)
 
 As the player submits decisions, the redux state automatically updates with new periods, decisions and results:
 
-<img src="/assets/img/tutorials/single-player/Simpl_Player_Home.png" width="100%">
+<img src="/assets/img/tutorials/multi-player/Simpl_Player_Home.png" width="100%">
 
 We want leaders to be able see the player results. We'll next update the leader home page so they can.
 
@@ -528,7 +528,7 @@ export default module;
 
 Now when a leader logs in, they see the current player results:
 
-![](/assets/img/tutorials/single-player/Leader_Home.png)
+![](/assets/img/tutorials/multi-player/Leader_Home.png)
 
 Let's add some styling to make it easier to read the table of results.
 
@@ -549,15 +549,15 @@ with
   </head>
 ```
 
-![](/assets/img/tutorials/single-player/Leader_Home2.png)
+![](/assets/img/tutorials/multi-player/Leader_Home2.png)
 
 To see the revised leader page in action, open an incognito window and login into http://localhost:8000/ as `s2@calc.edu` with password `s2`.
 
-<img src="/assets/img/tutorials/single-player/Simpl_Play.png" width="100%">
+<img src="/assets/img/tutorials/multi-player/Simpl_Play.png" width="100%">
 
 Submit a decision in the `s2@calc.edu` window. The simpl state in both browser windows will update with a new result causing the leader home page to update accordingly.
 
-<img src="/assets/img/tutorials/single-player/Simpl_Play2.png" width="100%">
+<img src="/assets/img/tutorials/multi-player/Simpl_Play2.png" width="100%">
 
 This concludes our tutorial! We have barely scratched the surface. A completed example implementation is available at 
 [https://github.com/simplworld/simpl-calc-ui](https://github.com/simplworld/simpl-calc-ui) 
