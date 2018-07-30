@@ -1,17 +1,15 @@
 ---
-title: "Simpl-React: Simpl Low-level Decorators"
+title: "Simpl-React: Using the Simpl Decorator<"
 permalink: /docs/services/simpl-react/simpl/low-level-decorators/
 layout: docs
 description:
 ---
 
-## Simpl Low-level Decorators
+## Using the Simpl Decorator
 
-### simpl() decorator
 
-This decorator allows your app to stay in sync with changes from the model service implementation.
-
-The UI will receive an action and its store will be updated every time a new Scope is added.
+The `simpl` decorator decorator allows your app to stay in sync with relevant changes by subscribing to notifications from the modelservice. 
+The UI will receive an action and its store will be updated every time a Scope within a subscribed topic is added, updated or deleted.
 
 In order to update your state, you need to create your reducers by using the `Simpl.reducers.combined.simplReducers` function:
 
@@ -40,7 +38,8 @@ const reducers = simplReducers({
 export default reducers;
 ```
 
-Then create a component that will show the loading state of your app. This component will receive a `connectionStatus` prop that will indicate the loading progress.
+You also need a component that will show the loading state of your app. 
+This component will receive a `connectionStatus` property that will indicate the loading progress.
 
 `components.Progress.jsx`
 
@@ -48,7 +47,6 @@ Then create a component that will show the loading state of your app. This compo
 import React from 'react';
 
 import { CONNECTION_STATUS } from '../constants';
-
 
 function Progress(props) {
     let content;
@@ -83,7 +81,6 @@ import {simpl} from 'simpl/lib/decorators/simpl';
 import Progress from '../components/Progress';
 import DecisionContainer from '../containers/DecisionContainer';
 
-
 const App = function App() {
   return (
     <div>
@@ -116,7 +113,6 @@ export default simpl({
 import React from 'react';
 
 import { connect } from 'react-redux';
-
 
 function mapStateToProps(state) {
   return {
