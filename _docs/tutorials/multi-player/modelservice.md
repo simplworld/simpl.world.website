@@ -510,6 +510,6 @@ $ ./manage.py run_modelservice
 By default the service will bind to `0.0.0.0:8080`.
 
 This concludes the tutorial on building a multi-player game Model Service. A completed example implementation is available at 
-[https://github.com/simplworld/simpl-div-model](https://github.com/simplworld/simpl-div-model) that uses the game slug `simpl-div`.
+[https://github.com/simplworld/simpl-div-model]<!--(https://github.com/simplworld/simpl-div-model)--> that uses the game slug `simpl-div`.
 
 You can now head over to the [Multi-player Game Frontend tutorial]({% link _docs/tutorials/multi-player/frontend.md %}).

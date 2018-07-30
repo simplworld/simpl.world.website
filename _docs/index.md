@@ -18,26 +18,26 @@ The Simpl framework is composed of three major parts:
 
 These secondary framework components:
 
- * [simpl-authenticator]<!----(https://github.com/simplworld/simpl-authenticator)--> a WAMP authenticator component for Simpl.
+ * [simpl-authenticator]<!--(https://github.com/simplworld/simpl-authenticator)--> a WAMP authenticator component for Simpl.
  
- * [simpl-client]<!----(https://github.com/simplworld/simpl-client)--> a Python client that provides asynchronous access to the data managed by the `simpl-games-api` service.
+ * [simpl-client]<!--(https://github.com/simplworld/simpl-client)--> a Python client that provides asynchronous access to the data managed by the `simpl-games-api` service.
  
- * [simpl-users]<!----(https://github.com/simplworld/simpl-users)--> a custom Django User model tailored to Simpl's needs.
+ * [simpl-users]<!--(https://github.com/simplworld/simpl-users)--> a custom Django User model tailored to Simpl's needs.
 
 These projects comprise an example single player simulation using Simpl:
 
- * [simpl-calc-model]<!----(https://github.com/simplworld/simpl-calc-model)--> an example of a single player simulation model service.
+ * [simpl-calc-model]<!--(https://github.com/simplworld/simpl-calc-model)--> an example of a single player simulation model service.
 
- * [simpl-calc-ui]<!----(https://github.com/simplworld/simpl-calc-ui)--> an example of a browser-based UI for a single player simulation model service.
+ * [simpl-calc-ui]<!--(https://github.com/simplworld/simpl-calc-ui)--> an example of a browser-based UI for a single player simulation model service.
  
 These projects comprise an example multi-player player simulation using Simpl:
 
- * [simpl-div-model]<!----(https://github.com/simplworld/simpl-div-model)--> an example of a multi-player simulation model service.
+ * [simpl-div-model]<!--(https://github.com/simplworld/simpl-div-model)--> an example of a multi-player simulation model service.
 
- * [simpl-div-ui]<!----(https://github.com/simplworld/simpl-div-ui)--> an example of a browser-based UI for a multi-player simulation model service.
+ * [simpl-div-ui]<!--(https://github.com/simplworld/simpl-div-ui)--> an example of a browser-based UI for a multi-player simulation model service.
 
 Simpl front ends are initialized with [cookiecutter](https://cookiecutter.readthedocs.io) using 
-the [simpl-ui-cookiecutter]<!----(https://github.com/simplworld/simpl-ui-cookiecutter)--> cookiecutter template.
+the [simpl-ui-cookiecutter]<!--(https://github.com/simplworld/simpl-ui-cookiecutter)--> cookiecutter template.
  
 
 

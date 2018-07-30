@@ -19,7 +19,7 @@ You will need to have these installed:
 * [virtualenv](https://virtualenv.pypa.io/en/stable/)
 
 Have the [Games API service]({% link _docs/getting-started.md %}) running on http://localhost:8100/ and 
-the [div-model service]({% link _docs/tutorials/Multi-player/modelservice.md %}) running on http://localhost:8080. 
+the [div-model service]({% link _docs/tutorials/multi-player/modelservice.md %}) running on http://localhost:8080. 
 
 ### Installation
 
@@ -523,7 +523,7 @@ Submit a decision in the `s2@div.edu` window. The simpl state in both browser wi
 <img src="/assets/img/tutorials/multi-player/Simpl_Play2.png" width="100%">
 
 This concludes our tutorial! We have barely scratched the surface. A completed example implementation is available at 
-[https://github.com/simplworld/simpl-div-ui](https://github.com/simplworld/simpl-div-ui) 
+[https://github.com/simplworld/simpl-div-ui]<!--(https://github.com/simplworld/simpl-div-ui)-->
 that uses the game slug `simpl-div`.
 
 There's much more that you can do with Simpl. For more informations, check out the service-specific documentation.

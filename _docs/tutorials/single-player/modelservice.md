@@ -453,6 +453,6 @@ $ ./manage.py run_modelservice
 By default the service will bind to `0.0.0.0:8080`.
 
 This concludes the tutorial on building a single-player game Model Service. A completed example implementation is available at 
-[https://github.com/simplworld/simpl-calc-model](https://github.com/simplworld/simpl-calc-model) that uses the game slug `simpl-calc`.
+[https://github.com/simplworld/simpl-calc-model]<!--(https://github.com/simplworld/simpl-calc-model)--> that uses the game slug `simpl-calc`.
 
 You can now head over to the [Single-player Game Frontend tutorial]({% link _docs/tutorials/single-player/frontend.md %}).
