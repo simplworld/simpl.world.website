@@ -14,6 +14,12 @@ $ foreman start
 # => Now browse to http://localhost:8000
 ```
 
+## To test the site ()before deploying)
+
+```shell
+$ bundle exec rake test
+```
+
 For Mac OS High Sierra, install ruby using homebrew, add to .bash_profile:
 
 ```shell
