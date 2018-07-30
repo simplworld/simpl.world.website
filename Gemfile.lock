@@ -208,6 +208,7 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
     mercenary (0.3.6)
+    mini_magick (4.8.0)
     mini_portile2 (2.3.0)
     minima (2.5.0)
       jekyll (~> 3.5)
@@ -257,17 +258,18 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   html-proofer
-  jekyll (= 3.7.3)
+  jekyll
   jekyll-feed
   jekyll-redirect-from
   jekyll-seo-tag
   jekyll-sitemap
   kramdown
+  mini_magick
   rake
   rouge
 
 RUBY VERSION
-   ruby 2.5.1p57
+   ruby 2.4.3p205
 
 BUNDLED WITH
    1.16.3
