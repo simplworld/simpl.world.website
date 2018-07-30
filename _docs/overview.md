@@ -1,11 +1,11 @@
 ---
-title: Architecture Overview
+title: Simpl Overview
 permalink: /docs/overview/
 layout: docs
-description: Simpl Architecture Overview
+description: Simpl Overview
 ---
 
-## Architecture Overview
+## Simpl Overview
 
 In practice, there will always be a single instance of The `Simpl-Games-API` service, and for every simulation you
 will write a model service, and a frontend service. The browser will use the frontend service for the static assets
