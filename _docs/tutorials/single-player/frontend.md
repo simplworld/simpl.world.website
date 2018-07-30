@@ -1,11 +1,11 @@
 ---
-title: Build the Single Player Game Frontend UI
+title: Build the Single-player Game Frontend UI
 permalink: /docs/tutorials/single-player/frontend/
 layout: docs
 description:
 ---
 
-## Build the Single Player Game Frontend
+## Build the Single-player Game Frontend
 
 ### Prerequisites
 

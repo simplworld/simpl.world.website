@@ -1,11 +1,11 @@
 ---
-title: Build the Single Player Game Model Service
+title: Build the Single-player Game Model Service
 permalink: /docs/tutorials/single-player/modelservice/
 layout: docs
 description:
 ---
 
-## Build the Single Player Game Model Service
+## Build the Single-player Game Model Service
 
 ###  Prerequisites
 
@@ -111,7 +111,7 @@ CACHES = {
 
 ###  Implementation
 
-For simplicity, we're going to create a single player Game in which each player has a Scenario that can advance multiple periods.
+For simplicity, we're going to create a single-player Game in which each player has a Scenario that can advance multiple periods.
 
 In your `game` app module, define our model in `model.py`:
 
@@ -333,8 +333,8 @@ $ export DJANGO_SETTINGS_MODULE=calc_model.settings
 $ ./manage.py create_default_env
 ```
 
-Every player's move will be a `Decision` saved on the current `Period`. The model will then produce a `Result` for the
-current `Period`, and the `Scenario` will step to the next `Period`.
+Every player's submission will be a `Decision` saved on the current `Period`. The model will then produce a `Result` for the
+current `Period`, and the player's `Scenario` will step to the next `Period`.
 
 In your `game` app module, create a file called `runmodel.py`.  Next, add `save_decision` and `step_scenario` functions to perform these steps:
 
@@ -452,7 +452,7 @@ $ ./manage.py run_modelservice
 
 By default the service will bind to `0.0.0.0:8080`.
 
-This concludes the tutorial on building a single player game Model Service. A completed example implementation is available at 
+This concludes the tutorial on building a single-player game Model Service. A completed example implementation is available at 
 [https://github.com/simplworld/simpl-calc-model](https://github.com/simplworld/simpl-calc-model) that uses the game slug `simpl-calc`.
 
-You can now head over to the [Single Player Game Frontend tutorial]({% link _docs/tutorials/single-player/frontend.md %}).
+You can now head over to the [Single-player Game Frontend tutorial]({% link _docs/tutorials/single-player/frontend.md %}).
