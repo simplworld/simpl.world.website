@@ -442,7 +442,9 @@ async def divide(period_id):
 ```
 
 
-In your `game` app module, create a file called `games.py` with the following content:
+In your `game` app module, create a file called `games.py` that defines a `DivPeriod` Scope subclass with a `submit_decision` RPC method. 
+The method validates the `operand` argument and returns and error message if a `Divisor` player submits a zero. 
+Otherwise, the model is run if both players in a world have submitted a decision for this period:
 
 ```python
 import asyncio
