@@ -35,7 +35,7 @@ Container Components provide data and functions (`props`) and pass them down to 
 
 #### WAMP Components
 
-Wamp Components are convenience components that wrap a Smart or presentational components to provide them wamp-relative functionality, such as listening or publishing to a topic or calling a remote procedure on the model service
+Wamp Components are convenience components that wrap container or presentational components to provide them wamp-relative functionality, such as listening or publishing to a topic or calling a remote procedure on the model service
 
 * TopicPublisher
 * TopicSubscriber

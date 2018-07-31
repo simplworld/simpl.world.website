@@ -57,7 +57,7 @@ export default SendMessage;
 * `publish({args: [], kwargs: {}})`: Call this method to publish a message on the topic
 
 
-#### Smart Component
+#### Container Component
 
 `SendMessageContainer.jsx`
 
@@ -161,9 +161,9 @@ export default Result;
 
 ##### Props
 
-* `data`: array or object. The messages received. If the smart component has `store=true` (the default), it will be an array, otherwise it will be an object with only the latest message received.
+* `data`: array or object. The messages received. If the container component has `store=true` (the default), it will be an array, otherwise it will be an object with only the latest message received.
 
-#### Smart Component
+#### Container Component
 
 `containers/NotificationContainer.jsx`
 
