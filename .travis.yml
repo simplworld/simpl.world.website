@@ -6,6 +6,8 @@ rvm:
 script:
   - bundle exec rake test
 
+exclude: [vendor]
+
 # branch whitelist
 branches:
   only:

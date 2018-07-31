@@ -23,16 +23,21 @@ plugins:
   - jekyll-sitemap
   - jemoji
 exclude:
-  - [vendor]
   - .editorconfig
   - .gitignore
   - config.codekit3
   - docker-compose.yml
   - Gemfile
   - Gemfile.lock
+  - node_modules
   - Procfile
   - Rakefile
   - READMD.md
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - [vendor]
 include:
   - _pages
   - _docs
