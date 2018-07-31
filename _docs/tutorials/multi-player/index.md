@@ -19,8 +19,9 @@ The game defines two phases: `Play` and `Debrief`. During a run's `Play` phase, 
 Once a leader moves a run to `Debrief` phase, players are prevented from submitting further decisions. 
 During `Debrief` phase, a leader can review the final decisions and results of all worlds in the run.
 
-The game also provides server-side input validation and reports validation errors in the UI. This project, though basic, 
-will demonstrate how the various pieces of Simpl interact to provide a platform upon which multi-player games can be created.
+The game also provides server-side input validation and reports validation errors in the UI. 
+
+This project will demonstrate how the various pieces of Simpl interact to provide a platform upon which multi-player games can be created.
 
 The foundation of Simpl is the Games API Service.  This service provides [REST API](http://www.django-rest-framework.org/) endpoints that allow a game
 to store information about its current state in the Simpl database. 
