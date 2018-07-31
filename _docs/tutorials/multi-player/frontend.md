@@ -393,11 +393,21 @@ Now when a player logs in, they see a form for entering decisions for their role
 
 ![](/assets/img/tutorials/multi-player/Players_Home.png)
 
-We'll come back to the commented out `StatusNotificationContainer` later.
+We'll implement the commented out `StatusNotificationContainer` at a later time.
 
 As a world's players submit decisions, the redux state automatically updates with new periods, decisions and results:
 
 <img src="/assets/img/tutorials/multi-player/Simpl_Players_Home.png" width="100%">
+
+
+# ** PICK UP HERE **
+
+## TODO: Change LeaderHome.js display a table of runs with and advance to debrief button if run is in Play phase.
+
+## TODO Add LeaderDebriefRun.js that displays the last decisions and results for each world in the run during debrief.
+
+
+
 
 We want leaders to be able see the player results. We'll next update the leader home page so they can.
 
