@@ -83,7 +83,7 @@ It is also recommended you configure your editor to integrate with ESLint:
 
 ### Configuration
 
-Like most Websites, the frontend service will need a place where it can store information about sessions and their users. 
+Like most websites, the frontend service will need a place where it can store information about sessions and their users. 
 The user's specific information will be fetched from the [Simple Games API]({% link _docs/getting-started.md %}) and kept in sync automatically.
 
 **NOTE** For the purposes of this tutorial we're going to use SQLite, but this can be changed to match whatever database backend you prefer. 
@@ -117,7 +117,7 @@ You will connect your components to the properties and they will update accordin
 
 Next, logout by going to `localhost:8000/logout/` in your browser. Then login as `leader@calc.edu` with password `leader`.
 Once you are logged in, you should see the 'Hello Leader' message of the skeleton app. If you look at the `simpl`
-state properties, they look similar to those of players. Only information about the current user has been loaded.
+state properties, you'll see all the run's runusers have been loaded. No player scenarios have been loaded.
 
 <img src="/assets/img/tutorials/single-player/Hello_Simpl_Leader1.png" width="100%">
 
@@ -158,7 +158,7 @@ export default simpl({
 })(RootContainer);
 ```
 
-Refresh your Chrome browser page and you'll see all the run's runusers have been loaded into the `simpl` state.
+Refresh your Chrome browser page and you'll see all the run's player scenarios have been loaded into the `simpl` state.
 
 <img src="/assets/img/tutorials/single-player/Hello_Simpl_Leader2.png" width="100%">
 
