@@ -168,11 +168,11 @@ $ py.test
 
 Create a management command that will create your game and initialize it with one run, a leader, 2 worlds, and 2 players per world.
 
-Create a 'management' folder in the `game` folder and add an empty `__init__.py` file.
+Create a `management` folder in the `game` folder and add an empty `__init__.py` file.
 
-Create a 'commands' folder in the `management` folder  and add an empty `__init__.py` file.
+Create a `commands` folder in the `game/management` folder  and add an empty `__init__.py` file.
 
-Finally, create a `create_default_env.py` script in the 'commands' folder containing this code:
+Finally, create a `create_default_env.py` script in the `game/management/commands` folder containing this code:
 
 ```python
 import djclick as click

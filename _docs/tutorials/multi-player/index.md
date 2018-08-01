@@ -7,7 +7,7 @@ description: Multi-player Game Tutorial
 
 ## Multi-player Game Tutorial
 
-In a multi-player game, belonging to the same world can access the decisions and results of that world. 
+In a multi-player game, all players belonging to the same world can access the decisions and results of that world. 
 The decisions and results of other worlds are hidden.
 A run's leaders can access the decisions and results of all the run's worlds.
 

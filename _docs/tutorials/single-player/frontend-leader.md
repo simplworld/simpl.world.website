@@ -1,20 +1,13 @@
 ---
-title: Build the Multi-player Game Leader UI
-permalink: /docs/tutorials/multi-player/frontend-leader/
+title: Build the Single-player Game Leader UI
+permalink: /docs/tutorials/single-player/frontend-leader/
 layout: docs
 description:
 ---
 
-## Build the Multi-player Game Leader UI
+## Build the Single-player Game Leader UI
 
-## TODO: Change LeaderHome.js to display a table of runs with and advance to debrief button if run is in Play phase.
-
-## TODO Add LeaderDebriefRun.js that displays the last decisions and results for each world in the run during debrief.
-
-# ** PICK UP HERE **
-
-
-We want leaders to be able see the player results. We'll next update the leader home page so they can.
+We want leaders to be able see the player results. You will now update the leader home page so they can.
 
 Create a presentation component `js/components/PlayerResultRow.js` for displaying one player's results:
 
@@ -163,7 +156,7 @@ export default module;
 
 Now when a leader logs in, they see the current player results:
 
-![](/assets/img/tutorials/multi-player/Leader_Home.png)
+![](/assets/img/tutorials/single-player/Leader_Home.png)
 
 Let's add some styling to make it easier to read the table of results.
 
@@ -184,12 +177,12 @@ with
   </head>
 ```
 
-![](/assets/img/tutorials/multi-player/Leader_Home2.png)
+![](/assets/img/tutorials/single-player/Leader_Home2.png)
 
-To see the revised leader page in action, open an incognito window and login into http://localhost:8000/ as `s2@div.edu` with password `s2`.
+To see the revised leader page in action, open an incognito window and login into http://localhost:8000/ as `s2@calc.edu` with password `s2`.
 
-![](/assets/img/tutorials/multi-player/Simpl_Play.png){: width="100%" }
+![](/assets/img/tutorials/single-player/Simpl_Play.png){: width="100%" }
 
-Submit a decision in the `s2@div.edu` window. The simpl state in both browser windows will update with a new result causing the leader home page to update accordingly.
+Submit a decision in the `s2@calc.edu` window. The simpl state in both browser windows will update with a new result causing the leader home page to update accordingly.
 
-![](/assets/img/tutorials/multi-player/Simpl_Play2.png){: width="100%" }
+![](/assets/img/tutorials/single-player/Simpl_Play2.png){: width="100%" }

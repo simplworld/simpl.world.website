@@ -107,7 +107,7 @@ Open Chrome's DevTools, and select the 'Redux' tab. You will see a list of actio
 current `state` of the store. Note that the state has a property named `simpl`. Expand the `simpl` property
 to see all the scope properties associated with the current user.
 
-<img src="/assets/img/tutorials/multi-player/Hello_Simpl_Player.png" width="100%">
+![](/assets/img/tutorials/multi-player/Hello_Simpl_Player.png){: width="100%" }
 
 These properties will be updated as the model service adds, removes or updates scopes.
 You will connect your components to the properties and they will update accordingly.
@@ -116,7 +116,7 @@ Logout by going to `localhost:8000/logout/` in your browser. Then login as `lead
 Once you are logged in, you should see the 'Hello Leader' message of the skeleton app. If you look at the `simpl`
 state properties, information about all the run's worlds has been loaded.
 
-<img src="/assets/img/tutorials/multi-player/Hello_Simpl_Leader.png" width="100%">
+![](/assets/img/tutorials/multi-player/Hello_Simpl_Leader.png){: width="100%" }
 
 In a multi-player simulation, players are assigned to a world with other players.
 The cookiecutter template assumes you are implementing a multi-player simulation in which players
@@ -130,9 +130,9 @@ To implement your UI, you will write [Container Components and Presentational Co
 
 The Presentational Components will provide the necessary markup to render UI elements, while the Container Components will wrap them providing the necessary data.
 
-Next, you will [Build the Player Multi-player Game UI]({% link _docs/tutorials/multi-player/frontend-player.md %}).
+Next, you will [Build the Multi-player Game Player UI]({% link _docs/tutorials/multi-player/frontend-player.md %}).
 
-Finally, you will [Build the Leader Multi-player Game UI]({% link _docs/tutorials/multi-player/frontend-leader.md %}).
+Finally, you will [Build the Multi-player Game Leader UI]({% link _docs/tutorials/multi-player/frontend-leader.md %}).
 
 
 This concludes our tutorial! We have barely scratched the surface. A completed example implementation is available at 
