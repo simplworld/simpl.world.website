@@ -13,6 +13,7 @@ Only a run's leaders can access the decisions and results of all the run's playe
 
 This tutorial will walk you through the creation of the single-player `Calc` game.
 This game implements a model that takes a number and adds it to the current total.
+The game has a single `Play` phase and does not define any player roles.
 This project, though basic, will demonstrate how the various pieces of Simpl interact to provide a platform
 upon which single-player games can be created.
 

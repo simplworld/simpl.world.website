@@ -168,11 +168,11 @@ $ py.test
 
 Create a management command that will create your game and initialize it with one run, a leader, 2 worlds, and 2 players per world.
 
-Create a 'management' folder in the `game` folder and add an empty `__init__.py` file.
+Create a `management` folder in the `game` folder and add an empty `__init__.py` file.
 
-Create a 'commands' folder in the `management` folder  and add an empty `__init__.py` file.
+Create a `commands` folder in the `game/management` folder  and add an empty `__init__.py` file.
 
-Finally, create a `create_default_env.py` script in the 'commands' folder containing this code:
+Finally, create a `create_default_env.py` script in the `game/management/commands` folder containing this code:
 
 ```python
 import djclick as click
@@ -442,7 +442,9 @@ async def divide(period_id):
 ```
 
 
-In your `game` app module, create a file called `games.py` with the following content:
+In your `game` app module, create a file called `games.py` that defines a `DivPeriod` Scope subclass with a `submit_decision` RPC method. 
+The method validates the `operand` argument and returns and error message if a `Divisor` player submits a zero. 
+Otherwise, the model is run if both players in a world have submitted a decision for this period:
 
 ```python
 import asyncio

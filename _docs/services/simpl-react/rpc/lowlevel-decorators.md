@@ -55,7 +55,7 @@ export default Counter;
 * `call(topic, args, kwargs, details, publicationID)`: This function will be called after new message is successfully published
 
 
-#### Smart Component
+#### Container Component
 
 `CounterContainer.jsx`
 
