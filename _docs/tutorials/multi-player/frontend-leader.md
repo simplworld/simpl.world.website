@@ -552,4 +552,4 @@ After you refresh your browser, you should be taken to the LeaderRunDebrief page
 
 ![](/assets/img/tutorials/multi-player/Run_Debrief.png){: width="60%" }
 
-Congratulations! You have now completed this tutorial's leader UI.
+Congratulations! You have completed this tutorial's leader UI.

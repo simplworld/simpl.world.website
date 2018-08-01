@@ -188,5 +188,5 @@ The simpl state in both browser windows will update with a new result causing th
 
 ![](/assets/img/tutorials/single-player/Simpl_Play2.png){: width="100%" }
 
-Congratulations! You have now completed this tutorial's leader UI.
+Congratulations! You have completed this tutorial's leader UI.
 
