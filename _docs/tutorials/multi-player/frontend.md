@@ -130,10 +130,9 @@ To implement your UI, you will write [Container Components and Presentational Co
 
 The Presentational Components will provide the necessary markup to render UI elements, while the Container Components will wrap them providing the necessary data.
 
-Next, you will [Build the Multi-player Game Player UI]({% link _docs/tutorials/multi-player/frontend-player.md %}).
+First, you will [Build the Multi-player Game Player UI]({% link _docs/tutorials/multi-player/frontend-player.md %}).
 
 Finally, you will [Build the Multi-player Game Leader UI]({% link _docs/tutorials/multi-player/frontend-leader.md %}).
-
 
 This concludes our tutorial! We have barely scratched the surface. A completed example implementation is available at 
 [https://github.com/simplworld/simpl-div-ui]<!--(https://github.com/simplworld/simpl-div-ui)-->

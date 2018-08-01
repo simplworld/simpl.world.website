@@ -9,7 +9,7 @@ description:
 
 We want leaders to be able see the player results. You will now update the leader home page so they can.
 
-Create a presentation component `js/components/PlayerResultRow.js` for displaying one player's results:
+Create a presentational component `js/components/PlayerResultRow.js` for displaying one player's results:
 
 ```jsx
 import React from 'react';
@@ -183,6 +183,10 @@ To see the revised leader page in action, open an incognito window and login int
 
 ![](/assets/img/tutorials/single-player/Simpl_Play.png){: width="100%" }
 
-Submit a decision in the `s2@calc.edu` window. The simpl state in both browser windows will update with a new result causing the leader home page to update accordingly.
+Submit a decision in the `s2@calc.edu` window. 
+The simpl state in both browser windows will update with a new result causing the leader home page to update accordingly.
 
 ![](/assets/img/tutorials/single-player/Simpl_Play2.png){: width="100%" }
+
+Congratulations! You have now completed this tutorial's leader UI.
+

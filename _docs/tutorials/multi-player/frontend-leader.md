@@ -340,10 +340,216 @@ with
 
 ![](/assets/img/tutorials/multi-player/Leader_Runs2.png){: width="60%" }
 
+Let's test the `Advance to Debrief` button. 
+First, open an incognito window and log in to 'http://localhost:8000' as 's3@div.edu' with password `s3' and submit a decision.
+Next, click the `Advance to Debrief` button. You should see something similar to:
+
+![](/assets/img/tutorials/multi-player/Simpl_Debrief.png){: width="100%" }
+
+Both pages have updated to reflect the run is now in `Debrief` phase. On the leader's page, the run name is now a link. 
+However, the application does not yet know how to route the the link's URL.
+
+We will now create a debrief page that displays a table of the run's worlds' most recent decisions and results.
+
+You will start by adding a presentational component to display the world information `js/component/WorldRow.js`:
+
+```jsx
+import React from 'react';
+import PropTypes from 'prop-types';
+
+class WorldRow extends React.Component {
+  render() {
+    console.log("WorldRow: props=", this.props);
+    return (
+      <tr>
+        <td>{this.props.world.name}</td>
+        <td>{this.props.dividend}</td>
+        <td>{this.props.divisor}</td>
+        <td>{this.props.quotient}</td>
+      </tr>
+    );
+  }
+}
+
+WorldRow.propTypes = {
+  world: PropTypes.object.isRequired,
+  dividend: PropTypes.string.isRequired,
+  divisor: PropTypes.string.isRequired,
+  quotient: PropTypes.string.isRequired,
+};
+
+export default WorldRow;
+```
+
+and wrapping it in a container component `js/containers/WorldRowContainer`:
+
+```jsx
+import {connect} from 'react-redux';
+
+import WorldRow from '../components/WorldRow';
+
+function mapStateToProps(state, ownProps) {
+  const world = ownProps.world;
+
+  const scenario = state.simpl.scenario.find(
+    (s) => world.id === s.world
+  );
+
+  const period = state.simpl.period.find(
+    (p) => scenario.id === p.scenario
+  );
+
+  const decisions = state.simpl.decision.filter(
+    (d) => period.id === d.period
+  );
+
+  const dividendRole = state.simpl.role.find(
+    (r) => r.name === 'Dividend'
+  );
+
+  let dividend = '';
+  let divisor = '';
+  decisions.forEach((d) => {
+    if (d.role === dividendRole.id) {
+      dividend = d.data.operand.toString();
+    } else {
+      divisor = d.data.operand.toString();
+    }
+  });
+
+  const result = state.simpl.result.find(
+    (r) => period.id === r.period
+  );
+
+  let quotient = '';
+  if (result != undefined) {
+    quotient = result.data.quotient.toString();
+  }
+
+  console.log('WorldRowContainer: dividend=', dividend, ', divisor=', divisor, ', quotient=', quotient);
+  return {
+    world,
+    dividend,
+    divisor,
+    quotient
+  };
+}
+
+const WorldRowContainer = connect(
+  mapStateToProps,
+  null
+)(WorldRow);
+
+export default WorldRowContainer;
+```
+
+Next, you will add page that displays the run's world information `js/modules/LeaderRunDebrief.js`:
+
+```jsx
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
+import {Alert} from 'react-bootstrap';
+
+import WorldRowContainer from '../containers/WorldRowContainer';
 
 
-## TODO Add LeaderDebriefRun.js that displays the last decisions and results for each world in the run during debrief.
+class LeaderRunDebrief extends React.Component {
+  render() {
+    const name = this.props.run.name;
+    const worldRows = this.props.worlds.map(
+      (w) => <WorldRowContainer key={w.id} world={w}/>
+    );
+    return (
+      <div>
+        <div>
+          <h1>Run: {name}</h1>
+        </div>
+        <div>
+          <table>
+            <thead>
+            <tr>
+              <th>World</th>
+              <th>Dividend</th>
+              <th>Divisor</th>
+              <th>Quotient</th>
+            </tr>
+            </thead>
+            <tbody>
+            {worldRows}
+            </tbody>
+          </table>
+        </div>
+        <br/>
+        <a href="/" className="btn btn-success btn-lg">Home</a>
+        <br/>
+        <a href="/logout/" className="btn btn-success btn-lg">Logout</a>
+      </div>
+    );
+  }
+}
 
-We want leaders to be able display each world's latest decisions and results during while debriefing the run.  We'll next add a
+LeaderRunDebrief.propTypes = {
+  run: PropTypes.object.isRequired,
+  worlds: PropTypes.array.isRequired,
 
-C
+};
+
+function mapStateToProps(state, ownProps) {
+  const run = state.simpl.run.find(
+    (r) => r.id == ownProps.params['id']
+  );
+
+  const unsortedWorlds = state.simpl.world.filter(
+    (w) => run.id === w.run
+  );
+  const worlds = _.sortBy(unsortedWorlds, (s) => s.id);   // worlds are created in order
+
+  return {
+    run,
+    worlds,
+  };
+}
+
+const module = connect(
+  mapStateToProps,
+  null
+)(LeaderRunDebrief);
+
+export default withRouter(module);
+```
+
+Finally, you will add your new page to the routes in `js/modules/Root.js`:
+
+```jsx
+import LeaderRunDebrief from './LeaderRunDebrief';
+import LeaderHome from './LeaderHome';
+import PlayerHome from './PlayerHome';
+
+const Home = (LEADER) ? LeaderHome : PlayerHome;
+
+class Root extends React.Component {
+  componentWillMount() {
+    const userId = parseInt(AUTHID, 10);
+  }
+
+  render() {
+    return (
+      <Router history={browserHistory}>
+        {/* player or leader home page route */}
+        <Route path="/" component={Home}/>
+        <Route path="/run/:id/debrief" component={LeaderRunDebrief}/>
+      </Router>
+    );
+  }
+}
+
+```
+
+After you refresh your browser, you should be taken to the LeaderRunDebrief page when you click the linked run name:
+
+![](/assets/img/tutorials/multi-player/Run_Debrief.png){: width="60%" }
+
+Congratulations! You have now completed this tutorial's leader UI.

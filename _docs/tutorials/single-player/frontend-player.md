@@ -25,7 +25,7 @@ export const submitDecision =
 ```
 **NOTE** the action publishes to this topic because the calc-model `game/games.py` `submit_decision` endpoint subscribes to the topic.
 
-Create a presentation component `js/components/DecisionForm.js` for entering player decisions:
+Create a presentational component `js/components/DecisionForm.js` for entering player decisions:
 
 ```jsx
 import React from 'react';

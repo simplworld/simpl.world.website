@@ -277,7 +277,7 @@ As a world's players submit decisions, the redux state automatically updates wit
 ![](/assets/img/tutorials/multi-player/Simpl_Players_Home.png){: width="100%" }
 
 If a zero divisor is submitted, the returned status message is logged to the Javascript console. It would be more user-friendly to notify the player through the UI. 
-You will enable this by implementing the `StatusNotificationContainer` component that has been commented out of `js/modules/PlayerHome.js`.
+You will enable this by implementing the `StatusNotificationContainer`container  component that has been commented out of `js/modules/PlayerHome.js`.
 
 Start by creating `js/reducers/StatusReducer.js` to handle the `setStatus` and `clearStatus` actions:
 

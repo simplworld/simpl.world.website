@@ -168,8 +168,6 @@ To implement your UI, you will write [Container Components and Presentational Co
 
 The Presentational Components will provide the necessary markup to render UI elements, while the Container Components will wrap them providing the necessary data.
 
-
-
 First, you will [Build the Single-player Game Player UI]({% link _docs/tutorials/single-player/frontend-player.md %}).
 
 Finally, you will [Build the Single-player Game Leader UI]({% link _docs/tutorials/single-player/frontend-leader.md %}).
