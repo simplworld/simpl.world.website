@@ -7,91 +7,251 @@ description:
 
 ## Build the Multi-player Game Leader UI
 
-## TODO: Change LeaderHome.js to display a table of runs with and advance to debrief button if run is in Play phase.
+Often a leader is associated with more than one active run of a game. 
+It will be helpful to show `Div` leaders the state of all their active runs as soon as they log in.
 
-## TODO Add LeaderDebriefRun.js that displays the last decisions and results for each world in the run during debrief.
+We will do this by presenting a table of the leader's active runs on the home page. If a run is in `Play` phase, an `Advance to Debrief` button will be available. 
+If a run is in `Debrief` phase, the run's name will be linked to the run's debrief page.
 
-# ** PICK UP HERE **
+Start by adding these actions to `js/actions/Actions.js`:
 
+```jsx
+// actions used to bracket processing a request (e.g. advancing the phase)
+export const startProcessing = createAction('START_PROCESSING');
+export const completeProcessing = createAction('COMPLETE_PROCESSING');
 
-We want leaders to be able see the player results. We'll next update the leader home page so they can.
+// advance run to next phase
+export const advanceRunPhase = createAction('ADVANCE_RUN_PHASE', (run, ...args) => (
+  AutobahnReact.call(`model:model.run.${run.id}.advance_phase`)
+));
 
-Create a presentation component `js/components/PlayerResultRow.js` for displaying one player's results:
+```
+The `advanceRunPhase` action calls an RPC provided by the `simpl-modelservice` `Run` scope that advances the run to its next phase. 
+The `startProcessing` and `completeProcessing` actions are used to prevent the user from resubmitting this request before it has completed.
+
+Create a reducer `js/reducers/ProcessingReducer.js` to handle the `startProcessing` and `completeProcessing` actions:
+
+```jsx
+import {createReducer} from 'redux-create-reducer';
+import recycleState from 'redux-recycle';
+
+import {recyleStateAction} from 'simpl/lib/actions/state';
+
+import {
+  startProcessing,
+  completeProcessing
+} from '../actions/Actions';
+
+const initial = {inProcess: false};
+
+const processing = recycleState(createReducer(initial, {
+  [startProcessing](state, action) {
+    return Object.assign({}, state, {
+      inProcess: true
+    });
+  },
+  [completeProcessing](state, action) {
+    // console.log("setting inProcess: false");
+    return Object.assign({}, state, {
+      inProcess: false
+    });
+  },
+}), `${recyleStateAction}`);
+
+export default processing
+
+```
+
+Then add `processing` to `reducers/combined/appReducers.js`:
+
+```jsx
+import {simplReducers} from 'simpl/lib/reducers/combined';
+import {reducer as form} from 'redux-form';
+
+import processing from '../ProcessingReducer';
+import status from '../StatusReducer';
+
+const reducers = simplReducers({
+  form,
+  // Add your customer reducers here, if any.
+  processing,
+  status
+});
+
+export default reducers;
+```
+
+Create a presentational component `js/components/AdvancePhase.js` to display the `Advance to Debrief` button:
 
 ```jsx
 import React from 'react';
+import {Button} from 'react-bootstrap';
+
 import PropTypes from 'prop-types';
 
-function PlayerResultRow(props) {
-  return (
-    <tr>
-      <td>{props.runuser.email}</td>
-      <td>{props.periodsPlayed}</td>
-      <td>{props.total}</td>
-    </tr>
-  );
+class AdvancePhase extends React.Component {
+  render() {
+    const phases = this.props.phases || [];
+
+    const currentPhase = phases.find(
+      (phase) => phase.id == this.props.run.phase
+    );
+
+    const nextPhase = phases.find(
+      (phase) => phase.order == currentPhase.order + 1
+    )
+
+    if (nextPhase === undefined) {
+      return (<span>{currentPhase.name}</span>);
+    } else {
+      if (this.props.advancingPhase) {
+        return (
+          <Button type='button'
+             className="btn btn-sm btn-labeled btn-primary disabled">
+            Advance to {nextPhase.name}
+          </Button>
+        );
+      } else {
+        return (
+          <Button type='button'
+             className="btn btn-sm btn-labeled btn-primary"
+             onClick={() => this.props.advanceRunPhase(this.props.run)}>
+            Advance to {nextPhase.name}
+          </Button>
+        );
+      }
+    }
+  }
 }
 
-PlayerResultRow.propTypes = {
-  runuser: PropTypes.object.isRequired,
-  periodsPlayed: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired
+AdvancePhase.propTypes = {
+  run: PropTypes.object.isRequired,
+  phases: PropTypes.array,
+  advanceRunPhase: PropTypes.func.isRequired,
+  advancingPhase: PropTypes.bool.isRequired,
 };
 
-export default PlayerResultRow;
+export default AdvancePhase;
+
 ```
 
-wrap it in a container component `js/containers/PlayerResultRowContainer.js`
+and wrap it in a container component `js/containers/AdvancePhaseContainer`:
 
 ```jsx
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router';
 
-import PlayerResultRow from '../components/PlayerResultRow';
+import AdvancePhase from '../components/AdvancePhase';
+import {
+  advanceRunPhase,
+  startProcessing,
+  completeProcessing
+} from '../actions/Actions';
 
-function mapStateToProps(state, ownProps) {
-  const runuser = ownProps.runuser;
-
-  const scenario = state.simpl.scenario.find(
-    (s) => runuser.id === s.runuser
-  );
-
-  let periodsPlayed = 0;
-  let total = 0;
-  if (scenario) { // avoid runtime errors while state is loading
-    const unsortedPeriods = state.simpl.period.filter(
-      (p) => scenario.id === p.scenario
-    );
-    const periods = _.sortBy(unsortedPeriods, (p) => p.order);
-    const periodOrder = _.last(periods).order;
-
-    if (periodOrder > 1) { // pull total from last result
-      const lastPeriod = periods[periodOrder - 2];
-      periodsPlayed = lastPeriod.order;
-
-      const lastResult = state.simpl.result.find(
-        (s) => lastPeriod.id === s.period
-      );
-      total = lastResult.data.total;
-    }
-  }
-
+function mapStateToProps(state) {
   return {
-    runuser,
-    periodsPlayed,
-    total
+    phases: state.simpl.phase,
+    advancingPhase: state.processing.inProcess
   };
 }
 
-const PlayerResultRowContainer = connect(
-  mapStateToProps,
-  null
-)(PlayerResultRow);
+function mapDispatchToProps(dispatch) {
+  return {
+    advanceRunPhase: function (run) {
+      dispatch(startProcessing());   // disable all advance phase buttons
+      dispatch(advanceRunPhase(run))
+        .then((result) => {
+          dispatch(completeProcessing());    // enable all advance phase  buttons
+        });
+    }
+  };
+}
 
-export default withRouter(PlayerResultRowContainer);
+const AdvancePhaseContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AdvancePhase);
+
+export default AdvancePhaseContainer;
+
 ```
 
-In your `js/modules/LeaderHome.js`, replace the original contents with:
+Add a presentational component `js/components/RunRow.js` for displaying a run in a table row:
+
+```jsx
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import {Link} from 'react-router';
+
+import AdvancePhaseContainer from '../containers/AdvancePhaseContainer';
+
+class RunRow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.getPhase = this.getPhase.bind(this);
+  }
+
+  getPhase() {
+    return this.props.phases.find(
+      (p) => p.id == this.props.run.phase
+    );
+  }
+
+  render() {
+    const phase = this.getPhase();
+    const linkDestination = `/run/${this.props.run.id}/debrief`;
+
+    let name = this.props.run.name;
+    if ((phase.name === 'Debrief')) {
+      name = (
+        <Link to={linkDestination} id={`Link_${this.props.run.name}`}>{this.props.run.name}</Link>
+      );
+    }
+
+    return (
+      <tr>
+        <td>{name}</td>
+        <td>
+          <AdvancePhaseContainer run={this.props.run}/>
+        </td>
+      </tr>
+    );
+  }
+}
+
+RunRow.propTypes = {
+  run: PropTypes.object.isRequired,
+  phases: PropTypes.array.isRequired,
+};
+
+export default RunRow;
+
+```
+
+and wrap it in a container component `js/containers/RunRowContainer`:
+
+```jsx
+import {connect} from 'react-redux';
+
+import RunRow from '../components/RunRow';
+
+function mapStateToProps(state, ownProps) {
+  const run = ownProps.run;
+  return {
+    phases: state.simpl.phase,
+  };
+}
+
+const RunRowContainer = connect(
+  mapStateToProps,
+  null
+)(RunRow);
+
+export default RunRowContainer;
+
+```
+
+Finally, replace the contents of `js/modules/LeaderHome.js` with:
 
 ```jsx
 import React from 'react';
@@ -99,14 +259,14 @@ import PropTypes from 'prop-types';
 
 import {connect} from 'react-redux';
 
-import PlayerResultRowContainer from '../containers/PlayerResultRowContainer'
+import RunRowContainer from '../containers/RunRowContainer'
 
 class LeaderHome extends React.Component {
 
   render() {
     const name = this.props.runuser.first_name + ' ' + this.props.runuser.last_name;
-    const playerRows = this.props.players.map(
-      (p) => <PlayerResultRowContainer key={p.id} runuser={p}/>
+    const runRows = this.props.runs.map(
+      (r) => <RunRowContainer key={r.id} run={r}/>
     );
     return (
       <div>
@@ -117,13 +277,12 @@ class LeaderHome extends React.Component {
           <table>
             <thead>
             <tr>
-              <th width="30%"> Player</th>
-              <th width="30%"> Periods Played</th>
-              <th width="30%"> Total</th>
+              <th width="60%">Run</th>
+              <th width="30%">&nbsp;</th>
             </tr>
             </thead>
             <tbody>
-            {playerRows}
+            {runRows}
             </tbody>
           </table>
         </div>
@@ -136,20 +295,13 @@ class LeaderHome extends React.Component {
 
 LeaderHome.propTypes = {
   runuser: PropTypes.object.isRequired,
-  players: PropTypes.array.isRequired
+  runs: PropTypes.array,
 };
 
 function mapStateToProps(state) {
-  const runuser = state.simpl.current_runuser;
-
-  const unsortedPlayers = state.simpl.runuser.filter(
-    (ru) => runuser.id !== ru.id
-  );
-  const players = _.sortBy(unsortedPlayers, (p) => p.email);
-
   return {
-    runuser,
-    players
+    runuser: state.simpl.current_runuser,
+    runs: state.simpl.run
   };
 }
 
@@ -159,11 +311,13 @@ const module = connect(
 )(LeaderHome);
 
 export default module;
+
 ```
 
-Now when a leader logs in, they see the current player results:
+Now when you login as `leader@div.edu` with password `div`, you will see information about your active run:
 
-![](/assets/img/tutorials/multi-player/Leader_Home.png)
+
+![](/assets/img/tutorials/multi-player/Leader_Runs1.png){: width="60%" }
 
 Let's add some styling to make it easier to read the table of results.
 
@@ -184,12 +338,12 @@ with
   </head>
 ```
 
-![](/assets/img/tutorials/multi-player/Leader_Home2.png)
+![](/assets/img/tutorials/multi-player/Leader_Runs2.png){: width="60%" }
 
-To see the revised leader page in action, open an incognito window and login into http://localhost:8000/ as `s2@div.edu` with password `s2`.
 
-![](/assets/img/tutorials/multi-player/Simpl_Play.png){: width="100%" }
 
-Submit a decision in the `s2@div.edu` window. The simpl state in both browser windows will update with a new result causing the leader home page to update accordingly.
+## TODO Add LeaderDebriefRun.js that displays the last decisions and results for each world in the run during debrief.
 
-![](/assets/img/tutorials/multi-player/Simpl_Play2.png){: width="100%" }
+We want leaders to be able display each world's latest decisions and results during while debriefing the run.  We'll next add a
+
+C

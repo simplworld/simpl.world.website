@@ -9,29 +9,29 @@ description:
 
 Players need to be able to submit decisions for their assigned role and see their world's results. They also need to be notified if a value they submitted was not valid.
 
-First, create two actions in `js/actions/Actions.js` -- one for submitting decisions to the `submit_decision` topic defined by div-model `game/games.py` 
-and another for setting/clearing a status message it returns.
+First, create three actions in `js/actions/Actions.js`. One for submitting decisions to the `submit_decision` topic defined by div-model `game/games.py`.
+The others control setting/clearing any error status message it returns.
 
 ```jsx
 import {createAction} from 'redux-actions';
 
 import AutobahnReact from 'simpl/lib/autobahn';
 
-// actions for setting / clearing a status message
-export const setStatus = createAction('SET_STATUS');
-export const clearStatus = createAction('CLEAR_STATUS');
-
 // submit player decision then calculate result if both dividend and divisor have been submitted
 export const submitDecision =
     createAction('SUBMIT_DECISION', (period, operand, ...args) =>
         AutobahnReact.call(`model:model.period.${period.id}.submit_decision`, [operand])
     );
+    
+// actions for setting / clearing a status message
+export const setStatus = createAction('SET_STATUS');
+export const clearStatus = createAction('CLEAR_STATUS');
 
 ```
 **NOTE** the `submit_decision`action calls this topic because the div-model `game/games.py` `submit_decision` endpoint registers as an RPC on the topic. 
 Because `submit_decision` validates the operand, using an RPC allows us to check the returned status.
 
-Create a presentation component `js/components/DecisionForm.js` for entering player decisions and displaying an error message:
+Create a presentational component `js/components/DecisionForm.js` for entering player decisions and displaying an error message:
 
 ```jsx
 import React from 'react';
@@ -332,7 +332,7 @@ export default reducers;
 
 ```
 
-Next, create `js/components/StatusNotification.js`:
+Next, create presentational component `js/components/StatusNotification.js`:
 
 ```jsx
 import React from 'react';
@@ -457,7 +457,7 @@ class PlayerHome extends React.Component {
 
 Log in as `s2@div.edu` with password `s2` and submit a zero decision. You should see a modal notification like this:
 
-![](/assets/img/tutorials/multi-player/StatusNotification.png){: width="80%" }
+![](/assets/img/tutorials/multi-player/Status_Notification.png){: width="80%" }
 
 There is also a new `status` Redux state object. When you click the 'Close' button, the `status.message` will be set to null and the notification will disappear.
 
