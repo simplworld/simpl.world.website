@@ -24,7 +24,7 @@ First, it's important to understand that each Simpl game comprises three compone
 ![image alt text](/assets/img/blog/simply-magic-automatic-browser-page-update
 /image_0.png){: width="600" }
 
-*Architecture of a Simpl game*
+*<center>Architecture of a Simpl game</center>*
 
 Our **Simpl-Games-API** service manages the Simpl database. It provides a[ REST API](http://www.django-rest-framework.org) used by the game's model service.
 
