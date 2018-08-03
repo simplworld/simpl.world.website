@@ -11,15 +11,15 @@ Every game is defined by building what we call the _Scope tree_ when the game's 
 
 The _Scope tree_ starts at `Game`, and is defined as follows:
 
-![](/assets/img/services/Scope_Relationships.png){: width="90%"}
+![](/assets/img/services/Scope_Relationships.png){: width="80%"}
 
 The arity of each relationship is read by following the direction of the relationship line. 
 For example, the arity of the Game-Run relationsip is 1:n -- 
 one game may be related to zero or more runs, but every run is related to exactly one game. 
 
-Because the Scope relationships are one-to-many, they are viewed as forming a parent-to-children tree. 
-Although a Scenario could theoretically have both a RunUser parent and a World parent, in practice this does not occur. 
-Each Scenario belongs to one parent -- either a RunUser or to a World.
+Because the Scope relationships are one-to-many, they can be viewed as forming a parent-to-children tree. 
+Although an instance of the Scenario model could in theory be related to both a RunUser and a World, 
+this does not occur in practice. Each Scenario Scope object has a single parent -- either a RunUser or a World.
 
 The `modelservice.games` module provides all the base classes to build this tree. 
 Each of this classes is considered a _Scope_. The logic of your game will be implemented by subclassing 
