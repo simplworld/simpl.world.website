@@ -7,22 +7,23 @@ description:
 
 ## Scopes
 
-Every game is defined by building what we call the _Scope tree_ when the game's modelservice starts up.
+Every game is defined by building what we call the _Scope tree_ when the game's modelservice starts up. 
 
-The _Scope tree_ starts at `Game`, and it's defined as follow:
+The _Scope tree_ starts at `Game`, and is defined as follows:
 
-* `Game`
-    * `Phase`
-    * `Role`
-    * `Run`
-        * `RunUser`
-        * `World`
-            * `Scenario`
-                * `Period`
-                    * `Decision`
-                    * `Result`
+![](/assets/img/services/Scope_Relationships.png){: width="90%"}
 
-The `modelservice.games` module provides all the base classes to build this tree. Each of this classes is considered a _Scope_. The logic of your game will be implemented by subclassing the necessary scope and adding your own custom logic.
+The arity of each relationship is read by following the direction of the relationship line. 
+For example, the arity of the Game-Run relationsip is 1:n -- 
+one game may be related to zero or more runs, but every run is related to exactly one game. 
+
+Because the Scope relationships are one-to-many, they are viewed as forming a parent-to-children tree. 
+Although a Scenario could theoretically have both a RunUser parent and a World parent, in practice this does not occur. 
+Each Scenario belongs to one parent -- either a RunUser or to a World.
+
+The `modelservice.games` module provides all the base classes to build this tree. 
+Each of this classes is considered a _Scope_. The logic of your game will be implemented by subclassing 
+the necessary scope and adding your own custom logic.
 
 Your game is defined by registering your top-level Scope with the `modelservices.games.game` decorator.
 
