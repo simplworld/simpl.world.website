@@ -15,14 +15,14 @@ You will need to have these installed:
    * PostgreSQL >= 9.6
    * Python >= 3.6
    * [virtualenv](https://virtualenv.pypa.io/en/stable/)
-   
+
 If you are using the Mac OS, [Postgres.app](https://postgresapp.com) is an easy way to install and configure PostgreSQL.
 
 Install gulp and webpack globally to ensure they are on your PATH
 
 ```shell
-$ sudo npm install --global webpack
 $ sudo npm install --global gulp
+$ sudo npm install --global webpack
 ```
 
 ## Run the Simpl Games API Service
