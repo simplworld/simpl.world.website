@@ -31,7 +31,7 @@ Clone the simpl-games-api repository and install simpl-games-api:
 
 ```shell
 $ git clone git@github.com:simplworld/simpl-games-api.git
-$ cd projects/simpl-games-api
+$ cd simpl-games-api
 $ add2virtualenv .
 $ pip install -r requirements.txt
 ```
@@ -56,7 +56,7 @@ In a separate terminal, clone the simpl-calc-model repository and install simpl-
 
 ```shell
 $ git clone git@github.com:simplworld/simpl-calc-model.git
-$ cd projects/simpl-calc-model
+$ cd simpl-calc-model
 $ add2virtualenv .
 $ PIP_PROCESS_DEPENDENCY_LINKS=1 pip install -r requirements.txt
 ```
@@ -82,7 +82,7 @@ In a separate terminal, clone the simpl-calc-ui repository and install simpl-cal
 
 ```shell
 $ git clone git@github.com:simplworld/simpl-calc-ui.git
-$ cd projects/simpl-calc-ui
+$ cd simpl-calc-ui
 $ mkvirtualenv simpl-calc-ui
 $ add2virtualenv .
 $ pip install -r requirements.txt
