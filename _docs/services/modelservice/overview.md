@@ -11,7 +11,8 @@ The Simpl-Modelservice provides services common to all games. These include:
  
 * maintaining an in-memory copy of the game's Simpl model data as [Scopes]({% link _docs/services/modelservice/scopes.md %}).
 * providing a copy of user-relevant Simpl model data to the game's UI on request.
-* publishing user-relevant Simpl model data create, update and delete notifications to the game's UI.
+* publishing user-relevant Simpl model data create, update and delete notifications received 
+via Simple-Games service Webhooks to the game's UI.
 
 Game modelservices use Simpl-Modelservice functionality to:
 
