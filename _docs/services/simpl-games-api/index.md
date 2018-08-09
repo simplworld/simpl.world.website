@@ -9,11 +9,13 @@ description:
 
 The `simpl-games-api` service provides the main storage for games' data.
 
-In practice, there will always be one instance of The `Simpl-Games-API` service that will store data for one or more model services. Every time data is created, modified, or deleted, the `Simpl-Games-API` service will send events to the model services via HTTP Webhooks.
+In practice, there will always be one instance of The `Simpl-Games-API` service that will store data for one or more games. 
+Every time data is created, modified, or deleted, the `Simpl-Games-API` service will send events to the registered game model services via HTTP Webhooks.
 
 ### Authentication
 
-`simpl-games-api` currently supports Basic and Session authentication. You will have to create one or more users for your modelservice(s) to use.
+`simpl-games-api` currently supports Basic and Session authentication. 
+You will need to create one or more users for your modelservice(s) to use connecting to the `simpl-games-api`. 
 
 ### Endpoints
 
@@ -47,7 +49,6 @@ Currently, the only operation supported on these endpoints are creation (via `PO
 The following bulk endpoints are available:
 
 * `/apis/bulk/decisions/`
-* `/apis/bulk/games/`
 * `/apis/bulk/periods/`
 * `/apis/bulk/phases/`
 * `/apis/bulk/results/`
