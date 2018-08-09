@@ -18,13 +18,12 @@ ROOT_TOPIC = os.environ.get('ROOT_TOPIC', 'com.example.game1')
 ```
 
 The `SIMPL_GAMES_AUTH` setting provides the email and password of a Simpl superuser. 
-Run the simpl-games-api
-*create_simpl_user* management command to create a *simpl@simpl.world* superuser for local development.
+Run the simpl-games-api *create_simpl_user* management command to create a *simpl@simpl.world* superuser for local development.
 
-The `SIMPL_GAMES_URL` setting provides the URL of the game's simpl-games-api service.
+The `SIMPL_GAMES_URL` setting provides the URL of the game's `Simpl-Games-API` service.
 
 The `CALLBACK_URL` setting provides the URL on which the game's modelservice will be listening 
-for webhook notifications from the simpl-games-api service.
+for webhook notifications from the game's `Simpl-Games-API` service.
 
 The `GAME_SLUG` setting provides the slug value of the modelservice's game.
 

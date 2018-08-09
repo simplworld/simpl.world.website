@@ -22,12 +22,12 @@ Although an instance of the Scenario model could in theory be related to both a 
 this does not occur in practice. Each Scenario Scope object has a single parent -- either a RunUser or a World.
 
 The `modelservice.games` module provides all the base classes to build this tree. 
-Each of this classes is considered a _Scope_. The logic of your game will be implemented by subclassing 
+Each of these classes is considered a _Scope_. The logic of your game will be implemented by subclassing 
 the necessary scope and adding your own custom logic.
 
 Your game is defined by registering your top-level Scope with the `modelservices.games.game` decorator.
 
-Inside any Scope, you can make any method callable from javascript by decorating it with the `modelservice.games.register` decorator.
+Inside any Scope, you can make any method that returns a value callable from javascript by decorating it with the `modelservice.games.register` decorator.
 Similarly, you can use the `modelservice.games.subscribe` decorator to subscribe any method to a topic:
 
 ```python
@@ -49,8 +49,8 @@ class ZeroSumScenario(Scenario):
 Game.register('zero-sum', [ZeroSumScenario])
 ```
 
-In this example, `ZeroSumScenario.add` will be registered at the uri `{settings.ROOT_URI}.models.{resource_name}.{scope_pk}.add`
- and `ZeroSumScenario.player_quit` will subscribe to `{settings.ROOT_URI}.models.resource_name}.{scope_pk}.player_quit`.
+In this example, `ZeroSumScenario.add` will be registered at the uri `{settings.ROOT_TOPIC}.models.{resource_name}.{scope_pk}.add`
+and `ZeroSumScenario.player_quit` will subscribe to `{settings.ROOT_TOPIC}.models.resource_name}.{scope_pk}.player_quit`.
 
 Alternatively, the name that will be used for the topic can be passed to the decorator:
 
@@ -64,7 +64,7 @@ class ZeroSumScenario(Scenario):
 Game.register('zero-sum', [ZeroSumScenario])
 ```
 
-`ZeroSumScenario.player_quit` will now be subscribed to `{settings.ROOT_URI}.models.{resource_name}.{scope_pk}.player.quit`.
+`ZeroSumScenario.player_quit` will now be subscribed to `{settings.ROOT_TOPIC}.models.{resource_name}.{scope_pk}.player.quit`.
 
 Further customization can be achieved by overriding the `Scope.get_routing(name)` method.
 
@@ -89,8 +89,8 @@ All _Scopes_ inherits from a common `Scope` subclass and share these common prop
 * `.json`: A `dict` that contains the serialized representation of the scope. This is what will be passed to the browser
 and to the Simpl-Games-API service. Any user-defined state for the scope should be stored in `.json['data']`
 * `.game`: The `Game` with which this scope belongs.
-* `.child_scopes`: A [`ScopeManager`](./scopemanager.md) of the children scope.
-* `.games_client`: An instance of a REST API client for the Simpl-Games service.
+* `.child_scopes`: A [`ScopeManager`](./scopemanager.md) of the children scopes.
+* `.games_client`: An instance of a REST API client for the Simpl-Games-API service.
 * `.my`: This special property will contain scopes that are related to the scope. See [Traversing Scopes](./traversing.md) for more details.
 * `.log`: a `txaio` logging instance. See "Logging" below.
 
@@ -140,6 +140,8 @@ In addition to the methods inherited from `Scope`, `Run` has the following metho
 * `.on_advance_phase(next_phase)`: Override this method to perform custom logic right after the run is advanced to the next phase.
 * `.rollback_phase()`: Subscribed method to make the `Run` rollback to the previous phase.
 * `.on_rollback_phase(previous_phase)`: Override this method to perform custom logic right after the run is rolled back to the previous phase.
+* `.on_runuser_created(runuser_id)`: Override this method to perform custom logic right after a runuser has been added to the run.
+* `.on_runuser_deleted(payload)`: Override this method to perform custom logic right after a runuser has been removed from the run.
 
 In addition to the properties inherited from `Scope`, `Run` has the following properties:
 
