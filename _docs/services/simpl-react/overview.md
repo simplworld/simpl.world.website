@@ -12,16 +12,19 @@ description:
 This module is conceptually organized in two layers:
 
 * The `wamp` layer. Includes primitives to publish/subcribe and remote call via the wamp protocol.
-* The `simpl` layer. Uses the `wamp` layer to provide automatic data binding ans synchronization with `Scope`s defined in the modelservice implementation, provided it uses `Scope`s from the `modelservice` Python package.
+* The `simpl` layer. Uses the `wamp` layer to provide automatic data binding ansd synchronization with 
+`Scope`s defined in the modelservice implementation, provided it uses `Scope`s from the `modelservice` Python package.
 
-You will mostly work on the `simpl` layer, and build your app by writing Presentational Components and tying up data to Container Components by using decorators.
+You will mostly work at the `simpl` layer using the `simpl` decorator to wrap your root component. You then build 
+your [single-page application](https://en.wikipedia.org/wiki/Single-page_application) by writing Presentational Components 
+tied to data provided by Container Components
 
-### Decorators
+### Simpl Decorators
 
+* `simpl/lib/decorators/simpl`
 * `simpl/lib/decorators/pubsub/publishes`
 * `simpl/lib/decorators/pubsub/subscribes`
 * `simpl/lib/decorators/rpc/calls`
-* `simpl/lib/decorators/simpl`
 
 ### Components
 
@@ -29,76 +32,101 @@ You will mostly work on the `simpl` layer, and build your app by writing Present
 
 Presentational components only provide the necessary markup to render the UI.
 
-#### Container Component
+#### Container Components
 
 Container Components provide data and functions (`props`) and pass them down to their Presentational component.
 
 #### WAMP Components
 
-Wamp Components are convenience components that wrap container or presentational components to provide them wamp-relative functionality, such as listening or publishing to a topic or calling a remote procedure on the model service
+Wamp Components are convenience components that wrap container or presentational components to provide them 
+wamp-relative functionality, such as listening or publishing to a topic or calling a remote procedure on the model service
 
 * TopicPublisher
 * TopicSubscriber
 * RPCCaller
 
-### Reducers
+### Redux Reducers
 
-#### The `Simpl.reducers.combined.simplReducers` reducer
+The `Simpl.reducers.combined.simplReducers` reducer provides the `simpl` and `routing` reducers necessary 
+for connecting to the modelservice and keeping state updated.
 
-This reducer provides the `simpl` and `router` reducers necessary for connecting to the modelservice and keeping state updated.
-
-```js
+The `cookiecutter-ui-template` cookiecutter template provides `js/reducers/combined/appReducers.js` as a starting point, which contains:
+```jsx
 import {simplReducers} from 'simpl/lib/reducers/combined';
+import {reducer as form} from 'redux-form';
 
-
-const reducers = simplReducers({});
+const reducers = simplReducers({
+  form
+  // Add your customer reducers here, if any.
+});
 
 export default reducers;
+
 ```
 
-You can add your own reducers to it by passing them as arguments:
+You can configure your own reducers by passing them as arguments:
 
-```js
+```jsx
 import {simplReducers} from 'simpl/lib/reducers/combined';
 
 import myreducer from '../MyReducers'
 
 const reducers = simplReducers({
-  myreducer,
+  myreducer
 });
 
 export default reducers;
 ```
 
-### Stores
+### Redux Store
 
-#### The `Simpl.stores.finalCreateStoreFactory`
+The `Simpl.stores.finalCreateStoreFactory` returns a `createStore` function with all the necessary devTools 
+configured according to the environment.
 
-This factory returns a `createStore` function with all the necessary devTools configured according to the environment.
+The `cookiecutter-ui-template` cookiecutter template provides `js/stores/appStore.js` containing:
 
-``stores/AppStore.js``
-
-```js
-import { createStore } from 'redux'
-
+```jsx
+import rootReducer from '../reducers/combined/appReducers';
 import {finalCreateStoreFactory} from 'simpl/lib/stores';
 
-import rootReducer from '../reducers/combined/appReducers'
 
-export default function configureStore(initialState) {
+export default function configureStore(initialState, node_env) {
+    const finalCreateStore = finalCreateStoreFactory(node_env || process.env.NODE_ENV);
+    const store = finalCreateStore(rootReducer, initialState);
 
-  const finalCreateStore = finalCreateStoreFactory(process.env.NODE_ENV)
-  const store = finalCreateStore(rootReducer, initialState);
+    if (module.hot) {
+        // Enable Webpack hot module replacement for reducers
+        module.hot.accept('../reducers/combined/appReducers', () => {
+            const nextReducer = require('../reducers/combined/appReducers');
+            store.replaceReducer(nextReducer);
+        });
+    }
 
-  return store;
-};
+    return store;
+}
 ```
 
-`apps/main.js`
+The `cookiecutter-ui-template` cookiecutter template also provides `js/main.js`, which configures the application's store and 
+defines the root of your single-page application:
 
-```js
-import configureStore from '../stores/AppStore'
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 
+import configureStore from './stores/AppStore';
+import Root from './modules/Root';
 
 const store = configureStore();
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Root />
+  </Provider>,
+  document.getElementById('App')
+);
+
+
 ```
+
+
