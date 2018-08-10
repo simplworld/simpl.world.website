@@ -86,23 +86,25 @@ configured according to the environment.
 The `cookiecutter-ui-template` cookiecutter template provides `js/stores/appStore.js` containing:
 
 ```jsx
-import rootReducer from '../reducers/combined/appReducers';
+/* eslint global-require: "off" */
 import {finalCreateStoreFactory} from 'simpl/lib/stores';
+
+import rootReducer from '../reducers/combined/appReducers';
 
 
 export default function configureStore(initialState, node_env) {
-    const finalCreateStore = finalCreateStoreFactory(node_env || process.env.NODE_ENV);
-    const store = finalCreateStore(rootReducer, initialState);
+  const finalCreateStore = finalCreateStoreFactory(node_env || process.env.NODE_ENV);
+  const store = finalCreateStore(rootReducer, initialState);
 
-    if (module.hot) {
-        // Enable Webpack hot module replacement for reducers
-        module.hot.accept('../reducers/combined/appReducers', () => {
-            const nextReducer = require('../reducers/combined/appReducers');
-            store.replaceReducer(nextReducer);
-        });
-    }
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('../reducers/combined/appReducers', () => {
+      const nextReducer = require('../reducers/combined/appReducers');
+      store.replaceReducer(nextReducer);
+    });
+  }
 
-    return store;
+  return store;
 }
 ```
 
