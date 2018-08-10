@@ -50,7 +50,7 @@ wamp-relative functionality, such as listening or publishing to a topic or calli
 The `Simpl.reducers.combined.simplReducers` reducer provides the `simpl` and `routing` reducers necessary 
 for connecting to the modelservice and keeping state updated.
 
-The `cookiecutter-ui-template` cookiecutter template provides `js/reducers/combined/appReducers.js` as a starting point, which contains:
+The `cookiecutter-ui-template` cookiecutter template uses `simplReducers` in  `js/reducers/combined/appReducers.js`:
 ```jsx
 import {simplReducers} from 'simpl/lib/reducers/combined';
 import {reducer as form} from 'redux-form';
@@ -83,7 +83,7 @@ export default reducers;
 The `Simpl.stores.finalCreateStoreFactory` returns a `createStore` function with all the necessary devTools 
 configured according to the environment.
 
-The `cookiecutter-ui-template` cookiecutter template provides `js/stores/appStore.js` containing:
+The `cookiecutter-ui-template` cookiecutter template uses `finalCreateStoreFactory` in `js/stores/appStore.js`:
 
 ```jsx
 /* eslint global-require: "off" */
@@ -108,7 +108,7 @@ export default function configureStore(initialState, node_env) {
 }
 ```
 
-The `cookiecutter-ui-template` cookiecutter template also provides `js/main.js`, which configures the application's store and 
+The `cookiecutter-ui-template` cookiecutter template also provides `js/main.js` that configures the application's store and 
 defines the root of your single-page application:
 
 ```jsx

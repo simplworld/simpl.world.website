@@ -13,7 +13,7 @@ The UI will receive an action and its store will be updated every time a Scope w
 
 In addition to [defining your combined Redux reducers and store]({% link _docs/services/simpl-react/overview.md %}), 
 you will need a Presentational component that displays progress in loading Simpl data into the Redux store. 
-This component depends on the simpl-react `CONNECTION_STATUS` property to track this progress.
+This component depends on the simpl-react `CONNECTION_STATUS` property to track progress.
 The `simpl-ui-cookiecutter` cookiecutter template provides such a progress component in `js/components/Progress.js`.
 
 To connect your application to its Redux store and reducers, you must wrap your root Container component in the `simpl` decorator. 
