@@ -27,6 +27,7 @@ The following REST endpoints are available:
 
 * `/apis/decisions/`
 * `/apis/games/`
+* `/apis/hooks/`
 * `/apis/periods/`
 * `/apis/phases/`
 * `/apis/results/`
@@ -34,9 +35,8 @@ The following REST endpoints are available:
 * `/apis/runs/`
 * `/apis/runusers/`
 * `/apis/scenarios/`
-* `/apis/worlds/`
 * `/apis/users/`
-* `/apis/hooks/`
+* `/apis/worlds/`
 
 For more info on the specific endpoint, swagger documentation is available at the root of `simpl-games-api` (ie, if you have it running on port 8100, it will be at `http://localhost:8100/`)
 
