@@ -48,7 +48,7 @@ REST API calls to the `Simpl-Games-API` service as needed (e.g. to store state).
 
 The communication between the modelservice and the browser happens via Websocket by using the [WAMP Protocol](http://wamp-proto.org/).
 
-Thw WAMP Protocol is mainly composed of two patterns: publish/subscribe (**PubSub** in short) and call/register (or **RPC**).
+Thw WAMP Protocol is mainly composed of two patterns: publish/subscribe (**PubSub** for short) and call/register (or **RPC**).
 
 ### PubSub vs RPC
 
