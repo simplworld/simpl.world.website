@@ -15,7 +15,7 @@ The others control setting/clearing any error status message it returns.
 ```jsx
 import {createAction} from 'redux-actions';
 
-import AutobahnReact from 'simpl/lib/autobahn';
+import AutobahnReact from 'simpl-react/lib/autobahn';
 
 // submit player decision then calculate result if both dividend and divisor have been submitted
 export const submitDecision =
@@ -285,7 +285,7 @@ Start by creating `js/reducers/StatusReducer.js` to handle the `setStatus` and `
 import {createReducer} from 'redux-create-reducer';
 import recycleState from 'redux-recycle';
 
-import {recyleStateAction} from 'simpl/lib/actions/state';
+import {recyleStateAction} from 'simpl-react/lib/actions/state';
 
 import {
   setStatus,
@@ -317,7 +317,7 @@ export default status;
 Then add `status` to `reducers/combined/appReducers.js`:
 
 ```jsx
-import {simplReducers} from 'simpl/lib/reducers/combined';
+import {simplReducers} from 'simpl-react/lib/reducers/combined';
 import {reducer as form} from 'redux-form';
 
 import status from '../StatusReducer';

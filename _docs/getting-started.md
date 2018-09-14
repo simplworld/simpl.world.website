@@ -58,7 +58,7 @@ In a separate terminal, clone the simpl-calc-model repository and install simpl-
 git clone git@github.com:simplworld/simpl-calc-model.git
 cd simpl-calc-model
 add2virtualenv .
-PIP_PROCESS_DEPENDENCY_LINKS=1 pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 Add the simp-calc game to the Simpl database along with some test users:

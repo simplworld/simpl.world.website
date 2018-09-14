@@ -25,7 +25,7 @@ The function will create an action that serializes to the passed action name, an
 import { createReducer } from 'redux-create-reducer';
 import recycleState from 'redux-recycle';
 
-import { recyleStateAction } from 'simpl/lib/actions/state';
+import { recyleStateAction } from 'simpl-react/lib/actions/state';
 
 import { myAction } from '../actions/myactions';
 
@@ -46,7 +46,7 @@ To create an action that publishes to a WAMP topic, you should use the Autobahn 
 
 ```jsx
 import { createAction } from 'redux-actions';
-import AutobahnReact from 'simpl/lib/autobahn';
+import AutobahnReact from 'simpl-react/lib/autobahn';
 
 
 export const myAction = createAction('MY_ACTION', (some_scope, ...args) =>
@@ -64,7 +64,7 @@ To create an action that calls a WAMP topic, you should use the Autobahn client 
 
 ```jsx
 import { createAction } from 'redux-actions';
-import AutobahnReact from 'simpl/lib/autobahn';
+import AutobahnReact from 'simpl-react/lib/autobahn';
 
 
 export const getSomeData = createAction('GET_SOME_DATA', (scope, ...args) => (
@@ -80,7 +80,7 @@ The action's `payload` will contain the value returned by the remote procedure:
 import { createReducer } from 'redux-create-reducer';
 import recycleState from 'redux-recycle';
 
-import { recyleStateAction } from 'simpl/lib/actions/state'
+import { recyleStateAction } from 'simpl-react/lib/actions/state'
 import { getSomeData } from '../actions/myactions';
 
 

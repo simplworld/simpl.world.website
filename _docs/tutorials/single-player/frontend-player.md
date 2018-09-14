@@ -14,7 +14,7 @@ Create an action in `js/actions/Actions.js` for publishing decisions to the `sub
 ```jsx
 import {createAction} from 'redux-actions';
 
-import AutobahnReact from 'simpl/lib/autobahn';
+import AutobahnReact from 'simpl-react/lib/autobahn';
 
 // submit player decision and advance to next period
 export const submitDecision =

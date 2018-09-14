@@ -21,10 +21,10 @@ tied to data provided by Container Components
 
 ### Simpl Decorators
 
-* `simpl/lib/decorators/simpl`
-* `simpl/lib/decorators/pubsub/publishes`
-* `simpl/lib/decorators/pubsub/subscribes`
-* `simpl/lib/decorators/rpc/calls`
+* `simpl-react/lib/decorators/simpl`
+* `simpl-react/lib/decorators/pubsub/publishes`
+* `simpl-react/lib/decorators/pubsub/subscribes`
+* `simpl-react/lib/decorators/rpc/calls`
 
 ### Components
 
@@ -52,7 +52,7 @@ for connecting to the modelservice and keeping state updated.
 
 The `cookiecutter-ui-template` cookiecutter template uses `simplReducers` in  `js/reducers/combined/appReducers.js`:
 ```jsx
-import {simplReducers} from 'simpl/lib/reducers/combined';
+import {simplReducers} from 'simpl-react/lib/reducers/combined';
 import {reducer as form} from 'redux-form';
 
 const reducers = simplReducers({
@@ -67,7 +67,7 @@ export default reducers;
 You can configure your own reducers by passing them as arguments:
 
 ```jsx
-import {simplReducers} from 'simpl/lib/reducers/combined';
+import {simplReducers} from 'simpl-react/lib/reducers/combined';
 
 import myreducer from '../MyReducers'
 
@@ -87,7 +87,7 @@ The `cookiecutter-ui-template` cookiecutter template uses `finalCreateStoreFacto
 
 ```jsx
 /* eslint global-require: "off" */
-import {finalCreateStoreFactory} from 'simpl/lib/stores';
+import {finalCreateStoreFactory} from 'simpl-react/lib/stores';
 
 import rootReducer from '../reducers/combined/appReducers';
 
