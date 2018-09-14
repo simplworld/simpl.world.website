@@ -20,7 +20,7 @@ App = wamp(MyComponent, options = {});
 ```jsx
 import React from 'react';
 
-import {wamp} from 'simpl/lib/decorators/wamp';
+import {wamp} from 'simpl-react/lib/decorators/wamp';
 
 
 const App = function App() {

@@ -47,7 +47,7 @@ export default SendMessage;
 ```jsx
 import React from 'react';
 
-import TopicPublisher from 'simpl/lib/components/TopicPublisher.react';
+import TopicPublisher from 'simpl-react/lib/components/TopicPublisher.react';
 
 import SendMessage from '../components/SendMessage';
 
@@ -107,7 +107,7 @@ export default Notifications;
 ```jsx
 import React from 'react';
 
-import TopicPublisher from 'simpl/lib/components/TopicPublisher.react';
+import TopicPublisher from 'simpl-react/lib/components/TopicPublisher.react';
 
 import Notification from '../components/Notification';
 

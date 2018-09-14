@@ -12,7 +12,7 @@ description:
 `containers/Publisher.jsx`
 
 ```js
-import {publishes} from 'simpl/lib/decorators/pubsub/publishes';
+import {publishes} from 'simpl-react/lib/decorators/pubsub/publishes';
 
 import MyComponent from '../components/MyComponent.react';
 
@@ -64,7 +64,7 @@ export default SendMessage;
 ```js
 import { connect } from 'react-redux';
 
-import {publishes} from 'simpl/lib/decorators/pubsub/publishes';
+import {publishes} from 'simpl-react/lib/decorators/pubsub/publishes';
 
 import SendMessage from '../components/SendMessage';
 
@@ -100,7 +100,7 @@ export default SendMessageContainer;
 `containers/Subscriber.jsx`
 
 ```js
-import {subscribes} from 'simpl/lib/decorators/pubsub/subscribes';
+import {subscribes} from 'simpl-react/lib/decorators/pubsub/subscribes';
 
 import MyComponent from '../components/MyComponent';
 
@@ -170,7 +170,7 @@ export default Result;
 ```js
 import { connect } from 'react-redux';
 
-import {subscribes} from 'simpl/lib/decorators/pubsub/subscribes';
+import {subscribes} from 'simpl-react/lib/decorators/pubsub/subscribes';
 
 import Notification from '../components/Notification';
 

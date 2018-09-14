@@ -35,7 +35,7 @@ Create a reducer `js/reducers/ProcessingReducer.js` to handle the `startProcessi
 import {createReducer} from 'redux-create-reducer';
 import recycleState from 'redux-recycle';
 
-import {recyleStateAction} from 'simpl/lib/actions/state';
+import {recyleStateAction} from 'simpl-react/lib/actions/state';
 
 import {
   startProcessing,
@@ -65,7 +65,7 @@ export default processing
 Then add `processing` to `reducers/combined/appReducers.js`:
 
 ```jsx
-import {simplReducers} from 'simpl/lib/reducers/combined';
+import {simplReducers} from 'simpl-react/lib/reducers/combined';
 import {reducer as form} from 'redux-form';
 
 import processing from '../ProcessingReducer';

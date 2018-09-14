@@ -10,7 +10,7 @@ description:
 ### calls() decorator
 
 ```js
-import {calls} from 'simpl/lib/decorators/rpc/calls'
+import {calls} from 'simpl-react/lib/decorators/rpc/calls'
 
 
 Caller = calls(procedure, options = {})(MyComponent);
@@ -62,7 +62,7 @@ export default Counter;
 ```jsx
 import React from 'react';
 import { connect } from 'react-redux';
-import {calls} from 'simpl/lib/decorators/rpc/calls'
+import {calls} from 'simpl-react/lib/decorators/rpc/calls'
 
 import { updateCounter } from '../actions/CounterActions';
 import Counter from '../components/Counter';

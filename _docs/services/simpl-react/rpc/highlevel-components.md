@@ -77,7 +77,7 @@ export default CounterContainer;
 ```jsx
 import React from 'react';
 
-import RPCCaller from 'simpl/lib/components/RPCCaller.react';
+import RPCCaller from 'simpl-react/lib/components/RPCCaller.react';
 
 import CounterContainer from '../containers/CounterContainer';
 

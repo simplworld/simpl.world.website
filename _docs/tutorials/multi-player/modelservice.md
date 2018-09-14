@@ -47,7 +47,7 @@ $ add2virtualenv .
 Create a `requirements.txt` file that installs the simpl-modelservice and unit testing apps:
 
 ```ini
-https://github.com:simplworld/simpl-modelservice/repository/archive.zip
+simpl-modelservice==0.7.7
 
 # tests
 pytest==3.1.3
@@ -59,7 +59,7 @@ django-test-plus==1.0.22
 Install these requirements along with their dependencies:
 
 ```shell
-$ PIP_PROCESS_DEPENDENCY_LINKS=1 pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 Please note, if `DJANGO_SETTINGS_MODULE` is leftover from a previous session, you may need to unset it:
@@ -512,6 +512,6 @@ $ ./manage.py run_modelservice
 By default the service will bind to `0.0.0.0:8080`.
 
 This concludes the tutorial on building a multi-player game Model Service. A completed example implementation is available at 
-[https://github.com/simplworld/simpl-div-model]<!--(https://github.com/simplworld/simpl-div-model)--> that uses the game slug `simpl-div`.
+[https://github.com/simplworld/simpl-div-model](https://github.com/simplworld/simpl-div-model) that uses the game slug `simpl-div`.
 
 You can now head over to the [Multi-player Game Frontend tutorial]({% link _docs/tutorials/multi-player/frontend.md %}).

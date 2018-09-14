@@ -135,7 +135,7 @@ First, you will [Build the Multi-player Game Player UI]({% link _docs/tutorials/
 Finally, you will [Build the Multi-player Game Leader UI]({% link _docs/tutorials/multi-player/frontend-leader.md %}).
 
 This concludes our tutorial! We have barely scratched the surface. A completed example implementation is available at 
-[https://github.com/simplworld/simpl-div-ui]<!--(https://github.com/simplworld/simpl-div-ui)-->
+[https://github.com/simplworld/simpl-div-ui](https://github.com/simplworld/simpl-div-ui)
 that uses the game slug `simpl-div`.
 
 There's much more that you can do with Simpl. For more informations, check out the service-specific documentation.
