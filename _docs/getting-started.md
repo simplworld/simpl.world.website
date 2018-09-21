@@ -18,6 +18,8 @@ You will need to have these installed:
 
 If you are using the Mac OS, [Postgres.app](https://postgresapp.com) is an easy way to install and configure PostgreSQL.
 
+If you are using Windows 10, the tutorials have been tested using Ubuntu 16.04 with the [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10).  Note, you'll need to be comfortable installing virtualenv, Python 3.6, as well as a number of supporting OS packages in order to get simpl up and running on Windows.  
+
 Install gulp and webpack globally to ensure they are on your PATH
 
 ```shell
@@ -42,6 +44,15 @@ Create a Simpl database:
 createdb simpl
 ./manage.py migrate
 ./manage.py create_simpl_user
+```
+
+Note, for Windows users, you'll need to edit the database line with the following in `config/settings/common.py` to access psql (assuming it is installed locally):
+
+```python
+DATABASES = {
+    # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
+    'default': env.db("DATABASE_URL", default="postgres://simpl:simpl@localhost:5432/simpl"),
+}
 ```
 
 Start the simpl-games-api web service:

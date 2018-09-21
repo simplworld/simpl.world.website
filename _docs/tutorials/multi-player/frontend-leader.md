@@ -317,7 +317,7 @@ export default module;
 Now when you login as `leader@div.edu` with password `div`, you will see information about your active run:
 
 
-![](/assets/img/tutorials/multi-player/Leader_Runs1.png){: width="60%" }
+![](/assets/img/tutorials/multi-player/Leader_Runs1.png){: width="30%" }
 
 Let's add some styling to make it easier to read the table of results.
 
@@ -338,13 +338,13 @@ with
   </head>
 ```
 
-![](/assets/img/tutorials/multi-player/Leader_Runs2.png){: width="60%" }
+![](/assets/img/tutorials/multi-player/Leader_Runs2.png){: width="30%" }
 
 Let's test the `Advance to Debrief` button. 
-First, open an incognito window and log in to 'http://localhost:8000' as 's3@div.edu' with password `s3' and submit a decision.
+First, open an incognito window and log in to 'http://localhost:8000' as 's3@div.edu' with password 's3' and submit a decision.
 Next, click the `Advance to Debrief` button. You should see something similar to:
 
-![](/assets/img/tutorials/multi-player/Simpl_Debrief.png){: width="100%" }
+![](/assets/img/tutorials/multi-player/Simpl_Debrief.png){: width="50%" }
 
 Both pages have updated to reflect the run is now in `Debrief` phase. On the leader's page, the run name is now a link. 
 However, the application does not yet know how to route the the link's URL.
@@ -550,6 +550,6 @@ class Root extends React.Component {
 
 After you refresh your browser, you should be taken to the LeaderRunDebrief page when you click the linked run name:
 
-![](/assets/img/tutorials/multi-player/Run_Debrief.png){: width="60%" }
+![](/assets/img/tutorials/multi-player/Run_Debrief.png){: width="30%" }
 
 Congratulations! You have completed this tutorial's leader UI.
