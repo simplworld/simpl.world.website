@@ -78,11 +78,8 @@ Add the following to your `INSTALLED_APPS` in `calc_model/settings.py`:
 
 ```python
 INSTALLED_APPS += [
-    ...
-
     'modelservice',
     'rest_framework',
-
     'game',
 ]
 
@@ -113,7 +110,7 @@ CACHES = {
 
 For simplicity, we're going to create a single-player Game in which each player has a Scenario that can advance multiple periods.
 
-In your `game` app module, define our model in `model.py`:
+In your `game` app module, define our model in `models.py`:
 
 ```python
 class Model(object):
@@ -137,7 +134,7 @@ In your `game` app module, add a unit test directory `tests` and a model unit te
 import pytest
 from test_plus.test import TestCase
 
-from game.model import Model
+from game.models import Model
 
 
 class ModelTestCase(TestCase):
@@ -340,7 +337,7 @@ In your `game` app module, create a file called `runmodel.py`.  Next, add `save_
 
 ```python
 from modelservice.simpl import games_client
-from .model import Model
+from .models import Model
 
 
 async def save_decision(period_id, decision):

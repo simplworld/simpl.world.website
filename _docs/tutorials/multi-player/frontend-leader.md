@@ -135,7 +135,7 @@ export default AdvancePhase;
 
 ```
 
-and wrap it in a container component `js/containers/AdvancePhaseContainer`:
+and wrap it in a container component `js/containers/AdvancePhaseContainer.js`:
 
 ```jsx
 import {connect} from 'react-redux';
@@ -228,7 +228,7 @@ export default RunRow;
 
 ```
 
-and wrap it in a container component `js/containers/RunRowContainer`:
+and wrap it in a container component `js/containers/RunRowContainer.js`:
 
 ```jsx
 import {connect} from 'react-redux';
@@ -321,7 +321,7 @@ Now when you login as `leader@div.edu` with password `div`, you will see informa
 
 Let's add some styling to make it easier to read the table of results.
 
-In `frontend/templates/frontend.home.html`, replace
+In `frontend/templates/frontend/home.html`, replace
 
 ```html
   <head>
@@ -381,7 +381,7 @@ WorldRow.propTypes = {
 export default WorldRow;
 ```
 
-and wrapping it in a container component `js/containers/WorldRowContainer`:
+and wrapping it in a container component `js/containers/WorldRowContainer.js`:
 
 ```jsx
 import {connect} from 'react-redux';

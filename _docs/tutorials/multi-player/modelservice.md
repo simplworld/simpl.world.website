@@ -62,6 +62,8 @@ Install these requirements along with their dependencies:
 $ pip install -r requirements.txt
 ```
 
+Note, if you receive any errors when installing the above requirements, make sure you have python3.6-dev installed.
+
 Please note, if `DJANGO_SETTINGS_MODULE` is leftover from a previous session, you may need to unset it:
 
 ```shell
@@ -78,11 +80,8 @@ Add the following to your `INSTALLED_APPS` in `div_model/settings.py`:
 
 ```python
 INSTALLED_APPS += [
-    ...
-
     'modelservice',
     'rest_framework',
-
     'game',
 ]
 
@@ -115,7 +114,7 @@ For simplicity, we're going to create a multi-player Game in which each world mu
 one playing the Dividend role, the other playing the Divisor role.
 The game's model will automatically advance as soon as both players in a world have submitted valid decisions for their roles.
 
-In your `game` app module, define our model in `model.py`:
+In your `game` app module, define our model in `models.py`:
 
 ```python
 class Model(object):
@@ -139,7 +138,7 @@ In your `game` app module, add a unit test directory `tests` and a model unit te
 import pytest
 from test_plus.test import TestCase
 
-from game.model import Model
+from game.models import Model
 
 
 class ModelTestCase(TestCase):
@@ -391,7 +390,7 @@ In your `game` app module, create a file called `runmodel.py`.  Next, add `save_
 
 ```python
 from modelservice.simpl import games_client
-from .model import Model
+from .models import Model
 
 
 async def save_decision(period_id, role_id, operand):

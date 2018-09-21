@@ -38,7 +38,7 @@ $ pip install cookiecutter
 Use `cookiecutter` to create the boilerplate for your game Frontend.
 
 ```shell
-$ cookiecutter https://github.com:simplworld/simpl-ui-cookiecutter.git
+$ cookiecutter https://github.com/simplworld/simpl-ui-cookiecutter.git
 ```
 
 For the `game_slug` value, enter `calc` (the slug value you used in the [modelservice tutorial]({% link _docs/tutorials/single-player/modelservice.md %})). 
