@@ -374,9 +374,9 @@ class StatusNotification extends React.Component {
         show={this.state.show_modal}
         onHide={this.hideModal}
       >
-        <Modal.Body style={{backgroundColor: '#F0AD4E'}}>
+        <Modal.Body style={{ "{{backgroundColor: '#F0AD4E'"}}}}>
           <div className=""><p>{this.props.message}</p></div>
-          <div className="text-center" style={{marginLeft:30, marginRight: 30, marginBottom: 30, marginTop:30}}>
+          <div className="text-center" style={{ "{{marginLeft:30, marginRight: 30, marginBottom: 30, marginTop:30"}}}}>
             <button type="button" onClick={this.toggleModal}>Close</button>
           </div>
         </Modal.Body>
