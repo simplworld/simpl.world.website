@@ -5,7 +5,7 @@ date: 2017-09-01 12:30:00 -0500
 categories: News
 author: Sarah Toms
 author_photo: /assets/img/authors/sarah-toms.png
-featured: true
+featured: false
 excerpt: |
     Simulations are expensive to create, require highly specialized expertise, and if you create something that doesn't 
     deliver against the intended learning objectives, the process to make tweaks and updates is gosh-darn complicated!
