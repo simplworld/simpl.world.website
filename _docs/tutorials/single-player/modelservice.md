@@ -47,7 +47,7 @@ $ add2virtualenv .
 Create a `requirements.txt` file that installs the simpl-modelservice and unit testing apps:
 
 ```ini
-simpl-modelservice==0.7.7
+git+https://github.com/simplworld/simpl-modelservice.git
 
 # tests
 pytest==3.1.3
