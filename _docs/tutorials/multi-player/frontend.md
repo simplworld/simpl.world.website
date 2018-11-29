@@ -68,7 +68,7 @@ In a separate terminal, install the project's JavaScript node modules and run gu
 
 ```shell
 $ npm install
-$ gulp
+$ npm start
 ```
 
 To aid development, you can install the following Chrome DevTools Extensions:
