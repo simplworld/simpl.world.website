@@ -5,7 +5,7 @@ date: 2018-09-20 14:38:00 -0400
 categories: News
 author: Joseph Lee
 author_photo: /assets/img/authors/joseph-lee.png
-featured: false
+featured: true
 excerpt: |
     After two years in development, Simpl has been released!
 ---
