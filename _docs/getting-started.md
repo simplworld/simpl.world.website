@@ -32,7 +32,7 @@ sudo npm install --global webpack
 Clone the simpl-games-api repository and install simpl-games-api:
 
 ```shell
-git clone git@github.com:simplworld/simpl-games-api.git
+git clone --branch v0.7.9 https://github.com/simplworld/simpl-games-api.git
 cd simpl-games-api
 add2virtualenv .
 pip install -r requirements.txt
@@ -66,7 +66,7 @@ Start the simpl-games-api web service:
 In a separate terminal, clone the simpl-calc-model repository and install simpl-calc model:
 
 ```shell
-git clone git@github.com:simplworld/simpl-calc-model.git
+git clone https://github.com/simplworld/simpl-calc-model.git
 cd simpl-calc-model
 add2virtualenv .
 pip install -r requirements.txt
@@ -92,7 +92,7 @@ By default the service will bind to `0.0.0.0:8080`.
 In a separate terminal, clone the simpl-calc-ui repository and install simpl-calc:
 
 ```shell
-git clone git@github.com:simplworld/simpl-calc-ui.git
+git clone https://github.com/simplworld/simpl-calc-ui.git
 cd simpl-calc-ui
 mkvirtualenv simpl-calc-ui
 add2virtualenv .
