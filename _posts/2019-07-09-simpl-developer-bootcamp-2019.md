@@ -23,8 +23,7 @@ When we first built Simpl we had two distinct audiences in mind.  One was the de
 
 If you are interested in attending either online or in-person please fill out the form below.  More information will be coming soon on this exciting event!
 
-[https://forms.gle/EHa1T6NftporwSVT9](https://forms.gle/EHa1T6NftporwSVT9)
-
+**Thank you for your interest in the bootcamp, we're currently at capacity!  Please join the mailing list to hear of new training opportunities with Simpl!**
 
 
 
