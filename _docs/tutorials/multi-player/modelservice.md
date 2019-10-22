@@ -114,7 +114,7 @@ For simplicity, we're going to create a multi-player Game in which each world mu
 one playing the Dividend role, the other playing the Divisor role.
 The game's model will automatically advance as soon as both players in a world have submitted valid decisions for their roles.
 
-In your `game` app module, define our model in `models.py`:
+In your `game` app module, define our model in `model.py`:
 
 ```python
 class Model(object):
