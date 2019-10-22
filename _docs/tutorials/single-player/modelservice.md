@@ -53,6 +53,7 @@ git+https://github.com/simplworld/simpl-modelservice.git
 pytest==4.6.3
 pytest-cov==2.7.1
 pytest-django==3.5.0
+django-test-plus==1.3.1
 ```
 
 Install these requirements along with their dependencies:
@@ -133,7 +134,7 @@ In your `game` app module, add a unit test directory `tests` and a model unit te
 import pytest
 from test_plus.test import TestCase
 
-from game.models import Model
+from game.model import Model
 
 
 class ModelTestCase(TestCase):
@@ -147,17 +148,17 @@ class ModelTestCase(TestCase):
     def test_first_step(self):
         m = Model()
         total = m.step(5)
-        self.assertEquals(total, 5)
+        self.assertEqual(total, 5)
 
     def test_increase_step(self):
         m = Model()
         total = m.step(5, 3)
-        self.assertEquals(total, 8)
+        self.assertEqual(total, 8)
 
     def test_decrease_step(self):
         m = Model()
         total = m.step(5, -2.5)
-        self.assertEquals(total, 2.5)
+        self.assertEqual(total, 2.5)
 ```
 
 Run your unit test:
@@ -332,7 +333,7 @@ In your `game` app module, create a file called `runmodel.py`.  Next, add `save_
 
 ```python
 from modelservice.simpl import games_client
-from .models import Model
+from .model import Model
 
 
 async def save_decision(period_id, decision):
