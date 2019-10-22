@@ -27,7 +27,7 @@ $ mkvirtualenv calc-model
 Install Django
 
 ```shell
-$ pip install Django~=1.11
+$ pip install Django~=2.2.0
 ```
 
 Create a Django project folder and rename it to serve as a git repository
@@ -50,10 +50,9 @@ Create a `requirements.txt` file that installs the simpl-modelservice and unit t
 git+https://github.com/simplworld/simpl-modelservice.git
 
 # tests
-pytest==3.1.3
-pytest-cov==2.5.1
-pytest-django==3.1.2
-django-test-plus==1.0.22
+pytest==4.6.3
+pytest-cov==2.7.1
+pytest-django==3.5.0
 ```
 
 Install these requirements along with their dependencies:
@@ -179,8 +178,7 @@ Finally, create a `create_default_env.py` script in the `game/management/command
 ```python
 import djclick as click
 
-from modelservice.simpl import games_client
-from modelservice.utils.asyncio import coro
+from modelservice.simpl.sync import games_client
 
 
 def echo(text, value):
@@ -189,20 +187,20 @@ def echo(text, value):
     )
 
 
-async def delete_default_run(api_session):
+def delete_default_run(games_client):
     """ Delete default Run """
     echo('Resetting the Calc game default run...', ' done')
-    runs = await api_session.runs.filter(game_slug='calc')
+    game = games_client.games.get_or_create(slug='calc')
+    runs = games_client.runs.filter(game=game.id)
     for run in runs:
         if run.name == 'default':
-            await api_session.runs.delete(run.id)
+            games_client.runs.delete(run.id)
 
 
 @click.command()
 @click.option('--reset', default=False, is_flag=True,
               help="Delete default game run and recreate it from scratch")
-@coro
-async def command(reset):
+def command(reset):
     """
     Create and initialize Calc game.
     Create a "default" Calc run.
@@ -212,38 +210,36 @@ async def command(reset):
     Add a scenario and period 1 for each player.
     """
 
-    async with games_client as api_session:
+    # Handle resetting the game
+    if reset:
+        if click.confirm(
+                'Are you sure you want to delete the default game run and recreate from scratch?'):
+            delete_default_run(games_client)
 
-        # Handle resetting the game
-        if reset:
-            if click.confirm(
-                    'Are you sure you want to delete the default game run and recreate from scratch?'):
-                await delete_default_run(api_session)
+    # Create a Game
+    game = games_client.games.get_or_create(
+        name='Calc',
+        slug='calc'
+    )
+    echo('getting or creating game: ', game.name)
 
-        # Create a Game
-        game = await api_session.games.get_or_create(
-            name='Calc',
-            slug='calc'
-        )
-        echo('getting or creating game: ', game.name)
+    # Create game Phases ("Play")
+    play_phase = games_client.phases.get_or_create(
+        game=game.id,
+        name='Play',
+        order=1,
+    )
+    echo('getting or creating phase: ', play_phase.name)
 
-        # Create game Phases ("Play")
-        play_phase = await api_session.phases.get_or_create(
-            game=game.id,
-            name='Play',
-            order=1,
-        )
-        echo('getting or creating phase: ', play_phase.name)
+    # Add run with 2 players ready to play
+    run = add_run(game, 'default', 2, play_phase, games_client)
 
-        # Add run with 2 players ready to play
-        run = await add_run(game, 'default', 2, play_phase, api_session)
-
-        echo('Completed setting up run: id=', run.id)
+    echo('Completed setting up run: id=', run.id)
 
 
-async def add_run(game, run_name, user_count, phase, api_session):
+def add_run(game, run_name, user_count, phase, games_client):
     # Create or get the Run
-    run = await api_session.runs.get_or_create(
+    run = games_client.runs.get_or_create(
         game=game.id,
         name=run_name,
     )
@@ -251,10 +247,10 @@ async def add_run(game, run_name, user_count, phase, api_session):
 
     # Set run to phase
     run.phase = phase.id
-    await run.save()
+    run.save()
     echo('setting run to phase: ', phase.name)
 
-    fac_user = await api_session.users.get_or_create(
+    fac_user = games_client.users.get_or_create(
         password='leader',
         first_name='CALC',
         last_name='Leader',
@@ -262,7 +258,7 @@ async def add_run(game, run_name, user_count, phase, api_session):
     )
     echo('getting or creating user: ', fac_user.email)
 
-    fac_runuser = await api_session.runusers.get_or_create(
+    fac_runuser = games_client.runusers.get_or_create(
         user=fac_user.id,
         run=run.id,
         leader=True,
@@ -272,19 +268,19 @@ async def add_run(game, run_name, user_count, phase, api_session):
     for n in range(0, user_count):
         user_number = n + 1
         # Add player to run
-        await add_player(user_number, run, api_session)
+        add_player(user_number, run, games_client)
 
     return run
 
 
-async def add_player(user_number, run, api_session):
+def add_player(user_number, run, games_client):
     """Add player with name based on user_number to run with role"""
 
     username = 's{0}'.format(user_number)
     first_name = 'Student{0}'.format(user_number)
     email = '{0}@calc.edu'.format(username)
 
-    user = await api_session.users.get_or_create(
+    user = games_client.users.get_or_create(
         password=username,
         first_name=first_name,
         last_name='User',
@@ -292,20 +288,20 @@ async def add_player(user_number, run, api_session):
     )
     echo('getting or creating user: ', user.email)
 
-    runuser = await api_session.runusers.get_or_create(
+    runuser = games_client.runusers.get_or_create(
         user=user.id,
         run=run.id,
         defaults={"role": None}
     )
     echo('getting or creating runuser for user: ', user.email)
 
-    await add_runuser_scenario(runuser, api_session)
+    add_runuser_scenario(runuser, games_client)
 
 
-async def add_runuser_scenario(runuser, api_session):
+def add_runuser_scenario(runuser, games_client):
     """Add a scenario named 'Scenario 1' to the runuser"""
 
-    scenario = await api_session.scenarios.get_or_create(
+    scenario = games_client.scenarios.get_or_create(
         runuser=runuser.id,
         name='Scenario 1',
     )
@@ -313,14 +309,13 @@ async def add_runuser_scenario(runuser, api_session):
         runuser.id,
         scenario.id))
 
-    period = await api_session.periods.get_or_create(
+    period = games_client.periods.get_or_create(
         scenario=scenario.id,
         order=1,
     )
     click.echo('getting or creating runuser {} period 1 for scenario: {}'.format(
         runuser.id,
         scenario.id))
-
 ```
 
 Run your command:
