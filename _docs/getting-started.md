@@ -13,7 +13,7 @@ You can get a taste of Simpl by running the simpl-calc example simulation.
 
 You will need to have these installed:
    * PostgreSQL >= 9.6
-   * Python >= 3.6
+   * Python == 3.6
    * [virtualenv](https://virtualenv.pypa.io/en/stable/)
 
 If you are using the Mac OS, [Postgres.app](https://postgresapp.com) is an easy way to install and configure PostgreSQL.
@@ -32,7 +32,7 @@ sudo npm install --global webpack
 Clone the simpl-games-api repository and install simpl-games-api:
 
 ```shell
-git clone --branch v0.7.9 https://github.com/simplworld/simpl-games-api.git
+git clone --branch pre-django-2 https://github.com/simplworld/simpl-games-api.git
 cd simpl-games-api
 add2virtualenv .
 pip install -r requirements.txt

@@ -11,7 +11,7 @@ description:
 
 You will need to have these installed:
    * PostgreSQL >= 9.6
-   * Python >= 3.6
+   * Python == 3.6
    * [virtualenv](https://virtualenv.pypa.io/en/stable/)
 
 Have the [Games API service]({% link _docs/getting-started.md %}) is running on http://localhost:8100/.  

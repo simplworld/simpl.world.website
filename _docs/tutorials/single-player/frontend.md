@@ -14,8 +14,8 @@ This tutorial assumes you are familiar with [react](https://reactjs.org) and [re
 You will need to have these installed:
 
 * [Node](https://nodejs.org) >= 5.7.0
-* [NPM](https://nodejs.org) >= 3.6.0
-* Python >= 3.6
+* [NPM](https://nodejs.org) == 3.6.0
+* Python == 3.6
 * [virtualenv](https://virtualenv.pypa.io/en/stable/)
 
 Have the [Games API service]({% link _docs/getting-started.md %}) running on http://localhost:8100/ and 

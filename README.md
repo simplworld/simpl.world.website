@@ -60,7 +60,7 @@ export PATH=/usr/local/bin:$PATH
 then run:
 
 ```shell
-sudo gem install -n /usr/local/bin bundler jekyll foreman
+$ sudo gem install -n /usr/local/bin bundler jekyll foreman
 $ foreman start
 # => Now browse to http://localhost:8000
 ```
