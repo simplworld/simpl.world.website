@@ -18,7 +18,7 @@ You will need to have these installed:
 
 If you are using the Mac OS, [Postgres.app](https://postgresapp.com) is an easy way to install and configure PostgreSQL.
 
-If you are using Windows 10, the tutorials have been tested using Ubuntu 16.04 with the [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10).  Note, you'll need to be comfortable installing virtualenv, Python 3.6, as well as a number of supporting OS packages in order to get simpl up and running on Windows.  
+If you are using Windows 10, the tutorials have been tested using Ubuntu 16.04 with the [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10).  Note, you'll need to be comfortable installing virtualenv, Python 3.6, as well as a number of supporting OS packages in order to get Simpl up and running on Windows.  
 
 Install gulp and webpack globally to ensure they are on your PATH
 
