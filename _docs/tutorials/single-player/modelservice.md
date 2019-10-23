@@ -110,7 +110,7 @@ CACHES = {
 
 For simplicity, we're going to create a single-player Game in which each player has a Scenario that can advance multiple periods.
 
-In your `game` app module, define our model in `models.py`:
+In your `game` app module, define the simulation model by creating a file called `model.py` with the following content:
 
 ```python
 class Model(object):
