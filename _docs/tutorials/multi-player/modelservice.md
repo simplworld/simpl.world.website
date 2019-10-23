@@ -114,7 +114,7 @@ For simplicity, we're going to create a multi-player Game in which each world mu
 one playing the Dividend role, the other playing the Divisor role.
 The game's model will automatically advance as soon as both players in a world have submitted valid decisions for their roles.
 
-In your `game` app module, define the simulation model by creating a file called `model.py` with the following content:
+In your `game` app module, define the simulation model by creating a `model.py` file with the following content:
 
 ```python
 class Model(object):
