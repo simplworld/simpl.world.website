@@ -41,7 +41,6 @@ A Game can have one or more Run **Phases** that determine the features available
 Simple Games might need only one Phase (e.g. *Play*), while more complex Games may require several (e.g. *Setup*, *Players Prepare*, *Play*, and *Debrief*).
 
 A Game can have one or more player **Roles**. A player’s role might determine the background information they see and the types of decisions they can make.
-Games in which all players have exactly the same capabilities do not need to define player Roles.
 
 A **World** groups RunUsers into a team whose combined decisions are used to step the Game’s simulation model.
 Each World's decisions and results are independent of other World's decisions and results.
