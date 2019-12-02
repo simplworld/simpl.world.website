@@ -32,7 +32,7 @@ sudo npm install --global webpack
 Clone the simpl-games-api repository and install simpl-games-api:
 
 ```shell
-git clone --branch pre-django-2 https://github.com/simplworld/simpl-games-api.git
+git clone https://github.com/simplworld/simpl-games-api.git
 cd simpl-games-api
 add2virtualenv .
 pip install -r requirements.txt
