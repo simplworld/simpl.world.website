@@ -176,7 +176,7 @@ Finally, create a `create_default_env.py` script in the `game/management/command
 ```python
 import djclick as click
 
-from modelservice.simpl.sync import games_client
+from modelservice.simpl.syn import games_client
 
 
 def echo(text, value):
