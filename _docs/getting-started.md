@@ -32,10 +32,10 @@ sudo npm install --global webpack
 Clone the simpl-games-api repository and install simpl-games-api:
 
 ```shell
-git clone https://github.com/simplworld/simpl-games-api.git
+git clone --branch django111 https://github.com/simplworld/simpl-games-api.git
 cd simpl-games-api
 add2virtualenv .
-pip install -r requirements.txt
+pip install -r requirements.txt        
 ```
 
 Create a Simpl database:
