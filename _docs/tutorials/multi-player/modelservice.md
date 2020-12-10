@@ -300,14 +300,14 @@ def add_world(run, number, games_client):
     )
     echo('getting or creating world: ', world.name)
 
-    scenario = games_client.scenarios.create({
-        'world': world.id,
-        'name': 'World Scenario 1'
-    })
-    period1 = games_client.periods.create({
-        'scenario': scenario.id,
-        'order': 1
-    })
+    scenario = games_client.scenarios.get_or_create(
+        world=world.id,
+        name='World Scenario 1'
+    )
+    period1 = games_client.periods.get_or_create(
+        scenario=scenario.id,
+        order=1
+    )
 
     return world
 
