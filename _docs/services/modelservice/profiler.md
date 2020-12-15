@@ -1,10 +1,10 @@
 ---
-title: Profiler
+title: Data Profiler
 permalink: /docs/services/modelservice/profiler/
 layout: docs
-description:
+description: Data profiler explainer
 ---
 
-## Profiler
+## Data Profiler
 
 

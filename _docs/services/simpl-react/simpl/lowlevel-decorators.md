@@ -57,7 +57,7 @@ export default simpl({
 ```
 
 The `topics` argument passed to the `simpl` decorator is initialized from Javascript constants defined in the `frontend` Django app's 
-`templates/frontend/home.html` using data returned by the `frontend` app's `HomeView.get_context_data` method in `views.py`'`.
+`templates/frontend/home.html` using data returned by the `frontend` app's `HomeView.get_context_data` method in `views.py`.
 
 The `loadAllScenarios` argument passed to the `simpl` decorator indicates whether the current user should have access to 
 other users' scenarios. The default setting of `false` makes sense for multi-player games. Players in multi-player games 

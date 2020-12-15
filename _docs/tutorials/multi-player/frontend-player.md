@@ -28,7 +28,7 @@ export const setStatus = createAction('SET_STATUS');
 export const clearStatus = createAction('CLEAR_STATUS');
 
 ```
-**NOTE** the `submit_decision`action calls this topic because the div-model `game/games.py` `submit_decision` endpoint registers as an RPC on the topic. 
+**NOTE**: The `submit_decision` action calls this topic because the div-model `game/games.py` `submit_decision` endpoint registers as an RPC on the topic. 
 Because `submit_decision` validates the operand, using an RPC allows us to check the returned status.
 
 Create a presentational component `js/components/DecisionForm.js` for entering player decisions and displaying an error message:
@@ -109,7 +109,7 @@ export default reduxForm({
 
 ```
 
-wrap it in a container component that checks the returned status `js/containers/DecisionFormContainer.js`:
+Wrap it in a container component that checks the returned status `js/containers/DecisionFormContainer.js`:
 
 ```jsx
 import {connect} from 'react-redux';
@@ -269,7 +269,7 @@ const module = connect(
 export default module;
 ```
 
-Now when players log in, they see a form for entering decisions for their role and a logout link:
+Now, when players log in, they see a form for entering decisions for their role and a logout link:
 
 ![](/assets/img/tutorials/multi-player/Players_Home.png){: width="80%" }
 
@@ -277,8 +277,8 @@ As a world's players submit decisions, the redux state automatically updates wit
 
 ![](/assets/img/tutorials/multi-player/Simpl_Players_Home.png){: width="100%" }
 
-If a zero divisor is submitted, the returned status message is logged to the Javascript console. It would be more user-friendly to notify the player through the UI. 
-You will enable this by implementing the `StatusNotificationContainer`container  component that has been commented out of `js/modules/PlayerHome.js`.
+If a zero divisor is submitted, the returned status message is logged to the JavaScript console. It would be more user-friendly to notify the player through the UI. 
+You will enable this by implementing the `StatusNotificationContainer`container component that has been commented out of `js/modules/PlayerHome.js`.
 
 Start by creating `js/reducers/StatusReducer.js` to handle the `setStatus` and `clearStatus` actions:
 
@@ -398,7 +398,7 @@ StatusNotification.defaultProps = {
 export default StatusNotification;
 ```
 
-wrap it in a new container component `js/containers/StatusNotificationContainer.js`:
+Wrap it in a new container component `js/containers/StatusNotificationContainer.js`:
 
 ```jsx
 import {connect} from 'react-redux';
@@ -462,6 +462,6 @@ Log in as `s2@div.edu` with password `s2` and submit a zero decision. You should
 
 There is also a new `status` Redux state object. When you click the 'Close' button, the `status.message` will be set to null and the notification will disappear.
 
-**NOTE** The modal dialog did not pop up because this tutorial does not include css styling.
+**NOTE**: The modal dialog did not pop up because this tutorial does not include CSS styling.
 
-Congratulations! You are now ready to [Build the Multi-player Game Leader UI]({% link _docs/tutorials/multi-player/frontend-leader.md %})
+Congratulations! You are now ready to build the [Multi-player Game Leader UI]({% link _docs/tutorials/multi-player/frontend-leader.md %})

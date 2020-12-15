@@ -316,12 +316,11 @@ export default module;
 
 Now when you login as `leader@div.edu` with password `div`, you will see information about your active run:
 
-
 ![](/assets/img/tutorials/multi-player/Leader_Runs1.png){: width="30%" }
 
 Let's add some styling to make it easier to read the table of results.
 
-In `frontend/templates/frontend/home.html`, replace
+In `frontend/templates/frontend/home.html`, replace:
 
 ```html
   <head>
@@ -548,7 +547,7 @@ class Root extends React.Component {
 
 ```
 
-After you refresh your browser, you should be taken to the LeaderRunDebrief page when you click the linked run name:
+After you refresh your browser, you should be taken to the `LeaderRunDebrief` page when you click the linked run name:
 
 ![](/assets/img/tutorials/multi-player/Run_Debrief.png){: width="30%" }
 

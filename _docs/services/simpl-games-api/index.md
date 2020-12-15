@@ -1,27 +1,15 @@
 ---
-title: Simpl-Games-API Overview
+title: Simpl-Games-API Endpoints
 permalink: /docs/services/simple-games-api/
 layout: docs
 description:
 ---
 
-## Simpl-Games-Api Overview
-
-The `simpl-games-api` service provides the main storage for games' data.
-
-In practice, there will always be one instance of The `Simpl-Games-API` service that will store data for one or more games. 
-Every time data is created, modified, or deleted, the `Simpl-Games-API` service will send events to the registered game model services via HTTP Webhooks.
-
-### Authentication
-
-`simpl-games-api` currently supports Basic and Session authentication. 
-You will need to create one or more users for your modelservice(s) to use connecting to the `simpl-games-api`. 
-
-### Endpoints
+## Simpl-Games-Api Endpoints
 
 All endpoints are under the `/apis/` path.
 
-#### REST endpoints
+### REST endpoints
 
 The following REST endpoints are available:
 
@@ -40,7 +28,7 @@ The following REST endpoints are available:
 
 For more info on the specific endpoint, swagger documentation is available at the root of `simpl-games-api` (ie, if you have it running on port 8100, it will be at `http://localhost:8100/`)
 
-#### Bulk Endpoints
+### Bulk Endpoints
 
 In addition to the RESTful endpoints, `simpl-games-api` offers endpoints to operate on multiple resources at once.
 
@@ -58,6 +46,6 @@ The following bulk endpoints are available:
 * `/apis/bulk/scenarios/`
 * `/apis/bulk/worlds/`
 
-#### Detail Routes
+### Detail Routes
 
-As a performance optimization, the ScenarioViewSet defines a `rewind` detail route that removes some or all of a scenario's periods.
+As a performance optimization, the `ScenarioViewSet` defines a `rewind` detail route that removes some or all of a scenario's periods.
