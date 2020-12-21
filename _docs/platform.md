@@ -13,9 +13,7 @@ description: Simpl Platform
       <h5 class="u-title u-center u-spacerUp">Standard Simpl Framework</h5>
         <p class="text-center">The simpl-games-api is required to run one or more games. For each game, a model service and user interface (UI) will need to be created.
         </p>
-
       <section>
-
         <div class="row">
           <div class="col-sm-4 u-center wow slideInUp" data-wow-offset="140">
             <div class="circle">
@@ -54,11 +52,9 @@ description: Simpl Platform
             </p>
           </div>
         </div>
-
       <h5 class="u-title u-center u-spacerUp">Creating a Game</h5>
         <p class="text-center">Use simpl-ui-cookiecutter and simpl-react to create a frontend. Choose from single of multi-player and basic or session authentication.
         </p>
-
         <div class="row">
           <div class="col-sm-3 u-center wow slideInUp" data-wow-offset="140">
             <div class="circle">
@@ -69,7 +65,7 @@ description: Simpl Platform
             </div>
             <h5>simpl-ui-cookiecutter</h5>
             <p class="tech__points--para">
-              Built based on the popular cookiecutter library, a quickstart template to create a game UI. 
+              Built based on the popular cookiecutter library, a quickstart template to create a game UI
             </p>
           </div>
           <div class="col-sm-3 u-center wow slideInUp" data-wow-offset="140">
@@ -109,7 +105,6 @@ description: Simpl Platform
             </p>
           </div>
           </div>
-
       <h5 class="u-title u-center u-spacerUp">Under the Hood</h5>
         <p class="text-center">Important Simpl packages that run in the background</p>
         <div class="row">
@@ -137,7 +132,6 @@ description: Simpl Platform
               simpl-modelservice provides services common to all games, including maintaining a game's model data, making REST API calls to the simpl-games-api, and providing user data to the game user UI.
             </p>
           </div>
-
           <div class="col-sm-3 u-center wow slideInUp" data-wow-offset="140">
             <div class="circle">
               <svg fill="#FFFFFF" id="gift" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">
@@ -163,7 +157,6 @@ description: Simpl Platform
             </p>
           </div>
           </div>
-
         <div class="row">
           <h5 class="u-title u-center u-spacerUp">Ways to Use Simpl</h5>
             <p class="text-center">As the Simpl ecosystem grows, options for using Simpl will grow</p>
@@ -175,7 +168,6 @@ description: Simpl Platform
               </ul>
             </p>
         </div>
-
       </section>
       </div>
     </div>

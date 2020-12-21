@@ -30,9 +30,9 @@ description: Why Simpl?
             <p>
               <ul>
                   <li>Games: Blackjack, Dungeon and Dragons, Battleship</li>
-                  <li>Academic simulations: </li>
-                  <li>Professional development:</li>
-                  <li>Experimental: perhaps Simpl can be used in ways we having imagined yet!</li>
+                  <li>Academic: lesson-based learning</li>
+                  <li>Professional development: management role playing, financial negotiation</li>
+                  <li>Experimental: perhaps Simpl can be used in ways we haven't imagined yet!</li>
               </ul>
             </p>
           <h5 class="u-title u-center u-spacerUp">Open Source</h5>
@@ -42,7 +42,7 @@ description: Why Simpl?
             </p>
           <h5 class="u-title u-center u-spacerUp">Proven and Scalable</h5>
             <p>Simpl simulations have already been successfully used in high quality, large scale classroom initiatives at Wharton Business School.
-            Read more about how Simpl has empowered students at a top business school: success story.
+            <!--Read more about how Simpl has empowered students at a top business school: success story.-->
             </p>
           <h5 class="u-title u-center u-spacerUp">Growing Community</h5>
             <p>The Simpl community is growing and the future holds great opportunity. 

@@ -10,7 +10,6 @@ description: Simpl features
   <div class="container about">
     <div class="row">
       <div class="col-sm-12">
-
       <section>
       <h5 class="u-title u-center u-spacerUp">100% Free & Open Source</h5>
         <div class="row">
@@ -30,7 +29,6 @@ description: Simpl features
             </p>
           </div>
         </div>
-
       <h5 class="u-title u-center u-spacerUp">Software Foundation</h5>
         <div class="row">
           <div class="col-sm-4 u-center wow slideInUp" data-wow-offset="140">
@@ -49,7 +47,6 @@ description: Simpl features
             </p>
           </div>
         </div>
-
       <h5 class="u-title u-center u-spacerUp">Easy Installation</h5>
         <div class="row">
           <div class="col-sm-3 u-center wow slideInUp" data-wow-offset="140">
@@ -59,7 +56,7 @@ description: Simpl features
           </div>
           <div class="col-sm-3 u-center wow slideInUp" data-wow-offset="140">
             <p class="tech__points--para">
-              A quickstart cookiecutter template for creating a game user interface. 
+              A quickstart cookiecutter template for creating a game user interface
             </p>
           </div>
           <div class="col-sm-3 u-center wow slideInUp" data-wow-offset="140">
@@ -73,7 +70,6 @@ description: Simpl features
             </p>
           </div>
         </div>
-
       <h5 class="u-title u-center u-spacerUp">Customizable</h5>
         <div class="row">
           <div class="col-sm-4 u-center wow slideInUp" data-wow-offset="140">
@@ -92,7 +88,6 @@ description: Simpl features
             </p>
           </div>
         </div>
-       
       <h5 class="u-title u-center u-spacerUp">Architecture</h5>
         <div class="row">
           <div class="col-sm-3 u-center wow slideInUp" data-wow-offset="140">
@@ -116,7 +111,6 @@ description: Simpl features
             </p>
           </div>
         </div>
-
       </section>
       </div>
     </div>

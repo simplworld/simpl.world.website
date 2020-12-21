@@ -38,8 +38,11 @@ Single-player Versus Multi-player
 * Multi-player game: all players belonging to the same world can see the decisions and results of that world. A run’s leaders can see the decisions and results of all the run’s worlds.
 
 Game Terminology
+
+<!--
 * Run:
 * Scenario:
+-->
 * Period: happens within a scenario
 * Decision: a choice a player makes
 * Result: the effect created by one or more decisions
