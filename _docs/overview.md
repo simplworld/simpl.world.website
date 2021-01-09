@@ -9,7 +9,7 @@ description: An overview of how Simpl works
 
 ### Simpl Components
 
-The foundation of Simpl is the [simpl-games-api](https://github.com/simplworld/simpl-games-api). A single instance of `simpl-games-api` provides a database for one more more games. 
+The foundation of Simpl is the [simpl-games-api](https://github.com/simplworld/simpl-games-api). A single instance of `simpl-games-api` provides a database for one or more games. 
 
 The model service provides the mathematical component of a Simpl game. The model service contains a scope tree that defines the relationships of the game components.
 
