@@ -48,7 +48,7 @@ description: Simpl Platform
             </div>
             <h5>Game UI</h5>
             <p class="tech__points--para">
-              For each game, a browser-based user UI must be created that communicates with the game model service. We recommend using simpl-ui-cookiecutter and the simpl-react package that comes pre-installed in it.
+              For each game, a browser-based user UI must be created that communicates with the game model service. We recommend using simpl-ui-cookiecutter and simpl-react.
             </p>
           </div>
         </div>
