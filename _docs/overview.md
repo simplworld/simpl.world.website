@@ -40,12 +40,15 @@ Single-player Versus Multi-player
 Game Terminology
 
 <!--
-* Run:
 * Scenario:
 -->
+* Run: game users are assigned to one or more runs
 * Period: happens within a scenario
 * Decision: a choice a player makes
 * Result: the effect created by one or more decisions
+
+Optional
+
 * `Play` phase: players can submit decisions
 * `Debrief` phase: players are prevented from submitting further decisions. The leader can review the final decisions and results of all worlds in the run.
 
