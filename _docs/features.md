@@ -84,7 +84,7 @@ description: Simpl features
           </div>
           <div class="col-sm-4 u-center wow slideInUp" data-wow-offset="140">
             <p class="tech__points--para">
-              Choose between basic and session authentication
+              Game parameters are customizable
             </p>
           </div>
         </div>
