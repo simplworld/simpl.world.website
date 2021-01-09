@@ -24,7 +24,7 @@ Every time data is created, modified, or deleted in the `simpl-games-api` servic
 
 The model service will automatically forward the event to the browser and the state will update.
 
-`simpl-games-api` currently supports basic and session authentication. 
+`simpl-games-api` currently supports basic authentication. 
 You will need to create one or more users for your modelservice(s) to use connecting to the `simpl-games-api`. 
 
 ### Simpl Defined
