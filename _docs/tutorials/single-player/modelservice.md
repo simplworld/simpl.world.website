@@ -20,7 +20,7 @@ Have the [Games API service]({% link _docs/getting-started.md %}) running in Doc
 
 In a separate terminal, create a new Python 3.6 virtual environment called 'calc-model3.6':
 
-An example of using `venv` to create a virtual environment on Mac OS and activating it:
+Here is an example of using `venv` to create a virtual environment on Mac OS and activating it:
 ```shell
 $ /Library/Frameworks/Python.framework/Versions/3.6/bin/python3 -m venv ~/venv/calc-model3.6
 $ source ~/venv/calc-ui3.6/bin/activate
