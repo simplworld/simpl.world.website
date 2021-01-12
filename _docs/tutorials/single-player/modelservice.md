@@ -19,21 +19,11 @@ Have the [Games API service]({% link _docs/getting-started.md %}) running in Doc
 
 In a separate terminal, create a new virtual environment called 'calc-model3.6':
 
-Example of creating a virtual environment on Mac OS:
+An example of using `venv` to create a virtual environment  on Mac OS and activating it:
 ```shell
 $ /Library/Frameworks/Python.framework/Versions/3.6/bin/python3 -m venv ~/venv/calc-model3.6
+$ source ~/venv/calc-ui3.6/bin/activate
 ```
-
-Windows example: TBD
-
-Activate the virtual environment:
-
-Example of activating the virtual environment on Mac OS:
-```shell
-$ source ~/venv/calc-model3.6/bin/activate
-```
-
-Windows example: TBD
 
 Install Django
 
