@@ -17,8 +17,8 @@ You will need to have these installed:
 * [NPM](https://nodejs.org) == 3.6.0
 * Python == 3.6
 
-Have the [Games API service]({% link _docs/getting-started.md %}) running on http://localhost:8100/ and 
-the [calc-model service]({% link _docs/tutorials/single-player/modelservice.md %}) running on http://localhost:8080. 
+Have the [Games API service]({% link _docs/getting-started.md %}) running in Docker on http://localhost:8100/ and 
+the [calc-model service]({% link _docs/tutorials/single-player/modelservice.md %}) running in Docker on http://localhost:8080. 
 
 ### Installation
 
