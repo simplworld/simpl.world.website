@@ -22,7 +22,7 @@ the [calc-model service]({% link _docs/tutorials/single-player/modelservice.md %
 
 ### Installation
 
-In a separate terminal, create a new virtual environment called 'calc-ui3.6':
+In a separate terminal, create a new Python 3.6 virtual environment called 'calc-ui3.6':
 
 An example of using `venv` to create a virtual environment  on Mac OS and activating it:
 ```shell
