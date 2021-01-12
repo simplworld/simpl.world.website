@@ -12,6 +12,7 @@ description:
 You will need to have these installed:
    * PostgreSQL >= 9.6
    * Python == 3.6
+   * [Docker](https://www.docker.com)
 
 Have the [Games API service]({% link _docs/getting-started.md %}) running in Docker and available on http://localhost:8100/.  
 
@@ -516,11 +517,16 @@ somewhere, usually in a `__init__.py` somewhere for the `@game` decorator to fin
 and register your game into the system.
 
 
-You can start your model service by running:
+You can stop your model service by running in a separate terminal:
 
 ```shell
-$ export DJANGO_SETTINGS_MODULE=calc_model.settings
-$ ./manage.py run_modelservice
+$ docker-compose down
+```
+
+Then bring start it again by running:
+
+```shell
+$ docker-compose up
 ```
 
 By default the service will bind to `0.0.0.0:8080`.
