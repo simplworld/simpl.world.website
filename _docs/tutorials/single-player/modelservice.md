@@ -12,17 +12,28 @@ description:
 You will need to have these installed:
    * PostgreSQL >= 9.6
    * Python == 3.6
-   * [virtualenv](https://virtualenv.pypa.io/en/stable/)
 
-Have the [Games API service]({% link _docs/getting-started.md %}) is running on http://localhost:8100/.  
+Have the [Games API service]({% link _docs/getting-started.md %}) running in Docker and available on http://localhost:8100/.  
 
 ###  Installation
 
-In a separate terminal, create a new virtualenv called 'calc-model':
+In a separate terminal, create a new virtual environment called 'calc-model3.6':
 
+Example of creating a virtual environment on Mac OS:
 ```shell
-$ mkvirtualenv calc-model
+$ /Library/Frameworks/Python.framework/Versions/3.6/bin/python3 -m venv ~/venv/calc-model3.6
 ```
+
+Windows example: TBD
+
+Activate the virtual environment:
+
+Example of activating the virtual environment on Mac OS:
+```shell
+$ source ~/venv/calc-model3.6/bin/activate
+```
+
+Windows example: TBD
 
 Install Django
 
@@ -41,13 +52,12 @@ Change to the project folder:
 
 ```shell
 $ cd calc-model
-$ add2virtualenv .
 ```
 
 Create a `requirements.txt` file that installs the simpl-modelservice and unit testing apps:
 
 ```ini
-git+https://github.com/simplworld/simpl-modelservice.git
+simpl-modelservice==0.9.1
 
 # tests
 pytest==4.6.3
@@ -79,7 +89,6 @@ Add the following to your `INSTALLED_APPS` in `calc_model/settings.py`:
 ```python
 INSTALLED_APPS += [
     'modelservice',
-    'rest_framework',
     'game',
 ]
 
@@ -107,6 +116,7 @@ CACHES = {
 ```
 
 ###  Implementation
+
 
 For simplicity, we're going to create a single-player Game in which each player has a Scenario that can advance multiple periods.
 
@@ -319,7 +329,87 @@ def add_runuser_scenario(runuser, games_client):
         scenario.id))
 ```
 
-Run your command:
+Next, run the calc-model service in Docker.
+
+In the calc-model directory create a `Dockerfile` file with the following contents:
+
+```shell
+FROM gladiatr72/just-tini:latest as tini
+
+FROM revolutionsystems/python:3.6.9-wee-optimized-lto
+
+ENV PYTHONDONTWRITEBYTECODE=true
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONOPTIMIZE TRUE
+
+RUN apt-get update &&\
+    apt-get install -y gcc g++ libsnappy-dev\
+    && pip install --upgrade pip ipython ipdb\
+    && apt-get -y autoremove \
+    && rm -rf /var/lib/apt/lists/* /usr/share/man /usr/local/share/man /tmp/*
+
+RUN mkdir -p /code
+COPY --from=tini /tini /tini
+
+WORKDIR /code
+ADD ./requirements.txt /code/
+
+RUN pip install -r requirements.txt
+
+ADD . /code/
+
+ENV PYTHONPATH /code:$PYTHONPATH
+
+EXPOSE 8080
+
+ENTRYPOINT ["/tini", "--"]
+
+CMD /code/manage.py run_modelservice --loglevel=debug
+
+LABEL Description="Image for calc-model" Vendor="Simpl" Version="0.0.1"
+```
+
+In the calc-model directory, create a `docker-compose.yml` file with the following contents:
+
+```shell
+version: '3'
+
+services:
+  model.backend:
+    build:
+      context: .
+    networks:
+      - simpl
+    volumes:
+      - .:/code
+    ports:
+      - "8080:8080"
+    command: /code/manage.py run_modelservice --loglevel=info 
+    environment:
+      - DJANGO_SETTINGS_MODULE=calc_model.settings
+      - SIMPL_GAMES_URL=http://api:8000/apis/
+      - CALLBACK_URL=http://model.backend:8080/callback
+    stop_signal: SIGTERM
+
+networks:
+  simpl:
+    external:
+      name: simpl-games-api_simpl
+````
+
+Create a Docker image of calc-model and run it:
+
+```shell
+$ docker-compose up
+```
+
+Once the service has come up, open a separate terminal, and create a shell into the calc-model container by running:
+
+```bash
+$ docker-compose run --rm model.backend bash
+```
+
+Once you are in the container shell, run your command:
 
 ```shell
 $ export DJANGO_SETTINGS_MODULE=calc_model.settings
