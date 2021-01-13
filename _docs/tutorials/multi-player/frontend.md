@@ -16,17 +16,19 @@ You will need to have these installed:
 * [Node](https://nodejs.org) >= 5.7.0
 * [NPM](https://nodejs.org) == 3.6.0
 * Python == 3.6
-* [virtualenv](https://virtualenv.pypa.io/en/stable/)
+* [Docker](https://www.docker.com)
 
-Have the [Games API service]({% link _docs/getting-started.md %}) running on http://localhost:8100/ and 
-the [div-model service]({% link _docs/tutorials/multi-player/modelservice.md %}) running on http://localhost:8080. 
+Have the [Games API service]({% link _docs/getting-started.md %}) running in Docker on http://localhost:8100/ and
+the [calc-model service]({% link _docs/tutorials/single-player/modelservice.md %}) running in Docker on http://localhost:8080.
 
 ### Installation
 
-In a separate terminal, create a new virtualenv called 'div-ui':
+In a separate terminal, create a new Python 3.6 virtual environment called 'div-ui3.6':
 
+Here is an example of using `venv` to create a virtual environment on Mac OS and activating it:
 ```shell
-$ mkvirtualenv div-ui
+$ /Library/Frameworks/Python.framework/Versions/3.6/bin/python3 -m venv ~/venv/div-ui3.6
+$ source ~/venv/div-ui3.6/bin/activate
 ```
 
 Install the `cookiecutter` Python package:
@@ -57,19 +59,13 @@ app_slug [frontend]:
 version [0.1.0]: 
 ```
 
-After the project layout is created, install the requirements:
+fter the project has been created, create a Docker image of calc-ui and run it:
 
 ```shell
-$ cd div-ui
-$ pip install -r requirements.txt
+$ docker-compose up
 ```
 
-In a separate terminal, install the project's JavaScript node modules and run gulp to keep the web server's Javascript updated as you work on the frontend:
-
-```shell
-$ npm install
-$ npm start
-```
+Once the project has come up, open it in the Chrome browser.
 
 To aid development, you can install the following Chrome DevTools Extensions:
 
@@ -80,26 +76,6 @@ It is also recommended you configure your editor to integrate with ESLint:
 
 * [PyCharm](https://www.jetbrains.com/help/pycharm/2016.1/eslint.html)
 * [SublimeText2](https://github.com/roadhump/SublimeLinter-eslint)
-
-### Configuration
-
-Like most websites, the frontend service will need a place where it can store information about sessions and their users. 
-The user's specific information will be fetched from the [Simple Games API]({% link _docs/getting-started.md %}) and kept in sync automatically.
-
-**NOTE** For the purposes of this tutorial we're going to use SQLite, but this can be changed to match whatever database backend you prefer. 
-In a production environment, you'll likely want to switch to something like PostgreSQL.
-
-First, let's create the necessary local tables:
-
-```shell
-$ ./manage.py migrate
-```
-
-Then, start your frontend service with:
-
-```shell
-$ ./manage.py runserver 0.0.0.0:8000
-```
 
 In Chrome, head to `http://localhost:8000/` and login as `s1@div.edu` with password `s1`.
 Once you are logged in, you should see the 'Hello Player' message of the skeleton app.
