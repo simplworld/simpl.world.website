@@ -31,7 +31,7 @@ provides messaging to the Frontend UI regarding game state.  More information ca
 
 Start by running the Simpl Games API Service following the [getting started instructions]({% link _docs/getting-started.md %}).
 
-Next, we'll implement our Model Service providing the mathematical model for `Calc`.
+Next, we'll implement our Model Service providing the mathematical model for `Div`.
 Last, we'll build our Frontend's user-facing pieces.
 
 0. [Build the Multi-player Game Model Service]({% link _docs/tutorials/multi-player/modelservice.md %})

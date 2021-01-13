@@ -10,18 +10,20 @@ description:
 ###  Prerequisites
 
 You will need to have these installed:
-   * PostgreSQL >= 9.6
-   * Python == 3.6
-   * [virtualenv](https://virtualenv.pypa.io/en/stable/)
+* PostgreSQL >= 9.6
+* Python == 3.6
+* [Docker](https://www.docker.com)
 
-Have the [Games API service]({% link _docs/getting-started.md %}) is running on http://localhost:8100/.  
+Have the [Games API service]({% link _docs/getting-started.md %}) running in Docker and available on http://localhost:8100/.
 
 ###  Installation
 
-In a separate terminal, create a new virtualenv called 'div-model':
+In a separate terminal, create a new Python 3.6 virtual environment called 'div-model3.6':
 
+Here is an example of using `venv` to create a virtual environment on Mac OS and activating it:
 ```shell
-$ mkvirtualenv div-model
+$ /Library/Frameworks/Python.framework/Versions/3.6/bin/python3 -m venv ~/venv/div-model3.6
+$ source ~/venv/div-model3.6/bin/activate
 ```
 
 Install Django
@@ -41,13 +43,12 @@ Change to the project folder:
 
 ```shell
 $ cd div-model
-$ add2virtualenv .
 ```
 
 Create a `requirements.txt` file that installs the simpl-modelservice and unit testing apps:
 
 ```ini
-git+https://github.com/simplworld/simpl-modelservice.git
+simpl-modelservice==0.9.1
 
 # tests
 pytest==4.6.3
@@ -81,7 +82,6 @@ Add the following to your `INSTALLED_APPS` in `div_model/settings.py`:
 ```python
 INSTALLED_APPS += [
     'modelservice',
-    'rest_framework',
     'game',
 ]
 
@@ -171,7 +171,7 @@ Create a `management` folder in the `game` folder and add an empty `__init__.py`
 
 Create a `commands` folder in the `game/management` folder  and add an empty `__init__.py` file.
 
-Finally, create a `create_default_env.py` script in the `game/management/commands` folder containing this code:
+Create a `create_default_env.py` script in the `game/management/commands` folder containing this code:
 
 ```python
 import djclick as click
@@ -371,13 +371,6 @@ def add_player(user_name_root, user_number, run, world, role,
     echo('getting or creating runuser for user: ', user.email)
 ```
 
-Run your command:
-
-```shell
-$ export DJANGO_SETTINGS_MODULE=div_model.settings
-$ ./manage.py create_default_env
-```
-
 A `World`'s players will each submit a `Decision` saved on the `World` `Scenario`'s current `Period`. After both players have submitted a valid decision,
 the model will  produce a `Result` for the current `Period`, and the `World`'s `Scenario` will step to the next `Period`.
 
@@ -434,7 +427,6 @@ async def divide(period_id):
 
         return quotient
 ```
-
 
 In your `game` app module, create a file called `games.py` that defines a `DivPeriod` Scope subclass with a `submit_decision` RPC method. 
 The method validates the `operand` argument and returns and error message if a `Divisor` player submits a zero. 
@@ -495,12 +487,99 @@ want to use a filename other than `games.py` you must ensure the file is importe
 somewhere, usually in a `__init__.py` somewhere for the `@game` decorator to find
 and register your game into the system.
 
+In the div-model directory create a `Dockerfile` file with the following contents:
 
-You can start your model service by running:
+```shell
+FROM gladiatr72/just-tini:latest as tini
+
+FROM revolutionsystems/python:3.6.9-wee-optimized-lto
+
+ENV PYTHONDONTWRITEBYTECODE=true
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONOPTIMIZE TRUE
+
+RUN apt-get update &&\
+    apt-get install -y gcc g++ libsnappy-dev\
+    && pip install --upgrade pip ipython ipdb\
+    && apt-get -y autoremove \
+    && rm -rf /var/lib/apt/lists/* /usr/share/man /usr/local/share/man /tmp/*
+
+RUN mkdir -p /code
+COPY --from=tini /tini /tini
+
+WORKDIR /code
+ADD ./requirements.txt /code/
+
+RUN pip install -r requirements.txt
+
+ADD . /code/
+
+ENV PYTHONPATH /code:$PYTHONPATH
+
+EXPOSE 8080
+
+ENTRYPOINT ["/tini", "--"]
+
+CMD /code/manage.py run_modelservice --loglevel=debug
+
+LABEL Description="Image for div-model" Vendor="Simpl" Version="0.0.1"
+```
+
+In the div-model directory, create a `docker-compose.yml` file with the following contents:
+
+```shell
+version: '3'
+
+services:
+  model.backend:
+    build:
+      context: .
+    networks:
+      - simpl
+    volumes:
+      - .:/code
+    ports:
+      - "8080:8080"
+    command: /code/manage.py run_modelservice --loglevel=info 
+    environment:
+      - DJANGO_SETTINGS_MODULE=div_model.settings
+      - SIMPL_GAMES_URL=http://api:8000/apis/
+      - CALLBACK_URL=http://model.backend:8080/callback
+    stop_signal: SIGTERM
+
+networks:
+  simpl:
+    external:
+      name: simpl-games-api_simpl
+````
+
+Create a Docker image of div-model and run it:
+
+```shell
+$ docker-compose up
+```
+
+The service will come up, but fail to complete initializing because the div game does not yet exist.
+
+Now open a separate terminal and create a shell into the div-model container by running:
+
+```bash
+$ docker-compose run --rm model.backend bash
+```
+
+Once you are in the container shell, run your command:
 
 ```shell
 $ export DJANGO_SETTINGS_MODULE=div_model.settings
-$ ./manage.py run_modelservice
+$ ./manage.py create_default_env
+$ exit
+$ docker-compose down
+```
+
+Return the to terminal where you ran `docker-compose up` and run:
+
+```shell
+$ docker-compose up
 ```
 
 By default the service will bind to `0.0.0.0:8080`.
