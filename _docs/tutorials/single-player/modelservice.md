@@ -320,93 +320,6 @@ def add_runuser_scenario(runuser, games_client):
         scenario.id))
 ```
 
-Next, run the calc-model service in Docker.
-
-In the calc-model directory create a `Dockerfile` file with the following contents:
-
-```shell
-FROM gladiatr72/just-tini:latest as tini
-
-FROM revolutionsystems/python:3.6.9-wee-optimized-lto
-
-ENV PYTHONDONTWRITEBYTECODE=true
-ENV PYTHONUNBUFFERED 1
-ENV PYTHONOPTIMIZE TRUE
-
-RUN apt-get update &&\
-    apt-get install -y gcc g++ libsnappy-dev\
-    && pip install --upgrade pip ipython ipdb\
-    && apt-get -y autoremove \
-    && rm -rf /var/lib/apt/lists/* /usr/share/man /usr/local/share/man /tmp/*
-
-RUN mkdir -p /code
-COPY --from=tini /tini /tini
-
-WORKDIR /code
-ADD ./requirements.txt /code/
-
-RUN pip install -r requirements.txt
-
-ADD . /code/
-
-ENV PYTHONPATH /code:$PYTHONPATH
-
-EXPOSE 8080
-
-ENTRYPOINT ["/tini", "--"]
-
-CMD /code/manage.py run_modelservice --loglevel=debug
-
-LABEL Description="Image for calc-model" Vendor="Simpl" Version="0.0.1"
-```
-
-In the calc-model directory, create a `docker-compose.yml` file with the following contents:
-
-```shell
-version: '3'
-
-services:
-  model.backend:
-    build:
-      context: .
-    networks:
-      - simpl
-    volumes:
-      - .:/code
-    ports:
-      - "8080:8080"
-    command: /code/manage.py run_modelservice --loglevel=info 
-    environment:
-      - DJANGO_SETTINGS_MODULE=calc_model.settings
-      - SIMPL_GAMES_URL=http://api:8000/apis/
-      - CALLBACK_URL=http://model.backend:8080/callback
-    stop_signal: SIGTERM
-
-networks:
-  simpl:
-    external:
-      name: simpl-games-api_simpl
-````
-
-Create a Docker image of calc-model and run it:
-
-```shell
-$ docker-compose up
-```
-
-Once the service has come up, open a separate terminal, and create a shell into the calc-model container by running:
-
-```bash
-$ docker-compose run --rm model.backend bash
-```
-
-Once you are in the container shell, run your command:
-
-```shell
-$ export DJANGO_SETTINGS_MODULE=calc_model.settings
-$ ./manage.py create_default_env
-```
-
 Every player's submission will be a `Decision` saved on the current `Period`. The model will then produce a `Result` for the
 current `Period`, and the player's `Scenario` will step to the next `Period`.
 
@@ -516,14 +429,96 @@ want to use a filename other than `games.py` you must ensure the file is importe
 somewhere, usually in a `__init__.py` somewhere for the `@game` decorator to find
 and register your game into the system.
 
-
-You can stop your model service by running in a separate terminal:
+In the calc-model directory create a `Dockerfile` file with the following contents:
 
 ```shell
+FROM gladiatr72/just-tini:latest as tini
+
+FROM revolutionsystems/python:3.6.9-wee-optimized-lto
+
+ENV PYTHONDONTWRITEBYTECODE=true
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONOPTIMIZE TRUE
+
+RUN apt-get update &&\
+    apt-get install -y gcc g++ libsnappy-dev\
+    && pip install --upgrade pip ipython ipdb\
+    && apt-get -y autoremove \
+    && rm -rf /var/lib/apt/lists/* /usr/share/man /usr/local/share/man /tmp/*
+
+RUN mkdir -p /code
+COPY --from=tini /tini /tini
+
+WORKDIR /code
+ADD ./requirements.txt /code/
+
+RUN pip install -r requirements.txt
+
+ADD . /code/
+
+ENV PYTHONPATH /code:$PYTHONPATH
+
+EXPOSE 8080
+
+ENTRYPOINT ["/tini", "--"]
+
+CMD /code/manage.py run_modelservice --loglevel=debug
+
+LABEL Description="Image for calc-model" Vendor="Simpl" Version="0.0.1"
+```
+
+In the calc-model directory, create a `docker-compose.yml` file with the following contents:
+
+```shell
+version: '3'
+
+services:
+  model.backend:
+    build:
+      context: .
+    networks:
+      - simpl
+    volumes:
+      - .:/code
+    ports:
+      - "8080:8080"
+    command: /code/manage.py run_modelservice --loglevel=info 
+    environment:
+      - DJANGO_SETTINGS_MODULE=calc_model.settings
+      - SIMPL_GAMES_URL=http://api:8000/apis/
+      - CALLBACK_URL=http://model.backend:8080/callback
+    stop_signal: SIGTERM
+
+networks:
+  simpl:
+    external:
+      name: simpl-games-api_simpl
+````
+
+Create a Docker image of calc-model and run it:
+
+```shell
+$ docker-compose up
+```
+
+The service will come up, but not complete initializing because the calc game does not yet exist.
+
+Once the service has come up, open a separate terminal and create a shell into the div-model container by running:
+
+```bash
+$ docker-compose run --rm model.backend bash
+```
+
+Once you are in the container shell, run your command:
+
+```shell
+$ export DJANGO_SETTINGS_MODULE=calc_model.settings
+$ ./manage.py create_default_env
+$ exit
 $ docker-compose down
 ```
 
-Then bring start it again by running:
+Return the to terminal where you ran `docker-compose up` and run:
 
 ```shell
 $ docker-compose up
