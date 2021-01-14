@@ -13,8 +13,8 @@ This tutorial assumes you are familiar with [react](https://reactjs.org) and [re
 
 You will need to have these installed:
 
-* [Node](https://nodejs.org) >= 5.7.0
-* [NPM](https://nodejs.org) == 3.6.0
+* [Node](https://nodejs.org) >= 12.19
+* [NPM](https://nodejs.org) >= 6.14
 * Python == 3.6
 * [Docker](https://www.docker.com)
 
