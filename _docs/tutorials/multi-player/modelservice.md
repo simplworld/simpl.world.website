@@ -522,7 +522,7 @@ ENTRYPOINT ["/tini", "--"]
 
 CMD /code/manage.py run_modelservice --loglevel=debug
 
-LABEL Description="Image for div-model" Vendor="Simpl" Version="0.0.1"
+LABEL Description="Image for div-model" Vendor="Simpl" Version="0.1.0"
 ```
 
 In the div-model directory, create a `docker-compose.yml` file with the following contents:
