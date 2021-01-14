@@ -524,6 +524,8 @@ export default withRouter(module);
 Finally, you will add your new page to the routes in `js/modules/Root.js`:
 
 ```jsx
+...
+
 import LeaderRunDebrief from './LeaderRunDebrief';
 import LeaderHome from './LeaderHome';
 import PlayerHome from './PlayerHome';
@@ -545,6 +547,8 @@ class Root extends React.Component {
     );
   }
 }
+
+...
 
 ```
 
