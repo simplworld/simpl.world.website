@@ -9,6 +9,8 @@ description: Simulations gallery
 
 ### Blackjack
 
+* [Blackjack demo](https://blackjack.simpl.world/)
+
 ### simple-calc
 
  * [simpl-calc-model](https://github.com/simplworld/simpl-calc-model) an example of a single player simulation model service.
