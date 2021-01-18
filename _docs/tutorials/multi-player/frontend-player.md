@@ -31,6 +31,59 @@ export const clearStatus = createAction('CLEAR_STATUS');
 **NOTE**: The `submit_decision` action calls this topic because the div-model `game/games.py` `submit_decision` endpoint registers as an RPC on the topic. 
 Because `submit_decision` validates the operand, using an RPC allows us to check the returned status.
 
+Create `js/reducers/StatusReducer.js` to handle the `setStatus` and `clearStatus` actions:
+
+```jsx
+import {createReducer} from 'redux-create-reducer';
+import recycleState from 'redux-recycle';
+
+import {recyleStateAction} from 'simpl-react/lib/actions/state';
+
+import {
+  setStatus,
+  clearStatus
+} from '../actions/Actions';
+
+const initial = {message: ''};
+
+const status = recycleState(createReducer(initial, {
+  [setStatus](state, action) {
+    const message = action.payload;
+    console.log("setting status.message: ", message);
+    return Object.assign({}, state, {
+      message: message
+    });
+  },
+  [clearStatus](state) {
+    console.log("clearing status.message");
+    return Object.assign({}, state, {
+      message: ''
+    });
+  },
+}), `${recyleStateAction}`);
+
+export default status;
+
+```
+
+Then add `status` to `reducers/combined/appReducers.js`:
+
+```jsx
+import {simplReducers} from 'simpl-react/lib/reducers/combined';
+import {reducer as form} from 'redux-form';
+
+import status from '../StatusReducer';
+
+const reducers = simplReducers({
+  form,
+  // Add your customer reducers here, if any.
+  status
+});
+
+export default reducers;
+
+```
+
 Create a presentational component `js/components/DecisionForm.js` for entering player decisions and displaying an error message:
 
 ```jsx
@@ -65,7 +118,7 @@ class DecisionForm extends React.Component {
               type="number"
               name="operand"
               id="operand"
-              required="true"
+              required={true}
               step="any"
             />
           </div>
@@ -140,6 +193,9 @@ function mapDispatchToProps(dispatch, ownProps) {
           if (status !== 'ok') {
             console.log("DecisionFormContainer.submitDecision failed due to: ", status);
             dispatch(setStatus(status));
+          } else {
+            console.log("DecisionFormContainer.submitDecision succeeded");
+            dispatch(setStatus(''));
           }
         });
     }
@@ -152,6 +208,7 @@ const DecisionFormContainer = connect(
 )(DecisionForm);
 
 export default withRouter(DecisionFormContainer);
+
 ```
 
 In your `js/modules/PlayerHome.js`, replace the original contents with:
@@ -164,10 +221,9 @@ import {connect} from 'react-redux';
 
 import DecisionFormContainer from '../containers/DecisionFormContainer'
 
-// import StatusNotificationContainer from '../containers/StatusNotificationContainer';
-
 class PlayerHome extends React.Component {
   render() {
+    const {message} = this.props;
     const quotient = (this.props.result) ? this.props.result.data.quotient : '';
     const other_operand = (this.props.other_decision) ? this.props.other_decision.data.operand : '';
     const operand = (this.props.decision) ? this.props.decision.data.operand : 0;
@@ -178,7 +234,7 @@ class PlayerHome extends React.Component {
           <br/>
           <p>You are in charge of submitting a valid {this.props.runuser.role_name}.</p>
           < DecisionFormContainer period={this.props.period} operand={operand}/>
-          {/*<StatusNotificationContainer/>*/}
+          <h4><span>{message}</span></h4>
         </div>
       );
     } else {
@@ -210,7 +266,12 @@ PlayerHome.propTypes = {
   decision: PropTypes.object,
   other_decision: PropTypes.object,
   result: PropTypes.object,
+  message: PropTypes.string,
 };
+
+PlayerHome.defaultProps = {
+  message: '',
+}
 
 function mapStateToProps(state) {
   const runuser = state.simpl.current_runuser;
@@ -225,11 +286,11 @@ function mapStateToProps(state) {
     (p) => p.name === 'Play'
   )
   const canPlay = playPhase.id === currentPhase.id;
-  console.log("PlayerHome: currentPhase=", currentPhase, ", playPhase.id=", playPhase.id, ", canPlay=", canPlay);
+  // console.log("PlayerHome: currentPhase=", currentPhase, ", playPhase.id=", playPhase.id, ", canPlay=", canPlay);
 
   const other_role = state.simpl.role.find((r) => r.id !== runuser.role);
   const other_role_name = other_role.name;
-  
+
   const scenario = state.simpl.scenario.find(
     (s) => runuser.world === s.world
   );
@@ -257,7 +318,8 @@ function mapStateToProps(state) {
     period,
     decision,
     other_decision,
-    result
+    result,
+    message: state.status.message,
   };
 }
 
@@ -267,6 +329,7 @@ const module = connect(
 )(PlayerHome);
 
 export default module;
+
 ```
 
 Now, when players log in, they see a form for entering decisions for their role and a logout link:
@@ -277,191 +340,8 @@ As a world's players submit decisions, the redux state automatically updates wit
 
 ![](/assets/img/tutorials/multi-player/Simpl_Players_Home.png){: width="100%" }
 
-If a zero divisor is submitted, the returned status message is logged to the JavaScript console. It would be more user-friendly to notify the player through the UI. 
-You will enable this by implementing the `StatusNotificationContainer`container component that has been commented out of `js/modules/PlayerHome.js`.
-
-Start by creating `js/reducers/StatusReducer.js` to handle the `setStatus` and `clearStatus` actions:
-
-```jsx
-import {createReducer} from 'redux-create-reducer';
-import recycleState from 'redux-recycle';
-
-import {recyleStateAction} from 'simpl-react/lib/actions/state';
-
-import {
-  setStatus,
-  clearStatus
-} from '../actions/Actions';
-
-const initial = {message: null};
-
-const status = recycleState(createReducer(initial, {
-  [setStatus](state, action) {
-    const message = action.payload;
-    console.log("setting status.message: ", message);
-    return Object.assign({}, state, {
-      message: message
-    });
-  },
-  [clearStatus](state) {
-    console.log("clearing status.message");
-    return Object.assign({}, state, {
-      message: null
-    });
-  },
-}), `${recyleStateAction}`);
-
-export default status;
-
-```
-
-Then add `status` to `reducers/combined/appReducers.js`:
-
-```jsx
-import {simplReducers} from 'simpl-react/lib/reducers/combined';
-import {reducer as form} from 'redux-form';
-
-import status from '../StatusReducer';
-
-const reducers = simplReducers({
-  form,
-  // Add your customer reducers here, if any.
-  status
-});
-
-export default reducers;
-
-```
-
-Next, create presentational component `js/components/StatusNotification.js`:
-
-```jsx
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import {Modal} from 'react-bootstrap';
-
-
-class StatusNotification extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggleModal = this.toggleModal.bind(this);
-    this.hideModal = this.hideModal.bind(this);
-    this.state = {
-      show_modal: false,
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    return this.setState((prevState, props) => ({
-      show_modal: props.message !== null,
-    }));
-  }
-
-  toggleModal() {
-    this.props.clearMessage();
-    this.setState({show_modal: !this.state.show_modal});
-  }
-
-  hideModal() {
-    this.props.clearMessage();
-    this.setState({show_modal: false});
-  }
-
-  render() {
-    return (
-      <Modal
-        show={this.state.show_modal}
-        onHide={this.hideModal}
-      >
-        <Modal.Body style={{"{{backgroundColor: '#F0AD4E'"}}}}>
-          <div className=""><p>{this.props.message}</p></div>
-          <div className="text-center" style={{"{{marginLeft:30, marginRight: 30, marginBottom: 30, marginTop:30"}}}}>
-            <button type="button" onClick={this.toggleModal}>Close</button>
-          </div>
-        </Modal.Body>
-      </Modal>
-    )
-  }
-}
-
-StatusNotification.propTypes = {
-  message: PropTypes.string,
-  clearMessage: PropTypes.func.isRequired,
-};
-
-StatusNotification.defaultProps = {
-  message: null,
-};
-
-
-export default StatusNotification;
-```
-
-Wrap it in a new container component `js/containers/StatusNotificationContainer.js`:
-
-```jsx
-import {connect} from 'react-redux';
-
-import StatusNotification from '../components/StatusNotification';
-import {
-  clearStatus
-} from '../actions/Actions';
-
-function mapStateToProps(state, ownProps) {
-  return {
-    message: state.status.message,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    clearMessage: function () {
-      dispatch(clearStatus());
-    }
-  }
-}
-
-const StatusNotificationContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(StatusNotification);
-
-export default StatusNotificationContainer;
-
-```
-
-Finally, activate the references to `StatusNotificationContainer` in `js/modules/PlayerHome.js`:
-
-```jsx
-...
-import StatusNotificationContainer from '../containers/StatusNotificationContainer';
-
-class PlayerHome extends React.Component {
-  render() {
-    const quotient = (this.props.result) ? this.props.result.data.quotient : '';
-    const other_operand = (this.props.other_decision) ? this.props.other_decision.data.operand : '';
-    const operand = (this.props.decision) ? this.props.decision.data.operand : 0;
-    let play = '';
-    if (this.props.canPlay) {
-      play = (
-        <div>
-          <br/>
-          <p>You are in charge of submitting a valid {this.props.runuser.role_name}.</p>
-          < DecisionFormContainer period={this.props.period} operand={operand}/>
-          <StatusNotificationContainer/>
-        </div>
-      );
-    } else {
-...
-```
-
-Log in as `s2@div.edu` with password `s2` and submit a zero decision. You should see a modal notification like this:
+Log in as `s2@div.edu` with password `s2` and submit a zero decision. You should see a notification like this:
 
 ![](/assets/img/tutorials/multi-player/Status_Notification.png){: width="80%" }
-
-There is also a new `status` Redux state object. When you click the 'Close' button, the `status.message` will be set to null and the notification will disappear.
-
-**NOTE**: The modal dialog did not pop up because this tutorial does not include CSS styling.
 
 Congratulations! You are now ready to build the [Multi-player Game Leader UI]({% link _docs/tutorials/multi-player/frontend-leader.md %})
