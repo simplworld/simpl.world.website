@@ -32,7 +32,7 @@ cd simpl-games-api
 docker-compose up
 ```
 
-Open another terminal window. In that window, use a `make` script to log into the container, which is named `api`.
+When the `simpl-games-api` initialization is complete, open another terminal window. In that window, use a `make` script to log into the container, which is named `api`.
 
 ```bash
 make shell
