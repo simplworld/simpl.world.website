@@ -73,7 +73,7 @@ This is typically setup as a setting `SIMPL_GAMES_AUTH` from the environment var
 Please enter email address for staff user: 
 ```
 
-`simpl-games-api` is now up and running. You can now exit and close that window.
+You've created the Django users needed to run the game. You can now exit and close that window.
 
 ```bash
 exit
@@ -109,7 +109,7 @@ docker-compose up
 genericclient_base.exceptions.ResourceNotFound: No `games` found for {'slug': 'simpl-calc'}
 ```
 
-Create a third window. You will now run `simpl-calc-model` and create the game, including the database.
+Create a third window. You will now run `simpl-calc-model` to create the game in the database.
 
 ```bash
 docker-compose run --rm model.backend bash
