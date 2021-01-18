@@ -162,7 +162,7 @@ docker-compose up
 
 All three containers are now running on the same private network using Docker.
 
-In your browser, open up `http://0.0.0.0:8000/`. The `simplcalc` game should appear.
+In your browser, open up `http://localhost:8000/`. The `simplcalc` game should appear.
 
 To shut down the game, run `docker-compose down` in the windows running the `simpl-calc-ui`, `simpl-calc-model`, and `simpl-games-api` containers. 
 
