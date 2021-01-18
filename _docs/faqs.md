@@ -7,6 +7,10 @@ description: FAQs
 
 ## FAQs
 
+### Non-Docker Instructions
+
+Although we recommend using Docker, the non-Docker [Single-player Game Demo instructions]({% link _docs/getting-started.md %}) are available for a limited time.
+
 ### LTI Options
 
 Two LTI options:

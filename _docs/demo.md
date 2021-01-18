@@ -7,7 +7,9 @@ description: Run a Simpl single-player game demo using Docker
 
 ## Single-player Game Demo
 
-You will need to have [Docker](https://www.docker.com/) installed.
+Although we recommend using Docker, the non-Docker [Single-player Game Demo instructions]({% link _docs/getting-started.md %}) are available for a limited time.
+
+To complete this tutorial, you will need to have [Docker](https://www.docker.com/) installed.  
 
 At the end of this tutorial, you will have successfully installed and played a single-player `Calc` game.
 
