@@ -1,11 +1,11 @@
 ---
-title: Docker Installation
-permalink: /docs/installation/
+title: Single-player Game Demo
+permalink: /docs/demo/
 layout: docs
-description: How to install Simpl using Docker
+description: Run a Simpl single-player game demo using Docker
 ---
 
-## Docker Installation
+## Single-player Game Demo
 
 You will need to have [Docker](https://www.docker.com/) installed.
 
