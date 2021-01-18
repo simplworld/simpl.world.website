@@ -19,7 +19,7 @@ upon which single-player games can be created.
 
 For an overview of how Simpl works, see [Simpl Overview]({% link _docs/overview.md %}).
 
-Start this tutorial by running the Simpl Games API service using the instructions in [Getting Started]({% link _docs/getting-started.md %}).
+Start this tutorial by running the Simpl Games API service using the instructions in [Single-player Game Demo]({% link _docs/demo.md %}).
 
 First, we'll implement our [Single-player Game Model Service]({% link _docs/tutorials/single-player/modelservice.md %}), providing the mathematical model for `Calc`.
 

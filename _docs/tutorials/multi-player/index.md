@@ -25,7 +25,7 @@ This project will demonstrate how the various pieces of Simpl interact to provid
 
 For an overview of how Simpl works, see [Simpl Overview]({% link _docs/overview.md %}).
 
-Start this tutorial by running the Simpl Games API service using the instructions in [Getting Started]({% link _docs/getting-started.md %}).
+Start this tutorial by running the Simpl Games API service using the instructions in [Single-player Game Demo]({% link _docs/demo.md %}).
 
 First, we'll implement our [Multi-player Game Model Service]({% link _docs/tutorials/multi-player/modelservice.md %}), providing the mathematical model for `Div`.
 
