@@ -9,7 +9,7 @@ description: Simulations gallery
 
 ### Blackjack
 
-* [Blackjack demo](https://blackjack.simpl.world/)
+ * [Blackjack demo](https://blackjack.simpl.world/)
 
 ### simple-calc
 

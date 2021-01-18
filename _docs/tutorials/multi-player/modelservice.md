@@ -18,7 +18,7 @@ Have the [Games API service]({% link _docs/getting-started.md %}) running in Doc
 
 ###  Installation
 
-In a separate terminal, create a new Python 3.6 virtual environment called 'div-model3.6':
+In a separate terminal, create a new Python 3.6 virtual environment called `div-model3.6`:
 
 Here is an example of using `venv` to create a virtual environment on Mac OS and activating it:
 ```shell
