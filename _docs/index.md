@@ -15,3 +15,5 @@ To try out a demo or get an overview of how Simpl works, head over to our [How S
 
 To make a game, get started with our [Single-player Game Tutorial]({% link _docs/tutorials/single-player/index.md %}) or [Multi-player Game]({% link _docs/tutorials/multi-player/index.md %}) tutorials.
 
+For more information about our progress, check out the [Simpl Roadmap](https://github.com/simplworld/simpl/projects/1).
+
