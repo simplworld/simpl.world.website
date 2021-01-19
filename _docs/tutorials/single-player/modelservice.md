@@ -18,7 +18,7 @@ Have the [Games API service]({% link _docs/getting-started.md %}) running in Doc
 
 ###  Installation
 
-In a separate terminal, create a new Python 3.6 virtual environment called 'calc-model3.6':
+In a separate terminal, create a new Python 3.6 virtual environment called `calc-model3.6`:
 
 Here is an example of using `venv` to create a virtual environment on Mac OS and activating it:
 ```shell
@@ -26,13 +26,13 @@ $ /Library/Frameworks/Python.framework/Versions/3.6/bin/python3 -m venv ~/venv/c
 $ source ~/venv/calc-model3.6/bin/activate
 ```
 
-Install Django
+Install Django:
 
 ```shell
 $ pip install Django~=2.2.0
 ```
 
-Create a Django project folder and rename it to serve as a git repository
+Create a Django project folder and rename it to serve as a git repository:
 
 ```shell
 $ django-admin startproject calc_model
@@ -45,7 +45,7 @@ Change to the project folder:
 $ cd calc-model
 ```
 
-Create a `requirements.txt` file that installs the simpl-modelservice and unit testing apps:
+Create a `requirements.txt` file that installs the `simpl-modelservice` and unit testing apps:
 
 ```ini
 simpl-modelservice==0.9.1
@@ -69,7 +69,7 @@ Please note, if `DJANGO_SETTINGS_MODULE` is leftover from a previous session, yo
 $ unset DJANGO_SETTINGS_MODULE
 ```
 
-Create a django app that will contain your game logic:
+Create a Django app that will contain your game logic:
 
 ```shell
 $ ./manage.py startapp game
@@ -92,7 +92,7 @@ SIMPL_GAMES_AUTH = ('simpl@simpl.world', 'simpl')
 ROOT_TOPIC = 'world.simpl.sims.calc'
 ```
 
-It's highly recommended that you set a `'users'` cache. Since the modelservice will run single-threaded, you can take advantage of the `locmem` backend:
+It's highly recommended that you set a `'users'` cache. Since the `modelservice` will run single-threaded, you can take advantage of the `locmem` backend:
 
 ```python
 CACHES = {
@@ -108,8 +108,7 @@ CACHES = {
 
 ###  Implementation
 
-
-For simplicity, we're going to create a single-player Game in which each player has a Scenario that can advance multiple periods.
+For simplicity, we're going to create a single-player `Game` in which each player has a `Scenario` that can advance multiple periods.
 
 In your `game` app module, define the simulation model by creating a `model.py` file with the following content:
 
@@ -320,8 +319,7 @@ def add_runuser_scenario(runuser, games_client):
         scenario.id))
 ```
 
-Every player's submission will be a `Decision` saved on the current `Period`. The model will then produce a `Result` for the
-current `Period`, and the player's `Scenario` will step to the next `Period`.
+Every player's submission will be a `Decision` saved on the current `Period`. The model will then produce a `Result` for the current `Period`, and the player's `Scenario` will step to the next `Period`.
 
 In your `game` app module, create a file called `runmodel.py`.  Next, add `save_decision` and `step_scenario` functions to perform these steps:
 
@@ -424,8 +422,7 @@ Game.register('calc', [
 ])
 ```
 
-**NOTE:** if you
-want to use a filename other than `games.py` you must ensure the file is imported
+**NOTE:** If you want to use a filename other than `games.py` you must ensure the file is imported
 somewhere, usually in a `__init__.py` somewhere for the `@game` decorator to find
 and register your game into the system.
 
@@ -526,7 +523,6 @@ $ docker-compose up
 
 By default the service will bind to `0.0.0.0:8080`.
 
-This concludes the tutorial on building a single-player game Model Service. A completed example implementation is available at 
-[https://github.com/simplworld/simpl-calc-model](https://github.com/simplworld/simpl-calc-model) that uses the game slug `simpl-calc`.
+This concludes the tutorial on building a single-player game model service. A completed example implementation is available at [https://github.com/simplworld/simpl-calc-model](https://github.com/simplworld/simpl-calc-model) that uses the game slug `simpl-calc`.
 
-You can now head over to the [Single-player Game Frontend tutorial]({% link _docs/tutorials/single-player/frontend.md %}).
+You can now head over to the [Single-player Game Frontend Tutorial]({% link _docs/tutorials/single-player/frontend.md %}).

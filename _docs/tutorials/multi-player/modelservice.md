@@ -18,7 +18,7 @@ Have the [Games API service]({% link _docs/getting-started.md %}) running in Doc
 
 ###  Installation
 
-In a separate terminal, create a new Python 3.6 virtual environment called 'div-model3.6':
+In a separate terminal, create a new Python 3.6 virtual environment called `div-model3.6`:
 
 Here is an example of using `venv` to create a virtual environment on Mac OS and activating it:
 ```shell
@@ -26,13 +26,13 @@ $ /Library/Frameworks/Python.framework/Versions/3.6/bin/python3 -m venv ~/venv/d
 $ source ~/venv/div-model3.6/bin/activate
 ```
 
-Install Django
+Install Django:
 
 ```shell
 $ pip install Django~=2.2.0
 ```
 
-Create a Django project folder and rename it to serve as a git repository
+Create a Django project folder and rename it to serve as a git repository:
 
 ```shell
 $ django-admin startproject div_model
@@ -45,7 +45,7 @@ Change to the project folder:
 $ cd div-model
 ```
 
-Create a `requirements.txt` file that installs the simpl-modelservice and unit testing apps:
+Create a `requirements.txt` file that installs the `simpl-modelservice` and unit testing apps:
 
 ```ini
 simpl-modelservice==0.9.1
@@ -94,7 +94,7 @@ SIMPL_GAMES_AUTH = ('simpl@simpl.world', 'simpl')
 ROOT_TOPIC = 'world.simpl.sims.div'
 ```
 
-It's highly recommended that you set a `'users'` cache. Since the modelservice will run single-threaded, you can take advantage of the `locmem` backend:
+It's highly recommended that you set a `'users'` cache. Since the `modelservice` will run single-threaded, you can take advantage of the `locmem` backend:
 
 ```python
 CACHES = {
@@ -110,8 +110,8 @@ CACHES = {
 
 ###  Implementation
 
-For simplicity, we're going to create a multi-player Game in which each world must have exactly two players -- 
-one playing the Dividend role, the other playing the Divisor role.
+For simplicity, we're going to create a multi-player `Game` in which each world must have exactly two players -- 
+one playing the `Dividend` role, the other playing the `Divisor` role.
 The game's model will automatically advance as soon as both players in a world have submitted valid decisions for their roles.
 
 In your `game` app module, define the simulation model by creating a `model.py` file with the following content:
@@ -371,8 +371,7 @@ def add_player(user_name_root, user_number, run, world, role,
     echo('getting or creating runuser for user: ', user.email)
 ```
 
-A `World`'s players will each submit a `Decision` saved on the `World` `Scenario`'s current `Period`. After both players have submitted a valid decision,
-the model will  produce a `Result` for the current `Period`, and the `World`'s `Scenario` will step to the next `Period`.
+A `World`'s players will each submit a `Decision` saved on the `World` `Scenario`'s current `Period`. After both players have submitted a valid decision, the model will  produce a `Result` for the current `Period`, and the `World`'s `Scenario` will step to the next `Period`.
 
 In your `game` app module, create a file called `runmodel.py`.  Next, add `save_decision` and `divide` functions to perform these steps:
 
@@ -482,10 +481,7 @@ Game.register('div', [
 ])
 ```
 
-**NOTE:** if you
-want to use a filename other than `games.py` you must ensure the file is imported
-somewhere, usually in a `__init__.py` somewhere for the `@game` decorator to find
-and register your game into the system.
+**NOTE:** If you want to use a filename other than `games.py` you must ensure the file is imported somewhere, usually in a `__init__.py` somewhere for the `@game` decorator to find and register your game into the system.
 
 In the div-model directory create a `Dockerfile` file with the following contents:
 
@@ -584,7 +580,7 @@ $ docker-compose up
 
 By default the service will bind to `0.0.0.0:8080`.
 
-This concludes the tutorial on building a multi-player game Model Service. A completed example implementation is available at 
+This concludes the tutorial on building a multi-player game model service. A completed example implementation is available at 
 [https://github.com/simplworld/simpl-div-model](https://github.com/simplworld/simpl-div-model) that uses the game slug `simpl-div`.
 
 You can now head over to the [Multi-player Game Frontend tutorial]({% link _docs/tutorials/multi-player/frontend.md %}).

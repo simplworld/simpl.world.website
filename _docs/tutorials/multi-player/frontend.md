@@ -9,7 +9,7 @@ description:
 
 ### Prerequisites
 
-This tutorial assumes you are familiar with [react](https://reactjs.org) and [redux](https://github.com/reduxjs/react-redux).
+This tutorial assumes you are familiar with [React](https://reactjs.org) and [Redux](https://github.com/reduxjs/react-redux).
 
 You will need to have these installed:
 
@@ -23,7 +23,7 @@ the [calc-model service]({% link _docs/tutorials/single-player/modelservice.md %
 
 ### Installation
 
-In a separate terminal, create a new Python 3.6 virtual environment called 'div-ui3.6':
+In a separate terminal, create a new Python 3.6 virtual environment called `div-ui3.6`:
 
 Here is an example of using `venv` to create a virtual environment on Mac OS and activating it:
 ```shell
@@ -37,16 +37,16 @@ Install the `cookiecutter` Python package:
 $ pip install cookiecutter
 ```
 
-Use `cookiecutter` to create the boilerplate for your game Frontend.
+Use `cookiecutter` to create the boilerplate for your game frontend.
 
 ```shell
 $ cookiecutter https://github.com/simplworld/simpl-ui-cookiecutter.git
 ```
 
-For the `game_slug` value, enter `div` (the slug value you used in the [modelservice tutorial]({% link _docs/tutorials/multi-player/modelservice.md %})). 
+For the `game_slug` value, enter `div` (the slug value you used in the [Multi-player Game Model Service]({% link _docs/tutorials/multi-player/modelservice.md %})). 
 For all other values, you can use the default or choose your own.
 
-For example,
+For example:
 
 ```shell
 project_name [Simulation UI]: Div UI	
@@ -59,7 +59,7 @@ app_slug [frontend]:
 version [0.1.0]: 
 ```
 
-fter the project has been created, create a Docker image of calc-ui and run it:
+After the project has been created, create a Docker image of calc-ui and run it:
 
 ```shell
 $ docker-compose up
@@ -72,7 +72,7 @@ To aid development, you can install the following Chrome DevTools Extensions:
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 
-It is also recommended you configure your editor to integrate with ESLint:
+It is also recommended that you configure your editor to integrate with ESLint:
 
 * [PyCharm](https://www.jetbrains.com/help/pycharm/2016.1/eslint.html)
 * [SublimeText2](https://github.com/roadhump/SublimeLinter-eslint)
@@ -104,11 +104,11 @@ but not the scenarios of other users. To accomplish this, the template `js/modul
 
 To implement your UI, you will write [Container Components and Presentational Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
 
-The Presentational Components will provide the necessary markup to render UI elements, while the Container Components will wrap them providing the necessary data.
+The presentational components will provide the necessary markup to render UI elements, while the container components will wrap them providing the necessary data.
 
-First, you will [Build the Multi-player Game Player UI]({% link _docs/tutorials/multi-player/frontend-player.md %}).
+First, you will build the [Multi-player Game Player UI]({% link _docs/tutorials/multi-player/frontend-player.md %}).
 
-Finally, you will [Build the Multi-player Game Leader UI]({% link _docs/tutorials/multi-player/frontend-leader.md %}).
+Finally, you will build the [Multi-player Game Leader UI]({% link _docs/tutorials/multi-player/frontend-leader.md %}).
 
 This concludes our tutorial! We have barely scratched the surface. A completed example implementation is available at 
 [https://github.com/simplworld/simpl-div-ui](https://github.com/simplworld/simpl-div-ui)

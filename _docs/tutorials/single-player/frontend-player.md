@@ -9,7 +9,7 @@ description:
 
 Players need to be able to submit decisions and see their results.
 
-Create an action in `js/actions/Actions.js` for publishing decisions to the `submit_decision` topic defined by calc-model `game/games.py`.
+Create an action in `js/actions/Actions.js` for publishing decisions to the `submit_decision` topic defined by calc-model `game/games.py`:
 
 ```jsx
 import {createAction} from 'redux-actions';
@@ -23,7 +23,7 @@ export const submitDecision =
     );
 
 ```
-**NOTE** the action publishes to this topic because the calc-model `game/games.py` `submit_decision` endpoint subscribes to the topic.
+**NOTE**: The action publishes to this topic because the calc-model `game/games.py` `submit_decision` endpoint subscribes to the topic.
 
 Create a presentational component `js/components/DecisionForm.js` for entering player decisions:
 
@@ -103,7 +103,7 @@ export default reduxForm({
 
 ```
 
-wrap it in a container component `js/containers/DecisionFormContainer.js`
+Wrap it in a container component `js/containers/DecisionFormContainer.js`:
 
 ```jsx
 import {connect} from 'react-redux';
@@ -210,15 +210,15 @@ const module = connect(
 export default module;
 ```
 
-Now when a player logs in, they see a form for entering decisions and a logout link:
+Now, when a player logs in, they see a form for entering decisions and a logout link:
 
 ![](/assets/img/tutorials/single-player/Player_Home.png)
 
-As the player submits decisions, the simpl redux state automatically updates with new periods, decisions and results:
+As the player submits decisions, the redux state automatically updates with new periods, decisions, and results:
 
 ![](/assets/img/tutorials/single-player/Simpl_Player_Home.png){: width="100%" }
 
-Congratulations! You are now ready to [Build the Single-player Game Leader UI]({% link _docs/tutorials/single-player/frontend-leader.md %})
+Congratulations! You are now ready to build the [Single-player Game Leader UI]({% link _docs/tutorials/single-player/frontend-leader.md %})
 
 
 

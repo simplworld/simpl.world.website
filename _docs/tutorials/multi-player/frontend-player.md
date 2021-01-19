@@ -28,7 +28,7 @@ export const setStatus = createAction('SET_STATUS');
 export const clearStatus = createAction('CLEAR_STATUS');
 
 ```
-**NOTE** the `submit_decision`action calls this topic because the div-model `game/games.py` `submit_decision` endpoint registers as an RPC on the topic. 
+**NOTE**: The `submit_decision` action calls this topic because the div-model `game/games.py` `submit_decision` endpoint registers as an RPC on the topic. 
 Because `submit_decision` validates the operand, using an RPC allows us to check the returned status.
 
 Create `js/reducers/StatusReducer.js` to handle the `setStatus` and `clearStatus` actions:
@@ -162,7 +162,7 @@ export default reduxForm({
 
 ```
 
-wrap it in a container component that checks the returned status `js/containers/DecisionFormContainer.js`:
+Wrap it in a container component that checks the returned status `js/containers/DecisionFormContainer.js`:
 
 ```jsx
 import {connect} from 'react-redux';
@@ -332,7 +332,7 @@ export default module;
 
 ```
 
-Now when players log in, they see a form for entering decisions for their role and a logout link:
+Now, when players log in, they see a form for entering decisions for their role and a logout link:
 
 ![](/assets/img/tutorials/multi-player/Players_Home.png){: width="80%" }
 
@@ -340,9 +340,8 @@ As a world's players submit decisions, the redux state automatically updates wit
 
 ![](/assets/img/tutorials/multi-player/Simpl_Players_Home.png){: width="100%" }
 
-
 Log in as `s2@div.edu` with password `s2` and submit a zero decision. You should see a notification like this:
 
 ![](/assets/img/tutorials/multi-player/Status_Notification.png){: width="80%" }
 
-Congratulations! You are now ready to [Build the Multi-player Game Leader UI]({% link _docs/tutorials/multi-player/frontend-leader.md %})
+Congratulations! You are now ready to build the [Multi-player Game Leader UI]({% link _docs/tutorials/multi-player/frontend-leader.md %})

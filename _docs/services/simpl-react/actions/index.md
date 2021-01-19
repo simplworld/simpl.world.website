@@ -94,7 +94,7 @@ const simpl = recycleState(createReducer(initial, {
 
 #### Chain RPC promises
 
-The action returns a promise which will be resolved with the returned value. This means tha t you can chain to the action to dispatch further actions after the call completes:
+The action returns a promise which will be resolved with the returned value. This means that you can chain to the action to dispatch further actions after the call completes:
 
 `MyContainer.react.js`
 

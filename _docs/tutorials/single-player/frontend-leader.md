@@ -34,7 +34,7 @@ PlayerResultRow.propTypes = {
 export default PlayerResultRow;
 ```
 
-wrap it in a container component `js/containers/PlayerResultRowContainer.js`
+Wrap it in a container component `js/containers/PlayerResultRowContainer.js`:
 
 ```jsx
 import {connect} from 'react-redux';
@@ -154,7 +154,7 @@ const module = connect(
 export default module;
 ```
 
-Now when a leader logs in, they see the current player results:
+Now, when a leader logs in, they see the current player results:
 
 ![](/assets/img/tutorials/single-player/Leader_Home.png)
 
@@ -184,7 +184,7 @@ To see the revised leader page in action, open an incognito window and login int
 ![](/assets/img/tutorials/single-player/Simpl_Play.png){: width="100%" }
 
 Submit a decision in the `s2@calc.edu` window. 
-The simpl state in both browser windows will update with a new result causing the leader home page to update accordingly.
+The Simpl state in both browser windows will update with a new result causing the leader home page to update accordingly.
 
 ![](/assets/img/tutorials/single-player/Simpl_Play2.png){: width="100%" }
 

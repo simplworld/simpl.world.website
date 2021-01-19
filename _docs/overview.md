@@ -2,59 +2,58 @@
 title: Simpl Overview
 permalink: /docs/overview/
 layout: docs
-description: Simpl Overview
+description: An overview of how Simpl works
 ---
 
 ## Simpl Overview
 
-In practice, there will always be a single instance of The `Simpl-Games-API` service, and for every simulation you
-will write a model service, and a frontend service. The browser will use the frontend service for the static assets
-(HTML and JS), to authenticate users,  and to connect to the model service in order to receive/send events through the WebSocket.
+### Simpl Components
 
-The `Simpl-Games-API` service will send events to your model service via HTTP Webhooks, and they will be
-automatically forwarded to the browser.
+The foundation of Simpl is the [simpl-games-api](https://github.com/simplworld/simpl-games-api). A single instance of `simpl-games-api` provides a database for one or more games. 
 
-Your model service will send messages to the browser or listen to messages from it, and will make
-REST API calls to the `Simpl-Games-API` service as needed (e.g. to store state).
+The model service provides the mathematical component of a Simpl game. The model service contains a scope tree that defines the relationships of the game components.
+
+The game UI provides the frontend. [simpl-ui-cookiecutter](https://github.com/simplworld/simpl-ui-cookiecutter) provides the basic layout to create a game UI. The [simpl-react](https://github.com/simplworld/simpl-react) npm module provides components for building frontend UIs using [React](https://reactjs.org) and 
+[Redux](https://github.com/reduxjs/react-redux).
+
+The browser will use the frontend service as a presentation layer, to authenticate users, and to connect to the model service in order to send and receive events through a WebSocket using [WAMP Protocol](http://wamp-proto.org/).
+
+The model service will listen for events from the browser and, as needed, make REST API calls through the simpl-client to the `simpl-games-api` service (e.g. to store state).
+
+Every time data is created, modified, or deleted in the `simpl-games-api` service, it will send an event to the registered game model service via HTTP Webhook.
+
+The model service will automatically forward the event to the browser and the state will update.
+
+`simpl-games-api` currently supports basic and session authentication. 
+You will need to create one or more users for your modelservice(s) to use connecting to the `simpl-games-api`. 
+
+### Simpl Defined
+
+Roles
+* Leader: oversees the game
+* Player: plays the game
+
+Single-player Versus Multi-player
+* Single-player game: each player can see only his or her own decisions and results. A run’s leaders can see the decisions and results of all the run’s players.
+* Multi-player game: all players belonging to the same world can see the decisions and results of that world. A run’s leaders can see the decisions and results of all the run’s worlds.
+
+Game Terminology
+
+<!--
+* Scenario:
+-->
+* Run: game users are assigned to one or more runs
+* Period: happens within a scenario
+* Decision: a choice a player makes
+* Result: the effect created by one or more decisions
+
+Optional
+
+* `Play` phase: players can submit decisions
+* `Debrief` phase: players are prevented from submitting further decisions. The leader can review the final decisions and results of all worlds in the run.
+
+### More Information
+
+For more information, continue on with our tutorials and check out the service-specific documentation.
 
 
-```plain
-    +-------------------------------------------------+
-    |                `Simpl-Games-API`                |
-    +-------------------------------------------------+
-              | A                         | A
-     Webhooks | |  REST API      Webhooks | |  REST API
-              V |                         V |
-   +-------------------+          +-------------------+
-   | modelservice sim1 |          | modelservice sim2 |
-   +-------------------+          +-------------------+
-        A           A                 A           A
-        | WAMP      | WAMP            | WAMP      | WAMP
-        V           V                 V           V
-+-----------+  +-----------+  +-----------+  +-----------+
-| Browser 1 |  | Browser 2 |  | Browser 3 |  | Browser 4 |
-+-----------+  +-----------+  +-----------+  +-----------+
-     A               A             A               A
-     | Static        | Static      | Static        | Static
-     | assets        | assets      | assets        | assets
-   +-------------------+         +-------------------+
-   |   frontend sim1   |         |   frontend sim2   |
-   +-------------------+         +-------------------+
-
-
-```
-
-## The WAMP Layer
-
-The communication between the modelservice and the browser happens via Websocket by using the [WAMP Protocol](http://wamp-proto.org/).
-
-Thw WAMP Protocol is mainly composed of two patterns: publish/subscribe (**PubSub** for short) and call/register (or **RPC**).
-
-### PubSub vs RPC
-
-The main difference between PubSub and RPC is that a _call_ to a registered procedure returns a value,
-where _publishing_ to a topic does not. Both are asynchronous operations, but with RPC you can wait on the returned value
-to tell when the operation has completed.
-
-As a rule of thumb: use RPC if you need to get data from the modelservice or wait until the procedure has completed before proceeding.
-Otherwise you can use PubSub.
