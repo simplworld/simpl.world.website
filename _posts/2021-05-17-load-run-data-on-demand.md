@@ -1,12 +1,13 @@
 ---
 layout: post
-title: "Understanding the Simpl Data Model"
-date: 2018-06-20 14:38:00 -0400
+title: "Loading Run Data On Demand"
+date: 2021-05-17 08:56:17 -0400
 categories: Design
 author: Jane Eisenstein
 author_photo: /assets/img/authors/jane-eisenstein.png
+featured: true
 excerpt: |
-    The Simpl data model was designed to support developing gamified simulations with as much flexibility as possible.
+    Multi-player game leaders login more quickly when run data is loaded on demand.
 ---
 
 ## Background
