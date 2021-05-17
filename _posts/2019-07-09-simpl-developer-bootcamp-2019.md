@@ -5,7 +5,7 @@ date: 2019-07-09 14:38:00 -0400
 categories: News
 author: Joseph Lee
 author_photo: /assets/img/authors/joseph-lee.png
-featured: true
+featured: false
 excerpt: |
     Announcing our first-ever FREE Simpl developer bootcamp!
 ---
