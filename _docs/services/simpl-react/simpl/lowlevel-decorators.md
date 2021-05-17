@@ -65,6 +65,8 @@ other users' scenarios. The default setting of `false` makes sense for multi-pla
 typically have access to their own scenarios and their world's shared scenarios. In multi-player games, leaders typically 
 have access to their own scenarios and to all world scenarios. 
 
-The `loadRunDataOnDemand` argument passed to the `simpl` decorator controls whether world data in multi-player game runs 
-gets loaded when a user logs in. By default, the world data for all the runs the user is in gets loaded. 
-To turn off loading of world data for leaders, set this argument as follows: `loadRunDataOnDemand: LEADER`.
+The `loadRunDataOnDemand` argument passed to the `simpl` decorator controls whether the complete scope tree of all runs the 
+user is in get loaded when a user logs in. By default, all the data of all runs the user is in get loaded. 
+When this argument is set to `true`, only the user's runuser and run objects get loaded.
+Turning this argument on for leaders can speed up their log in process if they are in several runs.
+To turn off loading the complete run scope trees for leaders, set this argument as follows: `loadRunDataOnDemand: LEADER`.
