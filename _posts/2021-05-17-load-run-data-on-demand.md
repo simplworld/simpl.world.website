@@ -11,16 +11,23 @@ excerpt: |
 ---
 
 When a user logs into a game, the Simpl frontend code figures out which runs the user is in and loads those runs' data into the redux store. 
-For a user who is a leader in several runs, this can result in a large amount of data being loaded that user never accesses. 
-Loading large amounts of run data, can significantly delay the rendering of the leader's first page.
+For a user who is a leader in several runs, this could result in a large amount of data being loaded that user won't access.
+Loading large amounts of run data can significantly delay the rendering of the leader's first page. 
+A similar delay can occur re-rendering pages if the user refreshes the browser window.
 
-To handle such use cases, the `loadRunDataOnDemand` argument was added to the `simpl` decorator in `simpl-react` version **0.8.0**. 
-When the `loadRunDataOnDemand` argument is set to `true`, minimal run data is loaded at login. 
-Rather, run-specific leader pages load the run's full scope tree when the user navigates to them. 
-Once a run's full data has been loaded into the **simpl** redux state it remains in the redux store until the user navigates back to a page that is not run-specific. 
-When a leader page loads that is not run-specific, it unloads any run scope tree data from the **simpl** redux state.
+To handle such use cases, the `loadRunDataOnDemand` argument was added to the `simpl` decorator in version **0.8.0** of the `simpl-react` module. 
 
-This post will show you how to implement on demand run data loading. 
+When the `loadRunDataOnDemand` argument is set to `true`, minimal run data is loaded into the redux store at login. 
+This data comprises run objects and the user's runuser objects for those runs. 
+This is sufficient data to support the leader selecting an individual run and then navigating to a run-specific page.
+
+
+Any run-specific leader pages displaying player or world information need to load the run's full scope tree into the **simpl** redux state
+when they are loaded into the browser. 
+Once a run's full data has been loaded, it will remain in the redux store until it is unloaded. 
+Leader pages that not run-specific, can unload run scope tree data that is present in the **simpl** redux state.
+
+This post will show you how to implement on demand run data loading in both multi-player and single-player games. 
 
 
 ## Loading Run Data On Demand in Multi-Player Games
@@ -35,7 +42,7 @@ First, configure the `loadRunDataOnDemand` argument of the simpl decorator in Ro
       progressComponent: Progress,
       root_topic: ROOT_TOPIC,
       topics: () => topics,
-      loadAllScenarios: LEADER,
+      loadAllScenarios: false,
       loadRunDataOnDemand: LEADER,
     })(RootContainer);
 
@@ -65,7 +72,7 @@ Next, modify leader pages that are not run-specific to check for and unload run 
 
 ```
 
-Last, modify all run-specific leader pages to load the run's scope tree data if it's not already loaded.
+Last, modify all run-specific leader pages that display player or world data to load the run's scope tree data if it's not already loaded.
 
 ```jsx
     ...
@@ -111,10 +118,115 @@ Last, modify all run-specific leader pages to load the run's scope tree data if 
 
 ```
 
+The `SimplActions.loadRunData` has second parameter `loadPlayerScenarios` which defaults to false. 
+Omitting it prevents player scenarios from being loaded with the other run data.
+
 These changes are implemented in the `load-run-data-on-demand` branch of the `simpl-div-ui` repository. 
 
-To work with more than one **Simpl Div** game run, use the `profiling` branch of the `simpl-div-model` repository. 
-This branch supports creating runs with non-default names.
+
+## Loading Run Data On Demand in Single-Player Games
+
+
+First, configure the `loadRunDataOnDemand` argument of the simpl decorator in Root.js to load leader runs on demand:
+
+```jsx
+    export default simpl({
+      authid: AUTHID,
+      password: 'nopassword',
+      url: `${MODEL_SERVICE}`,
+      progressComponent: Progress,
+      root_topic: ROOT_TOPIC,
+      topics: () => topics,
+      loadAllScenarios: LEADER,
+      loadRunDataOnDemand: LEADER,
+    })(RootContainer);
+
+```
+
+Note the `loadAllScenarios` argument will be `true` for leaders, so they can access player scenarios.
+
+
+Next, modify leader pages that are not run-specific to check for and unload run scope tree data when the page is loaded. 
+This code is the same in both multi-player and single-player games. 
+
+```jsx
+  ...
+
+    class LeaderHome extends React.Component {  
+
+      componentDidMount() {
+        // unload any loaded worlds
+        this.props.unloadRunDataAction();
+      }
+  
+  ...
+
+    const mapDispatchToProps = dispatch => {
+      return {
+        unloadRunDataAction() {
+          dispatch(SimplActions.unloadRunData());
+        }
+      }
+    };
+
+```
+
+Last, modify all run-specific leader pages that display player data to load the run's scope tree data if it's not already loaded.
+
+```jsx
+    ...
+
+    class LeaderRun extends React.Component {
+    
+      componentDidMount() {
+        // load run's players if not already loaded
+        const {run, loadedRunId, loadRunDataAction} = this.props;
+        loadRunDataAction(run, loadedRunId);
+      }
+
+    ...
+
+      function mapStateToProps(state, ownProps) {
+      const run = state.simpl.run.find(
+        (r) => r.id == ownProps.params['id']
+      );
+
+      const unsortedPlayers = state.simpl.runuser.filter(
+        (ru) => ru.run === run.id && ru.leader === false
+      );
+      const players = _.sortBy(unsortedPlayers, (p) => p.email);
+
+      return {
+        run,
+        players,
+        loadedRunId: state.simpl.loaded_run // non-null if run data has been loaded
+      };
+    }
+
+      const mapDispatchToProps = dispatch => {
+      return {
+        loadRunDataAction(run, loadedRunId) {
+          if (!isNil(run)) {
+            if (run.id !== loadedRunId) {
+              dispatch(SimplActions.loadRunData(run.id, true)); // load player scenarios
+            }
+          }
+        },
+      };
+    };
+
+```
+
+Here the `SimplActions.loadRunData` second parameter is set to `true` to ensure the player scenarios are loaded into the redux store.
+
+These changes are implemented in the `load-run-data-on-demand` branch of the `simpl-calc-ui` repository.
+
+## Running the Example Games with Multiple Game Runs
+
+The `load-run-data-on-demand` branches of both these example game front ends can work with more than one game run.
+
+The `profiling` branches of their accompanying model services (`simpl-div-model` and `simpl-calc-model`) support creating 
+runs with non-default names. For example, running:
 
 ```shell
 ./manage.py create_default_env -n div
@@ -122,11 +234,11 @@ This branch supports creating runs with non-default names.
 ```
 will create a run named **div** with players whose email addresses start with 'div'.
 
-## Loading Run Data On Demand in Single-Player Games
-
-
-
 ## Summary
+
+Loading run data on demand can speed up rendering of leader pages. 
+Not all games will need this feature, so it can be added late in the development cycle if 
+leaders with large numbers of large runs begin experiencing sluggish page rendering.
 
 
 
