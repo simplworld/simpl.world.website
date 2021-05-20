@@ -229,10 +229,10 @@ The `profiling` branches of their accompanying model services (`simpl-div-model`
 runs with non-default names. For example, running:
 
 ```shell
-./manage.py create_default_env -n div
+./manage.py create_default_env -n a
 
 ```
-will create a run named **div** with players whose email addresses start with 'div'.
+will create a run named **a** with players whose email addresses start with 'a'.
 
 ## Summary
 
