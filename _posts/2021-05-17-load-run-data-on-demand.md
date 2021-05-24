@@ -25,7 +25,7 @@ This is sufficient data to support the leader selecting an individual run and th
 Any run-specific leader pages displaying player or world information need to load the run's full scope tree into the **simpl** redux state
 when they are loaded into the browser. 
 Once a run's full data has been loaded, it will remain in the redux store until it is unloaded. 
-Leader pages that not run-specific, can unload run scope tree data that is present in the **simpl** redux state.
+Leader pages that are not run-specific, can unload run scope tree data that is present in the **simpl** redux state.
 
 This post will show you how to implement on demand run data loading in both multi-player and single-player games. 
 
@@ -118,7 +118,7 @@ Last, modify all run-specific leader pages that display player or world data to 
 
 ```
 
-The `SimplActions.loadRunData` has second parameter `loadPlayerScenarios` which defaults to false. 
+The `SimplActions.loadRunData` has a second parameter `loadPlayerScenarios` which defaults to false. 
 Omitting it prevents player scenarios from being loaded with the other run data.
 
 These changes are implemented in the `load-run-data-on-demand` branch of the `simpl-div-ui` repository. 
