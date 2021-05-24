@@ -7,7 +7,7 @@ author: Jane Eisenstein
 author_photo: /assets/img/authors/jane-eisenstein.png
 featured: true
 excerpt: |
-    How to use model service profiling to tune your games.
+    Use model service profiling to tune your games.
 ---
 
 
