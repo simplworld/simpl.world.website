@@ -51,7 +51,8 @@ export default simpl({
   progressComponent: Progress,
   root_topic: ROOT_TOPIC,
   topics: () => topics,
-  loadAllScenarios: false
+  loadAllScenarios: false,
+  loadRunDataOnDemand: false
 })(RootContainer);
 
 ```
@@ -63,3 +64,9 @@ The `loadAllScenarios` argument passed to the `simpl` decorator indicates whethe
 other users' scenarios. The default setting of `false` makes sense for multi-player games. Players in multi-player games 
 typically have access to their own scenarios and their world's shared scenarios. In multi-player games, leaders typically 
 have access to their own scenarios and to all world scenarios. 
+
+The `loadRunDataOnDemand` argument passed to the `simpl` decorator controls whether the complete scope tree of all runs the 
+user is in get loaded when a user logs in. By default, all the data of all runs the user is in get loaded. 
+When this argument is set to `true`, only the user's runuser and run objects get loaded.
+Turning this argument on for leaders can speed up their log in process if they are in several runs.
+To turn off loading the complete run scope trees for leaders, set this argument as follows: `loadRunDataOnDemand: LEADER`.
