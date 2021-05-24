@@ -5,7 +5,7 @@ date: 2021-05-18 15:00:00 -0400
 categories: Advanced
 author: Jane Eisenstein
 author_photo: /assets/img/authors/jane-eisenstein.png
-featured: true
+featured: false
 excerpt: |
     Use model service profiling to tune your games.
 ---
