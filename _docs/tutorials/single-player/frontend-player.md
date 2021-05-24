@@ -18,9 +18,9 @@ import AutobahnReact from 'simpl-react/lib/autobahn';
 
 // submit player decision and advance to next period
 export const submitDecision =
-    createAction('SUBMIT_DECISION', (period, operand, ...args) =>
-        AutobahnReact.publish(`model:model.period.${period.id}.submit_decision`, [operand])
-    );
+  createAction('SUBMIT_DECISION', (period, operand, ...args) =>
+    AutobahnReact.call(`model:model.period.${period.id}.submit_decision`, [operand])
+  );
 
 ```
 **NOTE**: The action publishes to this topic because the calc-model `game/games.py` `submit_decision` endpoint subscribes to the topic.
@@ -129,6 +129,14 @@ function mapDispatchToProps(dispatch, ownProps) {
       // submit player's decision
       const operand = values.operand;
       dispatch(submitDecision(ownProps.currentPeriod, operand))
+        .then((result) => {
+          const status = result.payload;
+          if (status !== 'ok') {
+            console.log("DecisionFormContainer.submitDecision failed due to: ", status);
+          } else {
+            console.log("DecisionFormContainer.submitDecision succeeded");
+          }
+        });
     }
   };
 }

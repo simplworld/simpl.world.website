@@ -397,7 +397,7 @@ from .runmodel import step_scenario, save_decision
 
 
 class CalcPeriod(Period):
-    @subscribe
+    @register
     async def submit_decision(self, operand, **kwargs):
         """
         Receives the operand played and stores as a ``Decision`` then
@@ -415,6 +415,8 @@ class CalcPeriod(Period):
 
         await step_scenario(self.scenario.pk)
         self.session.log.info("submit_decision: stepped scenario")
+        
+        return 'ok'
 
 
 Game.register('calc', [
