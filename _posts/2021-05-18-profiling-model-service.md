@@ -161,7 +161,7 @@ Profile HTTP calls from the modelservice to simpl-games-api.
                             "submit_decision: status=" + status)
 ```
 
-The single-player `simpl-calc-model` profiling method is similar. However, it uses the seet of calls made by `simpl-react` in single-player games.
+The single-player `simpl-calc-model` profiling method is similar. However, it uses the series of calls made by `simpl-react` in single-player games.
 
 ```python
 import asyncio
@@ -256,7 +256,7 @@ class ProfileHttpTestCase(ProfileCase):
                         "submit_decision: status=" + status)
 ```
 
-Once you have profiling running locally, you will need retarget it against your production server to get accurate real life timings.
+Once you have profiling running locally, you will need to run it against your production server to get accurate real life timings.
 
 Using the profiler allows developers to gauge throughput of their game under load and identify bottle necks that need correction. 
 Performance tuning your game before its first launch provides peace of mind.
