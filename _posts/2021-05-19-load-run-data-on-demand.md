@@ -5,7 +5,7 @@ date: 2021-05-19 08:56:17 -0400
 categories: Advanced
 author: Jane Eisenstein
 author_photo: /assets/img/authors/jane-eisenstein.png
-featured: true
+featured: false
 excerpt: |
     Leaders login more quickly when run data is loaded on demand.
 ---
