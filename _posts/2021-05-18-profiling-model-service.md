@@ -11,13 +11,14 @@ excerpt: |
 ---
 
 
-Work on the Simpl simulation program began early in 2016. The Wharton Learning Lab ran its first Simpl game for a class of 300 students in the fall of 2017. 
+Work on the Simpl simulation platform began in early 2016. The Wharton Learning Lab ran its first Simpl game for a class of 300 students in the fall of 2017. 
 This launch was almost a disaster due to the poor performance of the game's model service. Afterwards, the `simpl-modelservice` package was rewritten 
-to use asynchronous requests and provide performance profiling. Using `simpl-modelservice` profiling, the development team performance tuned that 
-first game against 300 simulated players. This led to the game running successfully for classes of 300+ students ever since.
+to use asynchronous requests and to provide performance profiling. Using `simpl-modelservice` profiling, the development team performance tuned that 
+first Simpl game against 300 simulated players. This led to the game running successfully for classes of 300+ students ever since.
 
+## The simpl-modelservice Profiling Functionality 
 
-The `simpl-modelservice` profiling has three parts. The `ProfileCase` class is used in the game's model service to create profiling tasks:
+The `ProfileCase` class is used in the game's model service to create profile tasks:
 
 ```python
 class ProfileCase(unittest.TestCase):
@@ -33,30 +34,29 @@ class ProfileCase(unittest.TestCase):
     """
 ```
 
-The `profile` management command emulates a single user session sending WAMP messages to the game's modelservice.
-Each user is identified by email address. Each user session consists of authenticating the user then running the test cases defined 
-by the game's model service's ``profile_*`` ProfileCase tasks.
+The `profile` management command emulates a single user session that may send HTTP requests to the Simpl server and WAMP messages to the game's modelservice.
+A test user email address is provided to the tasks defined by in game's model service's **profile_\*** ProfileCase subclass.
 
+The `profile.sh` script asynchronously runs the `profile` command against a series of test user email addresses stored in a text file and
+reports how many seconds it takes for all tasks to complete. 
 
-The `profile.sh` script asynchronously runs the `profile` command against a series of email addresses stored in a text file and
-reports how long many seconds it takes for all tasks to complete. 
+## Using simpl-modelservice Profiling
 
-Before running `simpl-modelservice` profiling against your Simpl game's model service, you need to:
+To add a profile task to your model service:
 
-* Add a **GAME_SLUG** setting that matches your game's slug (i.e. GAME_SLUG = ‘simpl-dif’).
-
-* Add a `profilers` module to the `game` module that contains a file named `profile_http.py`.
-
-* Define a profiling method in `profile_http.py` whose name name starts with **profile_**.
-
-* Create one or more test game runs ready to be played.
+* Add a `profilers` module to the `game` module.
   
-* Create a text file containing the email addresses of players in the test game runs. 
+* Add a file named `profile_test.py` to the `profilers` module.
 
-The Simpl `simpl-div-model` and `simpl-calc-model` repositories master branches have been enhanced to illustrate how this is done. 
-The README files in both repositories contain instructions for running profiling locally.
+* Define a profile task in `profile_test.py` whose name starts with 'profile_'.
 
-In the multi-player `simpl-div-model`, the `profile_http.py` file contents look like:
+A common profile task pattern simulates a player logging into the game and submitting decisions. 
+In this pattern, the task retrieves information about the test player from the Simpl server, 
+emulates the `simpl-react` **simpl** decorator's initial WAMP requests, 
+then submits decisions for the test player. 
+Example profile tasks with this pattern are in the Simpl `simpl-div-model` and `simpl-calc-model` repositories. 
+
+In the multi-player **Simpl Div** game's `simpl-div-model` repository, the `profile_test.py` file contents look like:
 
 ```python
 import asyncio
@@ -67,10 +67,10 @@ from modelservice.profiler import ProfileCase
 from modelservice.simpl import games_client_factory
 
 
-class ProfileHttpTestCase(ProfileCase):
-"""
-Profile HTTP calls from the modelservice to simpl-games-api.
-"""
+class ProfileTestCase(ProfileCase):
+    """
+    Profiles HTTP calls to simpl-games-api and WAMP calls to the modelservice.
+    """
 
     async def profile_submit_decision(self):
         email = self.user_email
@@ -79,6 +79,8 @@ Profile HTTP calls from the modelservice to simpl-games-api.
             # email format is <char><int>@ where <int> is 1..78
             # which assumes run name is a single letter
             decision = int(email[1:email.find('@')])
+            
+            password = email[0:email.find('@')]
 
             coro_client = games_client_factory()
 
@@ -155,13 +157,14 @@ Profile HTTP calls from the modelservice to simpl-games-api.
                       str(first_period_id) + '.submit_decision'
 
                 if decision is not None:
-                    status = await self.call_as(email, uri, decision)
+                    status = await self.call_as(email, password, uri, decision)
                     if status != 'ok':
                         raise ValueError(
                             "submit_decision: status=" + status)
 ```
 
-The single-player `simpl-calc-model` profiling method is similar. However, it uses the series of calls made by `simpl-react` in single-player games.
+The single-player **Simpl Calc** game's `simpl-calc-model` repository's profile task is similar. 
+However, it implements the series of calls the `simpl-react` **simpl** decorator makes for single-player games.
 
 ```python
 import asyncio
@@ -172,9 +175,9 @@ from modelservice.profiler import ProfileCase
 from modelservice.simpl import games_client_factory
 
 
-class ProfileHttpTestCase(ProfileCase):
+class ProfileTestCase(ProfileCase):
     """
-    Profile HTTP calls from the modelservice to simpl-games-api.
+    Profiles HTTP calls to simpl-games-api and WAMP calls to the modelservice.
     """
 
     async def profile_submit_decision(self):
@@ -184,9 +187,8 @@ class ProfileHttpTestCase(ProfileCase):
             # email format is <char><int>@ where <int> is 1..78
             # which assumes run name is a single letter
             decision = int(email[1:email.find('@')])
-
-            # introduce a delay to prevent publish requests getting lost
-            # await asyncio.sleep(decision)
+            
+            password = email[0:email.find('@')]
 
             coro_client = games_client_factory()
 
@@ -250,16 +252,33 @@ class ProfileHttpTestCase(ProfileCase):
                 # submit player's decision against the last period
                 uri = 'world.simpl.sims.simpl-calc.model.period.' + str(last_period_id) + '.submit_decision'
 
-                status = await self.call_as(email, uri, decision)
+                status = await self.call_as(email, password, uri, decision)
                 if status != 'ok':
                     raise ValueError(
                         "submit_decision: status=" + status)
 ```
 
-Once you have profiling running locally, you will need to run it against your production server to get accurate real life timings.
+Before running a profile task, you also need to:
 
-Using the profiler allows developers to gauge throughput of their game under load and identify bottle necks that need correction. 
-Performance tuning your game before its first launch provides peace of mind.
+* Add a **GAME_SLUG** setting that matches your game's slug (i.e. GAME_SLUG = ‘simpl-calc’).
+
+* Create one or more test game runs ready to be played.
+
+* Create a text file containing the email addresses of players in the test game runs.
+
+The Simpl `simpl-div-model` and `simpl-calc-model` repositories master branches illustrate how this is done.
+The README files in both repositories contain instructions for creating test game runs and running profiling locally.
+
+## Performance tuning your deployed game
+
+Once you have profiling running locally, you are ready to get real life timings against your deployed game.
+
+TODO
+
+## Summary
+
+Using `simpl-modelservice` profiling allows developers to gauge throughput of their game under load and identify bottle necks that need correction. 
+Performance tuning your game before its first launch contributes to peace of mind.
 
 
 
