@@ -18,7 +18,7 @@ first Simpl game against 300 simulated players. This led to the game running suc
 
 ## The simpl-modelservice Profiling Functionality 
 
-The `ProfileCase` class is used in the game's model service to create profile tasks:
+The `ProfileCase` class is used in the game's model service to create profiling tasks:
 
 ```python
 class ProfileCase(unittest.TestCase):
@@ -42,19 +42,19 @@ reports how many seconds it takes for all tasks to complete.
 
 ## Using simpl-modelservice Profiling
 
-To add a profile task to your model service:
+To add a profiling task to your model service:
 
 * Add a `profilers` module to the `game` module.
   
 * Add a file named `profile_test.py` to the `profilers` module.
 
-* Define a profile task in `profile_test.py` whose name starts with 'profile_'.
+* Define a profiling task in `profile_test.py` whose name starts with 'profile_'.
 
-A common profile task pattern simulates a player logging into the game and submitting decisions. 
+A common profiling task pattern simulates a player logging into the game and submitting decisions. 
 In this pattern, the task retrieves information about the test player from the Simpl server, 
 emulates the `simpl-react` **simpl** decorator's initial WAMP requests, 
 then submits decisions for the test player. 
-Example profile tasks with this pattern are in the Simpl `simpl-div-model` and `simpl-calc-model` repositories. 
+Example profiling tasks with this pattern are in the Simpl `simpl-div-model` and `simpl-calc-model` repositories. 
 
 In the multi-player **Simpl Div** game's `simpl-div-model` repository, the `profile_test.py` file contents look like:
 
@@ -163,7 +163,7 @@ class ProfileTestCase(ProfileCase):
                             "submit_decision: status=" + status)
 ```
 
-The single-player **Simpl Calc** game's `simpl-calc-model` repository's profile task is similar. 
+The single-player **Simpl Calc** game's `simpl-calc-model` repository's profiling task is similar. 
 However, it implements the series of calls the `simpl-react` **simpl** decorator makes for single-player games.
 
 ```python
@@ -258,7 +258,7 @@ class ProfileTestCase(ProfileCase):
                         "submit_decision: status=" + status)
 ```
 
-Before running a profile task, you also need to:
+Before running a profiling task, you also need to:
 
 * Add a **GAME_SLUG** setting that matches your game's slug (i.e. GAME_SLUG = ‘simpl-calc’).
 
@@ -269,9 +269,9 @@ Before running a profile task, you also need to:
 The Simpl `simpl-div-model` and `simpl-calc-model` repositories master branches illustrate how this is done.
 The README files in both repositories contain instructions for creating test game runs and running profiling locally.
 
-## Performance tuning your deployed game
+## Performance tuning your deployed model service
 
-Once you have profiling running locally, you are ready to get real life timings against your deployed game.
+Once you have profiling running locally, you are ready to get real world timings against your deployed game.
 
 TODO
 
