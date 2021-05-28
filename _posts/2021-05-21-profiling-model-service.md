@@ -16,7 +16,7 @@ This launch was almost a disaster due to the poor performance of the game's mode
 to use asynchronous requests and to provide performance profiling. The game's development team performance tuned the game by running `simpl-modelservice` profiling 
 against 300 simulated players. This resulted in the game running successfully for classes of 300+ students ever since.
 
-This post illustrates how `simpl-modelservice` profiling can be used to similarly load test your model service.
+This post describes how to similarly load test your model service.
 
 ## The simpl-modelservice Profiling Functionality 
 
@@ -37,7 +37,7 @@ class ProfileCase(unittest.TestCase):
 ```
 
 The `profile` management command emulates a single user session that can send HTTP requests to the Simpl server and WAMP messages to the game's modelservice.
-A test user email address is provided to the tasks defined by in the model service's **profile_\*** ProfileCase subclass.
+A test user email address is provided to the tasks defined by in the model service's ProfileCase subclass.
 
 The `profile.sh` script asynchronously runs the `profile` command against a series of test user email addresses stored in a text file and
 reports how many seconds it takes for all tasks to complete. It is useful for developing profiling tasks locally.
@@ -287,12 +287,12 @@ Export the `PYTHONPATH` for your model service repository.
 
 Also, export several settings from your deployed game's frontend and model service.
 
-* Export the `MODEL_SERVICE_WS` value defined in your deployed game's frontend.
+* Export the `MODEL_SERVICE_WS` value defined in your deployed game's frontend settings.
 
-* Export the `SIMPL_GAMES_URL`, `SIMPL_GAMES_AUTH`, `ROOT_TOPIC`, and `GAME_PLUG` values defined in your deployed game's model service.
+* Export the `SIMPL_GAMES_URL`, `SIMPL_GAMES_AUTH`, `ROOT_TOPIC`, and `GAME_PLUG` values defined in your deployed game's model service settings.
 If these settings are defined in a model service settings file, you may export that `DJANGO_SETTINGS_MODULE` value rather than the individual settings.
 
-Once you have created test runs in your deployed game, you run profiling against your deployed game using the
+Once you have created test runs in your deployed game, run profiling against your deployed game using the
 `aws_profiler.sh` command rather than the `profiler.sh` command.
 
 If your game's performance is initially disappointing, make changes to improve its performance and pull the changes 
