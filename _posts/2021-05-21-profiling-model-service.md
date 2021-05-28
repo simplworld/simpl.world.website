@@ -13,12 +13,14 @@ excerpt: |
 
 Work on the Simpl simulation platform began in early 2016. The Wharton Learning Lab ran its first Simpl game for a class of 300 students in the fall of 2017. 
 This launch was almost a disaster due to the poor performance of the game's model service. Afterwards, the `simpl-modelservice` package was rewritten 
-to use asynchronous requests and to provide performance profiling. Using `simpl-modelservice` profiling, the development team performance tuned that 
-first Simpl game against 300 simulated players. This led to the game running successfully for classes of 300+ students ever since.
+to use asynchronous requests and to provide performance profiling. The game's development team performance tuned the game by running `simpl-modelservice` profiling 
+against 300 simulated players. This resulted in the game running successfully for classes of 300+ students ever since.
+
+This post illustrates how `simpl-modelservice` profiling can be used to similarly load test your model service.
 
 ## The simpl-modelservice Profiling Functionality 
 
-The `ProfileCase` class is used in the game's model service to create profiling tasks:
+The `ProfileCase` class is used in the game's model service to create profiling tasks simulating user actions:
 
 ```python
 class ProfileCase(unittest.TestCase):
@@ -34,11 +36,13 @@ class ProfileCase(unittest.TestCase):
     """
 ```
 
-The `profile` management command emulates a single user session that may send HTTP requests to the Simpl server and WAMP messages to the game's modelservice.
-A test user email address is provided to the tasks defined by in game's model service's **profile_\*** ProfileCase subclass.
+The `profile` management command emulates a single user session that can send HTTP requests to the Simpl server and WAMP messages to the game's modelservice.
+A test user email address is provided to the tasks defined by in the model service's **profile_\*** ProfileCase subclass.
 
 The `profile.sh` script asynchronously runs the `profile` command against a series of test user email addresses stored in a text file and
-reports how many seconds it takes for all tasks to complete. 
+reports how many seconds it takes for all tasks to complete. It is useful for developing profiling tasks locally.
+
+When logged into an AWS instance to run profiling tasks against a deployed Simpl game, the `aws_profile.sh` script is used rather than `profile.sh`.
 
 ## Using simpl-modelservice Profiling
 
@@ -48,13 +52,14 @@ To add a profiling task to your model service:
   
 * Add a file named `profile_test.py` to the `profilers` module.
 
-* Define a profiling task in `profile_test.py` whose name starts with 'profile_'.
+* Define a profiling task in `profile_test.py` whose name starts with **profile_**.
 
-A common profiling task pattern simulates a player logging into the game and submitting decisions. 
-In this pattern, the task retrieves information about the test player from the Simpl server, 
-emulates the `simpl-react` **simpl** decorator's initial WAMP requests, 
-then submits decisions for the test player. 
-Example profiling tasks with this pattern are in the Simpl `simpl-div-model` and `simpl-calc-model` repositories. 
+At the Wharton Learning Lab, model service load testing is done using a profiling task that simulates a player 
+logging into the game and submitting decisions. 
+The profiling task retrieves information about the test player from the Simpl server, 
+emulates the `simpl-react` **simpl** decorator's initialization WAMP requests, 
+then submits decisions for the test player using WAMP. 
+Example profiling tasks following this pattern are in the Simpl `simpl-div-model` and `simpl-calc-model` repositories. 
 
 In the multi-player **Simpl Div** game's `simpl-div-model` repository, the `profile_test.py` file contents look like:
 
@@ -164,7 +169,7 @@ class ProfileTestCase(ProfileCase):
 ```
 
 The single-player **Simpl Calc** game's `simpl-calc-model` repository's profiling task is similar. 
-However, it implements the series of calls the `simpl-react` **simpl** decorator makes for single-player games.
+However, it uses the series of WAMP calls the `simpl-react` **simpl** decorator makes for single-player game players.
 
 ```python
 import asyncio
@@ -260,7 +265,7 @@ class ProfileTestCase(ProfileCase):
 
 Before running a profiling task, you also need to:
 
-* Add a **GAME_SLUG** setting that matches your game's slug (i.e. GAME_SLUG = ‘simpl-calc’).
+* Define a **GAME_SLUG** setting that matches your game's slug (i.e. GAME_SLUG = ‘simpl-calc’).
 
 * Create one or more test game runs ready to be played.
 
@@ -271,13 +276,31 @@ The README files in both repositories contain instructions for creating test gam
 
 ## Performance tuning your deployed model service
 
-Once you have profiling running locally, you are ready to get real world timings against your deployed game.
+Once you have profiling working locally, you are ready to run profiling against your deployed game. To get realistic profiling timings, 
+you need to run profiling on a stand-alone server. The `simpl-modelservice`  provides the `aws_profiler.sh` command for running profiling on an AWS EC2 instance.
 
-TODO
+Once logged into your AWS instance, clone your game's model service repository, navigate to the repository directory, and install the requirements using pip. 
+
+Before running profiling, you need to set several environment values.
+
+Export the `PYTHONPATH` for your model service repository.
+
+Also, export several settings from your deployed game's frontend and model service.
+
+* Export the `MODEL_SERVICE_WS` value defined in your deployed game's frontend.
+
+* Export the `SIMPL_GAMES_URL`, `SIMPL_GAMES_AUTH`, `ROOT_TOPIC`, and `GAME_PLUG` values defined in your deployed game's model service.
+If these settings are defined in a model service settings file, you may export that `DJANGO_SETTINGS_MODULE` value rather than the individual settings.
+
+Once you have created test runs in your deployed game, you run profiling against your deployed game using the
+`aws_profiler.sh` command rather than the `profiler.sh` command.
+
+If your game's performance is initially disappointing, make changes to improve its performance and pull the changes 
+into your AWS instance's model service repository before re-running profiling.
 
 ## Summary
 
-Using `simpl-modelservice` profiling allows developers to gauge throughput of their game under load and identify bottle necks that need correction. 
+Using `simpl-modelservice` profiling helps developers gauge performance of their game under load and identify bottle necks that need correction. 
 Performance tuning your game before its first launch contributes to peace of mind.
 
 
