@@ -37,7 +37,7 @@ class ProfileCase(unittest.TestCase):
 ```
 
 The `profile` management command emulates a single user session that can send HTTP requests to the Simpl server and WAMP messages to the game's modelservice.
-A test user email address is provided to the tasks defined by in the model service's ProfileCase subclass.
+A test user email address is provided to the tasks defined by the model service's ProfileCase subclass.
 
 The `profile.sh` script asynchronously runs the `profile` command against a series of test user email addresses stored in a text file and
 reports how many seconds it takes for all tasks to complete. It is useful for developing profiling tasks locally.
@@ -271,13 +271,13 @@ Before running a profiling task, you also need to:
 
 * Create a text file containing the email addresses of players in the test game runs.
 
-The Simpl `simpl-div-model` and `simpl-calc-model` repositories master branches illustrate how this is done.
+The Simpl `simpl-div-model` and `simpl-calc-model` repositories illustrate how this is done.
 The README files in both repositories contain instructions for creating test game runs and running profiling locally.
 
 ## Performance tuning your deployed model service
 
 Once you have profiling working locally, you are ready to run profiling against your deployed game. To get realistic profiling timings, 
-you need to run profiling on a stand-alone server. The `simpl-modelservice`  provides the `aws_profiler.sh` command for running profiling on an AWS EC2 instance.
+you need to run profiling on a stand-alone server. The `simpl-modelservice`  provides the `aws_profiler.sh` script for running profiling on an AWS EC2 instance.
 
 Once logged into your AWS instance, clone your game's model service repository, navigate to the repository directory, and install the requirements using pip. 
 
@@ -293,7 +293,7 @@ Also, export several settings from your deployed game's frontend and model servi
 If these settings are defined in a model service settings file, you may export that `DJANGO_SETTINGS_MODULE` value rather than the individual settings.
 
 Once you have created test runs in your deployed game, run profiling against your deployed game using the
-`aws_profiler.sh` command rather than the `profiler.sh` command.
+`aws_profiler.sh` script rather than the `profiler.sh` script.
 
 If your game's performance is initially disappointing, make changes to improve its performance and pull the changes 
 into your AWS instance's model service repository before re-running profiling.
