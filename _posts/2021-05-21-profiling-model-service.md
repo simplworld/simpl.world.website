@@ -272,6 +272,26 @@ Before running a profiling task, you also need to:
 * Create a text file containing the email addresses of players in the test game runs.
 
 The Simpl `simpl-div-model` and `simpl-calc-model` repositories illustrate how this is done.
+
+The `create_default_env` management commands in both repositories support creating
+runs with non-default names. For example, running:
+
+```shell
+./manage.py create_default_env -n a
+
+```
+will create a run named **a** with players whose email addresses start with 'a'.
+
+This email address convention allows profiling tasks to determine the user password and run name from a player email address.
+
+To run profiling once against all the email addresses in a text file, the `-g` option is set to one. 
+
+In the `simpl-calc-model` repository for example, to run each player test once for each user in the `emails/emails-2.txt` file, run:
+
+```shell
+$ profile.sh -m game.profilers -u emails/emails-2.txt -g 1
+```
+
 The README files in both repositories contain instructions for creating test game runs and running profiling locally.
 
 ## Performance tuning your deployed model service
