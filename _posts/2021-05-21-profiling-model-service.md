@@ -62,7 +62,7 @@ then submits decisions for the test player using WAMP.
 
 Example profiling tasks following this pattern have been added to the Simpl `simpl-div-model` and `simpl-calc-model` repositories. 
 
-Also, the `create_default_env` management commands in both these repositories support creating
+In addition, the `create_default_env` management commands in these repositories support creating
 runs with non-default names. For example, running:
 
 ```shell
