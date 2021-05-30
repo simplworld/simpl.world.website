@@ -59,7 +59,19 @@ logging into the game and submitting decisions.
 The profiling task retrieves information about the test player from the Simpl server, 
 emulates the `simpl-react` **simpl** decorator's initialization WAMP requests, 
 then submits decisions for the test player using WAMP. 
-Example profiling tasks following this pattern are in the Simpl `simpl-div-model` and `simpl-calc-model` repositories. 
+
+Example profiling tasks following this pattern have been added to the Simpl `simpl-div-model` and `simpl-calc-model` repositories. 
+
+Also, the `create_default_env` management commands in both these repositories support creating
+runs with non-default names. For example, running:
+
+```shell
+./manage.py create_default_env -n a
+
+```
+will create a run named **a** with players whose email addresses start with 'a'.
+
+This email address convention allows profiling tasks to determine the user password and run name from a player email address.
 
 In the multi-player **Simpl Div** game's `simpl-div-model` repository, the `profile_test.py` file contents look like:
 
@@ -272,17 +284,6 @@ Before running a profiling task, you also need to:
 * Create a text file containing the email addresses of players in the test game runs.
 
 The Simpl `simpl-div-model` and `simpl-calc-model` repositories illustrate how this is done.
-
-The `create_default_env` management commands in both repositories support creating
-runs with non-default names. For example, running:
-
-```shell
-./manage.py create_default_env -n a
-
-```
-will create a run named **a** with players whose email addresses start with 'a'.
-
-This email address convention allows profiling tasks to determine the user password and run name from a player email address.
 
 To run profiling once against all the email addresses in a text file, the `-g` option is set to one. 
 
